@@ -1,0 +1,2055 @@
+\documentclass[hyperref=unicode,presentation,10pt]{beamer}
+
+\usepackage[absolute,overlay]{textpos}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{adjustbox}
+\usepackage[version=4]{mhchem}
+\usepackage{chemfig}
+\usepackage{caption}
+\usepackage{makecell}
+
+%dělení slov
+\usepackage{ragged2e}
+\let\raggedright=\RaggedRight
+%konec dělení slov
+
+\addtobeamertemplate{frametitle}{
+	\let\insertframetitle\insertsectionhead}{}
+\addtobeamertemplate{frametitle}{
+	\let\insertframesubtitle\insertsubsectionhead}{}
+
+\makeatletter
+\CheckCommand*\beamer@checkframetitle{\@ifnextchar\bgroup\beamer@inlineframetitle{}}
+\renewcommand*\beamer@checkframetitle{\global\let\beamer@frametitle\relax\@ifnextchar\bgroup\beamer@inlineframetitle{}}
+\makeatother
+\setbeamercolor{section in toc}{fg=red}
+\setbeamertemplate{section in toc shaded}[default][100]
+
+\usepackage{fontspec}
+\usepackage{unicode-math}
+
+\usepackage{polyglossia}
+\setdefaultlanguage{czech}
+
+\def\uv#1{„#1“}
+
+\mode<presentation>{\usetheme{default}}
+\usecolortheme{crane}
+
+\setbeamertemplate{footline}[frame number]
+
+\title[Crisis]
+{C2062 -- Anorganická chemie II}
+
+\subtitle{Železo, kobalt a nikl}
+\author{Zdeněk Moravec, hugo@chemi.muni.cz \\ \adjincludegraphics[height=60mm]{img/IUPAC_PSP.jpg}}
+\date{}
+
+\begin{document}
+
+\begin{frame}
+	\titlepage
+\end{frame}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{center}
+		\adjincludegraphics[width=\textwidth]{img/Periodic_table_AH.png}
+	\end{center}
+	\vfill
+}
+
+\section{Úvod}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{tabular}{|c|l|l|l|}
+	\hline
+	 & \textit{Železo} & \textit{Kobalt} & \textit{Nikl} \\\hline
+	 El. konfigurace & 3d$^{6}$ 4s$^{2}$ & 3d$^{7}$ 4s$^{2}$ & 3d$^{8}$ 4s$^{2}$ \\\hline
+	 Teplota tání [$^\circ$C] & 1538 & 1495 & 1455 \\\hline
+	 Teplota varu [$^\circ$C]  & 2861 & 2927 & 2730 \\\hline
+	 Objeven & pravěk & 1735 & 1751 \\\hline
+	 Vzhled & leskle kovový\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Iron_electrolytic_and_1cm3_cube.jpg}{Alchemist-hp/Commons}} & šedý\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Cobalt-3.jpg}{Materialscientist/Commons}} & stříbrný\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Nickel_kugeln.jpg}{René Rausch/Commons}} \\
+	 &  \begin{minipage}{.2\textwidth}
+	 	\adjincludegraphics[width=\linewidth]{img/Iron.jpg}
+	 \end{minipage}
+	 	& \begin{minipage}{.2\textwidth}
+	 		\adjincludegraphics[width=\linewidth]{img/Cobalt-3.jpg}
+	 	\end{minipage} & \begin{minipage}{.2\textwidth}
+	 	\adjincludegraphics[width=\linewidth]{img/Nickel_kugeln.jpg}
+ 	\end{minipage} \\\hline
+	\end{tabular}
+	\vfill
+}
+
+\section{Historie}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{figure}
+		\adjincludegraphics[width=\textwidth]{img/Long_Waves_of_Social_Evolution.jpg}
+		\caption*{Technologický vývoj lidstva.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Long_Waves_of_Social_Evolution.jpg}{Myworkforwiki/Commons}}}
+	\end{figure}
+	\vfill
+}
+
+\subsection{Doba kamenná}
+\frame{
+	\frametitle{}
+	\begin{columns}
+		\begin{column}{0.6\textwidth}
+			\vfill
+			\begin{itemize}
+				\item 3 milióny let př. n. l -- 3~000 let př.~n.~l.
+				\item Člověk využíval přírodní materiály.
+				\item Hlavním materiálem byl kámen -- pazourek, buližník.
+				\item Lidé si začali stavět pevné příbytky a vyrábět pálené hliněné nádoby.
+				\item Mimo kamene využíval člověk další dostupné přírodní materiály -- kosti, dřevo, parohy, \ldots
+			\end{itemize}
+			\vfill
+		\end{column}
+		\begin{column}{0.4\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=\textwidth]{img/Fragments_of_idols.jpg}
+				\caption*{Fragmenty terakotových sošek, cca 5000 př. n. l.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Fragments_of_idols,_clay,_Sicily,_5000_BC,_AM_Syracuse,_121277.jpg}{Zde/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+}
+
+\subsection{Rozvoj metalurgie}
+\frame{
+	\frametitle{}
+	\begin{columns}
+		\begin{column}{0.7\textwidth}
+			\vfill
+			\begin{itemize}
+				\item Prvním kovem, který člověk zpracovával bylo pravděpodobně zlato (40~000~př.~n.~l.), které v přírodě nacházíme v elementárním stavu.
+				\item Olovo, cín a měď lze získat z jejich rud zahřátím, proto patřily k prvním masověji zpracovávaným kovům.
+				\item Slitina mědi s cínem -- bronz -- dala jméno době bronzové a umožnila výrazný technologický posun. S bronzem se setkáváme už okolo 6~000~př.~n.~l.
+				\item Výroba železa z železné rudy je podstatně náročnější, proto byla tato technologie vyvinuta až v období okolo 1200~př.~n.~l.
+			\end{itemize}
+			\vfill
+		\end{column}
+		\begin{column}{0.35\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=\textwidth]{img/UlsterMuseumPrehistoryBrGoldLunulae.jpg}
+				\caption*{Zlatá lunula z doby bronzové.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:UlsterMuseumPrehistoryBrGoldLunulae_(2).JPG}{Notafly/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+}
+
+\subsection{Doba bronzová}
+\frame{
+	\frametitle{}
+	\begin{columns}
+		\begin{column}{0.8\textwidth}
+			\vfill
+			\begin{itemize}
+				\item 3000 -- 600 př. n. l.
+				\item \textit{Bronz} -- slitina mědi, cínu a příp. i~dalšího kovu.
+				\item Nejprve byla zpracovávána samotná měď, později bylo zjištěno, že přídavkem cínu lze získat slitinu, která je tvrdší a lépe se odlévá.
+				\item Oba kovy tají za nižší teploty než železo (1538~$^{\circ}$C), proto bylo jejich zpracování snazší.
+				\item V této době došlo k vývoji nové techniky -- odlévání kovů do forem a používání nýtů.
+				\item Bronz byl pravděpodobně znám dříve než čistý cín.
+			\end{itemize}
+			\vfill
+		\end{column}
+		\begin{column}{0.3\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=0.6\textheight]{img/Dagger_Early_Bronze_Age.jpg}
+				\caption*{Trojúhelníková dýka ze starší doby bronzové.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Dagger_Early_Bronze_Age.jpg}{José-Manuel Benito Álvarez/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+}
+
+\subsection{Doba železná}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Výroba železa je technologicky náročnější než mědi a~cínu. Železo je ale výhodnější díky vyšší tvrdosti a~dostupnosti jeho rud.
+		\item Prvními zdroji byly zbytky meteoritů (sideritů), které obsahovaly slitinu železa s~niklem.
+		\item Znalost výroby železa se rozšířila z Malé Asie kolem poloviny 2.~tisíciletí.
+		\item Existují důkazy, že se ocel v Evropě vyráběla již před našim letopočtem.\footnote[frame]{\href{https://www.osel.cz/12757-usvit-technologii-v-evrope-se-pouzivala-kvalitni-ocel-jiz-pred-2-900-lety.html}{Úsvit technologií: V Evropě se používala kvalitní ocel již před 2 900 lety}}
+		\item Nejprve se železo vyrábělo přímo z rud v pecích vytápěných dřevěným uhlím. Takto připravené železo bylo pórovité, ale dobře kujné. Označovalo se jako \textit{svářková ocel} a obsahovalo jen malý podíl uhlíku.
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=\textwidth]{img/Campo-iron-meteorite.jpg}
+				\caption*{Železný meteorit, 576 g.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Campo-iron-meteorite.jpg}{Geoking42 /Commons}}}
+			\end{figure}
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=.6\textheight]{img/Bas_fourneau.png}
+				\caption*{Výroba železa ve středověku.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Bas_fourneau.png}{Helix84/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+}
+
+\subsection{Keramika}
+\frame{
+	\frametitle{}
+	\begin{columns}
+		\begin{column}{0.8\textwidth}
+			\vfill
+			\begin{itemize}
+				\item Prvními keramickými výrobky byly hliněné mísy sušené na slunci.
+				\item Pálená keramika je známá až od cca 10 000 let př.~n.~l.
+				\item Ve 3. tisíciletí př. n. l. byl vynalezen tzv. \textit{rychlý hrnčířský kruh}, který nahradil kruh roztáčený rukou.
+				\item Ve 2. tisíciletí př. n. l. je keramika využívána ve stavebnictví, dochází k rozvoji cihlářství.
+				\item V letech 600--900 se v Číně začíná s výrobou bílého porcelánu.
+			\end{itemize}
+			\vfill
+		\end{column}
+		\begin{column}{0.3\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=0.55\textheight]{img/Xuande_Archaic_Porcelain_Vase.jpg}
+				\caption*{Čínská porcelánová váza.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Xuande_Archaic_Porcelain_Vase.JPG}{King muh/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+}
+
+\subsection{Sklo}
+\frame{
+	\frametitle{}
+	\begin{columns}
+		\begin{column}{0.8\textwidth}
+			\vfill
+			\begin{itemize}
+				\item Přírodní sklo (obsidián), bylo využíváno už v době kamenné.
+				\item Historie výroby skla začíná už v době bronzové a souvisí s vývojem keramiky.
+				\item První skla byla barevná nebo černá, čiré sklo se objevuje až později.
+				\item V 5. století př. n. l. se začínají využívat formy
+				\item Technika foukání skla byla objevena v 1. století př.~n.~l.
+				\item Pece na zpracování skla byly vytápěny spalováním dřeva, v současnosti se téměř výhradně používá plyn.
+				\item Počátky českého sklářství jsou datovány o přelomu 12. a 13.~století.
+			\end{itemize}
+			\vfill
+		\end{column}
+		\begin{column}{0.3\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=\textwidth]{img/Obsidian.jpg}
+				\caption*{Obsidián.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Obsidian_1.jpg}{Karelj/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+}
+
+\section{Chemické a fyzikální vlastnosti}
+\subsection{Železo}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{columns}
+		\begin{column}{.5\textwidth}
+			\begin{itemize}
+		\item V čistém stavu není příliš pevné, ale dá se dobře opracovávat.
+		\item Vytváří čtyři allotropní modifikace:
+		\begin{itemize}
+			\item $\alpha$-Fe -- BCC
+			\item $\gamma$-Fe -- FCC
+			\item $\delta$-Fe -- BCC
+			\item $\epsilon$-Fe - vysokoteplotní modifikace, nad 10~GPa. Nejtěsnější hexagonální uspořádání.\footnote[frame]{\href{https://www.jstor.org/stable/1714581?seq=1\#metadata_info_tab_contents}{High-Pressure Polymorph of Iron}}
+		\end{itemize}
+		\item Fyzikální i magnetické vlastnosti jsou závislé na čistotě železa.
+	\end{itemize}
+	\end{column}
+	\begin{column}{.6\textwidth}
+	\begin{figure}
+		\adjincludegraphics[width=\textwidth]{img/Pure_iron_phase_diagram.png}
+		\caption*{Fázový diagram železa.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Pure_iron_phase_diagram_(EN).svg}{Daniele Pugliesi/Commons}}}
+	\end{figure}
+	\end{column}
+	\end{columns}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Čisté \textit{železo} je do teploty 768~$^\circ$C (Curieho teplota\footnote[frame]{Nad Curieovou teplotou ztrácí látka své feromagnetické (či piezoelektrické) vlastnosti.}) feromagnetické.
+		\item V práškovém stavu je pyroforické, v bulku se oxiduje vzduchem až za vyšší teploty.
+		\item Ochotně se rozpouští ve zředěných kyselinách za vzniku železnatých solí. Oxidující kyseliny způsobují pasivaci povrchu.
+		\item Vytváří sloučeniny v oxidačních stavech II, III a VI.
+		\item Slučuje se s většinou nekovů, ochotně se oxiduje kyslíkem, zvláště ve vlhkém prostředí.
+		\item Má čtyři stabilní izotopy a 24 radioizotopů:\footnote[frame]{\href{https://www.webelements.com/iron/isotopes.html}{Iron: isotope data}}
+	\end{itemize}
+	\begin{tabular}{|l|r@{,}l|}
+		\hline
+		\ce{^{54}Fe} & 5 & 845 \% \\\hline
+		\ce{^{56}Fe} & 91 & 754 \% \\\hline
+		\ce{^{57}Fe} & 2 & 119 \% \\\hline
+		\ce{^{58}Fe} & 0 & 282 \% \\\hline
+	\end{tabular}
+	\vfill
+}
+
+\subsection{Kobalt}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item \textit{Kobalt} má stříbrnou barvu s jemným modrošedým nádechem.
+		\item Je to ferromagnetický kov s Curieovou teplotou 1115~$^\circ$C.
+		\item Vytváří dvě krystalové modifikace:
+		\begin{enumerate}
+			\item hcp -- nejtěsnější hexagonální uspořádání
+			\item fcc -- kubická, plošně centrovaná mřížka
+		\end{enumerate}
+		\item Fázová změna hcp na fcc nastává okolo teploty 420~$^\circ$C.\footnote[frame]{\href{https://doi.org/10.1016/0001-6160(89)90007-2}{Study of the h.c.p.-f.c.c. phase transition in cobalt by acoustic measurements}}
+		\item Má jediný stabilní izotop \ce{^{59}Co}.
+		\item Známe 28 radioizotopů, nejdelší poločas rozpadu má \ce{^{60}Co}, 5,3 roku.
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Kobalt je méně reaktivní než železo.
+		\item Na vzduchu se pokrývá tenkou vrstvou oxidu, která jej chrání před další oxidací.
+		\item Zahříváním v přítomnosti kyslíku poskytuje \ce{Co3O4}, který se za vyšší teploty rozkládá na \ce{CoO}.
+		\item Reakcí s halogeny poskytuje binární halogenidy.
+		\item Nereaguje s vodíkem, ani dusíkem, a to ani při zahřívání.
+		\item Za vyšší teploty reaguje s borem, uhlíkem, fosforem, arsenem a sírou.
+		\item Nejvyšší oxidační číslo je IV, ale to je poměrně vzácné (např. \ce{CoO2} v lithiových akumulátorech).
+		\item Běžné jsou sloučeniny v oxidačních stavech II a III.
+		\item Oxidační stav I a nižší se vyskytuje hlavně v organokovových sloučeninách.
+	\end{itemize}
+	\vfill
+}
+
+\subsection{Nikl}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Nikl je magnetický za laboratorní teploty, Curieova teplota je 354~$^\circ$C.
+		\item Má dvě možné elektronové konfigurace, které jsou si energeticky velice blízké:
+		\begin{itemize}
+			\item 3d$^8$ 4s$^2$
+			\item 3d$^9$ 4s$^1$
+		\end{itemize}
+		\item Krystaluje v kubické plošně centrované mřížce.
+		\item Má dobrou kujnost a tažnost, snadno se zpracovává.
+		\item Má pět stabilních izotopů:
+		\item Známe 26 radioizotopů, nejdelší poločas rozpadu má \ce{^{59}Ni}, 76 000 let.
+	\end{itemize}
+	\begin{tabular}{|l|r@{,}l|}
+		\hline
+		\ce{^{58}Ni} & 68 & 01 \% \\\hline
+		\ce{^{60}Ni} & 26 & 22 \% \\\hline
+		\ce{^{61}Ni} & 1 & 14 \% \\\hline
+		\ce{^{62}Ni} & 3 & 64 \% \\\hline
+		\ce{^{64}Ni} & 0 & 93 \% \\\hline
+	\end{tabular}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item \textit{Nikl} se při zahřívání na vzduchu pokrývá vrstvou oxidu.
+		\item V práškovém stavu je pyroforický.
+		\item Za tepla se slučuje s borem, křemíkem, fosforem, sírou a halogeny.
+		\item Oproti jiným kovům reaguje s fluorem pomalu.
+		\item Je odolný vůči alkalickým hydroxidům, v minerálních kyselinách se pomalu rozpouští.
+		\item Vytváří sloučeniny v oxidačních číslech $-$I až IV, nejběžnějším stavem je II.
+		\item Ve sloučeninách dosahuje koordinačního čísla až 7.
+	\end{itemize}
+	\vfill
+}
+
+\section{Výskyt a získávání}
+\subsection{Železo}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Železo je čtvrtým nejrozšířenějším prvkem v zemské kůře (po kyslíku, křemíku a hliníku), jeho koncentrace je okolo 6~\%.\footnote[frame]{\href{https://www.mindat.org/element/Iron}{The mineralogy of Iron}}
+		\item Je popsáno téměř 900 minerálů obsahujících železo, průmyslový význam mají čtyři:
+		\begin{itemize}
+			\item Hematit, \ce{Fe2O3}
+			\item Magnetit, \ce{Fe3O4}
+			\item Limonit, \ce{2Fe2O3.3H2O}
+			\item Siderit, \ce{FeCO3}
+		\end{itemize}
+		\item V roce 2021 bylo celosvětově vytěženo 2,6 miliardy tun železných rud.\footnote[frame]{\href{https://pubs.usgs.gov/periodicals/mcs2022/mcs2022-iron-ore.pdf}{Iron Ore Statistics and Information}}
+		\item Největšími producenty jsou Austrálie, Brazílie, Čína a Indie.
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Obrovská množství železa a niklu jsou uložena v Zemském jádře.
+		\item Odhadovaná hmotnost zemského jádra je 2.10$^{24}$~kg, zhruba 80~\% tvoří železo.
+		\item Struktura jádra není dosud přesně objasněna.\footnote[frame]{\href{https://www.sciencedaily.com/releases/2023/07/230705115131.htm}{Earth's Inner Core: Earth's solid metal sphere is 'textured'}}
+		\item Vnější jádro má teplotu 3 000--4 000 $^\circ$C.
+		\item Vnitřní jádro má teplotu 5500 $^\circ$C.
+	\end{itemize}
+	\begin{figure}
+		\adjincludegraphics[height=.38\textheight]{img/Earth_poster.png}
+		\caption*{Vnitřní struktura Země.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Earth_poster.svg}{Kelvinsong/Commons}}}
+	\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\textbf{Hematit}
+	\begin{itemize}
+		\item Trigonální minerál, \ce{Fe2O3}, červená až černá barva.\footnote[frame]{\href{https://mineraly.sci.muni.cz/oxidy/hematit.html}{Hematit}}
+		\item Mezi běžné nečistoty patří titan, hliník a mangan.\footnote[frame]{\href{https://www.mindat.org/min-1856.html}{Hematite}}
+		\item Byl detekován i na Marsu.\footnote[frame]{\href{https://doi.org/10.1029/2003JE002233}{Formation of the hematite‐bearing unit in Meridiani Planum: Evidence for deposition in standing water}}
+	\end{itemize}
+	\begin{columns}
+		\begin{column}{.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=.32\textheight]{img/Andradite-Hematite-cktsr-36a.jpg}
+				\caption*{Hematit a andradit, Severní Kapsko.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Andradite-Hematite-cktsr-36a.jpg}{Robert M. Lavinsky/Commons}}}
+			\end{figure}
+		\end{column}
+		\begin{column}{.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=.32\textheight]{img/Calcite-Hematite-26306.jpg}
+				\caption*{Hematit a kalcit, Namibie.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Calcite-Hematite-26306.jpg}{Robert M. Lavinsky/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\textbf{Limonit}
+	\begin{itemize}
+		\item Amorfní minerál, \ce{2Fe2O3.3H2O}, žlutá až hnědá barva.\footnote[frame]{\href{http://web.natur.cuni.cz/ugmnz/mineral/mineral/limonit.html}{Limonit}}
+		\item Vzniká zvětráváním minerálů železa a srážením z vod.\footnote[frame]{\href{https://www.mindat.org/min-2402.html}{Limonite}}
+	\end{itemize}
+	\begin{figure}
+		\adjincludegraphics[height=.4\textheight]{img/Limonite.jpg}
+		\caption*{Limonit a magnetit, USA.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:BIF_ventifact_(limonite-magnetite_banded_iron_formation,_Archean;_Ferris_Dune_Field,_Windy_Gap,_Wyoming,_USA)_1_(26052651216).jpg}{James St. John/Commons}}}
+	\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\textbf{Siderit}
+	\begin{itemize}
+		\item Trigonální minerál, \ce{FeCO3}, žlutá až černá barva, může být i bezbarvý.\footnote[frame]{\href{https://mineraly.sci.muni.cz/karbonaty/siderit.html}{Siderit}}
+		\item Patří mezi biominerály, protože je produkován bakteriemi (oxidací elementárního železa).\footnote[frame]{\href{https://www.mindat.org/min-3647.html}{Siderite}}
+	\end{itemize}
+	\begin{figure}
+		\adjincludegraphics[height=.4\textheight]{img/Siderite.jpg}
+		\caption*{Limonit a magnetit, USA.\footnote[frame]{Zdroj: \href{https://en.wikipedia.org/wiki/File:Harvard_Museum_of_Natural_History._Siderite._Gilman,_Eagle_Co.,_CO_(DerHexer)_2012-07-20.jpg}{DerHexer/Commons}}}
+	\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\begin{columns}
+		\begin{column}{.7\textwidth}
+			\vfill
+			\textbf{Magnetit}
+			\begin{itemize}
+				\item Kubický minerál, \ce{Fe3O4}, černá barva.\footnote[frame]{\href{https://mineraly.sci.muni.cz/oxidy/magnetit.html}{Magnetit}}
+				\item Má strukturu spinelu, je magnetický.\footnote[frame]{\href{https://www.mindat.org/min-2538.html}{Magnetite}}
+				\item Krystalky magnetitu jsou součástí některých živých organismů, jako např. magnetocitlivých bakterií, včel, holubů aj. Pravděpodobně jim slouží k orientaci podle magnetického pole Země.
+				\item Dříve se využíval k výrobě magnetofonových pásek a nahrávacích hlav.\footnote[frame]{\href{https://mineralmilling.com/magnetite-recording-colourants-fischer-tropsch-process/}{Magnetite: Uses and Applications in Recording Media, Pigments/Dyes and the Fischer-Tropsch Process, Water Purification and Soil Remediation}}
+			\end{itemize}
+			\vfill
+		\end{column}
+		\begin{column}{.35\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=\textwidth]{img/Magnetite-163979.jpg}
+				\caption*{Magnetit, USA.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Magnetite-163979.jpg}{Robert M. Lavinsky/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{columns}
+		\begin{column}{.85\textwidth}
+			\vfill
+			\begin{itemize}
+				\item Čisté železo se vyrábí jen v malé míře, buď redukcí čistého oxidu nebo termickým rozkladem pentakarbonylu železa.
+				\item Pentakarbonyl železa, \ce{[Fe(CO)5]}, je oranžová až žlutá kapalina.
+				\item Vyrábí se reakcí čistého železa s oxidem uhelnatým za tlaku až 30~MPa a teploty 150--200~$^\circ$C.
+				\item Při teplotě 250~$^\circ$C se rozkládá na práškové železo, které se označuje jako \textit{karbonylové železo}.
+				\begin{itemize}
+					\item \ce{Fe + 5 CO ->[150 $^\circ$C, 30 MPa] Fe(CO)5}
+					\item \ce{Fe(CO)5 ->[250 $^\circ$C] Fe + 5 CO}
+				\end{itemize}
+				\item Karbonylové železo se využívá např. pro výrobu feritových jader.
+			\end{itemize}
+			\vfill
+		\end{column}
+		\begin{column}{.2\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=\textwidth]{img/Inductor.jpg}
+				\caption*{Cívka s feritovým jádrem.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Inductor.jpg}{Audriusa/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{columns}
+		\begin{column}{.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=\textwidth]{img/Fe_CO_5.png}
+			\end{figure}
+		\end{column}
+		\begin{column}{.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=.7\textheight]{img/Sample_of_iron_pentacarbonyl.jpg}
+				\caption*{Pentakarbonylželeza.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Sample_of_iron_pentacarbonyl.jpg}{Smokefoot/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item \textit{Oceli} jsou slitiny železa s uhlíkem a dalšími prvky, které obsahují \textit{méně než 2,14~\% uhlíku}.
+		\item Při vyšším obsahu uhlíku se slitiny označují jako \textit{litiny}.
+		\item Vyrábí se v ocelárnách ze surového železa nebo železného šrotu.
+		\item Surové železo se získává ve vysokých pecích redukcí železné rudy (\ce{Fe2O3.FeO}) koksem.\footnote[frame]{\href{https://www.lunacek.cz/vysoke-pece-vitkovice-kdyz-zelezo-jeste-teklo/1-uvod-kdyz-zelezo-jeste-teklo/}{Když železo ještě teklo}}
+	\end{itemize}
+
+	\begin{columns}
+		\begin{column}{.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=0.85\textwidth]{img/SteelMill_interior.jpg}
+				\caption*{Ocelárna.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:SteelMill_interior.jpg}{Payton Chung/Commons}}}
+			\end{figure}
+		\end{column}
+
+		\begin{column}{.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=0.85\textwidth]{img/The_viaduct_La_Polvorilla,_Salta_Argentina.jpg}
+				\caption*{Ocelový most v Argentině.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:The_viaduct_La_Polvorilla,_Salta_Argentina.jpg}{Alicia Nijdam/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{figure}
+		\adjincludegraphics[width=.88\textwidth]{img/Iron_carbon_phase_diagram.png}
+		\caption*{Fázový diagram železo-uhlík.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Iron_carbon_phase_diagram.svg}{AG Caesar/Commons}}}
+	\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Surovinou jsou železné rudy:
+		\begin{itemize}
+			\item Magnetit -- \ce{Fe3O4}
+			\item Hematit -- \ce{Fe2O3}
+			\item Limonit -- \ce{Fe2O3 . n H2O}
+			\item Siderit -- \ce{FeCO3}
+		\end{itemize}
+		\item Výroba oceli probíhá ve \textit{vysoké peci}, což je 30--50 m vysoká pec, vyzděná žáruvzdorným materiálem. Teplota uvnitř pece může dosahovat až 2300~$^\circ$C.\footnote[frame]{\href{https://www.youtube.com/watch?v=b3BOMfH7Dbc}{Jak se vyrábí železo a ocel}}
+		\item Výroba oceli je kontinuální proces, který může běžet bez výhasu i více než deset let.
+		\item Shora se pec zaváží směsí železné rudy, koksu a vápence (struskotvorné látky\footnote[frame]{\href{http://www.strusky.cz/}{Struska}}). Zdola se do pece vhání předehřátý vzduch s vyšší koncentrací kyslíku.
+		\item Koks reaguje s kyslíkem za uvolnění tepla a vzniku CO, který následně redukuje železnou rudu.
+		\begin{itemize}
+			\item \ce{2 C + O2 -> 2 CO}
+			\item \ce{CO2 + C -> 2 CO}
+		\end{itemize}
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Železná ruda se zde redukuje koksem a písky a jíly se převádí pomocí vápence na strusku.
+		\item Ruda a koks se v peci temperují a postupně se snižuje podíl kyslíku:
+		\item \ce{Fe2O3 -> Fe3O4 -> FeO -> Fe}
+		\item Maximální teplota je ve spodní části pece, ze které se získává tavenina surového železa. To se dále zpracovává, nejčastěji na ocel.
+		\item V současnosti se vyrábí ocel s obsahem uhlíku v rozmezí 0,5--1,5~\% a malým množstvím síry a fosforu.
+	\end{itemize}
+	\begin{figure}
+		\adjincludegraphics[height=0.32\textheight]{img/Chains_of_pig_iron.jpg}
+		\caption*{Surové železo.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Chains_of_pig_iron_casting_machine_07.jpg}{Blast furnace chip worker/Commons}}}
+	\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Kromě železa získáváme z vysoké pece ještě \textit{vysokopecní plyn} a \textit{strusku}.
+		\item \textbf{Vysokopecní plyn} obsahuje hořlavé látky, ale má poměrně malou výhřevnost. Využívá se převážně k temperaci vzduchu, který vstupuje do vysoké pece. Obsahuje hlavně CO, \ce{H2}, \ce{CH4}, \ce{CO2} a \ce{N2}.
+		\item \textbf{Struska} obsahuje hlavně \ce{SiO2}, \ce{Al2O3}, \ce{CaO}, má podobu černých granulí.
+		\item Využívá se jako přísada do cementů.
+	\end{itemize}
+	\begin{figure}
+		\adjincludegraphics[height=0.33\textheight]{img/Struska.jpg}
+		\caption*{Struska.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Rauašlakk.jpg}{Minnekon/Commons}}}
+	\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\begin{figure}
+		\adjincludegraphics[height=0.7\textheight]{img/Blast_furnace_NT.png}
+		\caption*{Schéma vysoké pece.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Blast_furnace_NT.PNG}{Tosaka/Commons}}}
+	\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\begin{figure}
+		\adjincludegraphics[height=0.7\textheight]{img/Haut_fourneau.jpg}
+		\caption*{Horní část vysoké pece.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Haut_fourneau_P6_Gueulard_Enfer_2.jpg}{Borvan53/Commons}}}
+	\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\begin{figure}
+		\adjincludegraphics[height=0.7\textheight]{img/Trinec-zelezarny.jpg}
+		\caption*{Třinecké železárny.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Třinecké_železárny.jpg}{Ondřej Žváček/Commons}}}
+	\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\begin{figure}
+		\adjincludegraphics[height=0.7\textheight]{img/Trinecke-zelezarny-vysoka-pec.jpg}
+		\caption*{Vysoká pec v Třineckých železárnách.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Trinecke-zelezarny-vysoka-pec-c6-539.jpg}{Viktor Mácha/Commons}}}
+	\end{figure}
+	\vfill
+}
+
+\subsection{Kobalt}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{columns}
+		\begin{column}{.7\textwidth}
+			\textbf{Kobalt}
+			\begin{itemize}
+				\item Koncentrace v zemské kůře je 20--30~ppm.
+				\item Je přítomen i v meteorickém železe.
+				\item Známe téměř 60 minerálů obsahujících kobalt.\footnote[frame]{\href{https://www.mindat.org/element/Cobalt}{The mineralogy of Cobalt}}
+				\item Nejdůležitější jsou:
+				\begin{enumerate}
+					\item Kobaltin, \ce{CoAsS}
+					\item Safflorit, \ce{CoAs2}
+					\item Glaukodot, \ce{(Co,Fe)AsS}
+					\item Skutterudit, \ce{CoAs3}
+				\end{enumerate}
+				\item Malá množství jsou přítomna i v cigaretovém kouři.\footnote[frame]{\href{https://doi.org/10.3390/ijerph8020613}{Hazardous Compounds in Tobacco Smoke}}
+			\end{itemize}
+		\end{column}
+
+		\begin{column}{.35\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=\textwidth]{img/Meteoric_iron_635_kg.jpg}
+				\caption*{Železný meteorit, 635 kg.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Meteoric_iron_635_kg_-_foto_Marco_Busdraghi.JPG}{Marco Busdraghi/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\textbf{Kobaltin}
+	\begin{itemize}
+		\item Orthorombický minerál, \ce{CoAsS}, stříbřitá až šedá barva, často narůžovělý.\footnote[frame]{\href{https://mineraly.sci.muni.cz/sulfidy/kobaltin.html}{Kobaltin}}
+		\item Důležitý zdroj kobaltu.\footnote[frame]{\href{https://www.mindat.org/min-1093.html}{Cobaltite}}
+	\end{itemize}
+	\begin{columns}
+		\begin{column}{.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=.4\textheight]{img/Cobaltite-d05-67a.jpg}
+				\caption*{Kobaltin, Chile.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Erythrite-Cobaltite-202101.jpg}{Robert M. Lavinsky/Commons}}}
+			\end{figure}
+		\end{column}
+		\begin{column}{.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=.4\textheight]{img/Erythrite-Cobaltite-202101.jpg}
+				\caption*{Kobaltin, Švédsko.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Cobaltite-d05-67a.jpg}{Robert M. Lavinsky/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\begin{columns}
+		\begin{column}{.7\textwidth}
+			\vfill
+			\textbf{Safflorit}
+			\begin{itemize}
+				\item Orthorombický minerál, \ce{(Co,Ni,Fe)As2}, cínově bílá až šedá barva.\footnote[frame]{\href{https://mineraly.sci.muni.cz/sulfidy/safflorit.html}{Safflorit}}
+				\item Kromě kobaltu může obsahovat nikl a železo.\footnote[frame]{\href{https://www.mindat.org/min-3500.html}{Safflorite}}
+				\item Pokud obsahuje více než 50~\% železa, jde o \textit{loellingit}.
+				\item Pokud obsahuje více než 50~\% niklu, jde o \textit{rammelsbergit}.
+			\end{itemize}
+			\vfill
+		\end{column}
+		\begin{column}{.3\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=.4\textheight]{img/Safflorite2.jpg}
+				\caption*{Safflorit, Německo.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Safflorite-Lollingite-Rammelsbergite-55551.jpg}{Robert M. Lavinsky/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\textbf{Glaukodot}
+	\begin{itemize}
+		\item Orthorombický minerál, \ce{(Co,Fe)AsS}, cínově bílá barva.\footnote[frame]{\href{https://www.mindat.org/min-3500.html}{Safflorite}}
+		\item Typicky je poměr Co:Fe roven 3:1, může obsahovat i malý podíl niklu.
+	\end{itemize}
+	\begin{columns}
+		\begin{column}{.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=.4\textheight]{img/Glaucodot-md47c.jpg}
+				\caption*{Glaukodot, Švédsko.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Glaucodot-md47c.jpg}{Robert M. Lavinsky/Commons}}}
+			\end{figure}
+		\end{column}
+		\begin{column}{.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=.4\textheight]{img/Glaucodot-rare08-56b.jpg}
+				\caption*{Glaukodot, Švédsko.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Glaucodot-rare08-56b.jpg}{Robert M. Lavinsky/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\textbf{Skutterudit}
+	\begin{itemize}
+		\item Kubický minerál, \ce{(Co,Ni)As3}, cínově bílá až šedá barva.\footnote[frame]{\href{https://mineraly.sci.muni.cz/sulfidy/skutterudit.html}{Skutterudit}}
+		\item Těží se jako ruda kobaltu, niklu a arsenu.\footnote[frame]{\href{https://www.mindat.org/min-3500.html}{Safflorite}}
+	\end{itemize}
+	\begin{figure}
+		\adjincludegraphics[height=.4\textheight]{img/Skutterudite.jpg}
+		\caption*{Skutterudit, Maroko.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Skutterudite_(vein_in_a_fault_system_in_the_Bou_Azzer-El_Graara_Ophiolite;_Tamdrost_Mine,_Bou_Azzer_Mining_District,_Morocco)_6.jpg}{James St. John/Commons}}}
+	\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Kobalt se získává jako vedlejší produkt při výrobě niklu, mědi a olova.
+		\item Způsob přípravy závisí na kovu, který jej v rudě doprovází.
+		\item Rudy se praží, čímž se odstraní struska a získá se směs kovů a oxidů.
+		\item Extrakcí kyselinou sírovou se převedou do roztoku železo, kobalt a nikl. Měď zůstává nerozpuštěna.
+		\item Kobalt se oxiduje chlornanem a sráží se jako hydroxid:
+		\item \ce{2 Co^{2+} + ClO- + 4 OH- + H2O -> 2 Co(OH)3 + Cl-}
+		\item Vzniklý hydroxid se termicky dehydratuje a získaný oxid se redukuje dřevěným uhlím nebo aluminotermicky.
+	\end{itemize}
+	\vfill
+}
+
+\subsection{Nikl}
+\frame{
+	\frametitle{}
+	\vfill
+	\textbf{Nikl}
+	\begin{itemize}
+		\item Koncentrace v zemské kůře je okolo 90~ppm, je sedmým nejrozšířenějším přechodným kovem.
+		\item V přírodě jej nacházíme v ryzím stavu i ve formě rud.\footnote[frame]{\href{https://www.mindat.org/element/Nickel}{The mineralogy of Nickel}}
+		\item Nachází se i v meteoritech, kde jeho obsah dosahuje až 10~\%.
+		\item Velké množství niklu je pravděpodobně uloženo v zemském jádře.
+		\item Nejrozšířenější minerálu niklu jsou:
+		\begin{enumerate}
+			\item Pentlandit, \ce{(NiFe)9S8}
+			\item Millerit, \ce{NiS}
+			\item Gersdorffit, \ce{NiAsS}
+		\end{enumerate}
+		\item Kovový nikl se těží např. v Sudbury v Kanadě.\footnote[frame]{\href{https://uwaterloo.ca/earth-sciences-museum/resources/mining-canada/mining-history-sudbury-area}{The mining history of the Sudbury area}}
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\begin{columns}
+		\begin{column}{.7\textwidth}
+			\vfill
+			\textbf{Pentlandit}
+			\begin{itemize}
+				\item Kubický minerál, \ce{(NiFe)9S8}, bronzově žlutá barva.\footnote[frame]{\href{http://mineraly.sci.muni.cz/sulfidy/pentlandit.html}{Pentlandit}}
+				\item Zpravidla obsahuje více niklu než železa.\footnote[frame]{\href{https://www.mindat.org/min-3155.html}{Pentlandite}}
+				\item Nejdůležitější ruda niklu.
+				\item Byl studován jako katalyzátor pro elektrolytickou výrobu vodíku.\footnote[frame]{\href{https://doi.org/10.1038/ncomms12269}{Pentlandite rocks as sustainable and stable efficient electrocatalysts for hydrogen generation}}
+			\end{itemize}
+			\vfill
+		\end{column}
+		\begin{column}{.3\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=.35\textheight]{img/Pentlandite.jpg}
+				\caption*{Petlandit, Norsko.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Pentlandite,_Pyrrhotite-540342.jpg}{John Sobolewski/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\textbf{Millerit}
+	\begin{itemize}
+		\item Trigonální minerál, \ce{NiS}, bronzově žlutá až nazelenalá barva.\footnote[frame]{\href{http://mineraly.sci.muni.cz/sulfidy/millerit.html}{Millerit}}
+		\item Je elektricky vodivý.
+		\item Naleziště jsou v Karlovarském kraji (Jáchymově).\footnote[frame]{\href{https://www.mindat.org/min-2711.html}{Millerite}}
+	\end{itemize}
+	\begin{columns}
+		\begin{column}{.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=.38\textheight]{img/Millerite-44389.jpg}
+				\caption*{Millerit, Austrálie.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Millerite-44389.jpg}{Robert M. Lavinsky/Commons}}}
+			\end{figure}
+		\end{column}
+		\begin{column}{.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=.38\textheight]{img/Calcite-Millerite-d06-24b.jpg}
+				\caption*{Kalcit a millerit, USA.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Calcite-Millerite-d06-24b.jpg}{Robert M. Lavinsky/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\textbf{Gersdorffit}
+	\begin{itemize}
+		\item Kubický minerál, \ce{NiAsS}, ocelově šedá barva.\footnote[frame]{\href{http://mineraly.sci.muni.cz/sulfidy/gersdorffit.html}{Gersdorffit}}
+		\item Naleziště jsou i v Karlovarském kraji (Jáchymově).\footnote[frame]{\href{https://www.mindat.org/min-1683.html}{Gersdorffite}}
+		\item Existuje ve třech krystalových formách.\footnote[frame]{\href{https://rruff-2.geo.arizona.edu/uploads/AM67_1058.pdf}{A further crystal structure refinement of gersdorffite}}
+	\end{itemize}
+	\begin{figure}
+		\adjincludegraphics[height=.4\textheight]{img/Gersdorffit.jpg}
+		\caption*{Gersdorffit, Německo.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Gersdorffit_-_Lobenstein,_Vogtland.jpg}{Ra'ike/Commons}}}
+	\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\textbf{Abelsonit}
+	\begin{itemize}
+		\item Triklinický minerál, \ce{C31H32N4Ni}, cínově bílá až šedá barva.\footnote[frame]{\href{https://www.mindat.org/min-1.html}{Abelsonite}}
+		\item Velmi vzácný minerál, jediný známý krystalický geoporfyrin.
+	\end{itemize}
+	\begin{columns}
+		\begin{column}{.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=.5\textheight]{img/Abelsonit.png}
+			\end{figure}
+		\end{column}
+		\begin{column}{.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=.4\textheight]{img/Abelsonite.jpg}
+				\caption*{Abelsonit, USA.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Abelsonite_-_Green_River_Formation,_Uintah_County,_Utah,_USA.jpg}{Thomas Witzke/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Hlavním zdrojem pro výrobu niklu jsou sulfidické rudy, které je možné lépe zpracovat než oxidické rudy (flotace, magnetická separace).
+		\item V případě rud obsahujících měď a železo se nejprve koncentrát Ni/Cu kalcinuje s křemenem, čímž se odstraní velká část sulfidů a železa.
+		\item Vzniklá tavenina se nechá pomalu chladnout, tím dojde k separaci sulfidů a slitiny Ni/Cu.
+		\item Získaný \ce{Ni3S2} se pražením převede na oxid, který se buď využije přímo k přípravě ocelí nebo se redukuje na nikl.
+		\item V případě elektrolytické rafinace niklu se oxid redukuje uhlíkem, z takto získaného niklu se vyrobí anoda.
+		\item Elektrolytická rafinace se provádí ve vodném roztoku \ce{NiSO4} nebo \ce{NiCl2}, jako katoda slouží čistý nikl.
+		\item Takto připravený nikl má čistotu 99,9~\%.
+		\item Druhou možností rafinace je \textit{Mondův proces}.\footnote[frame]{\href{https://www.oxfordreference.com/display/10.1093/oi/authority.20110803100205384}{Mond process}}
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Mondův, nebo karbonylový, proces je založen na tvorbě těkavého karbonylu, který je následně rozložen.
+		\item Tento proces byl vyvinut v roce 1890 Ludwigem Mondem.\footnote[frame]{\href{https://doi.org/10.1039/CT8905700749}{Action of carbon monoxide on nickel}}$^,$\footnote[frame]{\href{https://doi.org/10.1038/059063a0}{The Extraction of Nickel from its Ores by the Mond Process}}
+		\item Redukce se provádí vodním plynem, což je směs vodíku a oxidu uhelnatého. Získává se vedením vodní páry přes rozžhavený koks:
+		\ce{C + H2O -> CO + H2}
+		\item Vodík redukuje oxid na kov:
+		\item \ce{NiO + H2 ->[200 $^\circ$C] Ni + H2O}
+		\item Surový nikl reaguje s oxidem uhelnatým za vzniku plynného \textit{tetrakarbonylu niklu}:
+		\item \ce{Ni + 4 CO ->[60 $^\circ$C] Ni(CO)4}
+		\item Ten se pak termicky rozkládá, čistota připraveného niklu je 99,95~\%:
+		\item \ce{Ni(CO)4 ->[200 $^\circ$C] Ni + 4 CO}
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{columns}
+		\begin{column}{.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=.55\textheight]{img/Nickel_kugeln.jpg}
+				\caption*{Nikl připravený Mondovým proces.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Nickel_kugeln.jpg}{René Rausch/Commons}}}
+			\end{figure}
+		\end{column}
+		\begin{column}{.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=.55\textheight]{img/Nickel_electrolytic_and_1cm3_cube.jpg}
+				\caption*{Elektrolytický nikl.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Nickel_electrolytic_and_1cm3_cube.jpg}{Alchemist-hp/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\section{Využití}
+\subsection{Železo}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{columns}
+		\begin{column}{.7\textwidth}
+			\begin{itemize}
+				\item Železo je nejpoužívanější kov.
+				\item V roce 2021 byly vyrobeny téměř dvě miliardy tun oceli, nejvíce v Číně a Indii.\footnote[frame]{\href{https://worldsteel.org/data/annual-production-steel-data/?ind=P1_crude_steel_total_pub/CHN/IND}{Total production of crude steel}}
+				\item V Česku bylo vyrobeno v roce 2021 téměř 4,7 miliónu tun oceli.\footnote[frame]{\href{https://konstrukce.cz/materialy-a-technologie/jak-se-vyvijel-vyvoz-a-dovoz-oceli-v-roce-2021-1063}{Jak se vyvíjel vývoz a dovoz oceli v roce 2021?}}
+				\item S ocelí se setkáváme prakticky ve všech oblastech:
+				\begin{itemize}
+					\item Stavebnictví, betonářství
+					\item Automobilový a dopravní průmysl
+					\item Stavební technika
+				\end{itemize}
+			\end{itemize}
+		\end{column}
+
+		\begin{column}{.4\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=\textwidth]{img/Rebar_01.jpg}
+				\caption*{Betonářská ocel.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Rebar_01.JPG}{Vsolymossy/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item \textbf{Legovaná ocel} vzniká přidáváním dalších prvků do nízkouhlíkové oceli.\footnote[frame]{\href{http://svanda.webz.cz/vyuka/legury.htm}{Vliv legovacích prvků na vlastnosti ocelí}} Cílem je optimalizace vlastností.
+		\begin{itemize}
+			\item K legování se využívají hlavně mangan, molybden, nikl, chrom, vanad a křemík.
+			\item Podle obsahu legujících prvků rozlišujeme oceli nízkolegované (do 4~\% jiných kovů), středně legované (5–10~\%) a vysokolegované (nad 10~\%).
+		\end{itemize}
+		\item \textbf{Kalení} je proces, kdy se ocel vyžíhá a prudce zchladí. Tím dojde ke vzniku nerovnovážných, martenzitických, struktur. Zakalením se zvýší pevnost v tahu a dojde k nárůstu objemu.\footnote[frame]{\href{http://www.tumlikovo.cz/zakladni-kaleni/}{Základní kalení}}
+		\begin{itemize}
+			\item Kalení se provádí zpravidla ve vodě nebo oleji. Některé oceli lze kalit i vzduchem, příp. tlakovým vzduchem.
+			\item Ve vodě dochází k velmi rychlému poklesu teploty, komplikací je vznik tzv. \textit{parního polštáře}, ten se potlačuje pohybem kaleného předmětu.
+		\end{itemize}
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item \textbf{Popouštění} se provádí zpravidla po zakalení, ocel se zahřeje na dostatečně vysokou teplotu, aby se odstranilo vnitřní pnutí vzniklé zakalením, ale nesmí dojít k fázovým změnám. Tímto snížíme tvrdost materiálu a zvýšíme jeho houževnatost.
+	\end{itemize}
+	\begin{figure}
+		\adjincludegraphics[height=.45\textheight]{img/Tempering_standards.jpg}
+		\caption*{Vzorky oceli popouštěné při různých teplotách, barva materiálu odpovídá teplotě popouštění.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Tempering_standards_used_in_blacksmithing.JPG}{Zaereth/Commons}}}
+	\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item \textit{Konstrukční ocel} -- zpravidla nelegovaná ocel využívaná ve stavebnictví a strojírenství.
+		\item \textit{Betonářská ocel} -- nelegovaná, příp. nízko legovaná ocel využívaná pro armování betonu.
+		\item \textit{Elektrotechnická ocel} -- minimální obsah uhlíku, 1--4,5~\% křemíku. Používá se pro výrobu plechů pro jádra transformátorů.
+		\item Jeřábová ocel -- nízký obsah uhlíku (do 0,5~\%), legovaná Cr, Ni, Mo, V, Ti a Nb.
+		\begin{itemize}
+			\item V letech 2007--2008 způsobil nedostatek jeřábové oceli problémy při výstavbě nových mrakodrapů.\footnote[frame]{\href{https://www.nbcnews.com/id/wbna18909319}{Building boom causing a shortage in cranes}}
+		\end{itemize}
+		\item \textit{Nerezová ocel} -- vysoký obsah chromu (12--30~\%), niklu (až 30~\%) nebo manganu (až 24~\%). Odolná vůči korozi, využívá se v automobilovém, chemickém a potravinářském průmyslu, ve stavebnictví a jinde.
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item \textit{Nástrojová ocel} -- středně až vysoce legovaná ocel. Vrtáky, nože na kovy, frézy.
+		\item \textit{Damascénská (damašková) ocel} -- skupina ocelí určená pro výrobu mečů, šavlí a dalších chladných zbraní. Vyznačují se vysokou pružností a pevností.\footnote[frame]{\href{https://www.chladnezbrane.eu/clanky-a-recenze/vyroba-a-puvod-damaskove-oceli-strucne-damaskova-ocel-damascus-steel/}{Damašková ocel}}
+		\item Ocel se vyrábí postupným spojováním jednotlivých vrstev.
+		\item Spojují se oceli s nízkým obsahem uhlíku s vysokouhlíkovými. Analýzami bylo zjištěno, že při výrobě dochází i ke vzniku uhlíkových nanotrubic.\footnote[frame]{\href{https://www.nationalgeographic.com/science/article/carbon-nanotechnology-in-an-17th-century-damascus-sword}{Carbon nanotechnology in an 17th century Damascus sword}}
+	\end{itemize}
+	\begin{figure}
+		\adjincludegraphics[width=.65\textwidth]{img/DamaszenerKlinge.jpg}
+		\caption*{Nůž z damascénské oceli.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:DamaszenerKlinge.JPG}{Ralf Pfeifer/Commons}}}
+	\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{columns}
+		\begin{column}{.55\textwidth}
+			\begin{itemize}
+				\item \textit{Alnico} -- skupina železných slitin obsahujících železo, hliník, nikl a kobalt. Dále mohou obsahovat měď a titan.
+				\item Jsou ferromagnetické a využívají pro výrobu velmi silných magnetů. Silnější jsou jen neodymové magnety.
+				\item Jejich Currieova teplota je okolo 800~$^\circ$C, ale používají se jen do teploty 600~$^\circ$C.\footnote[frame]{\href{https://www.magnety.cz/alnico/}{ALNICO}} Jsou vysoce odolné vůči kyselinám a rozpouštědlům.
+				\item Vyrábějí se slinováním nebo sléváním.
+			\end{itemize}
+		\end{column}
+		\begin{column}{.55\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=.95\textwidth]{img/AlNiCo.jpg}
+				\caption*{AlNiCo magnet.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Magnetron_magnet.JPG}{Chetvorno/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\begin{columns}
+		\begin{column}{.7\textwidth}
+			\vfill
+			\begin{itemize}
+				\item \textbf{Železobeton} je kompozitní materiál skládající se z betonu a oceli.
+				\item První použití bylo zaznamenáno již v druhé polovině 19. století.
+				\item Důvodem pro využití oceli v betonových konstrukcích je nízká pevnost v tahu betonu. Beton je odolný vůči namáhání tlakem, ale při tahovém a smykovém namáhání je odolnost výrazně nižší.
+				\item To lze kompenzovat vyztužením betonu ocelovými tyčemi, zpravidla s kruhovým průřezem.
+			\end{itemize}
+			\vfill
+		\end{column}
+		\begin{column}{.35\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=\textwidth]{img/SagradaFamiliaRoof2.jpg}
+				\caption*{Stavba železobetonové střechy Sagrada Familia.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:SagradaFamiliaRoof2.jpg}{Etan J. Tal/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{figure}
+		\adjincludegraphics[width=\textwidth]{img/UKB-Stavba-SIMU-2019-2.jpg}
+		\caption*{Litý železobeton, stavba SIMU+}
+	\end{figure}
+	\vfill
+}
+
+
+\frame{
+	\frametitle{}
+	\textbf{Baterie na bázi \ce{Fe^{VI}}}
+	\begin{itemize}
+		\item Alternativa klasických suchých článků, založená na železanech (\textit{super-iron}).
+		\item Místo \ce{MnO2} obsahují \ce{K2FeO4}:\footnote[frame]{\href{https://doi.org/10.1126/science.285.5430.1039}{Energetic Iron(VI) Chemistry: The Super-Iron Battery}}
+		\item \ce{2 FeO$_4^{2-}$ + 5 H2O + 6 e- <=> Fe2O3 + 10 OH-}
+		\item Celkovou reakci lze zapsat:
+		\item \ce{2 K2FeO4 + 3 Zn -> Fe2O3 + ZnO + 2 K2ZnO2}
+		\item Výhodou je možnost nabíjení baterií.
+		\item Možnou oblastí využití jsou baterie pro kardiostimulátory, ale i pro elektromobily, kde by mohlo železo nahradit dražší a hůře dostupné lithium.\footnote[frame]{\href{https://doi.org/10.3390/en3050960}{A High Capacity Li-Ion Cathode: The Fe(III/VI) Super-Iron Cathode}}
+	\end{itemize}
+}
+
+\subsection{Kobalt}
+\frame{
+	\frametitle{}
+	\begin{itemize}
+		\item Velká část kobaltu se používá pro výrobu slitin.
+		\item Jejich vysoká teplotní stabilita umožňuje konstrukci tepelně namáhaných částí plynových turbín.\footnote[frame]{\href{https://pubs.usgs.gov/fs/2011/3081/pdf/fs2011-3081.pdf}{Cobalt—For Strength and Color}}
+		\item Také se využívají, díky korozní odolnosti, k výrobě ortopedických implantátů.
+	\end{itemize}
+	\begin{figure}
+		\adjincludegraphics[height=.4\textheight]{img/Jet_engine.png}
+		\caption*{Proudový motor.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Jet_engine.svg}{Jeff Dahl/Commons}}}
+	\end{figure}
+}
+
+\frame{
+	\frametitle{}
+	\begin{itemize}
+		\item V Li-ION bateriích se využívá jako katoda \ce{LiCoO2}, formální oxidační číslo kobaltu je +III.
+		\item Vyrábí se zahříváním \ce{Li2CO3} s \ce{Co3O4} a následnou několikahodinovou kalcinací v kyslíkové atmosféře.
+	\end{itemize}
+	\begin{figure}
+		\adjincludegraphics[height=.5\textheight]{img/Lithium-cobalt-oxide-3D-balls.png}
+		\caption*{Krystalová struktura \ce{LiCoO2}.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Lithium-cobalt-oxide-3D-balls.png}{Ben Mills/Commons}}}
+	\end{figure}
+}
+
+\frame{
+	\frametitle{}
+	\begin{itemize}
+		\item Během nabíjení dochází k oxidaci části kobaltu na oxidační stav IV, vzniká nestechiometrická fáze \ce{Li_xCoO2}.
+		\item Tyto typy baterií mají stabilní kapacitu, ale dosahují nižších hodnot proudu i nábojové hustoty.
+		\item Při zahřátí na vyšší teploty nebo přebíjení může dojít k explozi, protože se uvolňuje kyslík, který může reagovat s organickým elektrolytem baterie.
+	\end{itemize}
+	\begin{figure}
+		\adjincludegraphics[height=.35\textheight]{img/Li-Ion_batteries_for_mobile_phones.jpg}
+		\caption*{Li-Ion akumulátory.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Li-Ion_batteries_for_mobile_phones.jpg}{Phrontis/Commons}}}
+	\end{figure}
+}
+
+\frame{
+	\frametitle{}
+	\begin{columns}
+		\begin{column}{.65\textwidth}
+		\begin{itemize}
+		\item Radioizotop \ce{^{60}Co} se využívá jako zdroj $\gamma$ záření v medicínských aplikacích.
+		\item Má poločas rozpadu 5,27 let.
+		\item Vyrábí se v jaderném reaktoru ostřelováním kovového kobaltu nebo slitiny kobaltu a niklu neutrony v reaktoru:
+		\item \ce{^{59}Co + n -> ^{60}Co + $\gamma$}
+		\item Pro radioterapii nádorů se využívá slitina wolframu, do které je uložen kobaltový zářič.
+		\item Radioizotop \ce{^{57}Co} se využívá jako zdroj $\gamma$ záření pro Mösbauerovu spektroskopii železa a jeho sloučenin.
+	\end{itemize}
+	\end{column}
+	\begin{column}{.4\textwidth}
+	\begin{figure}
+		\adjincludegraphics[width=.9\textwidth]{img/Cobalt-60_Irradiator.jpg}
+		\caption*{Pasterace potravin.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Cobalt-60_Irradiator.tif}{US Department of Energy/Commons}}}
+	\end{figure}
+	\end{column}
+	\end{columns}
+}
+
+\frame{
+	\frametitle{}
+	\begin{columns}
+		\begin{column}{.7\textwidth}
+			\begin{itemize}
+				\item Sloučeniny kobaltu se využívají jako katalyzátory ve Fischer--Tropschových syntézách.\footnote[frame]{\href{https://doi.org/10.1016/j.cjche.2017.11.001}{Cobalt catalysts for Fischer–Tropsch synthesis: The effect of support, precipitant and pH value}}
+				\item Jde o reakce, které slouží k syntéze uhlovodíků.
+				\item Kobalt se využívá hlavně v případě, kdy je výchozím zdrojem zemní plyn.
+				\item \ce{CH4 + H2O -> CO + 3 H2}
+				\item \ce{(2n + 1) H2 + n CO -> C_nH_{2n+2} + n H2O}
+				\item Katalyzátor je immobilizován na povrchu siliky, aluminy nebo zeolitu.
+			\end{itemize}
+		\end{column}
+		\begin{column}{.35\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=\textwidth]{img/HCCo3(CO)9.png}
+			\end{figure}
+		\end{column}
+	\end{columns}
+}
+
+\subsection{Nikl}
+\frame{
+	\frametitle{}
+	\begin{columns}
+		\begin{column}{.7\textwidth}
+			\vfill
+			\begin{itemize}
+				\item Většina niklu se využívá pro výrobu nerezové oceli.
+				\begin{itemize}
+					\item 68~\% nerezová ocel
+					\item 10~\% neželezné slitiny
+					\item 9~\% elektropokovování
+					\item 7~\% legování oceli
+					\item 3~\% slévárenství
+					\item 4~\% jiné využití (NiCd, NiMH články, atd.)
+				\end{itemize}
+				\item Obsah niklu nad 8~\% usnadňuje tvorbu austenitu\footnote[frame]{Tuhý roztok uhlíku v $\gamma$-železe} a tím zvyšuje odolnost vůči korozi a zlepšuje zpracovatelnost.\footnote[frame]{\href{https://www.worldstainless.org/Files/issf/non-image-files/PDF/TheStainlessSteelFamily.pdf}{The Stainless Steel Family}}
+				\item Velké využití nachází i v oblasti katalýzy.\footnote[frame]{\href{https://doi.org/10.1021/acscatal.5b00072}{Nickel: The “Spirited Horse” of Transition Metal Catalysis}}
+			\end{itemize}
+			\vfill
+		\end{column}
+		\begin{column}{.35\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=\textwidth]{img/Sink_and_taps.jpg}
+				\caption*{Nerezová ocel.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Sink_and_taps_in_the_men\%27s_locker_room_2_-_BW.jpg}{W.carter/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+}
+
+\frame{
+	\frametitle{}
+	\begin{columns}
+	\begin{column}{.7\textwidth}
+			\vfill
+			\textbf{Monel}
+			\begin{itemize}
+				\item Neželezná slitina: 68~\% Ni, 32~\% Cu a stopová množství Mn, Si, C a Fe.
+				\item Slitina byla poprvé vyrobena v roce 1901 R. C. Stanleyem. Byla pojmenována po prezidentovi společnosti INCO A. Monellovi.\footnote[frame]{\href{https://www.xometry.com/resources/materials/what-is-monel/}{All About Monel Alloys: Definition, History, and Applications}}
+				\item Velmi obtížně se zpracovává, ale je odolná vůči mechanickému i chemickému namáhání v širokém rozmezí teplot.\footnote[frame]{\href{https://www.worldstainless.org/Files/issf/non-image-files/PDF/TheStainlessSteelFamily.pdf}{The Stainless Steel Family}}
+				\item Využívá se např. pro konstrukci aparatur pro práci s plynným fluorem.
+			\end{itemize}
+		\vfill
+	\end{column}
+	\begin{column}{.35\textwidth}
+		\begin{figure}
+			\adjincludegraphics[height=.3\textheight]{img/Monel-valves.jpg}
+			\caption*{Ventil z monelu.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Monel-valves--The-Alloy-Valve-Stockist.JPG}{Heather Smith/Commons}}}
+		\end{figure}
+	\end{column}
+	\end{columns}
+}
+
+\frame{
+	\frametitle{}
+	\begin{columns}
+		\begin{column}{.6\textwidth}
+			\begin{itemize}
+				\item Galvanické niklování zvyšuje odolnost materiálu vůči korozi.
+				\item Alternativou je chemické niklování, které nevyžaduje vodivé povrchy.
+				\item Vrstva niklu a fosforu (Ni-P) vzniká redoxní reakcí.
+				\item Ta by měla být autokatalytická, aby se zabránilo vylučování niklu v niklovací lázni.
+				\item Zpravidla se využívá síran nikelnatý a vhodné redukční činidlo, např. fosforitan nebo borohydrid:
+			\end{itemize}
+		\end{column}
+		\begin{column}{.4\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=.80\textwidth]{img/Copper_electroplating.png}
+				\caption*{Galvanické pokovování.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Copper_electroplating_principle_(multilingual).svg}{Torsten Henning/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\ce{Ni^{2+} + 5 H2PO$_2^-$ -> Ni + 2 P + 3 H2PO$_3^-$ + H2}
+}
+
+\frame{
+	\frametitle{}
+	\textbf{Raneyův nikl}
+	\begin{itemize}
+		\item Šedý prášek, složený převážně z niklu, vyrábí se ze slitiny niklu s hliníkem.
+		\item Ta je rozpuštěna v hydroxidu sodném, hliník se rozpustí za vývoje vodíku, který se nasorbuje na povrch zrn niklu.\footnote[frame]{\href{https://www.masterorganicchemistry.com/2011/09/30/reagent-friday-raney-nickel/}{Reagent Friday: Raney Nickel}}
+		\item \ce{2 Al + 2 NaOH + 6 H2O -> 2 Na[Al(OH)4] + 3 H2}
+		\item Díky obsahu vodíku je Raneyův nikl pyroforický a musí se uchovávat tak, aby se zabránilo kontaktu se vzdušným kyslíkem.\footnote[frame]{\href{https://www.youtube.com/watch?v=KEOcufv1qdM}{Raney Nickel spontaneous combustion}}
+	\end{itemize}
+	\begin{figure}
+		\adjincludegraphics[height=.26\textheight]{img/Dry_Raney_nickel.jpg}
+		\caption*{Suchý Raneyův nikl.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Dry_Raney_nickel.jpg}{Rune.welsh/Commons}}}
+	\end{figure}
+}
+
+\frame{
+	\frametitle{}
+	\begin{itemize}
+		\item Využívá se jako hydrogenační katalyzátor v organické syntéze. Poprvé byl použit v roce 1926 americkým inženýrem Murrayem Raneyem k hydrogenaci rostlinného oleje.
+		\item V současnosti se používá ve velkém množství průmyslových aplikací, např. při redukci benzenu na cyklohexan.\footnote[frame]{\href{https://doi.org/10.1016/0166-9834(83)80051-7}{The nature of raney nickel, its adsorbed hydrogen and its catalytic activity for hydrogenation reactions (review)}}
+	\end{itemize}
+	\begin{figure}
+		\adjincludegraphics[height=.35\textheight]{img/Hydrogenace.png}
+	\end{figure}
+}
+
+\frame{
+	\frametitle{}
+	\begin{itemize}
+		\item Dále ho lze využít k desulfurizaci.
+	\end{itemize}
+	\begin{figure}
+		\adjincludegraphics[width=\textwidth]{img/Thiofene-reduction.png}
+	\end{figure}
+	\begin{itemize}
+	\item Nebo redukci funkčních skupin, např. nitro na amino.
+	\end{itemize}
+	\begin{figure}
+		\adjincludegraphics[width=\textwidth]{img/Nitro-reduction.png}
+	\end{figure}
+}
+
+\section{Sloučeniny}
+\subsection{Železo}
+\frame{
+	\frametitle{}
+	\begin{columns}
+		\begin{column}{.6\textwidth}
+			\begin{tabular}{|l|l|}
+		\hline
+		\textbf{Oxidační stav} & \textbf{Příklad} \\\hline
+		$-$2 & \ce{Na2[Fe(CO)4]} \\\hline
+		$-$1 & \ce{Fe2(CO)8} \\\hline
+		0 & \ce{Fe(CO)5} \\\hline
+		1 & \ce{[($\eta$_5-C5H5)Fe(CO)2]2} \\\hline
+		2 & ferrocen, síran železnatý \\\hline
+		3 & \ce{FeCl3}, \ce{[Fe(C5H5)2]BF4} \\\hline
+		4 & \ce{Fe(diars)2Cl$_2^{2+}$} \\\hline
+		5 & \ce{FeO$_4^{3-}$} \\\hline
+		6 & \ce{FeO$_4^{2-}$} \\\hline
+		7 & \ce{FeO$_4^-$}, jen v matrici\footnote[frame]{\href{https://doi.org/10.1039/C6CP06753K}{Experimental and theoretical identification of the Fe(VII) oxidation state in \ce{FeO$_4^-$}}} \\\hline
+	\end{tabular}
+	\end{column}
+	\begin{column}{.4\textwidth}
+		\begin{figure}
+			\adjincludegraphics[width=\textwidth]{img/Fp2SingleNoFeFe.png}
+		\end{figure}
+	\end{column}
+	\end{columns}
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\textbf{Oxidy železa}
+	\begin{itemize}
+		\item Známe mnoho oxidů v oxidačních číslech II a III. Nejběžnější jsou:
+		\item \ce{FeO}
+		\item \ce{Fe3O4 = FeO.Fe2O3}
+		\item \ce{Fe2O3}
+		\item \textbf{Oxid železnatý}, \ce{FeO}, můžeme připravit tepelným rozkladem šťavelanu železnatého v inertní atmosféře:
+		\item \ce{Fe(COO)2 ->[Ar] FeO + CO2 + CO}
+		\item Má strukturu NaCl, železnaté i oxidové ionty mají oktaedrickou koordinaci.
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\begin{columns}
+		\begin{column}{.7\textwidth}
+			\vfill
+			\textbf{Podvojné oxidy železa}
+			\begin{itemize}
+				\item Nejvýznamnější jsou granáty a ferity.
+				\item Připravují se zahříváním oxidu železitého s příslušným uhličitanem.
+				\item Mají spinelovou strukturu nebo inverzní.
+				\item \textbf{Oxid železnato-železitý}, \ce{Fe3O4}, můžeme ho popsat jako \ce{Fe$^{\textrm{II}}$Fe$_2^{\textrm{III}}$O4}.
+				\item Minerál \textit{magnetit}.
+				\item Lze ho připravit tzv. Schikorrovou reakcí, tepelným rozkladem hydroxidu železnatého v anaerobním prostředí:\footnote[frame]{\href{https://dx.doi.org/10.1186/1556-276X-8-16}{Facile synthesis of ultrathin magnetic iron oxide nanoplates by Schikorr reaction}}
+				\item \ce{3 Fe(OH)2 -> Fe3O4 + H2 + 2 H2O}
+			\end{itemize}
+			\vfill
+		\end{column}
+		\begin{column}{.35\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=\textwidth]{img/Fe3O4.jpg}
+				\caption*{Oxid železnato-železitý.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Fe3O4.JPG}{Leiem/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{figure}
+		\adjincludegraphics[height=.7\textheight]{img/Kristallstruktur_Magnetit.png}
+		\caption*{Struktura magnetitu, železnaté ionty jsou zelené, železité modré.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Kristallstruktur_Magnetit.png}{David Schrupp/Commons}}}
+	\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\textbf{Koroze}
+	\begin{itemize}
+		\item Samovolná degradace kovů a jiných materiálů způsobená chemickou nebo elektrochemickou reakcí s látkami v okolním prostředí.
+		\item Velký ekonomický a technologický problém.
+		\item Náklady tvoří jak snaha zabránit korozi, tak náprava následků.
+		\item Ve vyspělých zemích jde o 3 až 5~\% HDP.
+	\end{itemize}
+	\begin{figure}
+		\adjincludegraphics[width=0.5\textwidth]{img/Rusty_car_in_River.jpg}
+		\caption*{Zkorodované auto.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Rusty_car_in_River-03\%2B_(403730921).jpg}{Sheba/Commons}}}
+	\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item \textit{Chemická koroze} -- koroze způsobená chemickou reakcí v nevodivém prostředí.
+		\item \textit{Elektrochemická koroze} -- koroze způsobená elektrochemickou reakcí v elektrolytech.
+		\item \textit{Atmosférická koroze} -- nejběžnější druh koroze, interakce s kyslíkem, vlhkostí a dalšími plyny (\ce{SO2}, CO, \ce{NH3}). Podle korozní agresivity rozdělujeme atmosféry do šesti tříd (C1--C5, CX).
+		\item \textit{Koroze v kapalinách} -- nejčastěji se jedná o předměty ponořené do vody, o rychlosti koroze rozhoduje převážně hodnota tvrdosti vody, pH a množství rozpuštěných plynů.
+		\item \textit{Půdní koroze} -- půda se skládá z pevné, kapalné a plynné složky, na korozi má nejvyšší vliv kapalná složka, která uděluje půdě vodivost.
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\textbf{Antikorozní ochrana}
+	\begin{itemize}
+		\item Volba vhodného materiálu -- s ohledem na parametry prostředí a~mechanické a chemické namáhání.
+		\item Konstrukční řešení -- omezení vibrací, otěrů, tepelného namáhání, kontaktu s~agresivními látkami.
+		\item Úprava prostředí
+		\item Povrchová úprava -- modifikace povrchu materiálem odolným vůči korozi.
+		\item Elektrochemická ochrana -- obětovaná anoda.
+	\end{itemize}
+	\textbf{Povrchová úprava}
+	\begin{itemize}
+		\item Galvanické pokovování -- ionty kovu z elektrolytu se vylučují na povrchu katody.
+		\item Opačně zapojený galvanický článek.
+		\item Nejčastěji se využívají povrchy z~mědi, niklu, chromu, zinku a~kadmia.
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\begin{columns}
+		\begin{column}{0.7\textwidth}
+			\vfill
+			\begin{itemize}
+				\item Měděné povlaky slouží zejména jako mezivrstvy pro složitější systémy pokovení nebo jako vlastní dekorativní vrstva.
+				\item Niklové povlaky se vyznačují nepropustností pro korozní činidla a lesklým vzhledem. Proto mají funkci ochrannou i ozdobnou.
+				\item Chromové vrstvy mají velkou odolnost proti korozi za normálních i zvýšených teplot, velkou tvrdost
+				a otěruvzdornost.
+				\item Zinkové vrstvy fungující na principu anodového účinku dobře chrání ocel před atmosférickou korozí.
+			\end{itemize}
+			\vfill
+		\end{column}
+		\begin{column}{0.3\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=\textwidth]{img/Copper_electroplating_principle.png}
+				\caption*{Galvanické pokovování.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Copper_electroplating_principle_(multilingual).svg}{Torsten Henning/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+}
+
+\frame{
+	\frametitle{}
+	\textbf{Obětovaná anoda}
+	\begin{itemize}
+		\item Založeno na principu anodické polarizace.
+		\item Chráněný předmět se vodivě spojí s elektrodou z méně ušlechtilého kovu.
+		\item Elektroda postupně koroduje a tím zabraňuje korozi předmětu.
+		\item Využívá se hliník, hořčík a zinek.
+		\item Tento druh ochrany se používá u nádrží, lodí, podzemních kabelech, apod.
+	\end{itemize}
+	\begin{figure}
+		\adjincludegraphics[width=0.4\textwidth]{img/Anode_sacrificielle_en_zinc.jpg}
+		\caption*{Obětovaná anoda.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Anode_sacrificielle_en_zinc_(1).JPG}{Jean-Pierre Bazard/Commons}}}
+	\end{figure}
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\textbf{Halogenidy železa}\\
+	\begin{tabular}{|c|c|c|c|}
+		\hline
+		\textbf{Halogenid} & \textbf{Barva} & \textbf{T$_\text{t}$ [$^\circ$C]} & \textbf{T$_\text{v}$ [$^\circ$C]} \\\hline
+		\ce{FeF3} & zelený & $>$1000 & - \\\hline
+		\ce{FeCl3} & hnědý & 308 & 316, rozklad \\\hline
+		\ce{FeOCl} & fialový & - & - \\\hline
+		\ce{FeBr3} & hnědý & 200, rozklad & - \\\hline
+		\ce{FeI3} & černý & - & - \\\hline
+		\ce{FeF2} & bezbarvý & 970 & 1100 \\\hline
+		\ce{FeCl2} & zelený & 677 & 1023 \\\hline
+		\ce{FeBr2} & žlutohnědý & 684 & 934 \\\hline
+		\ce{FeI2} & bílošedý & 587 & 827 \\\hline
+	\end{tabular}
+
+	\begin{itemize}
+		\item Bezvodé halogenidy železité se připravují reakcí prvků za zvýšené teploty.
+		\item U bromidu železitého nesmíme překročit teplotu 200~$^\circ$C, jinak vzniká \ce{FeBr2}.
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\begin{columns}
+		\begin{column}{.75\textwidth}
+			\vfill
+			\textbf{Chlorid železitý}
+			\begin{itemize}
+				\item V bezvodé podobě má strukturu \ce{BiI3} tvořenou oktaedry \ce{FeCl6} propojenými chloridovými můstky. Připravuje se spalováním železa v chloru:
+				\item \ce{2 Fe + 3 Cl2 -> 2 FeCl3}
+				\item Strukturu hexahydrátu můžeme popsat vzorcem\\ \textit{trans}-\ce{[Fe(H2O)4Cl2]Cl.2H2O}.
+				\item  V plynném stavu má dimerní strukturu (\ce{Fe2Cl6}), podobně jako \ce{AlCl3}.
+			\end{itemize}
+			\vfill
+		\end{column}
+		\begin{column}{.3\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=\textwidth]{img/Iron-trichloride-sheet-3D-polyhedra.png}
+				\caption*{Krystalová struktura \ce{FeCl3}.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Iron-trichloride-sheet-3D-polyhedra.png}{Benjah-bmm27/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\textbf{Chlorid železitý}\\
+	\begin{itemize}
+		\item Používá se jako vločkovací činidlo při čištění vody.
+		\item Dokáže rozpouštět kovovou měď, čehož se využívá při domácí výrobě plošných spojů:\footnote[frame]{\href{https://blog.venca-x.cz/leptani-plosneho-spoje-v-domacich-podminkach/}{Leptání plošného spoje v domácích podmínkách}}
+		\item \ce{FeCl3 + Cu -> FeCl2 + CuCl}
+		\item \ce{FeCl3 + CuCl -> FeCl2 + CuCl2}
+		\item Jde o Lewisovu kyselinu, dokáže katalyzovat Friedel-Craftsovy reakce:\footnote[frame]{\href{https://doi.org/10.1021/ed073p272}{Iron(III) Chloride as a Lewis Acid in the Friedel-Crafts Acylation Reaction}}
+	\end{itemize}
+
+	\begin{figure}
+		\adjincludegraphics[width=\textwidth]{img/FeCl3-catalyst.png}
+	\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{figure}
+		\adjincludegraphics[height=.65\textheight]{img/Etched_in_Ferric_Chloride_at_Home.jpg}
+		\caption*{Leptání plošného spoje v roztoku \ce{FeCl3}.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Etched_in_Ferric_Chloride_at_Home.jpg}{Adam Greig/Commons}}}
+	\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\textbf{Zelená skalice}
+	\begin{itemize}
+		\item Heptahydrát síranu železnatého, \ce{FeSO4.7 H2O}, zelená krystalická látka.
+		\item V přírodě se vyskytuje jako minerál melanterit.\footnote[frame]{\href{http://mineraly.sci.muni.cz/sulfaty/melanterit.html}{Melanterit}}
+		\item Připravuje se rozpouštěním železa ve zředěné kyselině sírové nebo oxidací sulfidu:
+		\item \ce{Fe + H2SO4 -> FeSO4 + H2}
+		\item \ce{2 FeS2 + 7 O2 + 2 H2O -> 2 FeSO4 + 2 H2SO4}
+		\item Při delším stání dochází k uvolňování vody a postupné oxidaci.
+		\item Roztoky postupně mění barvu na hnědou, to je způsobeno oxidací vzdušným kyslíkem.
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{columns}
+		\begin{column}{.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=.45\textheight]{img/Iron-sulfate-heptahydrate-sample.jpg}
+				\caption*{Vzorek zelené skalice.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Iron(II)-sulfate-heptahydrate-sample.jpg}{Benjah-bmm27/Commons}}}
+			\end{figure}
+		\end{column}
+		\begin{column}{.4\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=.45\textheight]{img/Iron-sulfate-heptahydrate-3D.png}
+				\caption*{Krystalová struktura zelené skalice.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Iron(II)-sulfate-heptahydrate-3D-balls.tiff}{Smokefoot/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\textbf{Ferrocen}
+	\begin{itemize}
+		\item Organokovová sloučenina železa, obsahuje železnatý kation obklopený dvěma cyklopentadienidovými anionty.
+		\item Železo má v této sloučenině oxidační číslo +II.
+		\item Je stabilní na vzduchu, sublimuje za nízké teploty.
+		\item Poprvé byl (náhodou) připraven ve čtyřicátých letech reakcí plynného cyklopentadienu s železným potrubím.\footnote[frame]{\href{https://doi.org/10.1002/anie.201201598}{At Least 60 Years of Ferrocene}}
+	\end{itemize}
+	\begin{columns}
+		\begin{column}{.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=.35\textheight]{img/Ferrocene.png}
+			\end{figure}
+		\end{column}
+		\begin{column}{.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=.35\textheight]{img/Ferrocene_powdered.jpg}
+				\caption*{Vzorek ferrocenu.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Photo_of_Ferrocene_(powdered).JPG}{TMaster/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Pentakarbonyl železa, \ce{[Fe(CO)5]}, je oranžová až žlutá kapalina.\footnote[frame]{\href{https://doi.org/10.1021/jacs.2c01469}{Structure and Spectroscopy of Iron Pentacarbonyl, \ce{Fe(CO)5}}}
+		\item Vyrábí se reakcí čistého železa s oxidem uhelnatým za tlaku až 30~MPa a teploty 150--200~$^\circ$C.
+		\item Železo má v této sloučenině oxidační číslo 0.
+		\item Má strukturu trigonální bipyramidy.
+		\item Pozorujeme u něj \textit{Berryho pseudorotaci}.\footnote[frame]{\href{https://doi.org/10.1021/ja00159a011}{Exchange of axial and equatorial carbonyl groups in pentacoordinate metal carbonyls in the solid state.}}
+	\end{itemize}
+	\begin{figure}
+		\adjincludegraphics[width=.9\textwidth]{img/Iron-pentacarbonyl-Berry-mechanism.png}
+		\caption*{Výměna ligandů Berryho pseudorotací u pentakarbonylu železa.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Iron-pentacarbonyl-Berry-mechanism.png}{Benjah-bmm27/Commons}}}
+	\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\begin{columns}
+		\begin{column}{0.7\textwidth}
+			\vfill
+			\begin{itemize}
+				\item V oxidačním čísle VI tvoří železanový anion, \ce{FeO$_4^{2-}$}.
+				\item Vytváří světle fialové roztoky.
+				\item Má silné oxidační vlastnosti, je stabilní pouze v silně bazických roztocích.
+				\item Železany můžeme připravit oxidací železitého iontu v bazickém prostředí:
+				\item \ce{2 Fe(OH)3 + 3 NaOCl + 4 NaOH -> 2 Na2FeO4 + 3 NaCl + 5 H2O}
+				\item Z roztoku ho lze vysrážet jako barnatou sůl.
+				\item Železany jsou velmi silná oxidační činidla:
+				\item \small \ce{4 K2FeO4 + 4 H2O -> 3 O2 + 2 Fe2O3 + 8 KOH}
+			\end{itemize}
+			\vfill
+		\end{column}
+		\begin{column}{0.3\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=.9\textwidth]{img/Potassiumferrate-VI-solution.png}
+				\caption*{Roztok železanu draselného.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Potassiumferrate(VI)solution.png}{RandomExperiments/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+}
+
+\subsection{Kobalt}
+\frame{
+	\frametitle{}
+	\vfill
+	\textbf{Kobalt}
+	\begin{itemize}
+		\item Je méně reaktivní než železo.
+		\item Na vzduchu se pokrývá vrstvou oxidu, která jej chrání před další oxidací.
+		\item Zahříváním v přítomnosti kyslíku poskytuje \ce{Co3O4}, který se za vyšší teploty rozkládá na \ce{CoO}.
+		\item Reakcí s halogeny poskytuje binární halogenidy.
+		\item Nereaguje s vodíkem ani dusíkem a to ani při zahřívání.
+		\item Za vyšší teploty reaguje s borem, uhlíkem, fosforem, arsenem a sírou.
+		\item Nejvyšší oxidační číslo je IV, ale to je poměrně vzácné.
+		\item Běžné jsou sloučeniny v oxidačních stavech II a III.
+		\item Oxidační stav I a nižší se vyskytuje hlavně v organokovových sloučeninách.
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\begin{columns}
+		\begin{column}{.6\textwidth}
+			\begin{tabular}{|l|c|}
+				\hline
+				\textbf{Oxidační stav} & \textbf{Příklad} \\\hline
+				$-$1 & \ce{[Co(CO)4]-} \\\hline
+				0 & \makecell[c]{\ce{[Co(PMe3)4]}\\ \ce{[Co2(CO)8]}} \\\hline
+				1 & \ce{[Co(NCMe)5]+} \\\hline
+				2 & \makecell[c]{\ce{CoCl2}\\ \ce{[CoCl4]^{2-}}} \\\hline
+				3 & \ce{[Co(NH3)6]^{3+}} \\\hline
+				4 & \makecell[c]{\ce{[CoF6]^{2-}} \\ \ce{[Co(1-norbornyl)4]}} \\\hline
+			\end{tabular}
+		\end{column}
+		\begin{column}{.4\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=\textwidth]{img/Co-PMe3.png}
+				\adjincludegraphics[width=\textwidth]{img/Tetrakis_1-norbornyl-cobalt.png}
+			\end{figure}
+		\end{column}
+	\end{columns}
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Kobalt vytváří tři oxidy.
+		\item \textbf{Oxid kobaltnatý}, CoO, šedozelená pevná látka.
+		\item Vzniká tepelným rozkladem dusičnanu kobaltnatého nebo zahříváním práškového kobaltu na vzduchu.
+		\item Při teplotách pod 16 $^\circ$C je \textit{antiferromagnetický}.
+		\item Je součástí kobaltové modři využívané v keramice.
+		\item  \textbf{Oxid kobaltnato-kobaltitý}, \ce{Co3O4}, černá pevná látka.
+		\item Struktura se skládá z tetraedrů \ce{Co^{II}O4}, oktaedrů \ce{Co^{III}O6}. Kyslíky jsou koordinovány tetraedricky.\footnote[frame]{\href{https://doi.org/10.1016/0022-3697(64)90156-8}{The magnetic structure of \ce{Co3O4}}}
+		\item Podobně jako CoO se využívá k barvení keramiky a také v některých lithiových akumulátorech.
+		\item \textbf{Oxid kobaltitý}, \ce{Co2O3}, je také pevná černá látka.
+		\item Připravuje se oxidací kobaltnatých solí:
+		\item \ce{2 CoSO4 + 4 NaOH + NaOCl -> Co2O3 + 2 Na2SO4 + NaCl}
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\textbf{Halogenidy kobaltu}
+	\begin{itemize}
+		\item V oxidačním stavu III známe pouze fluorid kobaltitý.
+		\item \ce{CoF3} se využívá jako fluorační činidlo (\textit{Fowlerův proces}), je korozivní a má oxidační vlastnosti.
+		\item V oxidačním stavu II známe všechny binární halogenidy.
+	\end{itemize}
+	\begin{tabular}{|c|c|c|c|}
+		\hline
+		\textbf{Sloučenina} & \textbf{Barva} & T$_t$ [$^\circ$C] & T$_v$ [$^\circ$C] \\\hline
+		\ce{CoF3} & světle hnědý & 927 & - \\\hline
+		\ce{CoF2} & růžový & 1217 & 1400 \\\hline
+		\ce{CoCl2} & modrý & 726 & 1049 \\\hline
+		\ce{CoBr2} & zelený & 678 & - \\\hline
+		\ce{CoI2} & modročerný & 570 & - \\\hline
+	\end{tabular}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\textbf{Fowlerův proces}
+	\begin{itemize}
+		\item Fluorid kobaltitý je velmi dobré fluorační činidlo, využívá se k přípravě perfluorovaných alkanů:\footnote[frame]{\href{https://doi.org/10.1016/S0040-4020(02)01568-5}{Perfluoroalkanes}}
+		\item \ce{C5H12 + 24 CoF3 -> C5F12 + 12 HF + 24 CoF2}
+		\item Vznikající fluorid kobaltnatý je regenerován reakcí s fluorem:
+		\item \ce{2 CoF2 + F2 -> 2 CoF3}
+	\end{itemize}
+	\begin{figure}
+		\adjincludegraphics[height=.35\textheight]{img/CoF3.png}
+		\caption*{Fluorid kobaltitý.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Cobalt(III)_fluoride.png}{ChemicalForce/Commons}}}
+	\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Barva chloridu kobaltnatého závisí na stupni hydratace. Bezvodý je světle modrý a při hydrataci postupně přechází až na červený hexahydrát.
+		\item Toho se využívá např. v silikagelu k indikaci vlhkosti.
+	\end{itemize}
+	\begin{columns}
+		\begin{column}{.4\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=.45\textheight]{img/Cobaltous_chloride_anhydrous.jpg}
+				\caption*{Bezvodý \ce{CoCl2}.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Cobaltous_chloride_anhydrous.jpg}{W. Oelen/Commons}}}
+			\end{figure}
+		\end{column}
+
+		\begin{column}{.4\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=.45\textheight]{img/Cobaltous_chloride.jpg}
+				\caption*{\ce{CoCl2.6H2O}.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Cobaltous_chloride.jpg}{W. Oelen/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\begin{columns}
+		\begin{column}{.75\textwidth}
+			\begin{itemize}
+				\item Halogenidy kobaltu, resp. jejich solváty, stály u zrodu chemie koordinačních sloučenin.
+				\item Jejich struktura byla dlouho neznámá, o~její objasnění se zasloužil švédský chemik \emph{Alfred Werner}.
+				\item Studoval solváty chloridu kobaltitého s~amoniakem. Zjistil, že existuje řada sloučenin, s~rozdílnou barvou.
+				\item Tyto sloučeniny také poskytují rozdílná množství AgCl při reakci s~\ce{AgNO3}.
+			\end{itemize}
+		\end{column}
+		\begin{column}{.35\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=\textwidth]{img/Werner.jpg}
+				\caption*{Alfred Werner.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:(UAZ)_AB.1.1093_Werner.tif}{UZH Archives/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+}
+
+\frame{
+	\frametitle{}
+	\begin{itemize}
+		\item \ce{[Co(NH3)5Cl]Cl2 + 2 AgNO3 -> 2 AgCl v + Co(NH3)5Cl](NO3)2}
+	\end{itemize}
+	\begin{tabular}{|l|l|l|l|}
+		\hline
+		\textbf{Sloučenina} & \textbf{Barva} & \textbf{Molů AgCl} & \textbf{Komplexní sloučenina} \\\hline
+		\ce{CoCl3.4NH3} & Fialová & 1 & \ce{cis-[Co(NH3)4Cl2]Cl} \\\hline
+		\ce{CoCl3.4NH3} & Zelená & 1 & \ce{trans-[Co(NH3)4Cl2]Cl} \\\hline
+		\ce{CoCl3.5NH3} & Purpurová & 2 & \ce{[Co(NH3)5Cl]Cl2} \\\hline
+		\ce{CoCl3.6NH3} & Žlutá & 3 & \ce{[Co(NH3)6]Cl3} \\\hline
+	\end{tabular}
+
+	\begin{figure}
+		\adjincludegraphics[width=\textwidth]{img/Co-cistrans.png}
+	\end{figure}
+}
+
+\frame{
+	\frametitle{}
+	\begin{columns}
+		\begin{column}{.6\textwidth}
+			\begin{itemize}
+				\item \textit{Červená skalice}, \ce{CoSO4.7H2O}, červená pevná látka. Bezvodá je bílá, nižší hydráty jsou oranžové.
+				\item Připravuje se rozpouštěním kobaltu nebo jeho solí v kyselině sírové \\(\ce{E^0(Co/Co^{2+}) = -0,28 V}):
+				\item \ce{Co + H2SO4 -> CoSO4 + H2}
+				\item \ce{CoCO3 + H2SO4 -> CoSO4 + CO2 + H2O}
+				\item Využívá se jako elektrolyt pro galvanické pokovování.
+				\item Je toxická.
+			\end{itemize}
+		\end{column}
+		\begin{column}{.45\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=\textwidth]{img/CoSO4.jpg}
+				\caption*{Červená skalice.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:S\%C3\%ADran_kobaltnat\%C3\%BD.JPG}{Ondřej Mangl/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+}
+
+\subsection{Nikl}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Při zahřívání na vzduchu se nikl pokrývá vrstvou oxidu.
+		\item V práškovém stavu je pyroforický.
+		\item Za tepla se slučuje s borem, křemíkem, fosforem, sírou a halogeny.
+		\item Oproti jiným kovům reaguje s fluorem pomalu.
+		\item Je odolný vůči alkalickým hydroxidům, v minerálních kyselinách se pomalu rozpouští.
+		\item Vytváří sloučeniny v oxidačních číslech $-$I až IV, nejběžnějším stavem je II.
+		\item Ve sloučeninách dosahuje až koordinačního čísla 7.
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\begin{columns}
+		\begin{column}{.55\textwidth}
+			\begin{tabular}{|l|c|}
+				\hline
+				\textbf{Ox. stav} & \textbf{Příklad} \\\hline
+				$-$1 & \ce{[Ni2(CO)6]^{2-}} \\\hline
+				0 & \makecell[c]{\ce{[Ni\{P(OC6H4-2-Me)3\}]}\\ \ce{[Ni(CO)4]}} \\\hline
+				1 & \ce{[NiBr(PPh3)2]} \\\hline
+				2 & \makecell[c]{\ce{[NiCl4]^{2-}}\\ \ce{[Ni(CN)5]^{3-}}\\ \ce{[Ni(H2O)6]^{2+}}\\ \ce{[Ni(H2O)2(dapbh)]^{2+}} (k.č. 7)} \\\hline
+				3 & \makecell[c]{\ce{NiBr3(PEt3)2}\\ \ce{[NiF6]^{3-}}} \\\hline
+				4 & \ce{[NiF6]^{2-}} \\\hline
+			\end{tabular}
+		\end{column}
+		\begin{column}{.45\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=\textwidth]{img/Ni-dapbh.png}
+			\end{figure}
+		\end{column}
+	\end{columns}
+}
+
+\frame{
+	\frametitle{}
+	\begin{columns}
+		\begin{column}{.65\textwidth}
+			\vfill
+			\begin{itemize}
+				\item \textbf{Oxid nikelnatý}, NiO, je zelená pevná látka.
+				\item Krystaluje v kubické soustavě, strukturní typ NaCl.
+				\item Lze jej připravit zahříváním niklu na vzduchu, ale takto vzniká často nestechiometrický.
+				\item Nejjednodušší metodou je pyrolýza nikelnatých sloučenin, např. hydroxidu nebo halogenidů.
+				\item Využívá se při výrobě solárních článku, NiCd a NiMH akumulátorů, apod.
+			\end{itemize}
+			\vfill
+		\end{column}
+
+		\begin{column}{.35\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=1.5\textwidth,rotate=90]{img/NiO.png}
+				\caption*{Oxid nikelnatý.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Oxid_nikelnatý.PNG}{Ondřej Mangl/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+}
+
+\section{Biologie}
+\subsection{Železo}
+\frame{
+	\frametitle{}
+	\begin{columns}
+	\begin{column}{.7\textwidth}
+		\vfill
+		\begin{itemize}
+			\item Železo je asi nejdůležitějším přechodným kovem pro biologii živočichů i rostlin.
+			\item Tělo dospělého člověka obsahuje zhruba 4 g železa, z toho tři gramy připadají na \textit{hemoglobin}.
+			\item Hemoglobin je bílkovina transportující kyslík, najdeme ho v červených krvinkách.\footnote[frame]{\href{https://www.wikiskripta.eu/w/Transport_kyslíku_krví}{Transport kyslíku krví}}
+			\item Obsahuje železnatý ion ve vyskospinovém stavu komplexovaný porfyrinovým ligandem.
+			\item Po navázání kyslíku, nedojde k oxidaci na \ce{Fe^{III}}, ale ke změně stavu na nízkospinový, diamagnetický. Zároveň se na železo váže histidin.
+			\item Kromě kyslíku, transportuje hemoglobin i \ce{CO2}.
+		\end{itemize}
+		\vfill
+	\end{column}
+	\begin{column}{.35\textwidth}
+		\begin{figure}
+			\adjincludegraphics[width=\textwidth]{img/Oxygenated_vs_deoxygenated_RBC.jpg}
+			\caption*{Okysličené a neokysličené červené krvinky.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Oxygenated_vs_deoxygenated_RBC.jpg}{Rogeriopfm/Commons}}}
+		\end{figure}
+	\end{column}
+\end{columns}
+}
+
+\frame{
+	\frametitle{}
+	\begin{figure}
+		\adjincludegraphics[width=1.1\textwidth]{img/Structures_of_Hemoglobin.png}
+		\caption*{Hemoglobin s navázaným kyslíkem, oxidem uhličitým a oxidem uhelnatým.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Structures_of_Hemoglobin_forms.png}{Gladissk/Commons}}}
+	\end{figure}
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Železo je součástí i jiných bílkovin, ty často obsahují vazbu \ce{Fe-S} (tzv. FeS proteiny).
+		\item Železo je vázáno k postranním řetězcům aminokyselin \textit{cysteinu} a \textit{histidinu}.\footnote[frame]{\href{https://doi.org/10.1016/B978-0-12-378630-2.00222-X}{Iron–Sulfur Proteins}}
+		\item Tyto proteiny mají funkci transferu elektronů (oxidoreduktasy nebo transelektronasy).
+		\item Během transferu elektronů dochází ke změně oxidačního stavu železa z II na III, oba stavy jsou ve vysokospinové konfiguraci.
+	\end{itemize}
+	\begin{figure}
+		\adjincludegraphics[height=.4\textheight]{img/Cystein-histidin.png}
+	\end{figure}
+	\vfill
+}
+
+\subsection{Kobalt}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Kobalt je esenciální pro metabolismus všech živočichů.
+		\item Je složkou vitamínu B12, označovaného jako \textit{kobalamin}.
+		\item Vitamín byl objeven roku 1926 G. R. Minotem a W. P. Murphym.
+		\item Jeho hlavní funkcí je regulace syntézy DNA, ale podílí se také na syntéze mastných kyselin a produkci energie.
+		\item Bakterie v žaludku přežvýkavců dokáží zpracovat soli kobaltu na vitamín B12, proto je jeho přítomnost v půdě (v nízké koncentraci) důležitá pro zdraví pasoucích se zvířat.
+		\item Na konci 19. století bylo zjištěno, že zhoubné onemocnění ovcí a hovězího dobytka je způsobeno právě nedostatkem kobaltu a nikoliv železa, jak se dříve předpokládalo.\footnote[frame]{\href{https://doi.org/10.1152/physrev.1952.32.1.66}{Cobalt, Copper and Molybdenum in the Nutrition of Animals and Plants}}
+		\item U člověka způsobuje nedostatek vitamínu B12 chudokrevnost, únavu, zácpu, pokles váhy. Může způsobovat i neurologické změny (deprese).
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{figure}
+		\adjincludegraphics[height=.67\textheight]{img/Cobalamin.png}
+		\caption*{Struktura kobalaminu.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Cobalamin_skeletal.svg}{Hbf878/Commons}}}
+	\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{columns}
+		\begin{column}{.6\textwidth}
+			\begin{itemize}
+				\item Hlavním zdrojem vitamínu B12 jsou živočišné produkty: maso, vejce, sýry.
+				\item Doporučená denní dávka je 2--3~$\mu$g denně.
+				\item Kobalamin je oranžová, diamagnetická látka.
+				\item Koordinační sféra je obdobná, jako u železa v hemu.
+				\item Kobalt je koordinován ke čtyřem dusíkům v rovině korrinového kruhu, pátý dusík je nad rovinou kruhu.
+				\item Šestá pozice je obsazena uhlíkovým atomem z ligandu R.
+			\end{itemize}
+		\end{column}
+		\begin{column}{.4\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=.63\textheight]{img/B12_1000mcg.jpg}
+				\caption*{Vialka s vitamínem B12.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:B12_1000mcg_vial_white_background.jpg}{Wesalius/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\subsection{Nikl}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Oproti železu a kobaltu je biologický význam niklu výrazně nižší.
+		\item {[NiFe]} hydrogenáza je enzym katalyzující reverzibilní přeměnu molekulárního vodíku v některých prokaryotních organismech:\footnote[frame]{\href{https://doi.org/10.1039/C3RA22668A}{Fundamentals and electrochemical applications of [Ni–Fe]-uptake hydrogenases}}
+		\item \ce{H2 <=> 2 H+ + 2 e-}
+		\item Struktura enzymu obsahuje aktivní místo tvořené ionty Fe a Ni vázanými přes sulfidické můstky.
+		\item Železo je stabilně v oxidačním stavu II, redoxních dějů se účastní nikl.
+	\end{itemize}
+	\begin{figure}
+		\adjincludegraphics[height=.3\textheight]{img/Nickel_Iron_Hydrogenase_Active_Site.png}
+		\caption*{Aktivní místa NiFe hydrogenasy.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Nickel_Iron_Hydrogenase_Active_Site.png}{CHEM8240edpt/Commons}}}
+	\end{figure}
+	\vfill
+}
+
+\input{../Last}
+
+\end{document}

@@ -1,0 +1,1216 @@
+\documentclass[hyperref=unicode,presentation,10pt]{beamer}
+
+\usepackage[absolute,overlay]{textpos}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{adjustbox}
+\usepackage[version=4]{mhchem}
+\usepackage{chemfig}
+\usepackage{caption}
+\usepackage{makecell}
+
+%dělení slov
+\usepackage{ragged2e}
+\let\raggedright=\RaggedRight
+%konec dělení slov
+
+\addtobeamertemplate{frametitle}{
+	\let\insertframetitle\insertsectionhead}{}
+\addtobeamertemplate{frametitle}{
+	\let\insertframesubtitle\insertsubsectionhead}{}
+
+\makeatletter
+\CheckCommand*\beamer@checkframetitle{\@ifnextchar\bgroup\beamer@inlineframetitle{}}
+\renewcommand*\beamer@checkframetitle{\global\let\beamer@frametitle\relax\@ifnextchar\bgroup\beamer@inlineframetitle{}}
+\makeatother
+\setbeamercolor{section in toc}{fg=red}
+\setbeamertemplate{section in toc shaded}[default][100]
+
+\usepackage{fontspec}
+\usepackage{unicode-math}
+
+\usepackage{polyglossia}
+\setdefaultlanguage{czech}
+
+\def\uv#1{„#1“}
+
+\mode<presentation>{\usetheme{default}}
+\usecolortheme{crane}
+
+\setbeamertemplate{footline}[frame number]
+
+\title[Crisis]
+{C2062 -- Anorganická chemie II}
+
+\subtitle{Chrom, molybden, wolfram a seaborgium}
+\author{Zdeněk Moravec, hugo@chemi.muni.cz \\ \adjincludegraphics[height=60mm]{img/IUPAC_PSP.jpg}}
+\date{}
+
+\begin{document}
+
+\begin{frame}
+	\titlepage
+\end{frame}
+
+\section{Úvod}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{tabular}{|l|l|l|l|}
+	\hline
+	 & \textit{Chrom} & \textit{Molybden} & \textit{Wolfram} \\\hline
+	 El. k. & 3d$^{5}$ 4s$^{1}$ & 4d$^{5}$ 5s$^{1}$ & 4f$^{14}$ 5d$^{4}$ 6s$^{2}$ \\\hline
+	 T$_v$ [$^\circ$C] & 2671 & 4639 & 5930 \\\hline
+	 T$_t$ [$^\circ$C] & 1907 & 2623 & 3422 \\\hline
+	 Objev & 1794 & 1778 & 1802 \\\hline
+	 & stříbrný\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Chromium_crystals_and_1cm3_cube.jpg}{Alchemist-hp/Commons}}
+	 & šedý\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Molybdenum_crystaline_fragment_and_1cm3_cube.jpg}{Alchemist-hp/Commons}}
+	 & šedobílý\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Wolfram_evaporated_crystals_and_1cm3_cube.jpg}{Alchemist-hp/Commons}}  \\
+	 & \begin{minipage}{.25\textwidth}
+	 	\adjincludegraphics[width=\linewidth]{img/Chromium.jpg}
+	 \end{minipage}
+	 	& \begin{minipage}{.25\textwidth}
+	 		\adjincludegraphics[width=\linewidth]{img/Molybdenum.jpg}
+	 	\end{minipage} & \begin{minipage}{.25\textwidth}
+	 	\adjincludegraphics[width=\linewidth]{img/Tungsten.jpg} \end{minipage} \\\hline
+	\end{tabular}
+	\vfill
+}
+
+\section{Seaborgium}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{columns}
+		\begin{column}{.72\textwidth}
+			\begin{itemize}
+				\item Bylo pojmenován po americkém chemikovi Glennu T. Seaborgovi,\footnote[frame]{\href{https://www.atomicheritage.org/profile/glenn-seaborg}{Glenn Seaborg}} který získal Nobelovu cenu za objev plutonia.\footnote[frame]{\href{https://www.nobelprize.org/prizes/chemistry/1951/summary/}{Nobelova cena za chemii 1951}}
+				\item Název byl schválen roku 1997.\footnote[frame]{\href{https://doi.org/10.1351/pac199769122471}{Names and symbols of transfermium elements (IUPAC Recommendations 1997)}}
+				\item Známe 12 radioizotopů a dva jaderné izomery. Nejstabilnějším izotopem je \ce{^{269}Sg} s poločasem rozpadu 14~minut.
+				\item Tento izotop je součástí rozpadové řady flerovia.
+				\item Izotop \ce{^{265}Sg} (8,9~s) a izomer \ce{^{265m}Sg} (16,2~s) se využívají pro studium chemie seaborgia:
+				\item \ce{^{248}Cm + ^{22}Ne -> ^{265}Sg + 5 n}
+			\end{itemize}
+		\end{column}
+		\begin{column}{.3\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=\textwidth]{img/Seaborg_in_lab_-_restoration.jpg}
+				\caption*{Glenn Seaborg.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Seaborg_in_lab_-_restoration.jpg}{Berkeley Laboratory/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Chemické vlastnosti seaborgia nejsou příliš prozkoumány.
+		\item Za vyšší teploty reaguje s kyslíkem a chlorovodíkem za vzniku oxychloridu:
+		\item \ce{Sg + O2 + 2 HCl -> SgO2Cl2 + H2}
+		\item Reakcí s kyslíkem poskytuje oxid:
+		\item \ce{2 Sg + 3 O2 -> 2 SgO3}
+		\item V přítomnosti vodní páry vzniká oxid-hydroxid:
+		\item \ce{SgO3 + H2O -> SgO2(OH)2}
+		\item V roce 2014 se povedlo připravit hexakarbonyl \ce{[Sg(CO)6]}.\footnote[frame]{\href{https://doi.org/10.1126/science.1255720}{Synthesis and detection of a seaborgium carbonyl complex}}
+		\item \ce{Sg + 6 CO -> [Sg(CO)6]}
+	\end{itemize}
+	\vfill
+}
+
+\section{Chemické a fyzikální vlastnosti}
+\frame{
+	\frametitle{}
+	\begin{columns}
+		\begin{column}{.7\textwidth}
+			\vfill
+			\begin{itemize}
+				\item Všechny tři prvky mají více stabilních izotopů, to omezuje maximální přesnost stanovení atomové hmotnosti.
+				\item Byly objeveny na konci 18. století.
+				\item Krystalují v tělesně centrované kubické mřížce (BCC).
+				\item Jsou stříbrobílé, lesklé. V čistém stavu jsou poměrně měkké.
+				\item Chrom je jediný prvek, který je za laboratorní teploty \textit{antiferomagnetický}.\footnote[frame]{\href{https://doi.org/10.1103/RevModPhys.60.209}{Spin-density-wave antiferromagnetism in chromium}}
+				\item Wolfram má nejvyšší teplotu tání z kovů.
+			\end{itemize}
+			\vfill
+		\end{column}
+		\begin{column}{.35\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=.4\textheight]{img/Cubic-body-centered.png}
+				\caption*{BCC.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Cubic-body-centered.svg}{Daniel Mayer, DrBob/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{columns}
+	\begin{column}{.7\textwidth}
+		\begin{itemize}
+			\item Chrom je antiferromagnetický, tzn. že má magnetické domény orientované opačně, navzájem se jejich vliv ruší.
+			\item Toto uspořádání je zpravidla stabilní jen za nízkých teplot. Po dosažení tzv. \textit{Néelovy teploty} dojde k přechodu na paramagnetické uspořádání.
+			\item U chromu je hodnota Néelovy teploty 38~$^\circ$C.\footnote[frame]{\href{https://doi.org/10.1103/RevModPhys.60.209}{Spin-density-wave antiferromagnetism in chromium}}
+			\item Néelova teplota je pojmenována podle francouzského fyzika Louise Néela,\footnote[frame]{\href{https://doi.org/10.1038/35053274}{Louis Néel (1904–2000)}} objevitele antiferromagnetismu, za který získal Nobelovu cenu za fyziku v roce 1970.\footnote[frame]{\href{https://www.nobelprize.org/prizes/physics/1970/summary/}{Nobelova cena za fyziku 1970}}
+		\end{itemize}
+	\end{column}
+	\begin{column}{.3\textwidth}
+		\begin{figure}
+			\adjincludegraphics[width=.8\textwidth]{img/Louis_Néel_1970b.jpg}
+			\caption*{Louis Néel.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Louis_Néel_1970b.jpg}{Farabola/Commons}}}
+		\end{figure}
+		\begin{figure}
+			\adjincludegraphics[width=\textwidth]{img/Antiferromagnetic_ordering.png}
+		\end{figure}
+	\end{column}
+	\end{columns}
+
+	\vfill
+}
+
+\section{Výskyt a získávání prvků}
+\subsection{Chrom}
+\frame{
+	\frametitle{}
+	\begin{columns}
+		\begin{column}{.72\textwidth}
+			\vfill
+			\begin{itemize}
+				\item Zastoupení chromu v zemské kůře je srovnatelné s vanadem a chlorem, pohybuje se kolem 122~ppm. Ostatní dva prvky jsou podstatně vzácnější.
+				\item Známe téměř 300 minerálů obsahujících chrom.\footnote[frame]{\href{https://www.mindat.org/element/Chromium}{The mineralogy of Chromium}}
+				\item Hlavní rudou chromu je chromit, \ce{Fe^{2+}Cr$^{3+}_2$O4}.
+				\item Další důležité minerály jsou magnesiochromit \ce{MgCr2O4} a uvarovit \ce{Ca3Cr2(SiO4)3}.
+				\item Hlavními producenty chromu jsou Jižní Afrika, Kazachstán, Turecko a Indie.
+			\end{itemize}
+			\vfill
+		\end{column}
+		\begin{column}{.3\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=.3\textheight]{img/Chromium_-_world_production_trend.png}
+				\caption*{Vývoj výroby chromu.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Chromium_-_world_production_trend.svg}{U.S. Geological Survey/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\textbf{Chromit}
+	\begin{itemize}
+		\item Kubický minerál, \ce{FeCr2O4}, černá barva.\footnote[frame]{\href{http://mineraly.sci.muni.cz/oxidy/chromit.html}{Chromit}}
+		\item Má strukturu spinelu.
+	\end{itemize}
+	\begin{columns}
+	\begin{column}{.5\textwidth}
+		\begin{figure}
+		\adjincludegraphics[height=.4\textheight]{img/Chromite_-_USGS_Mineral_Specimens_296.jpg}
+		\caption*{Chromit.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Chromite_-_USGS_Mineral_Specimens_296.jpg}{Andrew Silver/Commons}}}
+	\end{figure}
+	\end{column}
+	\begin{column}{.5\textwidth}
+	\begin{figure}
+		\adjincludegraphics[height=.4\textheight]{img/Ben_Bow_chromite_mine_1942a.jpg}
+		\caption*{Chromitový důl v Montaně.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Ben_Bow_chromite_mine_1942a.jpg}{Russell Lee/Commons}}}
+	\end{figure}
+	\end{column}
+	\end{columns}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\textbf{Magnesiochromit}
+	\begin{itemize}
+		\item Kubický minerál, \ce{MgCr2O4}, černá až tmavě červená barva.\footnote[frame]{\href{https://www.mindat.org/min-2493.html}{Magnesiochromite}}
+		\item Má strukturu spinelu.
+	\end{itemize}
+	\begin{figure}
+		\adjincludegraphics[height=.4\textheight]{img/Magnesiochromite-474053.jpg}
+		\caption*{Magnesiochromit.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Magnesiochromite-474053.jpg}{John Sobolewski/Commons}}}
+	\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\textbf{Uvarovit}
+	\begin{itemize}
+		\item Kubický minerál, \ce{FeCr2O4}, smaragdově zelená barva je způsobená přítomností chromu.\footnote[frame]{\href{http://mineraly.sci.muni.cz/nesosilikaty/uvarovit.html}{Uvarovit}}
+		\item Má strukturu granátu.
+		\item Je pojmenován po hraběti Sergeyi Semjonovičovi Uvarovi, ruskému učenci a amatérském mineralogovi.
+	\end{itemize}
+	\begin{columns}
+		\begin{column}{.7\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=.3\textheight]{img/Amesite,_uvarovite_1100FS.2015.jpg}
+				\caption*{Magnesiochromit.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Amesite,_uvarovite_1100FS.2015.jpg}{Géry PARENT/Commons}}}
+			\end{figure}
+		\end{column}
+		\begin{column}{.3\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=.3\textheight]{img/Uvarov_the_elder.jpg}
+				\caption*{Sergey Uvarov.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Uvarov_the_elder.jpg}{Orest Kiprenskij/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\textbf{Krokoit}
+	\begin{itemize}
+		\item Monoklinický minerál, \ce{PbCrO4}, červená až žlutá barva.\footnote[frame]{\href{http://mineraly.sci.muni.cz/sulfaty/krokoit.html}{Krokoit}}
+		\item Patří do mineralogické skupiny chromátů.\footnote[frame]{\href{http://mineralogie.sci.muni.cz/kap_7_6_sulfaty/kap_7_6_sulfaty.htm\#7.6.3.}{Chromáty}}
+	\end{itemize}
+	\begin{columns}
+		\begin{column}{.6\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=.4\textheight]{img/Crocoite_Dundas2p.jpg}
+				\caption*{Krokoit, Austrálie.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Croco\%C3\%AFte_Dundas2p.jpg}{Didier Descouens/Commons}}}
+			\end{figure}
+		\end{column}
+		\begin{column}{.4\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=.4\textheight]{img/Crocoite-218845.jpg}
+				\caption*{Krokoit, Austrálie.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Crocoite-218845.jpg}{Rock Currier/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Chrom se vyrábí buď v kovové formě nebo přímo jako slitina \textit{ferrochrom}.\footnote[frame]{\href{https://www.sciencedirect.com/topics/materials-science/ferrochrome}{Ferrochrome -- ScienceDirect}}
+		\item Kovový chrom se vyrábí redukcí oxidu chromitého křemíkem nebo hliníkem:\footnote[frame]{\href{https://youtu.be/nEzH_499mTo}{Make Thermite from Chromium Oxide}}
+	\end{itemize}
+	\begin{align*}
+		\ce{2 Cr2O3 + 3 Si &-> 4 Cr + 3 SiO2}\\
+		\ce{Cr2O3 + 2 Al &-> 2 Cr + Al2O3}
+	\end{align*}
+	\begin{itemize}
+		\item Oxid chromitý se získává oxidací taveniny chromitu s alkalickým hydroxidem nebo uhličitanem a následnou redukcí uhlíkem:
+	\end{itemize}
+	\begin{align*}
+	\ce{4 FeCr2O4 + 8 Na2CO3 + 7 O2 &-> 8 Na2CrO4 + 2 Fe2O3 + 8 CO2}\\
+	\ce{2 Na2CrO4 + H2SO4 &-> Na2Cr2O7 + Na2SO4 + H2O}\\
+	\ce{Na2Cr2O7 + 2 C &-> Cr2O3 + Na2CO3 + CO}
+	\end{align*}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Redukcí chromitu (\ce{FeCr2O4}) uhlíkem získáme slitinu ferrochrom (FeCr).
+		\item Zpravidla obsahuje 50--70~\% chromu.
+		\item Redukce se provádí buď v elektrickém oblouku nebo elektrické peci, vyžaduje velké množství energie.
+		\item Většina vyrobeného ferrochromu se využívá pro výrobu nerezové oceli, která obsahuje přibližně 18~\% chromu.\footnote[frame]{\href{https://www.fasteners-cz.cz/druhy-nerezove-oceli-priklady-jejiho-uziti}{Druhy nerezové oceli a příklady jejího užití}}
+	\end{itemize}
+	\begin{figure}
+		\adjincludegraphics[height=.35\textheight]{img/Ferrochrome.jpg}
+		\caption*{Ferrochrom.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Ferrochrome.JPG}{FocalPoint/Commons}}}
+	\end{figure}
+	\vfill
+}
+
+\subsection{Molybden}
+\frame{
+	\frametitle{}
+	\begin{columns}
+		\begin{column}{.6\textwidth}
+			\vfill
+			\begin{itemize}
+				\item Zastoupení molybdenu v zemské kůře je asi 1,5~ppm.
+				\item Známe téměř padesát minerálů obsahujících molybden.
+				\item Průmyslově nejdůležitějším minerálem je molybdenit, \ce{MoS2}.
+				\item Největšími producenty jsou Čína, USA a Chile.
+				\item Kromě molybdenitu se získává molybden jako vedlejší produkt výroby mědi a wolframu.
+			\end{itemize}
+			\vfill
+		\end{column}
+		\begin{column}{.4\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=.4\textheight]{img/Molybdenum_world_production.png}
+				\caption*{Objem celosvětové výroby molybdenu.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Molybdenum_world_production.svg}{Con-struct/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Nejstarším molybdenitovým dolem byl Knaben v jižním Norsku.\footnote[frame]{\href{https://www.mindat.org/loc-48314.html}{Knaben 1 Mine}}
+		\item Otevřen byl roku 1885 a provoz byl ukončen roku 1973.
+		\item V letech 1885--1939 zde bylo odhadem vytěženo asi 570 tun molybdenitu.
+		\item Důl byl znovuotevřen v roce 2007 a nyní produkuje okolo 100 tun ročně.
+	\end{itemize}
+	\begin{figure}
+		\adjincludegraphics[height=.4\textheight]{img/Knaben_gruvor.jpg}
+		\caption*{Důl Knaben.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Knaben_gruvor.jpg}{91/Commons}}}
+	\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\textbf{Molybdenit}
+	\begin{itemize}
+		\item Hexagonální minerál, \ce{MoS2}, modravě šedá barva.\footnote[frame]{\href{https://mineraly.sci.muni.cz/sulfidy/molybdenit.html}{Molybdenit}}
+		\item Využívá se v ocelářském a chemickém průmyslu.
+		\item Dříve se krystaly molybdenitu (nebo \ce{FeS2}, \ce{PbCO3}) využívaly ke konstrukci hrotových diod (cat's whisker detectors) určených k demodulaci rádiového signálu.\footnote[frame]{\href{https://www.electronics-notes.com/articles/history/radio-receivers/cats-whisker-crystal-detector.php}{Crystal Detector: Cat's Whisker Radio Detector}}
+	\end{itemize}
+	\begin{columns}
+		\begin{column}{.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=.3\textheight]{img/Molybdenite.jpg}
+				\caption*{Molybdenit.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Molybdenite.jpg}{Svdmolen/Commons}}}
+			\end{figure}
+		\end{column}
+		\begin{column}{.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=.3\textheight]{img/Molybdenite_quebec2.jpg}
+				\caption*{Molybdenit na křemeni.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Molybdenite_quebec2.jpg}{Didier Descouens/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{figure}
+		\adjincludegraphics[height=.65\textheight]{img/Kristallradio.jpg}
+		\caption*{Hrotová dioda z rádia užívaná před 2. světovou válkou.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Kristallradio_(3).jpg}{Holger.Ellgaard/Commons}}}
+	\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\textbf{Wulfenit}
+	\begin{itemize}
+		\item Tetragonální minerál, \ce{PbMoO4}, oranžová až žlutá barva, ale může být i šedý, hnědý, zelený, příp. černý.\footnote[frame]{\href{https://www.mindat.org/min-4322.html}{Wulfenit}}
+		\item Variabilita barev pochází od příměsí, čistý wulfenit je bezbarvý. Žlutá až červená barva je způsobená přítomností chromu.
+	\end{itemize}
+	\begin{columns}
+		\begin{column}{.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=.35\textheight]{img/Calcite-Wulfenite-tcw15a.jpg}
+				\caption*{Wulfenit na kalcitu.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Calcite-Wulfenite-tcw15a.jpg}{Robert M. Lavinsky/Commons}}}
+			\end{figure}
+		\end{column}
+		\begin{column}{.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=.35\textheight]{img/Maroc_Wulfénite.jpg}
+				\caption*{Wulfenit, Maroko.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Maroc_Wulfénite.jpg}{Didier Descouens/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\textbf{Powellit}
+	\begin{itemize}
+		\item Tetragonální minerál, \ce{CaMoO4}, žlutá až zelená barva.\footnote[frame]{\href{https://www.mindat.org/min-3275.html}{Powellite}}
+		\item Může také obsahovat wolfram.
+		\item Poprvé byl popsán roku 1891.
+	\end{itemize}
+	\begin{columns}
+		\begin{column}{.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=.35\textheight]{img/Powellite-23107.jpg}
+				\caption*{Powelit, Chile.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Powellite-k336b.jpg}{Robert M. Lavinsky/Commons}}}
+			\end{figure}
+		\end{column}
+		\begin{column}{.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=.35\textheight]{img/Powellite-k336b.jpg}
+				\caption*{Powelit, Indie.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Powellite-23107.jpg}{Robert M. Lavinsky/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Molybden se získává buď přímo z molybdenitu nebo jako vedlejší produkt při výrobě mědi.
+		\item Sulfid se nejprve přečistí flotací a poté se praží na vzduchu:
+		\item \ce{2 MoS2 + 7 O2 ->[700 $^\circ$C] 2 MoO3 + 4 SO2}
+		\item Oxid se extrahuje vodným roztokem amoniaku, tím se odstraní část mědi a molybden přejde na molybdenan:
+		\item \ce{MoO3 + 2 NH3 + H2O -> (NH4)2MoO4}
+		\item Zbytek mědi je vysrážen sulfanem. Molybdenan přejde, v závislosti na podmínkách, na dimolybdenan (\ce{(NH4)2Mo2O7}) nebo heptamolybdenan (\ce{(NH4)6Mo7O24}).
+		\item Kalcinací získáme oxid molybdenový, který je možné přečistit sublimací při teplotě 1100~$^\circ$C.
+		\item \ce{(NH4)2Mo2O7 -> 2 MoO3 + 2 NH3 + H2O}
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Oxid molybdenový lze využít přímo nebo se aluminotermicky převádí na \textit{ferromolybden}.\footnote[frame]{\href{https://www.azom.com/article.aspx?ArticleID=9884}{Ferromolybdenum - Properties, Applications}}
+		\item \ce{MoO3 + 2 Al + Fe -> MoFe + Al2O3}
+		\item Ten obsahuje 60--75~\% molybdenu a využívá se dále na výrobu korozivzdorných nožů, rychlořezných ocelí a také pancířů (HSLA oceli -- High-Strength Low-Alloy Steel -- Vysokopevnostní nízkolegovaná ocel).
+		\item Kovový molybden získáme redukcí oxidu pomocí vodíku:
+		\item \ce{MoO3 + 3 H2 -> Mo + 3 H2O}
+	\end{itemize}
+	\vfill
+}
+
+\subsection{Wolfram}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Zastoupení wolframu v zemské kůře je srovnatelné s molybdenem, pohybuje se kolem 1,2~ppm.
+		\item Je popsáno 36 minerálů obsahujících wolfram.\footnote[frame]{\href{https://www.mindat.org/element/Tungsten}{The mineralogy of Tungsten}}
+		\item Nejvýznamnějšími zdroji jsou wolframit a scheelit, ostatní minerály se nenacházejí ve významnějších množstvích.
+		\item Hlavní naleziště jsou v Číně, USA, Jižní Koreji a na území bývalého SSSR.
+	\end{itemize}
+	\begin{figure}
+		\adjincludegraphics[height=.3\textheight]{img/Arc_W.jpg}
+		\caption*{Wolframová elektroda.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Arc_W.jpg}{2x910/Commons}}}
+	\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\textbf{Wolframit}
+	\begin{itemize}
+		\item Monoklinický minerál, \ce{(Fe,Mn)WO4}, šedá až hnědočerná barva.\footnote[frame]{\href{http://mineraly.sci.muni.cz/oxidy/wolframit.html}{Wolframit}}
+		\item Hlavní zdroj wolframu.\footnote[frame]{\href{https://www.mindat.org/min-4305.html}{Wolframite}}
+	\end{itemize}
+	\begin{columns}
+		\begin{column}{.4\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=.4\textheight]{img/wolframite.jpg}
+				\caption*{Wolframit.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Wolframite.jpeg}{Eurico Zimbres/Commons}}}
+			\end{figure}
+		\end{column}
+		\begin{column}{.6\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=.4\textheight]{img/wolframite2.jpg}
+				\caption*{Wolframit, Horní Slavkov.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:IMGP2021437_(50657218362).jpg}{Jan Helebrant/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\textbf{Scheelit}
+	\begin{itemize}
+		\item Tetragonální minerál, \ce{CaWO4}, proměnlivá barva.\footnote[frame]{\href{https://www.mindat.org/min-3560.html}{Scheelite}}
+		\item Syntetické scheelity se využívají jako scintilátory a aktivní prostředí pro pevnolátkové lasery.\footnote[frame]{\href{https://doi.org/10.1039/D0CE01538E}{Investigation of Yb:CaWO4 as a potential new self-Raman laser crystal}}
+	\end{itemize}
+	\begin{columns}
+		\begin{column}{.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=.4\textheight]{img/Scheelite.jpg}
+				\caption*{Scheelit a fluorit.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Fluorite-Scheelite-235544.jpg}{Robert M. Lavinsky/Commons}}}
+			\end{figure}
+		\end{column}
+		\begin{column}{.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=.4\textheight]{img/Fluorite-Scheelite-cflo37a.jpg}\caption*{Scheelit na muskovitu.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Scheelite_MHNT.MIN.2004.0.88_(p).jpg}{Didier Descouens/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Výchozí surovinou pro kovový wolfram je hydratovaný oxid wolframový (\ce{WO3.H2O} nebo \ce{WO3.1/2H2O}), který se označuje jako \textit{wolframová kyselina}.
+		\item Připravuje se buď tavením wolframitu s NaOH a loužením taveniny vodou a kyselinou nebo reakcí scheelitu s kyselinou chlorovodíkovou.
+		\item Kyselina wolframová se následně praží, čímž získáme \ce{WO3}.
+		\item Redukcí vodíkem nebo uhlíkem získáme práškový wolfram.
+		\item Vzhledem k vysoké teplotě tání není ekonomické vyrábět wolframové ingoty, proto se wolfram spéká (sintruje) a lisuje s malým množstvím niklu nebo jiného kovu.
+	\end{itemize}
+	\vfill
+}
+
+\section{Využití}
+\subsection{Chrom}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Nejvíc chromu se využívá ve slitinách a povrchových úpravách.
+		\item \textit{Chromování} je elektrolytický proces, při kterém se vytvoří ochranná vrstva chromu na povrchu kovového předmětu.
+		\item Kromě vyšší odolnosti vůči korozi a vyšší pevnosti má chromová vrstva i dekorativní účel (např. u veteránů).\footnote[frame]{\href{https://www.tradeuniquecars.com.au/features/1109/chrome-plating-feature}{Chrome plating feature}}
+		\item Postupů chromování je mnoho, vychází se buď z šestimocného chromu (\ce{CrO3}) nebo trojmocného (\ce{CrCl3}, \ce{Cr2(SO4)3}).
+	\end{itemize}
+	\begin{figure}
+		\adjincludegraphics[height=.3\textheight]{img/Motorcycle_Reflections.jpg}
+		\caption*{Chromování na motocyklu.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Motorcycle_Reflections_bw_edit.jpg}{Atoma/Commons}}}
+	\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item \textit{Nerezové oceli} jsou skupinou ocelí, obsahujících nejméně 11~\% chromu.
+		\item Korozivzdornost lze zvýšit:\footnote[frame]{\href{https://www.worldstainless.org/Files/issf/non-image-files/PDF/TheStainlessSteelFamily.pdf}{The Stainless Steel Family}}
+		\begin{itemize}
+			\item Zvýšením obsahu chromu nad 11~\%.
+			\item Přídavkem minimálně 8~\% niklu.
+			\item Přídavkem molybdenu.
+		\end{itemize}
+	\item Nerezová ocel se využívá v architektuře, medicíně, chemickém a petrochemickém průmyslu, vodním potrubí, automobilovém průmyslu, atd.
+	\end{itemize}
+	\begin{figure}
+		\adjincludegraphics[height=.28\textheight]{img/ChamberWindow.jpg}
+		\caption*{Vakuová aparatura z nerezové oceli.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:ChamberWindow.JPG}{Eric Magnan/Commons}}}
+	\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\begin{columns}
+		\begin{column}{.7\textwidth}
+			\vfill
+			\begin{itemize}
+				\item Korund dopovaný chromem má rudou barvu, označuje se jako \textit{rubín}.
+				\item Využívá se jako aktivní prostředí pro pevnolátkové lasery.\footnote[frame]{\href{https://doi.org/10.1038/187493a0}{Stimulated Optical Radiation in Ruby}}
+				\item Toxicity sloučenin \ce{Cr^{VI}} se využívá při konzervaci dřeva a ochraně před termity a houbami.
+				\item Oxid chromitý se dříve využíval ve vysokoteplotních aplikacích, např. v pecích, formách pro vypalování, apod. Vzhledem k možnosti vzniku toxických \ce{Cr^{VI}} sloučenin se od tohoto využití upouští.
+			\end{itemize}
+			\vfill
+		\end{column}
+		\begin{column}{.35\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=\textwidth]{img/Corundum-215330.jpg}
+				\caption*{Rubín.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Corundum-215330.jpg}{Robert M. Lavinsky/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Sloučeniny chromu nacházejí využití i v katalýze, asi nejpoužívanější je \textit{Phillipsův katalyzátor} pro výrobu PE.\footnote[frame]{\href{http://www.petroleum.cz/vyrobky/hdpe.aspx}{Vysokohustotní polyethylen (HDPE)}}
+		\item Jedná se o oxid chromový immobilizovaný na povrchu silikagelu.
+		\item Aktivní látkou je ester kyseliny chromové.
+		\item \ce{n C2H4 -> [-CH2-CH2-]_n}
+	\end{itemize}
+	\begin{figure}
+		\adjincludegraphics[height=.4\textheight]{img/PhillipsCatIdealized.png}
+	\end{figure}
+	\vfill
+}
+
+\subsection{Molybden}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Více než 80~\% molybdenu se využívá v různých ocelích.\footnote[frame]{\href{http://metalpedia.asianmetal.com/metal/molybdenum/application.shtml}{Molybdenum: applications}}
+		\item Molybden má velmi dobrou teplotní odolnost a malou teplotní roztažnost, což rozšiřuje aplikační možnosti, tyto slitiny lze využívat pro konstrukci vojenských pancéřování, součástí letadel, elektrických kontaktů, motorů, atd.
+		\item Molybdenové oceli mají vysokou odolnost vůči korozi, používají s v rychlořezných a dalších náročných aplikacích.
+		\item Kovový molybden se využívá jako katalyzátor pro chemiluminiscenční detekci \ce{NO_x}:\footnote[frame]{\href{https://doi.org/10.1023/A:1010730821844}{Monitoring of Atmospheric Behaviour of NOx from Vehicular Traffic}}
+		\item \ce{3 NO2 + Mo ->[320 $^\circ$C] 3 NO + MoO3}
+		\item \ce{NO + O3 -> NO$_2^*$ + O2}
+		\item \ce{NO$_2^*$ -> NO2 + h$\nu$}
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{columns}
+		\begin{column}{.7\textwidth}
+		\begin{itemize}
+		\item Molybdenové anody se využívají jako nízkonapěťové zdroje RTG záření např. pro mammografii.\footnote[frame]{\href{https://radiopaedia.org/articles/anode-x-ray-tube}{Anode (x-ray tube)}}
+		\item Sulfid molybdeničitý, \ce{MoS2}, se využívá jako pevný lubrikant.
+		\item Směsné oxidy molybdenu se využívají jako katalyzátory v organické syntéze.\footnote[frame]{\href{https://doi.org/10.1016/j.jcat.2011.09.012}{Surface chemistry of phase-pure M1 MoVTeNb oxide during operation in selective oxidation of propane to acrylic acid}}
+		\item Kyselina dodekamolybdáto-fosforečná, \ce{H3PMo12O40}, se využívá k~barvení skvrn v~TLC, váže se na fenoly, uhlovodíkové vosky, alkaloidy a~steroidy.\footnote[frame]{\href{https://www.chemistry.mcmaster.ca/adronov/resources/Stains_for_Developing_TLC_Plates.pdf}{Stains for Developing TLC Plates}}
+	\end{itemize}
+	\end{column}
+	\begin{column}{.3\textwidth}
+		\begin{figure}
+			\adjincludegraphics[width=.9\textwidth]{img/TLC_-_isomers.jpg}
+		\end{figure}
+	\end{column}
+	\end{columns}
+	\vfill
+}
+
+\subsection{Wolfram}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Zhruba polovina produkce wolframu se využívá pro výrobu karbidu wolframu, WC.
+		\item Ten je součástí slinutých karbidů pro výrobu obráběcích a tvářecích nástrojů a dalších mechanicky a tepelně namáhaných dílů.
+		\item Vyrábějí se práškovou metalurgií.
+		\item WIDIA -- WC-Co -- karbid wolframu s kobaltem.
+	\end{itemize}
+	\begin{columns}
+	\begin{column}{.5\textwidth}
+	\begin{figure}
+		\adjincludegraphics[height=.28\textheight]{img/Quadro40.jpg}
+		\caption*{Vrták z Wc-Co.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Quadro40.JPG}{Horst/Commons}}}
+	\end{figure}
+	\end{column}
+		\begin{column}{.5\textwidth}
+		\begin{figure}
+			\adjincludegraphics[height=.28\textheight]{img/Inserti_widia.jpg}
+			\caption*{Pilový kotouč WIDIA.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Inserti_widia.jpg}{Basilicofresco/Commons}}}
+		\end{figure}
+	\end{column}
+	\end{columns}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{columns}
+	\begin{column}{.8\textwidth}
+	\begin{itemize}
+		\item Díky vysoké hustotě může nahradit ochuzený uran v podkaliberních střelách.
+		\item Tyto střely neobsahují explozivní nálož, ale slouží k proražení objektu využitím kinetické energie projektilu.
+		\item \ce{E_k = 1/2 mv^2}
+		\item Aby bylo dosaženo maximální kinetické energie je nutné, aby měl projektil vysokou hmotnost a rychlost.
+		\item Pro maximalizaci průraznosti projektilu je jeho tvar podobný dlouhému hrotu.
+		\item Délka projektilu určuje maximální hloubku penetrace.
+	\end{itemize}
+	\end{column}
+	\begin{column}{.2\textwidth}
+	\begin{figure}
+		\adjincludegraphics[height=.6\textheight]{img/APFSDS-T-01.jpg}
+		\caption*{Podkaliberní střela.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:APFSDS-T-01.jpg}{Spike78/Commons}}}
+	\end{figure}
+	\end{column}
+	\end{columns}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Vysoké teplotní odolnosti se využívá ve vláknech žárovek, kde se wolfram používá už od roku 1908.
+		\item Wolframová topná tělesa se využívají v pecích do velmi vysokých teplot (až 2800~$^\circ$C).
+	\end{itemize}
+	\begin{figure}
+		\adjincludegraphics[height=.5\textheight]{img/Electric_bulb_filament.jpg}
+		\caption*{Wolframové vlákno.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Electric_bulb_filament.jpg}{Arnoldius/Commons}}}
+	\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{columns}
+		\begin{column}{0.8\textwidth}
+			\begin{itemize}
+				\item Termická analýza je soubor metod studujících chování vzorku během teplotního programu.
+				\item Standardně se využívají termočlánky ze slitiny Pt/Rh.
+				\item Pro redukční prostředí se využívá TG/DTA držák s termočlánky typu W -- slitina W/Re.
+				\item Velmi citlivý na stopy kyslíku - nutno používat Zr getter.
+				\item Umožňuje měření v redukční atmosféře, např. ve formovacím plynu (H$_2$/N$_2$ 5:95).
+				\item Studium redukce oxidů wolframu, thoria a uranu.
+			\end{itemize}
+		\end{column}
+		\begin{column}{0.2\textwidth}
+			\adjincludegraphics[width=\textwidth]{img/Zr-getter.png}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\adjincludegraphics[height=.95\textheight]{img/DTA-W.jpg}
+	\vfill
+}
+
+\section{Sloučeniny}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Kovy jsou na vzduchu za laboratorní teploty stálé.
+		\item Za vyšší teploty reagují s většinou nekovů za vzniku intersticiálních nebo nestechiometrických sloučenin.
+		\item Molybden a wolfram si jsou chemicky velmi podobné.
+		\item Vytváří sloučeniny v rozmezí oxidačních čísel $-$II až +VI.
+		\item Všechny tři prvky vytváří polyanionty, Mo a W poskytují bohatší skupinu aniontů.
+		\item Oxidační stav VI je stabilní u všech tří prvků.
+		\item U chromu je nejstabilnějším oxidačním stavem III, sloučeniny v~oxidačním stavu V a IV jsou nestabilní.
+		\item Sloučeniny chromu v oxidačním čísle VI jsou karcinogenní.\footnote[frame]{\href{https://doi.org/10.1002/jat.2550130314}{The toxicology of chromium with respect to its chemical speciation: A review}}
+		\item Molybden a wolfram vytváří v oxidačním stavu IV a V sloučeniny  stabilní ve vodném roztoku.
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{tabular}{|l|l|l|}
+		\hline
+		\textbf{Oxidační stav} & \textbf{Cr} & \textbf{Mo/W} \\\hline
+		$-$II (d$^8$) & \ce{[Cr(CO)5]^{2-}} & \ce{[M(CO)5]^{2-}} \\\hline
+		$-$I (d$^7$) & \ce{[Cr2(CO)10]^{2-}} & \ce{[M2(CO)10]^{2-}} \\\hline
+		0 (d$^6$) & \ce{[Cr(bipy)3]} & \ce{[M(CO)6]} \\\hline
+		I (d$^5$) & \ce{[Cr(CNR)6]^+} & \ce{[M(CO)6]} \\\hline
+		II (d$^4$) & \ce{[Cr(OPPh)2I2]} & \makecell{\ce{[Mo2Cl8]^{4-}} \\ \ce{[W2Me8]^{4-}}} \\\hline
+		III (d$^3$) & \ce{[CrCl4]^-} & \makecell{\ce{[(RO)3Mo\bond{3}Mo(RO)3]} \\ \ce{[(R2N)3W\bond{3}W(R2N)3]}} \\\hline
+		IV (d$^2$) & \ce{[Cr(CO)4]^{4+}} & \ce{[MCl6]^{2-}} \\\hline
+		V (d$^1$) & \ce{CrO$_4^{3-}$} & \makecell{\ce{[MF6]^-} \\ \ce{[M(CN)6]^{3-}}} \\\hline
+		VI (d$^0$) & \ce{CrO$_4^{2-}$} & \ce{MO$_4^{2-}$} \\\hline
+	\end{tabular}
+	\vfill
+}
+
+\subsection{Paterná vazba}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item U sloučenin chromu byla poprvé pozorována paterná vazba.\footnote[frame]{\href{http://pubsapp.acs.org/cen/news/83/i39/8339notw1.html}{First stable molecule with fivefold metal-metal bonding is synthesized}}
+		\item Tato vazba vzniká sdílením deseti elektronů: $\sigma^2 \pi^4 \delta^4$.
+		\item Vazba typu $\delta$ je realizována překryvem čtyř laloků d-orbitalů.
+		\item Můžeme ji připravit redukcí dimerních sloučenin kovů pomocí interkalátu grafitu.
+	\end{itemize}
+	\begin{figure}
+	\adjincludegraphics[width=\textwidth]{img/Quintuple_bond_synthesis.png}
+	\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			\vfill
+			\begin{itemize}
+				\item \textit{Interkaláty grafitu} jsou sloučeniny s obecným vzorcem \ce{CX_m}, vznikají zavedením iontů \ce{X^{n+}} nebo \ce{X^{n-}} mezi vrstvy grafitu.
+				\item Liší zbarvením i elektrickými vlastnostmi. Připravují se reakcí grafitu se silnými oxidačními nebo redukčními činidly, např. K, \ce{O2 + H2SO4}.
+				\item Mezi nejlépe prozkoumané systémy patří interkaláty s draslíkem, např. \ce{KC8, KC24, KC36, KC48} a \ce{KC60}.
+			\end{itemize}
+			\vfill
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=0.8\textwidth]{img/Potassium-graphite-xtal-3D-SF-A.png}
+				\caption*{Krystalová struktura \ce{KC8}, fialové kuličky představují ionty \ce{K+}.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Potassium-graphite-xtal-3D-SF-A.png}{Ben Mills/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{figure}
+		\adjincludegraphics[height=.7\textheight]{img/Ar2Cr2PP.png}
+		\caption*{Paterná vazba.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Ar2Cr2PP.svg}{Benrr101/Commons}}}
+	\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{figure}
+		\adjincludegraphics[height=.7\textheight]{img/Quintuple_bond_MO_diagram.png}
+		\caption*{MO diagram paterné vazby.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Quintuple_bond_MO_diagram.png}{Jeremyi77/Commons}}}
+	\end{figure}
+	\vfill
+}
+
+\subsection{Octan chromnatý}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item \textit{Octan chromnatý} je příkladem sloučeniny \ce{Cr^{II}} se čtvernou vazbou mezi atomy chromu.
+		\item Vytváří krystalický dihydrát \ce{Cr2(CH3COO)4(H2O)2}.
+		\item Připravuje se redukcí chloridu chromitého zinkem a následnou reakcí s octanem sodným. Z~vodného roztoku se sráží ve formě červeného prášku.\footnote[frame]{\href{https://doi.org/10.1002/9780470132395.ch33}{Anyhdrous Chromium(II) Acetate, Chromium(II) Acetate 1-Hydrate, and Bis(2,4-Pentanedionato)Chromium (II)}}
+		\item \ce{2 CrCl3 + Zn -> 2 CrCl2 + ZnCl2}
+		\item \footnotesize \ce{2 CrCl2 + 4 CH3COONa + 2 H2O -> Cr2(CH3COO)4(H2O)2 + 4 NaCl}
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\begin{columns}
+		\begin{column}{0.6\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=\textwidth]{img/Cr2(OAc)4.png}
+				\caption*{Octan chromnatý.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Cr2(OAc)4.svg}{Smokefoot/Commons}}}
+			\end{figure}
+		\end{column}
+		\begin{column}{0.4\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=.4\textheight]{img/Chromium(II)-acetate-dimer-3D-balls.png}
+				\caption*{Kuličkový model octanu chromnatého.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Chromium(II)-acetate-dimer-3D-balls.png}{Ben Mills/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+}
+
+\subsection{Isopolyanionty}
+\frame{
+	\frametitle{}
+	\vfill
+	\textbf{Isopolyanionty}
+	\begin{itemize}
+		\item Okyselením roztoku alkalického chromanu získáme roztok dichromanu.
+		\item Tato změna se projeví i změnou barvy ze žluté na oranžovou.
+		\item Proces je reverzibilní a lze ho popsat poměrně složitým systémem rovnováh.
+	\end{itemize}
+	\begin{align*}
+		\ce{H2CrO4 &<=> HCrO$^{-}_4$ + H^+} \\
+		\ce{2 HCrO$^-_4$ &<=> Cr2O$_7^{2-}$ + H2O} \\
+		\ce{Cr2O$_7^{2-}$ + H2O &<=> 2 HCrO$^{-}_4$} \\
+		\ce{HCr2O$_7^-$ &<=> Cr2O$^{2-}_7$ + H^+} \\
+		\ce{H2Cr2O7 &<=> HCr2O$^{-}_7$ + H^+}
+	\end{align*}
+	\begin{itemize}
+		\item Polymerizace může dále pokračovat, ale zastavuje se na tri- a tetrachromanech (\ce{Cr3O$^{2-}_{10}$} a \ce{Cr4O$^{2-}_{13}$}).
+		\item Polyanionty jsou tvořeny tetraedry \ce{CrO4} spojenými vrcholem.
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{figure}
+		\adjincludegraphics[width=.8\textwidth]{img/chroman-dichroman.png}
+	\end{figure}
+
+	\begin{figure}
+		\adjincludegraphics[height=.35\textheight]{img/Chromate_dichromate_equilibrium.png}
+		\caption*{Roztoky dichromanu a chromanu.\footnote[frame]{\href{https://commons.wikimedia.org/wiki/File:Chromate_dichromate_equilibrium.png}{Zdroj: Capaccio/Commons}}}
+	\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{figure}
+		\adjincludegraphics[width=.9\textwidth]{img/Dichromate-3D-balls.png}
+		\caption*{Anion \ce{Cr2O$_7^{2-}$}.\footnote[frame]{\href{https://commons.wikimedia.org/wiki/File:Dichromate-3D-balls.png}{Zdroj: Ben Mills/Commons}}}
+	\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Sloučeniny chromu v oxidačním čísle VI jsou karcinogenní.
+		\item Chromany jsou silná oxidační činidla, využívají se např. v bichromátometrii:
+		\item \ce{Cr2O$_7^{2-}$ + 14 H+ + 6 e- -> 2 Cr^{3+} + 7 H2O}
+		\item Jako odměrný roztok se využívá chroman draselný, který není na rozdíl od sodného hygroskopický.
+		\item Umožňuje stanovení např. železnatých solí a organických látek, např. hydrochinonu:
+		\item \ce{6 Fe^{2+} + Cr2O$^{2-}_7$ + 14 H+ -> 6 Fe^{3+} + 2 Cr^{3+} + 7 H2O}
+		\item \ce{3 C6H4(OH)2 + Cr2O$^{2-}_7$ + 8 H+ -> 3 C6H4O2 + 2 Cr^{3+} + 7 H2O}
+		\item Dichroman amonný podléhá samovolnému rozkladu za uvolnění plynného dusíku a vzniku oxidu chromitého:
+		\item \ce{(NH4)2Cr2O7 ->[200 $^\circ$C] Cr2O3 + N2 ^ + 4 H2O ^}
+		\item Rozklad probíhá poměrně efektně -- pokus sopka.
+		\item Oxid chromitý připravený touto (suchou) cestou lze jen obtížně převést do roztoku, odolává i působení kyselin.
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	Sopka -- termický rozklad dichromanu amonného\footnote[frame]{\href{https://commons.wikimedia.org/wiki/File:Thermal_decomposition_of_ammonium_dichromate_(1).jpg}{Zdroj: Rando Tuvikene/Commons}}$^,$\footnote[frame]{\href{https://commons.wikimedia.org/wiki/File:Thermal_decomposition_of_ammonium_dichromate_(2).jpg}{Zdroj: Rando Tuvikene/Commons}}$^,$\footnote[frame]{\href{https://commons.wikimedia.org/wiki/File:Thermal_decomposition_of_ammonium_dichromate_(3).jpg}{Zdroj: Rando Tuvikene/Commons}}
+	\begin{columns}
+		\begin{column}{.33\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=\textwidth]{img/Sopka1.jpg}
+			\end{figure}
+		\end{column}
+
+		\begin{column}{.33\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=\textwidth]{img/Sopka2.jpg}
+			\end{figure}
+		\end{column}
+
+		\begin{column}{.33\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=\textwidth]{img/Sopka3.jpg}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item U molybdenu a wolframu probíhá polymerace za vzniku složitějších systémů.
+		\item Ze silně okyselených roztoků krystalizuje žlutá \uv{kyselina molybdenová}, \ce{MoO3.2H2O} nebo bílá \uv{kyselina wolframová}, \ce{WO3.2H2O}.
+		\item Ze zásaditých roztoků krystalizují monomerní soli, např. \ce{Na2MoO4}.
+		\item Mezi těmito extrémy obsahují roztoky ionty tvořené propojenými oktaedry \ce{MO6}.
+		\item Ustavení rovnováhy trvá u polymolybdenanů minuty, ale u wolframanů až týdny.
+		\item Jednotlivé oligomery lze izolovat krystalizací, je nutno pečlivě regulovat pH, koncentraci a teplotu.
+	\end{itemize}
+
+		\begin{align*}
+		\ce{7 MoO$^{2-}_4$ + 8 H+ &<=> Mo7O$^{6-}_{24}$ + 4 H2O} \\
+		\ce{8 MoO$^{2-}_4$ + 12 H+ &<=> Mo8O$^{4-}_{26}$ + 6 H2O} \\
+		\ce{36 MoO$^{2-}_4$ + 64 H+ &<=> Mo36O$^{8-}_{112}$ + 32 H2O}
+	\end{align*}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{figure}
+		\adjincludegraphics[width=\textwidth]{img/Polyederstrukturen_Molybdän.png}
+		\caption*{a) \ce{Mo6O$_{19}^{2-}$}; b) \ce{Mo7O$_{24}^{6-}$}.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Polyederstrukturen_Molybd\%C3\%A4n.png}{Ichwarsnur/Commons}}}
+	\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{figure}
+		\adjincludegraphics[height=.7\textheight]{img/Hexatungstate-from-xtal-3D-polyhedra.png}
+		\caption*{\ce{W6O$_{19}^{2-}$}.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Hexatungstate-from-xtal-3D-polyhedra.png}{Ben Mills/Commons}}}
+	\end{figure}
+	\vfill
+}
+
+\subsection{Heteropolyanionty}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item V roce 1826 izoloval J. J. Berzelius žlutou sraženinu po okyselení roztoku obsahujícího fosforečnan a molybdenan.\footnote[frame]{\href{https://doi.org/10.1098/rspa.1934.0035}{The structure and formula of 12-phosphotungstic acid}}
+		\item Sraženina byla charakterizována jako \ce{H3PMo2O40}.
+		\item Tuto reakci je možné využít ke kvantitativnímu stanovení fosforu ve vzorku.\footnote[frame]{\href{https://doi.org/10.1039/AN9588300024}{The molybdate method for the determination of phosphorus, particularly in basic slag and in steel}}
+		\item Oktaedry \ce{MoO6} vytvářejí dutinu, uvnitř níž je umístěn fosforečnanový anion.
+		\item Podobnou strukturu známe i s wolframem, \ce{H3PW2O40}.
+		\item Volné kyseliny a soli s malými kationty jsou velmi dobře rozpustné ve vodě.
+		\item V současnosti známe celou řadu sloučenin s podobnou strukturou a různými kationty.
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{figure}
+		\adjincludegraphics[height=.7\textheight]{img/Phosphotungstate-3D-polyhedra.png}
+		\caption*{Struktura heteropolyaniontu \ce{[PW12O40]^{3-}}.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Phosphotungstate-3D-polyhedra.png}{Benjah-bmm27/Commons}}}
+	\end{figure}
+	\vfill
+}
+
+\subsection{Oxidy}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{tabular}{|l|l|l|l|}
+		\hline
+		\multicolumn{4}{|c|}{Oxidační stav} \\\hline
+		VI &  přechodný & IV & III \\\hline
+		\ce{CrO3} & \ce{Cr3O8}, \ce{Cr2O5}, \ce{Cr5O12}, $\ldots$ & \ce{CrO2} & \ce{Cr2O3} \\\hline
+		\ce{MoO3} & \ce{Mo9O26}, \ce{Mo8O23}, \ce{Mo5O14}, \ce{Mo17O47}, \ce{Mo4O11} & \ce{MoO2} & - \\\hline
+		\ce{WO3} & \ce{W40O119}, \ce{W50O148}, \ce{W20O58}, \ce{W18O49} & \ce{WO2} & \ce{W2O3} \\\hline
+	\end{tabular}
+
+	\begin{itemize}
+		\item Oxid chromitý, \ce{Cr2O3}, připravený srážením je amfoterní a ochotně se rozpouští v kyselinách i zásadách. Připravené soli obsahují kation \ce{[Cr(H2O)6]^{3+}}.
+		\item Oxid wolframitý, \ce{W2O3}, byl připraven roku 2006 ve formě tenkého filmu. Jako prekurzor byl použit \ce{W2(NMe2)6} a teplota během depozice byla mezi 140 a 240~$^\circ$C.\footnote[frame]{\href{https://doi.org/10.1021/ja063272w}{Atomic Layer Deposition of Tungsten(III) Oxide Thin Films from \ce{W2(NMe2)6} and Water: Precursor-Based Control of Oxidation State in the Thin Film Material}}
+	\end{itemize}
+	\vfill
+}
+
+\subsection{Sulfid molybdeničitý}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Sulfid molybdeničitý, \ce{MoS2}, je černý prášek.
+		\item V krystalickém stavu má vrstevnatou strukturu.
+		\item V přírodě se vyskytuje jako minerál molybdenit.
+		\item V bulkovém stavu je diamagnetický a jde o nepřímý polovodič.\footnote[frame]{Přechod mezi pásy je spojen se změnou hybnosti, proto jde o nezářivé přechody.}
+	\end{itemize}
+	\begin{figure}
+		\adjincludegraphics[width=.63\textwidth]{img/Molybdenite-3D-balls.png}
+		\caption*{Kuličkový model \ce{MoS2}.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Molybdenite-3D-balls.png}{Benjah-bmm27/Commons}}}
+	\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{figure}
+		\adjincludegraphics[height=.7\textheight]{img/Sample_of_MoS2_powder.jpg}
+		\caption*{Práškový sulfid molybdeničitý, \ce{MoS2}}
+	\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Podobně, jako v případě grafitu, můžeme i \ce{MoS2} exfoliovat.
+		\item Získáme tak 2D materiál, který má optoelektrické vlastnosti závislé na počtu a kvalitě vrstev.
+		\item Pokud odstraníme interakce mezi vrstvami, získáme přímý polovodič se šířkou zakázaného pásu odpovídající červené barvě.\footnote[frame]{\href{https://www.ossila.com/pages/molybdenum-disulfide-mos2}{Molybdenum Disulfide (\ce{MoS2}):Theory and Applications}}
+	\end{itemize}
+	\begin{figure}
+		\adjincludegraphics[width=.85\textwidth]{img/MoS2-monolayer-and-bulk-band-structure.png}
+	\end{figure}
+	\vfill
+}
+
+\subsection{Halogenidy chromylu}
+\frame{
+	\frametitle{}
+	\vfill
+	\textbf{Fluorid chromylu}
+	\begin{itemize}
+		\item Fluorid chromylu, \ce{CrO2F2}, fialová pevná látka, tavenina je zbarvená do červena.
+		\item Poprvé byl popsán v roce 1952, připraven byl reakcí oxidu chromového s fluorovodíkem:\footnote[frame]{\href{https://doi.org/10.1021/ja01141a007}{Pure Chromyl Fluoride}}
+		\item \ce{CrO3 + 2 HF -> CrO2F2 + H2O}
+		\item Je to velmi silné oxidační a fluorační činidlo, lze s ním manipulovat pouze v nádobách bez obsahu kovů a křemíku:\footnote[frame]{\href{https://doi.org/10.1016/S0022-1139(00)82482-3}{The chemistry of chromyl fluoride III. Reactions with inorganic systems}}
+		\item \ce{CrO2F2 + MO -> MF2 + CrO3}
+		\item \ce{CrO2F2 + 2 MF -> M2[CrO2F4]}
+		\item Reaguje také s Lewisovými kyselinami, dokáže odebrat organickou kyselinu z anhydridu za vzniku acylfluoridu:
+		\item \ce{CrO2F2 + 2 (CF3CO)2O -> (CF3COO)2CrO2 + 2 CF3COF}
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\textbf{Chlorid chromylu}
+	\begin{itemize}
+		\item Chlorid chromylu, \ce{CrO2Cl2}, červenohnědá kapalina.
+		\item Lze jej připravit reakcí dichromanu s kyselinou chlorovodíkovou v přítomnosti kyseliny sírové, jako dehydratačního činidla:\footnote[frame]{\href{https://doi.org/10.1002/9780470132333.ch63}{Chromyl Chloride [Chromium(VI) Dioxychloride]}}
+		\item \ce{K2Cr2O7 + 6 HCl -> 2 Cr2O2Cl2 + 2 KCl + 3 H2O}
+		\item nebo oxidu chromového s bezvodým chlorovodíkem:
+		\item \ce{CrO3 + 2 HCl <=> CrO2Cl2 + H2O}
+		\item Dokáže oxidovat toluen na benzaldehyd:
+	\end{itemize}
+
+	\begin{figure}
+		\adjincludegraphics[width=.9\textwidth]{img/Etard_rxn.png}
+		\caption*{Étardova reakce.\footnote[frame]{\href{https://en.wikipedia.org/wiki/File:Etard_rxn.svg}{Zdroj: Ryconrad/Commons}}}
+	\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{columns}
+		\begin{column}{.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=\textwidth]{img/Chromyl-chloride-2D.png}
+			\end{figure}
+		\end{column}
+
+		\begin{column}{.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=\textwidth]{img/Chromyl_chloride_ampouled.png}
+				\caption*{Chlorid chromylu v ampulích.\footnote[frame]{\href{https://en.wikipedia.org/wiki/File:Chromyl_chloride_ampouled.png}{Zdroj: 102\% Yield/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+
+	\vfill
+}
+
+\section{Biologie}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Koncentrace \textbf{molybdenu} v živých organismech je nízká, ale i tak je nezbytný.
+		\item Nedostatek molybdenu u lidí není příliš častý, může způsobit mentální poruchy.\footnote[frame]{\href{https://lpi.oregonstate.edu/mic/minerals/molybdenum}{Molybdenum}}
+		\item Nedostatek molybdenu u květáku a brokolice způsobuje tzv. \textit{vyslepnutí}, čímž je myšleno netvoření růžic, příp. tvorba silně redukovaných růžic.\footnote[frame]{\href{http://eagri.cz/public/app/srs_pub/fytoportal/public/?key="c18ccd9cbe2ba381e37b810d0c71a00f"\#rlp|poruchy|detail:c18ccd9cbe2ba381e37b810d0c71a00f|popis}{Mo-deficientní vyslepnutí květáku a brokolice}}
+		\item U kukuřice způsobuje nedostatek molybdenu předčasné klíčení semen.\footnote[frame]{\href{https://dx.doi.org/10.1007/978-94-011-3438-5_41}{Soil acidity effects on premature germination in immature maize grain}}
+		\item Molybden se účastní fixace dusíku a metabolismu fosforu.
+		\item Je součástí bílkoviny \textit{molybdoferredoxinu}, která obsahuje \ce{Fe-S} motiv a molybden oktaedricky koordinovaný sírou.\footnote[frame]{\href{https://www.biologyonline.com/dictionary/molybdoferredoxin}{Molybdoferredoxin}}
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+
+	\begin{figure}
+		\adjincludegraphics[height=.75\textheight]{img/Premature_germination_maize_2014_05_15_10_35_37_7919.jpg}
+		\caption*{Předčasně naklíčená kukuřice.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Premature_germination_maize_2014_05_15_10_35_37_7919.jpg}{Alandmanson/Commons}}}
+	\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item \textbf{Wolfram} je nejtěžším kovem, který se vyskytuje v biologických systémech.
+		\item Vyskytuje se u některých prokaryotních bakterií, kde je součástí enzymů oxidoreduktas, např. \textit{aldehyd ferredoxin oxidoreduktázy}.\footnote[frame]{\href{https://doi.org/10.1016/S0076-6879(01)31052-2}{Aldehyde Oxidoreductases from \textit{Pyrococcus furiosus}}}
+	\end{itemize}
+
+	\begin{figure}
+		\adjincludegraphics[height=.5\textheight]{img/AOR_Mechanism.jpg}
+		\caption*{Mechanismus funkce aldehyd ferredoxin oxidoreduktázy.\footnote[frame]{Zdroj: \href{https://en.wikipedia.org/wiki/Aldehyde_ferredoxin_oxidoreductase}{jejeni6/Commons}}}
+	\end{figure}
+	\vfill
+}
+
+\input{../Last}
+
+\end{document}

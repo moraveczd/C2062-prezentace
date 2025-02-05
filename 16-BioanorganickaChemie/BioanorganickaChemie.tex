@@ -1,0 +1,633 @@
+\documentclass[hyperref=unicode, presentation,10pt]{beamer}
+
+\usepackage[absolute,overlay]{textpos}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{adjustbox}
+\usepackage{mhchem}
+\usepackage{chemfig}
+\usepackage{caption}
+
+%dělení slov
+\usepackage{ragged2e}
+\let\raggedright=\RaggedRight
+%konec dělení slov
+
+\addtobeamertemplate{frametitle}{
+	\let\insertframetitle\insertsectionhead}{}
+\addtobeamertemplate{frametitle}{
+	\let\insertframesubtitle\insertsubsectionhead}{}
+
+\makeatletter
+\CheckCommand*\beamer@checkframetitle{\@ifnextchar\bgroup\beamer@inlineframetitle{}}
+\renewcommand*\beamer@checkframetitle{\global\let\beamer@frametitle\relax\@ifnextchar\bgroup\beamer@inlineframetitle{}}
+\makeatother
+\setbeamercolor{section in toc}{fg=red}
+\setbeamertemplate{section in toc shaded}[default][100]
+
+\usepackage{fontspec}
+\usepackage{unicode-math}
+
+\usepackage{polyglossia}
+\setdefaultlanguage{czech}
+
+\def\uv#1{„#1“}
+
+\mode<presentation>{\usetheme{default}}
+\usecolortheme{crane}
+
+\setbeamertemplate{footline}[frame number]
+
+\title[Crisis]
+{C2062 -- Anorganická chemie II}
+
+\subtitle{Bioanorganická chemie -- kovy v biologických systémech}
+\author{Zdeněk Moravec, hugo@chemi.muni.cz \\ \adjincludegraphics[height=50mm]{img/Chlorophyll_b_structure.png}}
+\date{}
+
+\begin{document}
+\begin{frame}
+	\titlepage
+\end{frame}
+
+\section{Bioanorganická chemie}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Mezioborová vědní disciplína, stojí mezi chemií anorganickou, organickou a biochemií.
+		\item Studuje funkci anorganických látek v biologických systémech.
+	\end{itemize}
+	\begin{figure}
+		\adjincludegraphics[height=0.55\textheight]{img/HemerythrinTri.jpg}
+		\caption*{Hemerythrin, protein obsahující železo.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:HemerythrinTri.jpg}{BerserkerBen/Commons}}}
+	\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Hlavními oblastmi výzkumu jsou:
+		\begin{itemize}
+			\item Metalloproteiny, metalloenzymy, biologicky aktivní komplexní sloučeniny.
+			\item Transport a uchovávání kovů v organismu.
+			\item Biomineralizace -- mechanismus biologického vzniku minerálů.
+			\item Kovy v medicíně, např. \textit{cisplatina}.
+			\item Toxicita kovů pro člověka a jiné organismy.
+			\item Kovy v životním prostředí.
+		\end{itemize}
+	\end{itemize}
+\begin{figure}
+	\adjincludegraphics[height=0.4\textheight]{img/cis-platin.png}
+\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Kovy v lidském těle (o váze 70 kg)
+	\end{itemize}
+
+	\begin{tabular}{|c|c|l|}
+		\hline
+		\textbf{Kov} & \textbf{Obsah [mg]} & \textbf{Funkce} \\\hline
+		V & 0,1 & Enzymy \\\hline
+		Co & 3 & Vitamín B12 \\\hline
+		Mo & 5 & Enzymy \\\hline
+		Mn & 12 & Enzymy; fotoredoxní aktivita ve fotosystému II \\\hline
+		Cr & 14 & Metabolismus glukózy \\\hline
+		Ni & 15 & Enzymy \\\hline
+		Cu & 72 & Přenos a ukládání \ce{O2}; přenos elektronů \\\hline
+		Zn & 2300 & Lewisova kyselina \\\hline
+		Fe & 4200 & FeS proteiny, přenos a ukládání \ce{O2} a \ce{CO2} \\\hline
+		Na & 90 000 & Extracelulární tekutiny \\\hline
+		K & 120 000 & Intracelulární tekutiny \\\hline
+	\end{tabular}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{figure}
+		\adjincludegraphics[width=\textwidth]{img/Periodic_table-bio.png}
+		\caption*{Žlutá -- makroprvky vyskytující se v organismech; zelená -- stopové prvky; červená -- stopové prvky vyskytující se jen v některých organismech}
+	\end{figure}
+	\vfill
+}
+
+\section{Sodík a draslík}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Oba prvky jsou velmi důležité pro všechny živočichy, vč. člověka.
+		\item Sodík je součástí mimobuněčných tekutin.
+		\item Draslík je součástí nitrobuněčných tekutin.
+		\item Jejich transport skrz buněčnou membránu zajišťuje \textit{sodno-draselná pumpa}.
+	\end{itemize}
+	\begin{figure}
+		\adjincludegraphics[height=.45\textheight]{img/Scheme_sodium-potassium_pump.png}
+		\caption*{Sodno-draselná pumpa.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Scheme_sodium-potassium_pump-cs.svg}{LadyofHats/Commons}}}
+	\end{figure}
+	\vfill
+}
+
+\section{Hořčík}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Hořčík je součástí chlorofylu, zeleného rostlinného pigmentu, který se účastní fotosyntézy.
+		\item Procesu, kdy z oxidu uhličitého a vody vzniká v přítomnosti světla cukr.
+	\end{itemize}
+	\begin{figure}
+		\adjincludegraphics[height=.55\textheight]{img/Chlorophyll_d_structure.png}
+		\caption*{Chlorofyl.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Chlorophyll_d_structure.svg}{Yikrazuul/Commons}}}
+	\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{figure}
+		\adjincludegraphics[height=.7\textheight]{img/Photosynthesis_en.png}
+		\caption*{Fotosyntéza.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Photosynthesis_en.svg}{At09kg/Commons}}}
+	\end{figure}
+	\vfill
+}
+
+\section{Vanad}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{columns}
+		\begin{column}{.75\textwidth}
+			\begin{itemize}
+				\item Vanad má důležitější roli v mořském prostředí než v suchozemském.\footnote[frame]{\href{https://doi.org/10.1016/j.ica.2023.121387}{Vanadium in biological systems and medicinal applications}}
+				\item Mořské řasy produkují vanadovou bromoperoxidasu, chloroperoxidasu a jodoperoxidasu, které jsou odpovědné za odstraňování peroxidu z organismu:
+				\item \ce{R-H + Br^- + H2O2 -> R-Br + H2O + OH-}
+				\item Muchomůrky červené mají schopnost silně akumulovat vanad z okolí.\footnote[frame]{\href{https://vesmir.cz/cz/casopis/archiv-casopisu/2022/cislo-2/muchomurka-cervena-vanad.html}{Muchomůrka červená a vanad}}
+				\item Vanad se v nich vyskytuje jako \textit{amavadinový anion}, obsahuje vanad v oxidačním stavu IV, který je chelatován dvěma anionty kyseliny N-hydroxyimino-2,2'-dipropionové.
+			\end{itemize}
+		\end{column}
+		\begin{column}{.35\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=.35\textheight]{img/Amanita_muscaria._Eastern_Siberia.jpg}
+				\caption*{Muchomůrka červená (\textit{Amanita muscaria}).\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Amanita_muscaria._Eastern_Siberia.jpg}{Oleg Bor/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\textbf{Struktura amavadinu}\footnote[frame]{\href{https://doi.org/10.1002/(SICI)1521-3773(19990315)38:6\%3C795::AID-ANIE795\%3E3.0.CO;2-7}{The Structural Characterization of Amavadin}}
+	\begin{columns}
+		\begin{column}{.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=.9\textwidth]{img/Amavadin.png}
+				\caption*{Amavadin.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Amavadin.svg}{Edgar181/Commons}}}
+			\end{figure}
+		\end{column}
+		\begin{column}{.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=.9\textwidth]{img/Amavadin-from-xtal.png}
+				\caption*{Krystalová struktura amavadinu.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Amavadin-from-xtal-1999-3D-balls.png}{Ben Mills/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Hemovanadin je světle zelená bílkovina.
+		\item Nachází se v krevních buňkách mořských perutýnů a dalších organismů.
+		\item Na rozdíl od hemoglobinu není nosičem kyslíku.
+	\end{itemize}
+	\begin{figure}
+		\adjincludegraphics[height=.4\textheight]{img/Sea_Squirt.jpg}
+		\caption*{Pospolitka zelenavá.\footnote[frame]{\href{https://commons.wikimedia.org/wiki/File:Sea_Squirt_(Didemnum_molle)_(8482750832).jpg}{Zdroj: Bernard DUPONT/Commons}}}
+	\end{figure}
+	\vfill
+}
+
+\section{Chrom}
+
+\section{Molybden}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Koncentrace \textbf{molybdenu} v živých organismech je nízká, ale i tak je nezbytný.
+		\item Nedostatek molybdenu u lidí není příliš častý, může způsobit mentální poruchy.\footnote[frame]{\href{https://lpi.oregonstate.edu/mic/minerals/molybdenum}{Molybdenum}}
+		\item Nedostatek molybdenu u květáku a brokolice způsobuje tzv. \textit{vyslepnutí}, čímž je myšleno netvoření růžic, příp. tvorba silně redukovaných růžic.\footnote[frame]{\href{http://eagri.cz/public/app/srs_pub/fytoportal/public/?key="c18ccd9cbe2ba381e37b810d0c71a00f"\#rlp|poruchy|detail:c18ccd9cbe2ba381e37b810d0c71a00f|popis}{Mo-deficientní vyslepnutí květáku a brokolice}}
+		\item U kukuřice způsobuje nedostatek molybdenu předčasné klíčení semen.\footnote[frame]{\href{https://dx.doi.org/10.1007/978-94-011-3438-5_41}{Soil acidity effects on premature germination in immature maize grain}}
+		\item Molybden se účastní fixace dusíku a metabolismu fosforu.
+		\item Je součástí bílkoviny \textit{molybdoferredoxinu}, která obsahuje \ce{Fe-S} motiv a molybden oktaedricky koordinovaný sírou.\footnote[frame]{\href{https://www.biologyonline.com/dictionary/molybdoferredoxin}{Molybdoferredoxin}}
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+
+	\begin{figure}
+		\adjincludegraphics[height=.75\textheight]{img/Premature_germination_maize_2014_05_15_10_35_37_7919.jpg}
+		\caption*{Předčasně naklíčená kukuřice.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Premature_germination_maize_2014_05_15_10_35_37_7919.jpg}{Alandmanson/Commons}}}
+	\end{figure}
+	\vfill
+}
+
+\section{Wolfram}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item \textbf{Wolfram} je nejtěžším kovem, který se vyskytuje v biologických systémech.
+		\item Vyskytuje se u některých prokaryotních bakterií, kde je součástí enzymů oxidoreduktas, např. \textit{aldehyd ferredoxin oxidoreduktázy}.\footnote[frame]{\href{https://doi.org/10.1016/S0076-6879(01)31052-2}{Aldehyde Oxidoreductases from \textit{Pyrococcus furiosus}}}
+	\end{itemize}
+
+	\begin{figure}
+		\adjincludegraphics[height=.5\textheight]{img/AOR_Mechanism.jpg}
+		\caption*{Mechanismus funkce aldehyd ferredoxin oxidoreduktázy.\footnote[frame]{Zdroj: \href{https://en.wikipedia.org/wiki/Aldehyde_ferredoxin_oxidoreductase}{jejeni6/Commons}}}
+	\end{figure}
+	\vfill
+}
+
+\section{Mangan}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Mangan je pro organismus člověka nezbytný, dlouhodobý nedostatek vede k cévním problémům. Dochází ke změnám metabolismu cholesterolu a jeho ukládání na cévní stěny.
+		\item Také má důležitou roli v metabolismu cukrů a jeho nedostatek může způsobit cukrovku.
+		\item Nadbytek manganu může vést k problémům v nervové soustavě a dlouhodobě zvýšený příjem může způsobit až Parkinsonovu nemoc.
+		\item Je součástí superoxid dismutásy 2 (SOD2).
+		\item Doporučená denní dávka pro člověka je 2--5 mg denně. Hlavními zdroji jsou obilniny, hrášek, špenát a ořechy.\footnote[frame]{\href{https://www.bezpecnostpotravin.cz/vyzivovy-vyznam-manganu.aspx}{Výživový význam manganu}}
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{figure}
+		\adjincludegraphics[width=\textwidth]{img/SOD2_Proton.jpg}
+		\caption*{Mechanismus přenosu elektronu pomocí SOD2 proteinu.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:SOD2_Proton-Coupled_Electron_Transfer_Mechanism.tif}{Jarjarbinks98/Commons}}}
+	\end{figure}
+	\vfill
+}
+
+\section{Železo}
+\frame{
+	\frametitle{}
+	\begin{columns}
+		\begin{column}{.7\textwidth}
+			\vfill
+			\begin{itemize}
+				\item Železo je asi nejdůležitějším přechodným kovem pro biologii živočichů i rostlin.
+				\item Tělo dospělého člověka obsahuje zhruba 4 g železa, z toho tři gramy připadají na \textit{hemoglobin}.
+				\item Hemoglobin je bílkovina transportující kyslík, najdeme ho v červených krvinkách.\footnote[frame]{\href{https://www.wikiskripta.eu/w/Transport_kyslíku_krví}{Transport kyslíku krví}}
+				\item Obsahuje železnatý ion ve vyskospinovém stavu komplexovaný porfyrinovým ligandem.
+				\item Po navázání kyslíku, nedojde k oxidaci na \ce{Fe^{III}}, ale ke změně stavu na nízkospinový, diamagnetický. Zároveň se na železo váže histidin.
+				\item Kromě kyslíku, transportuje hemoglobin i \ce{CO2}.
+			\end{itemize}
+			\vfill
+		\end{column}
+		\begin{column}{.35\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=\textwidth]{img/Oxygenated_vs_deoxygenated_RBC.jpg}
+				\caption*{Okysličené a neokysličené červené krvinky.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Oxygenated_vs_deoxygenated_RBC.jpg}{Rogeriopfm/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+}
+
+\frame{
+	\frametitle{}
+	\begin{figure}
+		\adjincludegraphics[width=1.1\textwidth]{img/Structures_of_Hemoglobin.png}
+		\caption*{Hemoglobin s navázaným kyslíkem, oxidem uhličitým a oxidem uhelnatým.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Structures_of_Hemoglobin_forms.png}{Gladissk/Commons}}}
+	\end{figure}
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Železo je součástí i jiných bílkovin, ty často obsahují vazbu \ce{Fe-S} (tzv. FeS proteiny).
+		\item Železo je vázáno k postranním řetězcům aminokyselin \textit{cysteinu} a \textit{histidinu}.\footnote[frame]{\href{https://doi.org/10.1016/B978-0-12-378630-2.00222-X}{Iron–Sulfur Proteins}}
+		\item Tyto proteiny mají funkci transferu elektronů (oxidoreduktasy nebo transelektronasy).
+		\item Během transferu elektronů dochází ke změně oxidačního stavu železa z II na III, oba stavy jsou ve vysokospinové konfiguraci.
+	\end{itemize}
+	\begin{figure}
+		\adjincludegraphics[height=.4\textheight]{img/Cystein-histidin.png}
+	\end{figure}
+	\vfill
+}
+
+\section{Kobalt}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Kobalt je esenciální pro metabolismus všech živočichů.
+		\item Je složkou vitamínu B12, označovaného jako \textit{kobalamin}.
+		\item Vitamín byl objeven roku 1926 G. R. Minotem a W. P. Murphym.
+		\item Jeho hlavní funkcí je regulace syntézy DNA, ale podílí se také na syntéze mastných kyselin a produkci energie.
+		\item Bakterie v žaludku přežvýkavců dokáží zpracovat soli kobaltu na vitamín B12, proto je jeho přítomnost v půdě (v nízké koncentraci) důležitá pro zdraví pasoucích se zvířat.
+		\item Na konci 19. století bylo zjištěno, že zhoubné onemocnění ovcí a hovězího dobytka je způsobeno právě nedostatkem kobaltu a nikoliv železa, jak se dříve předpokládalo.\footnote[frame]{\href{https://doi.org/10.1152/physrev.1952.32.1.66}{Cobalt, Copper and Molybdenum in the Nutrition of Animals and Plants}}
+		\item U člověka způsobuje nedostatek vitamínu B12 chudokrevnost, únavu, zácpu, pokles váhy. Může způsobovat i neurologické změny (deprese).
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{figure}
+		\adjincludegraphics[height=.67\textheight]{img/Cobalamin.png}
+		\caption*{Struktura kobalaminu.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Cobalamin_skeletal.svg}{Hbf878/Commons}}}
+	\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{columns}
+		\begin{column}{.6\textwidth}
+			\begin{itemize}
+				\item Hlavním zdrojem vitamínu B12 jsou živočišné produkty: maso, vejce, sýry.
+				\item Doporučená denní dávka je 2--3~$\mu$g denně.
+				\item Kobalamin je oranžová, diamagnetická látka.
+				\item Koordinační sféra je obdobná, jako u železa v hemu.
+				\item Kobalt je koordinován ke čtyřem dusíkům v rovině korrinového kruhu, pátý dusík je nad rovinou kruhu.
+				\item Šestá pozice je obsazena uhlíkovým atomem z ligandu R.
+			\end{itemize}
+		\end{column}
+		\begin{column}{.4\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=.63\textheight]{img/B12_1000mcg.jpg}
+				\caption*{Vialka s vitamínem B12.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:B12_1000mcg_vial_white_background.jpg}{Wesalius/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\section{Nikl}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Oproti železu a kobaltu je biologický význam niklu výrazně nižší.
+		\item {[NiFe]} hydrogenáza je enzym katalyzující reverzibilní přeměnu molekulárního vodíku v některých prokaryotních organismech:\footnote[frame]{\href{https://doi.org/10.1039/C3RA22668A}{Fundamentals and electrochemical applications of [Ni–Fe]-uptake hydrogenases}}
+		\item \ce{H2 <=> 2 H+ + 2 e-}
+		\item Struktura enzymu obsahuje aktivní místo tvořené ionty Fe a Ni vázanými přes sulfidické můstky.
+		\item Železo je stabilně v oxidačním stavu II, redoxních dějů se účastní nikl.
+	\end{itemize}
+	\begin{figure}
+		\adjincludegraphics[height=.3\textheight]{img/Nickel_Iron_Hydrogenase_Active_Site.png}
+		\caption*{Aktivní místa NiFe hydrogenasy.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Nickel_Iron_Hydrogenase_Active_Site.png}{CHEM8240edpt/Commons}}}
+	\end{figure}
+	\vfill
+}
+
+\section{Měď}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Měď patří mezi prvků důležité pro živé organismy.
+		\item Vyskytuje se v řadě enzymatických cyklů, např. v metabolismu sachardidů a také při tvorbě kostní hmoty a červených krvinek.
+		\item Měď je součástí \textit{hemocynianu}, analogu hemoglobinu u některých živočichů.
+		\item Denní dávka mědi by se měla pohybovat mezi 1 a 100~mg. Zdroji mědi jsou ořechy, houby, korýši, měkkýši, játra a kakao.
+		\item Nedostatek mědi se projevuje chudokrevností, zhoršením metabolismu sacharidů a zpomalením duševního vývoje.
+		\item Při předávkování mědí hrozí podobné obtíže jako u kadmia a rtuti.
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{columns}
+		\begin{column}{.6\textwidth}
+			\begin{itemize}
+				\item Hemocyanin, je metaloprotein obsahující dva ionty mědi.
+				\item Je součástí respiračního cyklu měkkýšů a některých členovců.
+				\item Ionty mědi slouží k navázání molekuly kyslíku.
+				\item Při oxidaci přechází bezbarvá forma (\ce{Cu^I}) na modrou (\ce{Cu^I^I}).
+			\end{itemize}
+
+			\begin{figure}
+				\adjincludegraphics[height=.3\textheight]{img/Oxyhemocyanin.png}
+			\end{figure}
+		\end{column}
+		\begin{column}{.4\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=\textwidth]{img/Hemocyanin2.jpg}
+				\caption*{Molekulová struktura hemocyaninu.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Hemocyanin2.jpg}{Cuff ME, Miller KI, van Holde KE, Hendrickson WA/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\section{Zinek}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Zinek patří mezi nejdůležitější kovy pro rostliny i živočichy.
+		\item Lidské tělo obsahuje asi 2--4 g zinku, většinu ve formě enzymů.
+		\item Zinek je Lewisovská kyselina, proto je z katalytického hlediska velice zajímavý.
+		\item Také je velice flexibilní z hlediska koordinační geometrie, proto umožňuje rychlou změnu konformace enzymu.
+		\item Zinek je součástí mnoha metalloenzymů, zapojuje se do homeostázy, imunitní odpovědi, apoptózy, stárnutí buněk a je také důležitým antioxidantem.
+		\item Nedostatek zinku se projevuje mnoha symptomy:\footnote[frame]{\href{https://ods.od.nih.gov/factsheets/Zinc-HealthProfessional/}{Zinc}}
+		\begin{itemize}
+			\item lámavostí vlasů a nehtů
+			\item suchou a popraskanou kůží
+			\item zpomalením růstu u dětí
+			\item šeroslepostí
+			\item nechutenstvím
+		\end{itemize}
+	\end{itemize}
+	\vfill
+}
+
+\section{Kadmium}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Toxicita kadmia je dána tím, že kadmium vstupuje do metabolických drah zinku. Tím tyto dráhy narušuje.
+		\item Otravu je možné potlačit podáváním zinku.
+		\item Při inhalaci dochází primárně k poškození plic.
+		\item Kadmium může také do těla vstupovat kůží.
+		\item Velkým problémem při otravě kadmiem je dlouhý poločas jeho eliminace, takže může docházet k postupné akumulaci kadmia v organismu i při expozici nižším dávkám.
+		\item Při projevu symptomů jsou následky otravy nevratné a dochází k postupnému zhoršování stavu.
+		\item Kadmium může také podpořit rozvoj rakoviny plic a prostaty. Na druhou stranu, u některých nádorů mohou může kadmium působit jako supresivní látka.
+	\end{itemize}
+	\vfill
+}
+
+\section{Rtuť}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Rtuť je toxická ve všech formách, jako kov i jako anorganické a organokovové sloučeniny \ce{Hg^{2+}} a \ce{Hg$_2^{2+}$}.\footnote[frame]{\href{https://www.wikiskripta.eu/w/Intoxikace\_rtut\%C3\%AD\_a\_jej\%C3\%ADmi\_slou\%C4\%8Deninami}{Intoxikace rtutí a jejími sloučeninami}}
+		\item K intoxikaci může dojít jak vlivem přírodních jevů (ze zemské kůry se uvolňuje i více než 5 000 tun rtuti ročně), tak vlivem průmyslové činnosti (těžba zlata, elektrolytické procesy, apod.).
+		\item Kvůli vysoké těkavosti jsou často vdechována páry rtuti, která pak prostupuje z plic do dalších orgánů (ledvin, CNS, červených krvinek).
+		\item Vysoká mobilita rtuti v organismu je dána její rozpustností v tucích, což umožňuje transport přes buněčné membrány.
+		\item Při chronické expozici dochází k poškozování CNS, které se projevuje třesavkou, emocionální nestabilitou a změnami chování. Dochází také k poškození ledvin a v případě těhotných žen i k poškození plodu.
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Při otravě rtutí se využívají chelatační činidla, které umožní rychlé vyloučení rtuti močí. Jde např. o 2,3-disulfanylpropan-1-ol (dimerkaprol).
+		\item Při nižší expozici se používá také dimethylcystein.
+		\item Je také možné využít 2,3-disulfanyljantarovou kyselinu (DMSA).
+	\end{itemize}
+	\begin{figure}
+		\adjincludegraphics[width=0.8\textwidth]{img/disulfanylpropanol.png}
+	\end{figure}
+	\vfill
+}
+
+\section{Olovo}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Olovo je těžký kov, je toxický i v malých koncentracích a má jak akutní, tak i chronické účinky.\footnote[frame]{\href{https://dx.doi.org/10.1515/intox-2015-0009}{Lead toxicity: a review}}
+		\item Toxické účinky lze vysvětlit vazbou olova na SH- skupiny enzymů, čímž dochází k jejich deaktivaci.\footnote[frame]{\href{http://web2.mendelu.cz/af_239_nanotech/J_Met_Nano/0314/pdf/jmn3-08.pdf}{Působení olova na živé organismy}}
+		\item Toxicita olova je velkým problémem u dětí, u nichž může zpomalit duševní vývoj.
+		\item Typickými příznaky otravy olovem jsou bledost obličeje a rtů, nechutenství, anémie.
+		\item Koncentrace olova v životním prostředí se stanovuje pomocí AAS, MS nebo diferenční pulzní voltametrie.
+		\item Průmyslová spotřeba olova je průběžně snižována, využívají se bezolovnaté pájky, hledají se bezolovnaté náhrady střeliva.
+	\end{itemize}
+	\vfill
+}
+
+\section{Arsen}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Arsenité sloučeniny jsou toxičtější než arseničné.
+		\item Atoxyl byl využíván při léčbě spavé nemoci.
+		\item Některé organické sloučeniny arsenu byly dříve využívány při léčbě syfilidy.
+		\item V současnosti se sloučeniny arsenu využívají při léčbě africké trypanosomiasy.
+	\end{itemize}
+	\begin{figure}
+		\adjincludegraphics[width=.8\textwidth]{img/Atoxyl.png}
+	\end{figure}
+	\vfill
+}
+
+\section{Antimon}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Kovový antimon neovlivňuje lidské zdraví.
+		\item Oxid antimonitý a další nerozpustné antimonité sloučeniny jsou nebezpečné při vdechování.
+		\item Otrava antimonitými sloučeninami je podobná otravě arsenikem.
+		\item Oxid antimonitý je také potenciálně karcinogení.
+	\end{itemize}
+	\vfill
+}
+
+\section{Selen}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{columns}
+		\begin{column}{.75\textwidth}
+			\begin{itemize}
+				\item Selen je ve větším množství toxický, ale ve stopovém množství je pro živočichy nezbytný.\footnote[frame]{\href{https://dx.doi.org/10.1001/archinternmed.2009.495}{Acute Selenium Toxicity Associated With a Dietary Supplement}}
+				\item Je součástí aminokyselin selenocysteinu a selenomethioninu.
+				\item Komerčně jsou dostupné doplňky stravy obsahující selen.\footnote[frame]{\href{https://www.bezpecnostpotravin.cz/selen-zdroje-ucinky-a-zasobovani.aspx}{Selen – zdroje, účinky a zásobování}}
+				\item Doporučená denní dávka selenu pro člověka je 1~mg.kg$^{-1}$.\footnote[frame]{\href{https://www.wikiskripta.eu/w/Selen}{Selen}} Dávky vyšší než 10~mg.kg$^{-1}$.den$^{-1}$ jsou toxické.
+				\item Přirozeným zdrojem selenu jsou cereálie a mořské produkty.
+				\item Otravy selenem jsou vzácné, akutní otrava se projevuje česnekovým zápachem potu a z úst (\ce{Se(CH3)2}). Chronická vypadáváním vlasů a nehtů.
+			\end{itemize}
+		\end{column}
+		\begin{column}{.35\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=.75\textheight]{img/Se-AminoAcids.png}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\textbf{Obsah selenu v potravinách}
+	\\
+	\begin{tabular}{|l|l|}
+		\hline
+		\textbf{Potravina} & \textbf{Obsah selenu ($\mu$g/kg)} \\\hline
+		Rostlinné oleje & méně než 5 \\\hline
+		Ovoce & méně než 10 \\\hline
+		Zelenina & 10--30 \\\hline
+		Obiloviny & 10--500 \\\hline
+		Houby & 20--100 \\\hline
+		Hovězí maso & 20--80 \\\hline
+		Drůbeží maso & 30--100 \\\hline
+		Vepřové maso & 50--150 \\\hline
+		Játra & 50--200 \\\hline
+		Vejce & 100--200 \\\hline
+		Ryby a měkkýši & 200--500 \\\hline
+		Ledviny & 500--2000 \\\hline
+		Para-ořechy, brazilské ořechy & 2000--5000 \\\hline
+	\end{tabular}
+	\vfill
+}
+
+\section{Tellur}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{columns}
+		\begin{column}{.55\textwidth}
+			\begin{itemize}
+				\item Tellur není příliš rozšířený v biologických systémech a jeho toxikologie není dosud příliš prozkoumaná.\footnote[frame]{\href{https://doi.org/10.1007/978-1-4614-1533-6_504}{Tellurium in Nature}}
+				\item Lidem a zvířatům je po expozici, i velmi malým množstvím telluru, cítit dech po česneku. Tento efekt je způsoben vznikem těkavého \ce{Me2Te}.\footnote[frame]{\href{https://doi.org/10.1039/C0OB00086H}{Tellurium: an element with great biological potency and potential}}
+				\item Některé houby (např. \textit{Aspergillus fumigatus} a \textit{Aspergillus terreus}) dokáží místo síry využívat tellur.\footnote[frame]{\href{https://doi.org/10.1007/BF02917437}{Incorporation of tellurium into amino acids and proteins in a tellurium-tolerant fungi}}
+			\end{itemize}
+		\end{column}
+		\begin{column}{.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=\textwidth]{img/Aspergillus_on_tomato.jpg}
+				\caption{Plíseň Aspergillus na rajčeti.\footnote[frame]{\href{https://commons.wikimedia.org/wiki/File:Aspergillus_on_tomato.jpg}{Zdroj: Multimotyl/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\input{../Last}
+
+\end{document}

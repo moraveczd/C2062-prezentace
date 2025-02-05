@@ -1,0 +1,1564 @@
+\documentclass[hyperref=unicode,presentation,10pt]{beamer}
+
+\usepackage[absolute,overlay]{textpos}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{adjustbox}
+\usepackage[version=4]{mhchem}
+\usepackage{chemfig}
+\usepackage{caption}
+
+%dělení slov
+\usepackage{ragged2e}
+\let\raggedright=\RaggedRight
+%konec dělení slov
+
+\addtobeamertemplate{frametitle}{
+	\let\insertframetitle\insertsectionhead}{}
+\addtobeamertemplate{frametitle}{
+	\let\insertframesubtitle\insertsubsectionhead}{}
+
+\makeatletter
+\CheckCommand*\beamer@checkframetitle{\@ifnextchar\bgroup\beamer@inlineframetitle{}}
+\renewcommand*\beamer@checkframetitle{\global\let\beamer@frametitle\relax\@ifnextchar\bgroup\beamer@inlineframetitle{}}
+\makeatother
+\setbeamercolor{section in toc}{fg=red}
+\setbeamertemplate{section in toc shaded}[default][100]
+
+\usepackage{fontspec}
+\usepackage{unicode-math}
+
+\usepackage{polyglossia}
+\setdefaultlanguage{czech}
+
+\def\uv#1{„#1“}
+
+\mode<presentation>{\usetheme{default}}
+\usecolortheme{crane}
+
+\setbeamertemplate{footline}[frame number]
+
+\title[Crisis]
+{C2062 -- Anorganická chemie II}
+
+\subtitle{(Bor, hliník,) gallium, indium, thallium a nihonium}
+\author{Zdeněk Moravec, hugo@chemi.muni.cz \\ \adjincludegraphics[height=60mm]{img/IUPAC_PSP.jpg}}
+\date{}
+
+\begin{document}
+
+\begin{frame}
+	\titlepage
+\end{frame}
+
+\section{Bor}
+\frame{
+	\frametitle{}
+	\begin{itemize}
+		\item Bor je nekovový prvek, značka \textbf{B}, protonové číslo 5.
+		\item Ve vesmíru je velmi vzácný, koncentrace na Zemi se pohybuje okolo 9~ppm.
+		\item Borax -- \ce{Na2[B4O5(OH)4].8H2O} -- byl znám už od starověku.
+		\item Čistý bor byl připraven až ve 20. století.
+		\item Přírodní bor se skládá ze dvou izotopů, $^{10}$B a $^{11}$B. Jejich poměr se liší podle lokality, což znemožňuje přesné stanovení atomové hmotnosti.
+		\item Jádro $^{11}$B (I = 3) se využívá v NMR spektroskopii.\footnote[frame]{\href{https://doi.org/10.1021/cr00010a007}{Boron-11 NMR spectra of boranes, main-group heteroboranes, and substituted derivatives}}
+		\item Známe čtyři základní metody přípravy boru:
+		\begin{itemize}
+			\item Redukcí kovy za vysokých teplot:
+			\item \ce{2 BCl3 + 3 Zn ->[900 $^\circ$C] 2 B + 3 ZnCl2}
+			\item Elektrolýzou boritanů nebo tetrafluoboritanů (\ce{KBF4}).
+			\item Redukcí těkavých sloučenin boru (\ce{BBr3}) na žhaveném tantalovém vlákně (900--1500~$^\circ$C). Tato metoda poskytuje nejčistší bor ve vysokých množstvích.
+			\item Termický rozklad halogenidů a hydridů boru.
+		\end{itemize}
+	\end{itemize}
+}
+
+\frame{
+	\frametitle{}
+	\begin{itemize}
+		\item Elementární bor vytváří velké množství allotropních modifikací.
+		\item Bor má k dispozici pouze tři valenční elektrony a má příliš malý iontový poloměr, takže nemůže vytvářet kovovou vazbu. Proto jsou velmi zajímavé vazebné poměry ve sloučeninách boru i v jeho allotropech.
+		\item Jejich základní strukturní jednotkou je zpravidla ikosaedr \ce{B12} s~pětičetnou rotační symetrií.
+		\item Díky své symetrii se ikosaedry seskládají s poměrně velkými dutinami, které umožňují umístění dalších atomů boru, příp. jiných prvků.
+		\item Struktura $\alpha$-boru se skládá z ikosaedrů \ce{B12} v nejtěsnějším hexagonálním uspořádání.
+		\item Termodynamicky nejstabilnější formou je $\beta$-bor, jeho základní buňka obsahuje 105 atomů boru, středový ikosaedr je obklopen dalšími ikosaedry, které jsou do něj vnořeny.
+		\item Struktura $\gamma$-boru odpovídá strukturnímu typu NaCl, střídají se zde ikosaedry \ce{B12} a dvojice \ce{B2}.
+	\end{itemize}
+}
+
+\frame{
+	\frametitle{}
+	\begin{columns}
+		\begin{column}{.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=.5\textheight]{img/Alpha_AlB12_Ikosaeder.png}
+				\caption*{Ikosaedr \ce{B12}.\footnote[frame]{\href{https://commons.wikimedia.org/wiki/File:Alpha_AlB12_Ikosaeder.png}{Zdroj: Andif1/Commons}}}
+			\end{figure}
+		\end{column}
+
+		\begin{column}{.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=.8\textwidth]{img/Betaboron.jpg}
+				\caption*{Základní buňka $\beta$-boru.\footnote[frame]{\href{https://commons.wikimedia.org/wiki/File:Betaboron.jpg}{Zdroj: Materialscientist/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+}
+
+\frame{
+	\frametitle{}
+	\begin{figure}
+		\adjincludegraphics[height=.7\textheight]{img/Gamma-bor.jpg}
+		\caption*{Krystalová struktura $\gamma$-boru.\footnote[frame]{\href{https://commons.wikimedia.org/wiki/File:Gamma-bor.jpg}{Zdroj: Materialscientist/Commons}}}
+	\end{figure}
+}
+
+\frame{
+	\frametitle{}
+	\begin{itemize}
+		\item Vzhledem k malému počtu valenčních elektronů musí bor využívat exotičtější vazebné možnosti.
+		\item V roce 1949 byla zavedena představa třístředové dvouelektronové vazby v boranech (hydridech boru).
+		\item Podle teorie LCAO-MO vznikají molekulové orbitaly (MO) kombinací dvou atomových orbitalů. Tímto způsobem vznikne vazebný a protivazebný MO.
+		\item Kombinovat se ale může více AO za vzniku stejného počtu MO (vazebných, nevazebných a protivazebných).
+	\end{itemize}
+	\begin{figure}
+		\adjincludegraphics[height=.35\textheight]{img/Diborane_02.png}
+	\end{figure}
+}
+
+\frame{
+	\frametitle{}
+	\begin{itemize}
+		\item V chemii boranů se setkáváme s dvěma typy třístředových dvouelektronových vazeb:
+		\begin{itemize}
+			\item \ce{B-H-B}
+			\item \ce{B-B-B}
+		\end{itemize}
+	\end{itemize}
+	\begin{columns}
+		\begin{column}{.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=.5\textheight]{img/Diborane_B-H-B_MO_diagram.jpg}
+				\caption*{Molekulové orbitaly \ce{B-H-B}\footnote[frame]{\href{https://commons.wikimedia.org/wiki/File:Diborane_B-H-B_MO_diagram.pdf}{Zdroj: Albris/Commons}}}
+			\end{figure}
+		\end{column}
+
+		\begin{column}{.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=.35\textheight]{img/Diborane_02.png}
+			\end{figure}
+		\end{column}
+	\end{columns}
+}
+
+\frame{
+	\frametitle{}
+	\begin{tabular}{|l|c|}
+		\hline
+		Diboran(2) & \ce{HB=BH} \\\hline
+		\begin{tabular}{l}
+			Diboran(4)\footnote[frame]{\href{https://commons.wikimedia.org/wiki/File:Diborane4.png}{Zdroj: DMacks/Commons}}
+		\end{tabular} & \adjincludegraphics[height=.3\textheight]{img/Diborane4.png} \\\hline
+		Diboran(6)\footnote[frame]{\href{https://commons.wikimedia.org/wiki/File:Diborane-2D.png}{Zdroj: Benjah-bmm27/Commons}} & \adjincludegraphics[height=.3\textheight]{img/Diborane-2D.png}\\
+		\hline
+	\end{tabular}
+}
+
+\section{Hliník}
+\frame{
+	\frametitle{}
+	\begin{itemize}
+		\item Hliník je kovový prvek, značka \textbf{Al}, protonové číslo 13.
+		\item Hliník je nejrozšířenějším kovem v zemské kůře, jeho koncentrace je 8,1 \%.\footnote[frame]{\href{https://www.worldatlas.com/articles/the-most-abundant-elements-in-the-earth-s-crust.html}{The Most Abundant Elements In The Earth's Crust}}
+		\item Jádro $^{27}$Al (I = $\frac{5}{2}$) se využívá v NMR spektroskopii.\footnote[frame]{\href{https://doi.org/10.1016/j.pnmrs.2016.01.003}{Recent advances in application of $^{27}$Al NMR spectroscopy to materials science}}
+		\item Je součástí hlinitokřemičitanů jako jsou jíly, slídy a živce.
+		\item Hlavním minerálem, resp. směsí minerálů je bauxit (hydratovaný oxid hlinitý, \ce{Al2O3.2H2O}). Skládá se z hydroxidů hlinitých, gibbsitu, böhmitu a~dalších.
+		\item Je kujný a velmi dobře vede elektrický proud.
+	\end{itemize}
+	\begin{figure}
+		\adjincludegraphics[height=.2\textheight]{img/Lingot_aluminium.jpg}
+		\caption*{Hliníkový ingot.\footnote[frame]{\href{https://commons.wikimedia.org/wiki/File:Lingot_aluminium.jpg}{Zdroj: Romary/Commons}}}
+	\end{figure}
+}
+
+\frame{
+	\frametitle{}
+	\begin{itemize}
+		\item V kovovém stavu je velmi reaktivní, na vzduchu se pasivuje tvorbou povrchové, kompaktní vrstvy \ce{Al2O3}.
+		\item Vytváří sloučeniny v oxidačních číslech +I až +III, nejstabilnější a nejběžnější jsou hlinité sloučeniny.
+		\item Je amfoterní, rozpouští se ve zředěných kyselinách i hydroxidech za vývoje vodíku:
+		\item \ce{2 Al + 2 NaOH + 6 H2O -> 2 Na[Al(OH)4] + 3 H2}
+		\item \ce{2 Al + 3 H2SO4 -> Al2(SO4)3 + 3 H2}
+		\item Jemný, práškový hliník reaguje explozivně s kapalným kyslíkem.\footnote[frame]{\href{https://doi.org/10.1021/ed036p54}{Explosive hazard of aluminum-liquid oxygen mixtures}}
+	\end{itemize}
+}
+
+\frame{
+	\frametitle{}
+	\begin{itemize}
+		\item Vysoké afinity hliníku ke kyslíku se využívá v aluminotermii.\footnote[frame]{\href{http://test.sciencezoom.cz/apps/zf_08/?target=efektni_3&pokus=pokus_1}{Aluminotermie}}
+		\item Směs \ce{Al + Fe2O3} se označuje jako \textit{termit} a dříve se využívala ke svařování.\footnote[frame]{\href{https://www.youtube.com/watch?v=ENvjFV8TXmU}{Svařování termitem na nádraží v Židlochovicích}}
+		\item \ce{2 Al + Fe2O3 -> Al2O3 + 2 Fe}
+	\end{itemize}
+	\begin{figure}
+		\adjincludegraphics[height=.4\textheight]{img/Aluminothermic_reduction.jpg}
+		\caption*{Aluminotermická reakce.\footnote[frame]{\href{https://commons.wikimedia.org/wiki/File:Aluminothermic_reduction_of_chromium_oxide_(2).JPG}{Zdroj: Rando Tuvikene/Commons}}}
+	\end{figure}
+}
+
+\frame{
+	\frametitle{}
+	\begin{itemize}
+		\item Hlavní rudou je bauxit, \ce{Al2O3.2 H2O}. Surový bauxit obsahuje velké množství nečistot, převážně \ce{Fe2O3}, \ce{SiO2} a \ce{TiO2}.\footnote[frame]{\href{https://www.youtube.com/watch?v=1u8gzoT-seg}{How It's Made - Aluminium or Aluminum}}
+		\item K čištění se využívá nejčastěji \textit{Bayerův způsob}:\footnote[frame]{\href{https://oenergetice.cz/elektrina/zpracovani-hliniku-od-mineralu-az-po-kabel}{Zpracování hliníku - od minerálu až po kabel}}
+		\begin{itemize}
+			\item Bauxit se rozdrtí a rozemele.
+			\item Pod tlakem, za teploty 180~$^\circ$C se k němu přidá NaOH.
+			\item Odfiltrují se nerozpuštěný zbytek a vzniklý roztok \ce{Na[Al(OH)4]} je ochlazen a očkován pomocí krystalů \ce{Al(OH)3}. Nebo je sycen oxidem uhličitým, který vysráží hliník v podobě \ce{\alpha-Al(OH)3}.
+			\item Bezvodý \ce{Al2O3} se získá tepelným rozkladem \ce{Al(OH)3}.
+		\end{itemize}
+		\item Hliník se z oxidu hlinitého získává elektrolyticky, \textit{Hallovým-Heroultovým procesem}.\footnote[frame]{\href{https://www.acs.org/content/acs/en/education/whatischemistry/landmarks/aluminumprocess.html}{Production of Aluminum: The Hall-Héroult Process}}
+		\item Jako tavidlo se využívá kryolit (\ce{Na3AlF6}), čímž dojde k výraznému snížení teploty tání. Anoda je uhlíková, katodu tvoří tavenina hliníku.
+		\item \ce{2 Al2O3 + 3 C ->[960 $^\circ$C] 4 Al + 3 CO2}
+	\end{itemize}
+}
+
+\frame{
+	\frametitle{}
+	\begin{figure}
+		\adjincludegraphics[height=.7\textheight]{img/Hall-heroult.png}
+		\caption*{Řez elektrolyzérem.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Hall-heroult-kk-2008-12-31.png}{Kashkan/Commons}}}
+	\end{figure}
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Kovový hliník se využívá jako konstrukční materiál pro automobilový a letecký průmysl, obalový materiál a jako elektrický materiál (kabeláž, motory, transformátory).\footnote[frame]{\href{https://www.aluminiumleader.com/application/electrical_engineering/}{Aluminum in Power-Engineering}}
+		\item Tenká hliníková fólie se využívá jako záznamové médium v CD-ROM discích. Data jsou uložena ve formě vrypů a čtení se realizuje pomocí odrazu LASERu od povrchu fólie.\footnote[frame]{\href{https://pctechnicalpro.blogspot.com/2017/04/how-does-cd-rom-works-working-principle.html}{How Does A CD-ROM Works? Working Principle Of CD-ROM}}
+		\item Velice důležité jsou oxidy hliníku, korund (\ce{$\alpha$-Al2O3}) a smirek (korund, magnetit a hematit). Mají vysokou tvrdost a využívají se jako brusné materiály.
+		\item Korund se také používá pro výrobu kelímků pro vysokoteplotní aplikace.
+		\item Sloučeniny hliníku jsou důležité v katalýze, např. Friedel-Crafts.\footnote[frame]{\href{https://www.masterorganicchemistry.com/2011/07/22/reagent-friday-aluminum-chloride-alcl3/}{Reagent Friday: Aluminum Chloride (\ce{AlCl3})}}
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{columns}
+		\begin{column}{.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=.55\textheight]{img/Cans_recycling.jpg}
+				\caption*{Hliníkové plechovky na recyklaci.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Cans_recycling.jpg}{Radulf del Maresme/Commons}}}
+			\end{figure}
+		\end{column}
+
+		\begin{column}{.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=.55\textheight]{img/DTA-_und_DSC-Tiegel.jpg}
+				\caption*{Korundový kelímek pro DTA (vlevo).\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:DTA-_und_DSC-Tiegel.jpg}{Bic/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Hliník, na rozdíl od boru, nevyužívá elektron-deficitní vazby. Ve sloučeninách má zpravidla koordinační číslo v rozsahu 4--6.
+		\item Například \textit{chlorid hlinitý}, \ce{AlCl3},tvoří v pevném stavu polymerní krystaly. Při tání se pak rozpadá na dimerní molekuly \ce{Al2Cl6}.
+		\item Další zahřívání vede k rozpadu na trigonálně planární molekuly \ce{AlCl3}.
+		\item Vytváří hexahydrát, \ce{[Al(H2O)6]Cl3}.
+	\end{itemize}
+	\begin{columns}
+		\begin{column}{.35\textwidth}
+		\begin{figure}
+		\adjincludegraphics[width=\textwidth]{img/Aluminium-trichloride-dimer-3D-balls.png}
+		\caption*{Struktura dimeru.\footnote[frame]{\href{https://commons.wikimedia.org/wiki/File:Aluminium-trichloride-dimer-3D-balls.png}{Zdroj: Benjah-bmm27/Commons}}}
+		\end{figure}
+		\end{column}
+		\begin{column}{.65\textwidth}
+		\begin{figure}
+			\adjincludegraphics[width=.73\textwidth]{img/Aluminium-chloride-xtal.png}
+			\caption*{Krystalová struktura \ce{AlCl3}.\footnote[frame]{\href{https://commons.wikimedia.org/wiki/File:Aluminium-chloride-xtal-viewed-down-c-axis-3D-bs-17.png}{Zdroj: Ben Mills/Commons}}}
+		\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\section{Úvod -- gallium, indium, thallium a nihonium}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{tabular}{|c|l|l|l|}
+	\hline
+	 & \textit{Gallium} & \textit{Indium} & \textit{Thallium} \\\hline
+	 El. konfigurace & 3d$^{10}$ 4s$^{2}$ 4p$^{1}$ & 4d$^{10}$ 5s$^{2}$ 5p$^{1}$ & 4f$^{14}$ 5d$^{10}$ 6s$^{2}$ 6p$^{1}$ \\\hline
+	 Teplota tání [$^\circ$C] & 29,76 & 156,60 & 304 \\\hline
+	 Teplota varu [$^\circ$C]  & 2400 & 2072 & 1473 \\\hline
+	 Objeven & 1875 & 1863 & 1861 \\\hline
+	 Vzhled & modrostříbrný\footnote[frame]{\href{https://commons.wikimedia.org/wiki/File:Gallium_crystals.jpg}{Zdroj: Foobar/Commons}} & stříbrný\footnote[frame]{\href{https://commons.wikimedia.org/wiki/File:Indium.jpg}{Zdroj: Nerdtalker/Commons}} & stříbrobílý\footnote[frame]{\href{https://commons.wikimedia.org/wiki/File:Thallium_pieces_in_ampoule.jpg}{Zdroj: W. Oelen/Commons}} \\
+	 &  \begin{minipage}{.2\textwidth}
+	 	\adjincludegraphics[width=\linewidth]{img/Gallium.jpg}
+	 \end{minipage}
+	 	& \begin{minipage}{.2\textwidth}
+	 		\adjincludegraphics[width=\linewidth]{img/Indium.jpg}
+	 	\end{minipage} & \begin{minipage}{.2\textwidth}
+	 	\adjincludegraphics[width=\linewidth]{img/Thallium.jpg}
+ 	\end{minipage} \\\hline
+	\end{tabular}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item \textit{Nihonium}
+		\begin{itemize}
+			\item Umělý prvek, protonové číslo 113, Nh.
+			\item Poprvé byl připraven v roce 2003:
+			\item \ce{^{243}_{95}Am + ^{48}_{20}Ca -> ^{291}_{115}Mc$^\star$ -> ^{288}_{115}Mc + 3 n -> ^{284}Nh + $\alpha$}
+			\item \ce{^{243}_{95}Am + ^{48}_{20}Ca -> ^{291}_{115}Mc$^\star$ -> ^{287}_{115}Mc + 4 n -> ^{283}Nh + $\alpha$}
+			\item \ce{^{286}_{113}Nh -> ^{282}_{111}Rg + $\alpha$}
+		\end{itemize}
+		\item Pojmenován byl po Japonsku -- „země vycházejícího slunce“.
+		\item Známe osm izotopů $^{278}$Nh -- $^{290}$Nh, nejdelší poločas rozpadu má $^{286}$Nh, $t_\frac{1}{2}$ = 9,5~s.
+		\item Chemické vlastnosti nihonia nebyly zatím detailně prozkoumány.\footnote[frame]{\href{https://arxiv.org/abs/1212.4292}{First foot prints of chemistry on the shore of the Island of Superheavy Elements}}
+		\item Očekává se, že bude méně reaktivní než thallium a bude se podobat ušlechtilým kovům.
+	\end{itemize}
+	\vfill
+}
+
+\section{Chemické a fyzikální vlastnosti}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Gallium a indium nejsou toxické, ale thallium se řadí mezi extrémně toxické prvky.\footnote[frame]{\href{https://www.webelements.com/thallium/}{Thallium: the essentials}}
+		\item Gallium krystaluje v orthorombické krystalové soustavě.
+		\item Indium má tetragonální plošně centrovanou strukturu, každý atom india sousedí se čtyřmi dalšími ve vzdálenosti 324~pm a osmi ve vzdálenosti 336~pm.
+		\item Thallium krystaluje v nejtěsnějším hexagonálním uspořádání (HCP).
+		\item Teploty tání jsou poměrně nízké.
+		\item Všechny tři kovy vytvářejí sloučeniny v oxidačních číslech I a III.
+		\item Stálost oxidačního stavu I stoupá v řadě Al $<$ Ga $<$ In $<$ Tl.
+		\item Oxidy a hydroxidy kovů v oxidačním stavu I jsou zásaditější než příslušné oxidy a hydroxidy v oxidačním stavu III.
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Thallium i jeho sloučeniny jsou silně toxické.\footnote{\href{https://doi.org/10.1016/0020-711X(90)90254-Z}{Thallium in biochemistry}}
+		\item Důvodem je zejména podobnost iontového poloměru \ce{Tl+} s \ce{K+}.
+		\item Na rozdíl od iontů alkalických kovů má thallium odlišnou afinitu k~sloučeninám síry, takže působí jako blokátory redukčních systémů.
+		\item Thallné soli se dobře vstřebávají i kůží.
+		\item Při otravách se podává rozpustná forma berlínské modři, \ce{KFe[Fe(CN)6]}.\footnote{\href{https://doi.org/10.2165/00139709-200322010-00004}{Thallium Toxicity and the Role of Prussian Blue in Therapy}} Díky vyšší afinitě k iontům \ce{Tl+} funguje berlínská modř jako iontoměnič, ionty \ce{K+} uvolňuje a absorbuje ionty \ce{Tl+}.
+		\item \ce{Tl+ + KFe[Fe(CN)6] -> K+ + TlFe[Fe(CN)6]}
+	\end{itemize}
+	\vfill
+}
+
+\section{Výskyt a získávání prvků}
+\subsection{Gallium}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item V přírodě se nevyskytuje v čistém stavu.
+		\item Zastoupení v zemské kůře je asi 16,9~ppm, to přibližně odpovídá dusíku, niobu, lithiu a olovu.
+		\item Minerál \textit{gallit} (\ce{CuGaS2}) obsahuje 35~\% gallia, ale je příliš vzácný, takže se jako zdroj gallia nevyužívá.\footnote{\href{https://www.mindat.org/element/Gallium}{The mineralogy of Gallium}}
+		\item Další minerály gallia jsou:
+		\begin{itemize}
+			\item \textit{Söhngeite} -- \ce{Ga(OH)3}
+			\item \textit{Gallobeudantite} -- \ce{PbGa3(AsO4)(SO4)(OH)6}
+			\item \textit{Tsumgallite} -- \ce{GaO(OH)}
+			\item \textit{Galloplumbogummite} -- \ce{Pb(Ga,Al,Ge)3(PO4)2(OH)6}
+		\end{itemize}
+		\item V řádově nižších koncentracích se vyskytuje ve sfaleritu (ZnS), bauxitu (\ce{Al2O3.2 H2O}) a uhlí.
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Gallium se získává jako vedlejší produkt při zpracování rud jiných kovů, převážně bauxitu (obsahuje 0,003-0,008~\% gallia) při výrobě hliníku. Menší množství se získávají také ze zinkových rud.\footnote{\href{https://doi.org/10.1016/j.resourpol.2015.11.005}{On the current and future availability of gallium}}
+		\item Při výrobě hliníku Bayerovým procesem se gallium hromadí v roztoku hydroxidu sodného, z kterého je možné jej izolovat pomocí iontoměničů nebo zeolitů.\footnote{\href{https://doi.org/10.1007/s40831-019-00226-w}{Recovery of Gallium from Bauxite Residue Using Combined Oxalic Acid Leaching with Adsorption onto Zeolite HY}}
+		\item Pro polovodičový průmysl se gallium vyrábí čištěním kovového gallia \textit{zonální tavbou}.
+	\end{itemize}
+	\begin{figure}
+		\adjincludegraphics[width=.8\textwidth]{img/Gallium_sealed_in_vacuum_ampoule.jpg}
+		\caption*{Kovové gallium.\footnote[frame]{\href{https://commons.wikimedia.org/wiki/File:6N_Gallium_sealed_in_vacuum_ampoule.jpg}{Zdroj: Alshaer666/Commons}}}
+	\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Počáteční poměr Ga/Al je přibližně 1/5000 se postupně změní až na 1/300.
+		\item Dále se koncentrace gallia zvyšuje elektrolýzou extraktů s využitím rtuťové elektrody.
+		\item Získáme roztok obsahující gallitan sodný je pak elektrolyzován za vzniku kovového gallia.
+		\item Další čištění gallia pro polovodičový průmysl se provádí reakcí s kyselinou a kyslíkem, následnou krystalizací a \textit{zonálním čištěním} (viz slide~\ref{zonalniTavba}).
+	\end{itemize}
+	\begin{figure}
+		\adjincludegraphics[height=.3\textheight]{img/Hall-heroult.png}
+		\caption*{Řez elektrolyzérem.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Hall-heroult-kk-2008-12-31.png}{Kashkan/Commons}}}
+	\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\label{zonalniTavba}
+	\vfill
+	\begin{itemize}
+		\item \textbf{Zonální tavení} se využívá na čištění krystalických látek.\footnote{\href{https://csacg.fzu.cz/func/viewpdf.php?file=2000_34Drapala.pdf}{Zonální tavba jako krystalizační a rafinační metoda}}
+		\item Je založeno na opakovaném roztavení části krystalického materiálu.
+		\item Po roztavení dochází k pohybu příměsí směrem dolů.
+		\item Ochlazením vzniká z taveniny polykrystalického materiálu monokrystal.
+		\item Opakováním tohoto procesu zvyšujeme čistotu materiálu.
+	\end{itemize}
+	\begin{figure}
+		\adjincludegraphics[width=.6\textwidth]{img/Zone-refining.jpg}
+		\caption*{Zonální tavba.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Zone-refining.jpg}{Dbuckingham42/Commons}}}
+	\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{columns}
+		\begin{column}{.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=.55\textheight]{img/Si-crystal_floatingzone.jpg}
+				\caption*{Výroba monokrystalu Si (100) zonální tavbou.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Si-crystal_floatingzone.jpg}{Matthias Renner/Commons}}}
+			\end{figure}
+		\end{column}
+		\begin{column}{.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=.55\textheight]{img/Si-crystal_floatingzone_growing.jpg}
+				\caption*{Výroba monokrystalu Si (100) zonální tavbou.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Si-crystal_floatingzone_growing.jpg}{Matthias Renner/Commons}}}
+			\end{figure}
+
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\subsection{Indium}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{columns}
+		\begin{column}{.7\textwidth}
+			\begin{itemize}
+				\item Jde o velmi vzácný prvek, jeho nedostatek může být kritický pro elektronický průmysl.
+				\item Vytváří jen několik vzácných minerálů, ale žádný se nevyskytuje tak běžně, aby se jej vyplatilo komerčně těžit.
+				\item Získává se elektrolyticky z popílků vznikajících při pražení sulfidických rud zinku a olova.\footnote[frame]{\href{https://doi.org/10.1016/S0892-6875(03)00168-7}{Processing of indium: a review}}
+				\item Před rokem 1925 bylo celosvětově vyrobeno kolem 1 g kovového india.\footnote[frame]{\href{https://doi.org/10.1016/B978-0-7506-3365-9.50013-4}{Aluminium, Gallium, Indium and Thallium}}
+				\item Mezi minerály india patří \textit{roquesite} (\ce{CuInS2}) a \textit{dzhalindite} (\ce{In(OH)3}).\footnote[frame]{\href{https://www.mindat.org/element/Indium}{The mineralogy of Indium}}
+			\end{itemize}
+		\end{column}
+
+		\begin{column}{.4\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=\textwidth]{img/Indium_world_production.png}
+				\caption*{Světová produkce india.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Indium_world_production.svg}{Con-struct/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\subsection{Thallium}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Jeho koncentrace v zemské kůře je asi 0,7 mg.kg$^{-1}$.
+		\item Jako komerční zdroj thallia slouží rudy mědi, olova a zinku, ve kterých jsou stopová množství thallia.
+		\item Známe několik minerálů obsahujících thallium:\footnote{\href{https://www.mindat.org/element/Thallium}{The mineralogy of Thallium}}
+		\begin{itemize}
+			\item Hutchinsonit -- \ce{(Tl,Pb)As5S9}
+			\item Lorándite -- \ce{TlAsS2}
+			\item Twinnite -- \ce{Pb0.8Tl0.1Sb1.3As0.8S4}
+			\item Thalcusit -- \ce{Tl2Cu3FeS4}
+			\item Crookesite -- \ce{Cu7(Tl,Ag)Se4}
+		\end{itemize}
+	\end{itemize}
+
+	\begin{columns}
+		\begin{column}{.3\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=.23\textheight]{img/Hutchinsonite-131710.jpg}
+				\caption*{Hutchinsonit.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Hutchinsonite-131710.jpg}{Mindat/Commons}}}
+			\end{figure}
+		\end{column}
+		\begin{column}{.3\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=.23\textheight]{img/Lorandite-Realgar-468096.jpg}
+				\caption*{Lorandit s realgarem.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Lorandite,_Realgar-468096.jpg}{Mindat/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Výroba kovového thallia je poměrně obtížná, získává se z odpadů při zpracování rud jiných kovů, nejčastěji zinku a olova.\footnote[frame]{\href{https://pubs.usgs.gov/periodicals/mcs2022/mcs2022-thallium.pdf}{USGS -- Thallium}}
+		\item Surovina se rozpustí v teplé zředěné kyselině sírové, tím se oddělí nerozpustný síran olovnatý, \ce{PbSO4}.
+		\item Přídavkem HCl se vysráží TlCl, který se několikrát přečišťuje.
+		\item Thallium se získá elektrolýzou roztoku \ce{Tl2SO4} v kyselině sírové pomocí elektrod z Pt nebo nerezové oceli.
+		\item \ce{Tl+ + e- -> Tl}
+		\item Thallium se taví v atmosféře vodíku při teplotě 350--400~$^\circ$C.\footnote[frame]{GREENWOOD, N. N. a Alan EARNSHAW. \textit{Chemie prvků.} Praha: Informatorium, 1993. ISBN 80-854-2738-9. s. 269}
+	\end{itemize}
+	\begin{figure}
+		\adjincludegraphics[height=.25\textheight]{img/Thallium.jpg}
+	\end{figure}
+	\vfill
+}
+
+\section{Využití prvků}
+\subsection{Gallium}
+\frame{
+	\frametitle{}
+	\begin{columns}
+	\begin{column}{.7\textwidth}
+	\vfill
+	\begin{itemize}
+	\item Oproti hliníku je produkce a využití Ga, In a Tl řádově menší.
+	\item Hlavní využití gallia je v polovodičovém průmyslu, kde se využívá kov s vysokou čistotu ($>$99,9999~\%).
+	\item Slitiny gallia mají nízkou teplotu tání, eutektická slitina gallia, india a cínu, označovaná jako \textit{galinstan}, se využívá v lékařských teploměrech. Má teplotu tání $-$19~$^\circ$C.
+	\item Gallium lze použít jako náhradu rtuti při konstrukci kapalinových zrcadel, např. v teleskopech.\footnote[frame]{\href{https://iopscience.iop.org/article/10.1086/133893}{Gallium Liquid Mirrors}}
+	\item Soli izotopu \ce{^6^7Ga} se využívají jako radiofarmaka.\footnote[frame]{\href{https://www.lf3.cuni.cz/3LF-839-version1-klinicke_pouziti_radiofarmak_v_nuklearni_medicine.pdf}{Klinické použití radiofarmak v nukleární medicíně}}
+	\end{itemize}
+	\vfill
+	\end{column}
+	\begin{column}{.4\textwidth}
+		\begin{figure}
+			\adjincludegraphics[width=\textwidth]{img/Liquid_Mirror_Telescope.jpg}
+			\caption*{Kapalinové zrcadlo.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Liquid_Mirror_Telescope.jpg}{NASA/Commons}}}
+		\end{figure}
+	\end{column}
+	\end{columns}
+}
+
+\subsection{Gallium -- polovodičový průmysl}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Nejdůležitější sloučeniny gallia v polovodičovém průmyslu jsou nitrid gallitý (GaN) a arsenid gallitý (GaAs).
+		\item GaN je polovodič III/V používaný pro konstrukci PN přechodů pro LED, displeje a MESFET tranzistory (metal–semiconductor field-effect transistor).\footnote[frame]{\href{https://doi.org/10.1016/S0026-2692(01)00062-3}{A complete analytical model of GaN MESFET for microwave frequency applications}}
+		\item Má strukturu wurtzitu, atomy gallia i dusíku mají tetraedrickou koordinaci.
+		\item Krystaly se připravují pomocí epitaxe z molekulárních svazků, např. pomocí směsi trimethylgallanu a amoniaku na křemíkový substrát.
+		\item \ce{(CH3)3Ga + NH3 -> GaN + 3 CH4}
+		\item Práškový se vyrábí reakcí gallia nebo oxidu gallitého s amoniakem.
+		\item \ce{2 Ga + 2 NH3 -> 2 GaN + 3 H2}
+		\item \ce{Ga2O3 + 2 NH3 -> 2 GaN + 3 H2O}
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{columns}
+		\begin{column}{.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=\textwidth]{img/Blue_LED_and_Reflection.jpg}
+				\caption*{LED diody.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Blue_LED_and_Reflection.jpg}{Alexofdodd/Commons}}}
+			\end{figure}
+		\end{column}
+		\begin{column}{.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=\textwidth]{img/GaN_Wurtzite_polyhedra.png}
+				\caption*{Struktura wurtzitu, ZnS.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:GaN_Wurtzite_polyhedra.png}{Solid State/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item GaAs je polovodič III/V používaný pro konstrukci PN přechodů v různých typech tranzistorů, díky vlastnostem GaAs mohou tyto tranzistory pracovat až do frekvence 250~GHz.\footnote[frame]{\href{https://www.jstor.org/stable/24979446}{Gallium Arsenide Transistors}}
+		\item Využívá se také při konstrukci fotovoltaických článků s vysokou účinností, např. pro vesmírné sondy.
+		\item Má strukturu sfaleritu.
+		\item Vyrábí se několika metodami:
+		\begin{itemize}
+			\item VGF (Vertical Gradient Freeze) procesem -- tavenina je ve válcovém kelímku postupně ochlazována.\footnote[frame]{\href{https://arxiv.org/pdf/2002.11447.pdf}{Control of the Vertical Gradient Freeze crystal growth process via backstepping}}
+			\item Pomocí Czochralskiho metody.
+			\item MOCVD:
+			\item \ce{Ga(CH3)3 + AsH3 -> GaAs + 3 CH4}
+		\end{itemize}
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{columns}
+		\begin{column}{.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=\textwidth]{img/Gallium-arsenide-unit-cell-3D-balls.png}
+				\caption*{Struktura GaAs.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Gallium-arsenide-unit-cell-3D-balls.png}{Benjah-bmm27/Commons}}}
+			\end{figure}
+		\end{column}
+		\begin{column}{.5\textwidth}
+			\begin{center}
+				\begin{figure}
+					\adjincludegraphics[height=.9\textwidth,angle=90]{img/MidSTAR-1.jpg}
+					\caption*{Satelit MidSTAR-1 se solárními panely z GaAs.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:MidSTAR-1.jpg}{United States Naval Academy/Commons}}}
+				\end{figure}
+			\end{center}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\subsection{Indium}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{columns}
+		\begin{column}{.75\textwidth}
+			\begin{itemize}
+				\item Dříve se využívalo jako ochrana ložisek proti mechanickému opotřebování a proti korozi.
+				\item Slitiny s nízkou teplotou tání.
+				\item Ve vakuové technice se využívají pájky s obsahem india ke spojování kovových a nekovových součástí aparatur.\footnote[frame]{\href{https://www.youtube.com/watch?v=h8DkUlI-Ngs}{How to make Indium seals}}
+				\item Je to důležitý prvek v polovodičové technice:
+				\begin{itemize}
+					\item ITO - Indium Tin Oxide.
+					\item Pájení polovodičových součástek za nízkých teplot.
+					\item Výroba spojů v P-N-P přechodech tranzistorů.
+				\end{itemize}
+				\item Je součástí moderátorových tyčí v některých jaderných reaktorech.\footnote[frame]{\href{https://www.indium.com/blog/indium-alloy-for-use-in-control-rods-for-nuclear-reactors.php}{Indium Alloy for use in Control Rods for Nuclear Reactors}}
+			\end{itemize}
+		\end{column}
+		\begin{column}{.3\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=\textwidth]{img/Indium_wire.jpg}
+				\caption*{Indiový drát pro pájení.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Indium_wire.jpg}{Dschwen/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\subsubsection{Nízkotající slitiny}
+\frame{
+	\frametitle{}
+	\textbf{Nízkotající slitiny}
+	\begin{tabular}{|l|l|l|}
+		\hline
+		\textbf{Slitina} & \textbf{Obchodní název} & \textbf{Teplota tání [$^\circ$C]} \\
+		\hline
+		\textbf{Bi45Pb23Sn8In19Cd5} & Slitina 47  &  47 \\
+		\hline
+		\textbf{Bi49Pb18Sn12In21} & Slitina 58  & 58 \\
+		\hline
+		Bi50Pb27Sn13Cd & Woodův kov 1 & 68-72 \\
+		\hline
+		Bi50Pb25Sn12Cd & Woodův kov 2 & 60-64 \\
+		\hline
+		Bi50Sn25Pb & Roseův kov & 92-96 \\
+		\hline
+		Bi55Pb32Sn & Molotův kov & 96-98 \\
+		\hline
+		Bi74Pb7Sn & Biola 1 & 104-463 \\
+		\hline
+		Bi50Pb43Cd & Biola 3 & 80-84 \\
+		\hline
+		Bi8Sn57Pb & Stabia 1 & 139-178 \\
+		\hline
+		Pb45Bi10Sn & Stabia 4 & 97-169 \\
+		\hline
+		Pb25Bi25Sn & Stabia 6 & 97-161 \\
+		\hline
+		Pb73Bi23Sn3Zn & Plumbia 3 & 183-224 \\
+		\hline
+		Pb57Bi8Sn & Plumbia 5 & 174-214 \\
+		\hline
+	\end{tabular}
+}
+
+\subsection{Indium/gallium -- kapalný kov}
+\frame{
+	\frametitle{}
+	\begin{itemize}
+		\item Nízkotající slitiny india s galliem lze využít jako vodivé spoje, schopné samostatně opravovat poškození vodivé cesty.\footnote[frame]{\href{https://dx.doi.org/10.1126/sciadv.abd0202}{Heterogeneous integration of rigid, soft, $\ldots$}}
+		\item Pokud dojde vlivem deformace k porušení celistvosti vodivého spoje, spoj se obnoví, jakmile přestane síla působit.
+		\item Výhodným materiálem je eutektická slitina india a gallia. Problémem je cena a toxicita.\footnote[frame]{\href{https://www.sigmaaldrich.com/catalog/product/aldrich/495425}{Gallium–Indium eutectic}}
+	\end{itemize}
+	\begin{center}
+		\adjincludegraphics[height=45mm]{img/GaIn-alloy.png}
+	\end{center}
+	\vfill
+}
+
+\subsection{Indium -- ITO}
+\frame{
+	\frametitle{}
+	\begin{itemize}
+		\item Směs oxidů inditého a cíničitého, přibližný vzorec je \ce{(In2O3)0_{.9} . (SnO2)_{0.1}}
+		\item Je to nejrozšířenější transparentní a vodivý oxid.
+		\item Lze z něj snadno připravit tenký, vodivý film.\footnote[frame]{\href{https://www.researchgate.net/publication/321172668_Structural_Optical_and_Electrical_Properties_of_ITO_Thin_Films}{Structural, Optical and Electrical Properties of ITO Thin Films}}
+		\item Poměr transparentnosti a vodivosti filmu lze řídit tloušťkou filmu.
+		\begin{itemize}
+			\item Tenký film je vysoce průhledný, ale má vyšší odpor.
+			\item Silnější vrstvy jsou méně průhledné, ale mají nižší elektrický odpor.
+		\end{itemize}
+		\item Lze vyrobit vysoce průhledný film s dostatečným elektrickým odporem, např. pro odledování oken letadel.\footnote[frame]{\href{https://phys.org/news/2019-08-defrosting-surfaces-seconds.html}{Defrosting surfaces in seconds}}
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{columns}
+		\begin{column}{.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=.55\textheight]{img/Kristallstruktur_Lanthanoid-C-Typ.png}
+				\caption*{Krystalová struktura ITO.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Kristallstruktur_Lanthanoid-C-Typ.png}{Orci/Commons}}}
+			\end{figure}
+		\end{column}
+		\begin{column}{.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=.55\textheight]{img/lossy-page1-834px-ITO_grains_on_glass.jpg}
+				\caption*{Snímek filmu z ITO.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:ITO_grains_on_glass.tif}{Topliuchao/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\subsection{Thalium}
+\frame{
+	\frametitle{}
+		\vfill
+		\begin{itemize}
+			\item Dříve se používal síran thallný jako jed na krysy a mravence.\footnote[frame]{\href{https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:81836}{CHEBI:81836 - thallium sulfate}}
+			\item Směsné halogenidy thallné se používají jako optická skla pro infračervenou spektroskopii (KRS-5, KRS-6), jsou dobře propustná pro IR záření a nerozpustná ve vodě.
+		\end{itemize}
+	\vfill
+	\begin{figure}
+		\adjincludegraphics[height=.4\textheight]{img/KRS5_Tallium_Bromide_Iodide_ingots_Crystaltechno.jpg}
+		\caption*{Ingoty z KRS-5.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:6_KRS5_Tallium_Bromide_Iodide_ingots_Crystaltechno.jpg}{Crystaltechno/Commons}}}
+	\end{figure}
+}
+
+\frame{
+	\frametitle{}
+	\begin{columns}
+		\begin{column}{.7\textwidth}
+			\vfill
+			\begin{itemize}
+				\item Slitina thallia se rtutí vytváří eutektikum (8,5~\% Tl) s teplotou tání $-60 ^\circ$C, tj. dvacet stupňů pod bodem tání rtuti.
+				\item Sulfid a selenid thallný (\ce{Tl2S}, \ce{Tl2Se}) se využívá při konstrukci \textit{bolometrů} pro detekci IR záření.\footnote[frame]{\href{https://doi.org/10.1364/AO.10.001003}{Cashman Thallous Sulfide Cell}}, \footnote[frame]{\href{https://doi.org/10.1364/AO.16.002942}{Thallium selenide infrared detector}}
+				\item Sulfid thallný slouží ke konstrukci fotorezistorů pro infračervenou oblast.
+				\item Je součástí vysokoteplotních supravodičů -- \ce{Tl2Ba2CuO6}, \ce{TlBaCaCuO}.\footnote[frame]{\href{https://doi.org/10.1038/332138a0}{Bulk superconductivity at 120 K in the Tl–Ca/Ba–Cu–O system}}
+			\end{itemize}
+			\vfill
+		\end{column}
+		\begin{column}{.35\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=\textwidth]{img/TBCCO-2223_structure_schema_en.png}
+				\caption*{Struktura \ce{TlBaCaCuO}.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:TBCCO-2223_structure_schema_en.svg}{Winiar/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+}
+
+\section{Sloučeniny}
+\subsection{Hydridy}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Gallan neboli hydrid gallitý (\textbf{\ce{GaH3}}) existuje ve formě dimeru (digallanu) \textbf{\ce{Ga2H6}}.
+		\item Monomer lze detekovat pouze za nízkých teplot (3,5~K) nebo ve formě aduktů, např.:
+		\item \ce{Ga2H6 + 4 NMe3 ->[-95 $^\circ$C] 2 (NMe3)2*GaH3}
+		\item Digallan lze připravit reakcí chloridu gallitého s trimethylsilanem při teplotě $-23~^\circ$C a následnou redukcí produktu:
+		\item \ce{Ga2Cl6 + 4 Me3SiH -> (H2GaCl)2 + 4 Me3SiCl}
+		\item \ce{(H2GaCl)2 + 2 LiGaH4 -> Ga2H6 + LiCl}
+		\item Komplexní tetrahydridogallitany (analoga \ce{[AlH4]-}) jsou stálé sloučeniny, \ce{LiGaH4} má poměrně silné redukční účinky.
+	\end{itemize}
+	\vfill
+	\begin{figure}
+		\adjincludegraphics[height=0.15\textheight]{img/Ga2H6.png}
+	\end{figure}
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Indigan neboli hydrid inditý (\textbf{\ce{InH3}}) vytváří kovalentní polymerní síť, je stabilní pouze za nízkých teplot (pod $-90\ ^\circ$C). Chová se jako Lewisova kyselina, vytváří adukty s ligandy (1:1 nebo 1:2).\footnote[frame]{\href{https://doi.org/10.1039/B107285B}{The stabilisation and reactivity of indium trihydride complexes}}
+		\item \ce{InH3 + L -> InH3L}
+		\item Neplést s uhlovodíkem \textit{indanem}.\footnote[frame]{\href{https://pubchem.ncbi.nlm.nih.gov/compound/indane}{Indane}}
+	\end{itemize}
+	\vfill
+	\begin{figure}
+		\adjincludegraphics[height=0.2\textheight]{img/Indane.png}
+		\adjincludegraphics[height=0.4\textheight]{img/Cy3PInH3.png}
+	\end{figure}
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Thallan neboli hydrid thallitý (\textbf{\ce{TlH3}}) byl izolován pouze za nízkých teplot v matrici z inertního plynu reakcí thallia s vodíkem.\footnote[frame]{\href{https://doi.org/10.1021/ic950411u}{Are the Compounds \ce{InH3} and \ce{TlH3} Stable Gas Phase or Solid State Species?}}
+		\item Navržený mechanismus vzniku:\footnote[frame]{\href{https://doi.org/10.1021/jp0498973}{Infrared Spectra of Thallium Hydrides in Solid Neon, Hydrogen, and Argon}}
+	\end{itemize}
+	\begin{columns}
+		\begin{column}{.5\textwidth}
+			\begin{align*}
+				\ce{Tl + H2 &-> TlH + H \\
+					Tl + H2 &-> TlH2 \\
+					TlH + H2 &-> TlH3 \\
+					TlH2 + H &-> TlH3}
+			\end{align*}
+		\end{column}
+
+		\begin{column}{.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=0.3\textheight]{img/Thallane-3D-vdW.png}
+				\caption*{Model molekuly \ce{TlH3}.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Thallane-3D-vdW.png}{Hoa112008/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+
+	\vfill
+}
+
+
+\subsection{Oxidy a hydroxidy}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Ve skupině roste zásaditý charakter oxidů směrem dolů.
+		\item Oxid boritý je kyselý.
+		\item \ce{B2O3 + 3 H2O -> 2 H3BO3}
+		\item Oxidy hliníku a gallia jsou amfoterní.
+		\item \ce{Ga2O3 + 6 HCl -> 2 GaCl3 + 3 H2O}
+		\item \ce{Ga2O3 + 2 NaOH -> 2 NaGaO2 + H2O}
+		\item Oxidy india a thallia jsou zásadité.
+		\item Oxid thallný je rozpustný ve vodě, vzniká hydroxid, který je srovnatelně silnou zásadou jako KOH.
+		\item \ce{Tl2O + H2O -> 2 TlOH}
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Oxid gallitý vytváří pět krystalických modifikací ($\alpha-\epsilon$).
+	\end{itemize}
+	\begin{figure}
+		\adjincludegraphics[width=0.8\textwidth]{img/Ga2O3.png}
+	\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Nejstabilnější modifikací je \ce{$\beta$-Ga2O3}. Ionty kyslíku zaujímají pozice odpovídající deformovanému nejtěsnějšímu kubickému uspořádání. Gallité ionty zaujímají dvě rozdílné pozice.
+		\begin{itemize}
+			\item Ga(I) -- deformovaný tetraedr \ce{GaO4}
+			\item Ga(II) -- deformovaný oktaedr \ce{GaO6}
+		\end{itemize}
+		\item Polovina gallitých iontů má nižší koordinační číslo, z toho důvodu je hustota nižší o 10~\% oproti modifikaci $\alpha$.
+	\end{itemize}
+	\begin{figure}
+		\adjincludegraphics[width=0.7\textwidth]{img/Kristallstruktur_Galliumoxid.png}
+		\caption*{Krystalová struktura \ce{$\beta$-Ga2O3}.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Kristallstruktur_Galliumoxid.png}{Orci/Commons}}}
+	\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item \ce{$\alpha$-Ga2O3} vzniká kalcinací \ce{$\beta$-Ga2O3} při teplotě 1000~$^\circ$C za vysokého tlaku.
+		\item \ce{$\beta$-Ga2O3} lze připravit termickým rozkladem solí (dusičnanů, octanů, $\ldots$) při teplotách nad 1000~$^\circ$C.
+		\item \ce{$\gamma$-Ga2O3} vzniká prudkým ohřevem hydroxidu na teplotu 400--500~$^\circ$C.
+		\item \ce{$\delta$-Ga2O3} připravíme rozkladem dusičnanu při teplotě 250~$^\circ$C.
+		\item \ce{$\epsilon$-Ga2O3} získáme zahříváním \ce{$\delta$-Ga2O3} na teplotu 550~$^\circ$C.
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item \textit{Oxid gallitý je amfoterní}, za vysoké teploty reaguje s alkalickými kovy za vzniku \ce{NaGaO2}, s oxidy Mg, Zn, Ni, Co a Cu poskytuje spinely \ce{MGa2O4}.
+		\item Rozpouštěním v kyselině chlorovodíkové vzniká chlorid gallitý:
+		\item \ce{Ga2O3 + 6 HCl -> 2 GaCl3 + 3 H2O}
+		\item Redukcí vodíkem nebo kovovým galliem vzniká oxid gallný.\footnote[frame]{\href{https://pubchem.ncbi.nlm.nih.gov/compound/16702109}{Gallium(I) oxide}}
+		\item \ce{Ga2O3 + 2 H2 -> Ga2O + 2 H2O}
+		\item \ce{Ga2O3 + 4 Ga -> 3 Ga2O}
+		\item \textit{Oxid gallný} lze dále připravit reakcí kovového gallia s oxidem uhličitým:
+		\item \ce{2 Ga + CO2 ->[vakuum, 850 $^\circ$C] Ga2O + CO}
+		\item Je to hnědočerná diamagnetická sloučenina, na suchém vzduchu je stabilní.
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item \textit{Spinely}
+		\item Velká skupina sloučenin s krystalovou strukturou příbuznou minerálu spinelu \ce{MgAl2O4}.
+		\item Mají obecný vzorec \ce{AB2X4}.\footnote[frame]{\href{https://www.mindat.org/min-52865.html}{Spinel Supergroup}}
+		\item Jejich elementární buňka obsahuje 32 atomů kyslíku v nejtěsnějším krychlovém uspořádání, \ce{A8B16X32}.
+		\item Atomy A obsazují vrcholy tetraedru a atomy B vrcholy oktaedru.
+		\item Aniontem je zpravidla O, S, Se nebo Te.
+		\item Nejběžnější stechiometrie spinelu jsou:
+		\item $\mbox{A}^{\mbox{II}}\mbox{B}^{\mbox{III}}_2\mbox{O}_4$, $\mbox{A}^{\mbox{IV}}\mbox{B}^{\mbox{II}}_2\mbox{O}_4$ a $\mbox{A}^{\mbox{VI}}\mbox{B}^{\mbox{I}}_2\mbox{O}_4$
+		\item Můžeme se ale potkat i s exotičtějšími: \ce{NiLi2F4}, \ce{ZnK2(CN)4}.
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{figure}
+		\adjincludegraphics[width=.9\textwidth]{img/AB2O4_spinel.jpg}
+		\caption*{Krystalová struktura spinelu \ce{AB2O4}.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:AB2O4_spinel.jpg}{Tem5psu/Commons}}}
+	\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item \textit{Oxid inditý} (\ce{In2O3}) je v amorfním stavu nerozpustný ve vodě, ale rozpouští se v kyselinách. Krystalický je rozpustný i ve vodě. Lze jej připravit zahřívání vhodné indité soli -- hydroxidu, uhličitanu, dusičnanu nebo síranu.
+		\item Další možností přípravy je reakce amoniaku s vodným roztokem chloridu:
+		\item \ce{2 InCl3 + 6 NH4OH ->[100 $^\circ$C] In2O3 + 6 NH4Cl + 3 H2O}
+		\item \textit{Hydroxid inditý} (\ce{In(OH)3}) je amfoterní hydroxid, lépe se rozpouští v kyselinách než v zásadách. Lze jej připravit srážením vodného roztoku \ce{InCl3} za teploty varu amoniakem a následným stárnutím sraženiny (gelu).\footnote[frame]{\href{https://doi.org/10.1007/s10973-005-0963-4}{Preparation and thermal decomposition of indium hydroxide}}
+		\begin{itemize}
+			\item Je hlavním prekurzorem pro přípravu oxidu inditého.
+			\item Má kubickou strukturu.
+			\item Je nerozpustný ve vodě.
+			\item Za vyšší teploty a tlaku přechází na InO(OH).
+			\item V přírodě se vyskytuje jako vzácný minerál \textit{dzhalindite}.\footnote[frame]{\href{http://webmineral.com/data/Dzhalindite.shtml}{Dzhalindite Mineral Data}}
+		\end{itemize}
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{figure}
+		\adjincludegraphics[height=.7\textheight]{img/Indium(III)-oxide.jpg}
+		\caption*{Oxid inditý}
+	\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\begin{columns}
+		\begin{column}{0.65\textwidth}
+	\vfill
+	\label{ITO}
+	\begin{itemize}
+		\item \textit{ITO -- oxid indito-cíničitý}
+		\item Jeho přibližný vzorec je \ce{(In2O3)_{0.9} . (SnO2)_{0.1}}.
+		\item Hmotnostní složení: 74 \% In, 18 \% \ce{O2}, and 8 \% Sn.
+		\item Je to jeden z nejpoužívanějších průhledných vodivých filmů.
+		\item Tloušťkou filmu lze nastavit jak jeho průhlednost, tak vodivost.
+		\item Využívá se pro konstrukci LCD, OLED, solárních článků, atd.
+		\item Průhlednosti se využívá při potahování oken, např. u letadel slouží k odstraňování námrazy (po připojení elektrického napětí dochází ke generování tepla).
+	\end{itemize}
+	\vfill
+		\end{column}
+		\begin{column}{0.4\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=\textwidth]{img/LHcockpitWindow.jpg}
+			\caption*{Airbus A319, skla jsou opatřena tenkým filmem z ITO.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:LHcockpitWindow.jpg}{Etan J. Tal/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item \textit{Oxid thallitý} (\ce{Tl2O3}) má hnědou až černou barvu.\footnote[frame]{\href{https://doi.org/10.1002/14356007.a26_607}{Thallium and Thallium Compounds}}
+		\begin{itemize}
+			\item Vzniká zahříváním oxidu thallného na teploty nad 100~$^\circ$C nebo reakcí solí thallitých s amoniakem nebo KOH.
+			\item Další možností přípravy je oxidace chloridu thalného pomocí chlornanu.
+			\item \ce{2 TlCl + 2 NaClO + 2 NaOH -> Tl2O3 + 4 NaCl + H2O}
+			\item Při teplotách nad 500~$^\circ$C sublimuje a částečně se rozkládá.
+			\item \ce{Tl2O3 <=> Tl2O + O2}
+			\item Ochotně reaguje (i za laboratorní teploty) se sírou nebo sulfanem za vzniku sulfidu thallného.
+			\item \ce{2 Tl2O3 + 5 S -> 2 Tl2S + 3 SO2}
+			\item \ce{3 Tl2O3 + 5 H2S -> 3 Tl2S + 5 H2O + 2 SO2}
+		\end{itemize}
+		\item \textit{Hydroxid thallitý} (\ce{Tl(OH)3}) lze připravit anodickou oxidací thallných iontů na platinové elektrodě:\footnote[frame]{\href{https://doi.org/10.1021/ja01148a093}{The Anodic Oxidation of Thallous Ion on the Rotating Platinum Microelectrode}}
+		\begin{itemize}
+			\item \ce{Tl^+ + 3 H2O <=> Tl(OH)3 + 3 H^+ + 2 e^-}
+		\end{itemize}
+	\end{itemize}
+\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item \textit{Oxid thallný} (\ce{Tl2O}) tvoří černé orthorombické krystaly.\footnote[frame]{\href{https://doi.org/10.1002/zaac.19713810305}{Zur Darstellung und Kristallstruktur von Tl$_2$O}}
+		\begin{itemize}
+			\item Lze jej připravit kalcinací uhličitanu thallného (\ce{Tl2CO3}) v inertní atmosféře.
+			\item Vzniká oxidací na suchém vzduchu při teplotách nad 100~$^\circ$C.
+			\item Je hygroskopický, snadno se hydratuje za vzniku TlOH.
+		\end{itemize}
+		\item \textit{Hydroxid thallný} (TlOH) má podobné vlastnosti jako hydroxidy alkalických kovů. Je bílý, po expozici světlu šedne.
+		\begin{itemize}
+			\item Je velmi dobře rozpustný ve vodě a jde o silnou zásadu.
+			\item Mimo hydratace oxidu thallného vzniká i reakcí kovového thallia se vzdušnou vlhkostí:
+			\item \ce{2 Tl + H2O + O2 -> 2 TlOH}\footnote[frame]{\href{https://doi.org/10.1021/ja01335a001}{A New Method for the Preparation of Thallous Hydroxide}}
+			\item Podobně jako hydroxidy alkalických kovů reaguje se vzduchem za vzniku uhličitanu.
+			\item Roztokem alkalického sulfidu se sráží za vzniku sulfidu thallného.
+			\item \ce{2 TlOH + Na2S -> Tl2S + 2 NaOH}
+		\end{itemize}
+	\end{itemize}
+	\vfill
+}
+
+\subsection{Chalkogenidy}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Chalkogenidů gallia, india a thallia známe poměrně mnoho.
+		\item \textit{Sulfid gallitý} (\ce{Ga2S3}) je žlutá pevná látka s polovodivými vlastnostmi.
+		\item Vytváří čtyři polymorfní formy:
+		\begin{itemize}
+			\item $\alpha$ -- hexagonální, žlutá forma.
+			\item $\alpha'$ -- monoklinická.
+			\item $\beta$ -- hexagonální.
+			\item $\gamma$ -- kubická, defektní spinelová struktura.
+		\end{itemize}
+		\item Můžeme jej připravit přímou reakcí prvků nebo zahříváním gallia v proudu sulfanu.
+		\item \ce{2 Ga + 3 S -> Ga2S3}
+		\item \ce{4 Ga + 6 H2S ->[950 $^\circ$C] 2 Ga2S3 + 3 H2}
+		\item S vodným roztokem \ce{K2S} poskytuje klastr \ce{K8Ga4S10}, který obsahuje anion \ce{[Ga4S10]^{8-}} se strukturou adamantanu.
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{figure}
+			\adjincludegraphics[height=0.75\textheight]{img/Ga4S10.png}
+			\caption*{Krystalová struktura aniontu \ce{[Ga4S10]^{8-}}}
+	\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item \textit{Sulfid gallnatý} (\ce{GaS}) je žlutá pevná látka s teplotou tání 970~$^\circ$C.
+		\item Má hexagonální vrstevnatou strukturu, ke každému atomu gallia jsou koordinovány tři atomy síry a jeden gallia (obsahují jednotku \ce{Ga$_2^{4+}$}).
+		\item Podobnou strukturu mají i GaSe, GaTe, InS a InSe.
+	\end{itemize}
+	\begin{figure}
+		\begin{figure}
+			\adjincludegraphics[width=0.6\textwidth]{img/GaSstructure.jpg}
+			\caption*{Wurtzitová struktura GaS.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:GaSstructure.jpg}{Materialscientist/Commons}}}
+		\end{figure}
+	\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item \textit{Selenid gallnatý} (\ce{GaSe}) je hnědá pevná látka s teplotou tání 960~$^\circ$C.
+		\item Nanočástice se připravují reakcí trimethylgallia s trioctylfosfinselanem.\footnote[frame]{\href{https://doi.org/10.1021/nl015641m}{Synthesis of Highly Luminescent GaSe Nanoparticles}}
+		\item \textit{Selenid gallitý} (\ce{Ga2Se3}) je načervenalá pevná látka.
+		\item Lze jej připravit syntézou z prvků, ve vodě pomalu hydrolyzuje.
+		\item Má mírné oxidační účinky.
+		\item \textit{Tellurid gallnatý} (\ce{GaTe}) je černá pevná látka, připravuje se pomocí MOCVD.\footnote[frame]{MOCVD -- Metal-Organic Chemical Vapor Deposition}
+		\item \textit{Tellurid gallitý} (\ce{Ga2Te3}) tvoří černé krystaly, nerozpustné ve vodě.
+		\item Má polovodivé vlastnosti, ve formě tenkého filmu jde o perspektivní materiál pro solární články.\footnote[frame]{\href{https://doi.org/10.1109/ICIPRM.2016.7528605}{Growth and solar cell applications of \ce{AgGaTe2} layers by closed space sublimation using the mixed source of \ce{Ag2Te} and \ce{Ga2Te3}}}
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item \textit{Sulfid inditý} (\ce{In2S3}) je pevná látka, zapáchající po zkažených vejcích.
+		\item Byl připraven už roku 1863 jako první sloučenina india.\footnote[frame]{\href{https://doi.org/10.1002/prac.18630890156}{Vorläufige Notiz über ein neues Metal}}
+		\item Známe tři polymorfní struktury:
+		\begin{enumerate}
+			\item $\alpha$-\ce{In2S3} -- žlutá, kubická modifikace.
+			\item $\beta$-\ce{In2S3} -- červená modifikace s defektní spinelovou strukturou. Stabilní modifikace za laboratorní teploty
+			\item $\gamma$-\ce{In2S3} -- má vrstevnatou strukturu, je nestabilní.
+		\end{enumerate}
+		\item Připravuje se přímou syntézou z prvků.
+		\item \ce{^{113m}In2S3} je radioaktivní (T$_\frac{1}{2}$ = 1,66 h) a využívá se jako kontrastní látka v medicíně.\footnote[frame]{\href{https://doi.org/10.1148/92.7.1453}{Radioactive Albumin Microspheres for Studies of the Pulmonary Circulation}}
+		\item Nanočástice \ce{In2S3} dopované europiem se využívají jako luminiscenční materiály. Při složení \ce{In_{1.8}Eu_{0.2}S3} emitují zelené světlo (510~nm), zatímco \ce{In_{1.6}Eu_{0.4}S3} emitují modré světlo (425~nm).\footnote[frame]{\href{https://doi.org/10.1021/jp048107m}{Full-Color Emission from \ce{In2S3} and \ce{In2S3}:\ce{Eu^{3+}} Nanoparticles}}
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Jednostěnné nanotrubice \ce{In2S3} lze připravit difůzí z rozpouštědla (oleylamin) do kapaliny, kde jsou nerozpustné (ethanol).\footnote[frame]{\href{https://doi.org/10.1002/prac.18630890156}{Vorläufige Notiz über ein neues Metal}}
+	\end{itemize}
+	\begin{figure}
+		\adjincludegraphics[width=0.75\textwidth]{img/Indium(III)_sulfide_nanotubes.jpg}
+		\caption*{\ce{In2S3} nanotrubice.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Indium(III)_sulfide_nanotubes.jpg}{Bing Ni et al./Commons}}}
+	\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item \textit{Selenid inditý}, \ce{In2Se3}, je perspektivní fotovoltaický materiál.
+		\item Lze jej připravit pomocí MOCVD směsi: trimethylindia, selanu a vodíku.\footnote[frame]{\href{https://doi.org/10.1063/1.2382742}{Growth of single-phase \ce{In2Se3} by using metal organic chemical vapor deposition with dual-source precursors}}
+		\item \ce{2 (CH3)3In + 3 SeH2 ->[H2] In2Se3 + 6 CH4}
+		\item \textit{Selenid indnatý}, \ce{InSe}, je polovodič s vrstevnatou strukturou.\footnote[frame]{\href{https://doi.org/10.1038/s41598-017-03186-x}{Indium selenide: an insight into electronic band structure and surface excitations}}
+		\item Vrstvy se skládají z motivu \ce{Se-In-In-Se}.
+		\item \textit{Tellurid inditý}, \ce{In2Te3}, je modrá pevná látka, která se působením silných kyselin rozkládá za vzniku tellanu.
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{figure}
+		\begin{figure}
+			\adjincludegraphics[height=0.7\textheight]{img/Indium_selenide_polytopes.png}
+			\caption*{Modifikace \ce{InSe}.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Indium_(II)_selenide_polytopes.png}{Boukhvalov, D.W. et al./Commons}}}
+		\end{figure}
+	\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item \textit{Sulfid thallný}, \ce{Tl2S}, je černá krystalická látka.
+		\item Má fotovodivé vlastnosti, proto se využíval při konstrukci tzv. \textit{Thalofidových článků}\footnote[frame]{\href{https://doi.org/10.1103/PhysRev.15.289}{"Thalofide Cell"—a New Photo-Electric Substance}} pro detekci infračerveného záření.\footnote[frame]{\href{https://doi.org/10.2478/s11772-012-0037-7}{History of infrared detectors}}
+		\item V přírodě se vyskytuje jako minerál karlinit.\footnote[frame]{\href{http://webmineral.com/data/Carlinite.shtml}{Carlinite Mineral Data}}
+		\item \textit{Tellurid thallný}, \ce{Tl2Te}, byl zatím charakterizován pouze pomocí RTG strukturní analýzy.\footnote[frame]{\href{https://doi.org/10.1107/S0108270102005085}{\ce{Tl2Te} and its relationship with \ce{Tl5Te3}}}
+		\item Byl připraven sléváním kovů při teplotě 280~$^\circ$C po dobu 160 hodin v~evakuované a zatavené křemenné trubici.
+		\begin{itemize}
+			\item T$_\mathrm{t}$(Tl) = 304 $^\circ$C
+			\item T$_\mathrm{t}$(Te) = 450 $^\circ$C
+		\end{itemize}
+	\end{itemize}
+	\vfill
+}
+
+\subsection{Halogenidy}
+\subsubsection{Halogenidy -- oxidační číslo III}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Trifluoridy jsou netěkavé a mají vyšší teploty tání než těžší trihalogenidy.
+		\item \ce{GaF3} je bílá pevná látka, taje nad teplotou 1000~$^\circ$C.
+		\item Ostatní halogenidy gallité mají dimerní strukturu s podstatně nižšími teplotami tání.
+		\item Připravují se pomocí MOCVD.
+		\item Tvoří adukty typu \ce{MX3L}, \ce{MX3L2} a \ce{MX3L3}.
+	\end{itemize}
+	\begin{columns}
+		\begin{column}{.5\textwidth}
+			\begin{tabular}{|c|c|}
+				\hline
+				& Teplota tání [$^\circ$C] \\\hline
+				\ce{GaCl3} & 78 \\\hline
+				\ce{GaBr3} & 122 \\\hline
+				\ce{GaI3} & 212 \\\hline
+			\end{tabular}
+		\end{column}
+		\begin{column}{.5\textwidth}
+			\adjincludegraphics[width=0.9\textwidth]{img/GaCl3.png}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\frame{
+\frametitle{}
+\vfill
+\begin{itemize}
+	\item Fluorid gallitý lze připravit reakcí fluoru nebo fluorovodíku s oxidem gallitým nebo tepelným rozkladem \ce{(NH4)3GaF6}.
+	\item Chlorid gallitý lze připravit přímou reakcí prvků nebo zahříváním oxidu s thionylchloridem:
+	\item \ce{2 Ga + 3 Cl2 -> 2 GaCl3}
+	\item \ce{Ga2O3 + 3 SOCl2 -> 2 GaCl3 + 3 SO2}
+	\item Je to Lewisovská kyselina, čehož se využívá při katalýze organických reakcí, např. Friedel-Craftsových.
+	\item Bromid i jodid gallitý můžeme také připravit přímým slučováním prvků.
+	\item Bromid gallitý se podobně jako chlorid využívá jako katalyzátor v organické syntéze.
+	\item Jodid gallitý lze redukovat galliem na jodid gallný.
+	\item \ce{GaI3 + 2 Ga -> 3 GaI}
+\end{itemize}
+\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Fluorid inditý lze získat reakcí oxidu inditého s fluorovodíkem nebo kyselinou fluorovodíkovou. Struktura se skládá z oktaedrů \ce{InF6} propojených vrcholy.
+		\item Chlorid, bromid i jodid mají dimerní strukturu podobnou \ce{Al2Cl6}.
+		\item Chlorid inditý lze podobně jako gallitý, připravit slučováním prvků.
+		\begin{itemize}
+			\item Tvoří několik řad aduktů a jeho Lewisovské kyselosti se využívá v katalýze, např. při Diels-Alderových reakcích.\footnote[frame]{\href{https://doi.org/10.1016/S0040-4020(02)00907-9}{\ce{InCl3}-Catalyzed hetero-Diels–Alder reaction}}
+			\item Slouží jako výchozí látka k produkci organokovových sloučenin india.
+			\item \ce{InCl3 + 3 EtMgBr ->[Et2O] Et3In.OEt2 + 3 MgBr2}
+			\item Za vyšších teplot reaguje s kovovým indiem za vzniku nižších halogenidů: \ce{In5Cl9}, \ce{In2Cl3} a \ce{InCl}.\footnote[frame]{\href{https://doi.org/10.1107/S0365110X66002032}{The crystal structure of the room temperature modification of indium chloride, InCl}}
+		\end{itemize}
+		\item Bromid inditý lze také připravit z prvků, využívá se jako katalyzátor ve Friedel-Craftsových reakcích.\footnote[frame]{\href{https://doi.org/10.1021/jo9014613}{\ce{InBr3}: A Versatile Catalyst for the Different Types of Friedel-Crafts Reactions}}
+		\item Jodid inditý získáme reakcí india s parami jodu, vodné roztoky lze připravit reakcí s kyselinou jodovodíkovou.
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item \textit{Fluorid thallitý} je bílá krystalická látka, taje při 550~$^\circ$C, thallium má koordinační číslo 9, krystalová struktura odpovídá \ce{YF3}.
+		\item Připravit lze fluorací oxidu pomocí fluoru, \ce{BrF3} nebo \ce{SF4} za zvýšené teploty.
+		\item \textit{Chlorid thallitý} má strukturu podobnou \ce{AlCl3}, je nestabilní, při 40~$^\circ$C se rozkládá na \ce{TlCl}.
+		\item Lze jej připravit reakcí \ce{TlCl} s plynným chlorem v acetonitrilu.
+		\item \textit{Bromid thallitý} se rozládá už při teplotách pod 40~$^\circ$C.
+		\item Lze jej připravit reakcí \ce{TlCl} s bromem v acetonitrilu nebo ve vodném roztoku reakcí bromidu s \ce{TlBr}.
+		\item \textit{Jodid thallitý} není znám. Sloučenina se vzorcem \ce{TlI3} je známa, ale jde o \textit{trijodid thallný}, tzn. obsahuje lineární anion \ce{I3^-}.
+		\item Lze jej připravit reakcí jodidu thallného s jodem v prostředí kyseliny jodovodíkové.
+		\item \ce{TlI + I2 ->[HI] TlI3}
+		\item Trijodid thallný je možné oxidovat nadbytkem jodidu:
+		\item \ce{TlI3 + I- -> [TlI4]-}
+	\end{itemize}
+	\vfill
+}
+
+\subsubsection{Monohalogenidy}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item \textit{Monohalogenidy} vytvářejí všechny čtyři kovy 13. skupiny. U hliníku se jedná o nestabilní částice existující pouze jako dvouatomové molekuly s velmi krátkým časem života nebo za kryogenních podmínek. Jejich stabilita vzrůstá s protonovým číslem prvku.
+		\item GaF a InF jsou nestabilní a existují pouze v plynném stavu. Další halogenidy jsou stabilnější, lze je připravit redukcí trojmocných halogenidů kovovým prvkem.
+		\item \ce{GaCl3 + 2 Ga -> 3 GaCl}
+		\item Podobnou reakcí lze získat i komplexní halogenidy \ce{Ga[GaCl4]}, \ce{Ga[GaBr4]} a \ce{Ga[GaI4]}.
+		\item Zahříváním equimolární směsi halogenidu gallitého s kovovým galliem nebo halogenací gallia pomocí \ce{Hg2X2} nebo \ce{HgX2} lze připravit komplexy \ce{Ga^I[Ga^{III}X4]}.
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{tabular}{|c|c|c|c|r@{,}l|}
+		\hline
+		Látka & Barva & T. tání [$^\circ$C] & T. varu [$^\circ$C] &
+		\multicolumn{2}{|c|}{Rozp. [g/100 g \ce{H2O}]} \\\hline
+		TlF & bílý & 322 & 826 & 80 & 0 \\\hline
+		TlCl & bílý & 431 & 720 & 0 & 33 \\\hline
+		TlBr & světle žlutý & 460 & 815 & 0 & 058 \\\hline
+		TlI & žlutý & 442 & 823 & 0 & 006 \\\hline
+	\end{tabular}
+
+	\begin{itemize}
+		\item Halogenidy thallné jsou stabilními halogenidy.
+		\item TlF lze připravit reakcí kyseliny fluorovodíkové s \ce{Tl2CO3}. Je dobře rozpustný ve vodě, má defektní strukturu NaCl.
+		\item \ce{Tl2CO3 + 2 HF -> 2 TlF + CO2 + H2O}
+		\item Ostatní halogenidy thallné připravíme srážením okyselených roztoků thallných solí příslušným halogenidem.
+	\end{itemize}
+	\begin{align*}
+		\ce{TlClO4 + KCl &-> TlCl + KClO4}\\
+		\ce{TlClO4 + KBr &-> TlBr + KClO4}\\
+		\ce{Tl2SO4 + 2 KI &-> 2 TlI + K2SO4}
+	\end{align*}
+	\vfill
+}
+
+\subsubsection{KRS - směsné halogenidy thallné}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Směsné halogenidy thallné slouží jako materiály pro optiku infračervených spektrometrů.\footnote[frame]{\href{https://www.chemeurope.com/en/encyclopedia/Thallium_halides.html}{Thallium halides}}
+		\item Označují se jako KRS (Kristalle aus dem Schmelz-fluss -- krystaly z taveniny).
+		\item Nejpoužívanější jsou KRS-5 (červený, \ce{TlBr_{0.4}I_{0.6}}) a KRS-6 (bezbarvý, \ce{TlBr_{0.3}Cl_{0.7}}).
+		\item Poprvé byly připraveny v roce 1941 v laboratoři Carl Zeiss Optical Works v Jeně.
+		\item Jejich výhodou oproti běžně používanému KBr je nízká rozpustnost ve vodě.
+	\end{itemize}
+	\begin{center}
+		\adjincludegraphics[width=0.5\textwidth]{img/KRS-okna.jpg}
+	\end{center}
+	\vfill
+}
+
+\subsubsection{Další halogenidy}
+\frame{
+	\frametitle{}
+	\begin{columns}
+		\begin{column}{0.7\textwidth}
+			\vfill
+			\begin{itemize}
+				\item Gallium vytváří řadu dvojjaderných komplexních sloučenin obsahujících centrální ion \ce{Ga$_2^{2+}$} s délkou vazby \ce{Ga-Ga} 240,6~pm.
+				\item Sumární vzorec těchto komplexů je \ce{[Ga2X2L2]}, např. komplex s 1,4-dioxanem \ce{[Ga2Cl2(C4H8O8)2]}.
+				\item Koordinační okolí Ga je téměř tetraedrické a sloučenina má zákrytovou konformaci.
+				\item Známe také řadu stabilní dihalogenidů gallia, které lze připravit zahříváním \ce{GaX3} s galliem nebo halogenací gallia pomocí \ce{HgX2} a \ce{H2X2}.
+				\item Jde např. o: \ce{Ga^I[Ga^{III}Cl4]}, \ce{Ga[GaBr4]} nebo \ce{[Ga^IL4][Ga^{III}X4]}
+			\end{itemize}
+			\vfill
+		\end{column}
+		\begin{column}{0.35\textwidth}
+			\adjincludegraphics[height=0.6\textheight]{img/Ga2Cl4Diox2.png}
+		\end{column}
+	\end{columns}
+}
+
+\subsection{Nitridy}
+\frame{
+	\frametitle{}
+	\begin{columns}
+		\begin{column}{0.65\textwidth}
+			\vfill
+			\begin{itemize}
+				\item \textit{Nitrid gallitý}, GaN, je polovodivý materiál využívaný LED diodách, např. v LASERech pro Blue-ray mechaniky. Dopováním můžeme získat barvy v rozmezí od červené po ultrafialovou.
+				\item Vyrábí se reakcí gallia nebo oxidu gallitého s amoniakem za vysoké teploty.
+				\item \ce{2 Ga + 2 NH3 ->[1050 $^\circ$C] 2 GaN + 3 H2}
+				\item \ce{Ga2O3 + 2 NH3 ->[1050 $^\circ$C] 2 GaN + 3 H2O}
+				\item \textit{Nitrid inditý}, InN, je také polovodivý.
+				\item Společně s GaN vytváří ternární systém \textit{InGaN} se šířkou zakázaného pásu v rozmezí IR až UV části spektra. Proto je velmi zajímavým materiálem pro konstrukci solárních článků.
+			\end{itemize}
+			\vfill
+		\end{column}
+		\begin{column}{0.4\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=\textwidth]{img/Crystal-GaN.jpg}
+				\caption*{Krystal \ce{GaN}.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Crystal-GaN.jpg}{Opto-p/Commons}}}
+			\end{figure}
+			\vfill
+		\end{column}
+	\end{columns}
+}
+
+\frame{
+	\frametitle{}
+			\vfill
+			\begin{itemize}
+				\item \textit{Nitrid thallitý}, \ce{TlN}, nebyl dlouho znám. Připraven byl až reakcí thallia s dusíkem v obloukovém výboji.\footnote[frame]{\href{https://doi.org/10.1016/j.matchemphys.2019.02.005}{Synthesis and properties of thallium nitride films}}
+				\item Krystaluje ve stejné soustavě jako wurtzit (\ce{(Zn,Fe)S}).
+				\item Snadno se na vzduchu oxiduje za vzniku \ce{Tl2O3}.
+				\item \textit{Nitrid thallný}, \ce{Tl3N}, je černá, pevná látka vznikající srážením dusičnanu thallného amidem draselným v kapalném amoniaku.
+				\item \ce{3 TlNO3 + 3 KNH2 ->[NH3(l)] Tl3N + 3 KNO3 + 2 NH3}
+			\end{itemize}
+			\begin{figure}
+				\adjincludegraphics[height=.25\textheight]{img/Wurtzite.png}
+				\caption*{Základní buňka wurtzitu.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Wurtzite.png}{Kent G. Budge/Commons}}}
+			\end{figure}
+			\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item \textit{InGaN, nitrid indito-gallitý}, \ce{In_xGa_{1-x}N}, je polovodivý materiál vyráběný jako směs nitridu gallitého a inditého.
+		\item Poměrem india a gallia lze ovlivnit vlnovou délku emitovaného záření v rozmezí UV až IR.
+		\item Využívá se ke konstrukci modrých LED a fotovoltaických článků.\footnote[frame]{\href{https://doi.org/10.1016/S0022-0248(98)01344-X}{InGaN-based blue light-emitting diodes and laser diodes}}
+	\end{itemize}
+	\begin{columns}
+		\begin{column}{.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=.9\textwidth]{img/White_LED.png}
+				\caption*{Spektrum bílé LED.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:White_LED.png}{Deglr6328/Commons}}}
+			\end{figure}
+		\end{column}
+		\begin{column}{.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=.9\textwidth]{img/Uv-LED.jpg}
+				\caption*{UV LED.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Uv-LED.jpg}{C. Pelant /Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\subsection{Organokovové sloučeniny}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Chemická reaktivita vazby \ce{M-C} klesá v pořadí Al$>$Ga$\approx$In$>$Tl.
+		\item Sloučeniny \ce{GaR3} se připravují alkylací gallia pomocí \ce{HgR2} nebo pomocí Grignardových činidel (\ce{RMgBr}), příp. reakcí \ce{AlR3} a \ce{GaCl3}. Jsou to reaktivní, pohyblivé kapaliny.
+		\item \ce{2 Ga + 3 Me2Hg -> 2 Me3Ga + 3 Hg}
+		\item \ce{GaCl3 + 3 MeMgBr -> Me3Ga + 3 MgBrCl}
+		\item \textit{Trimethylgallan} je prekurzorem gallia pro MOVPE (MetalOrganic Vapour Phase Epitaxy) přípravu polovodičů, např. GaAs nebo GaN pro LED.\footnote[frame]{\href{https://doi.org/10.1002/9780470132623.ch8}{Trimethylindium and Trimethylgallium}}
+		\item \ce{Ga(CH3)3 + AsH3 ->[1300 $^\circ$C] GaAs + CH4}
+		\item Trifenylové sloučeniny gallia jsou v roztoku monomerní, ale v pevném stavu vytváří agregáty pomocí interakcí \ce{M\dotsm C}.
+	\end{itemize}
+	\begin{center}
+		\adjincludegraphics[width=0.4\textwidth]{img/Trimethylgallium-2D.png}
+	\end{center}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+		\vfill
+	\begin{columns}
+	\begin{column}{0.65\textwidth}
+		\begin{itemize}
+		\item Sloučeniny v oxidačním čísle I jsou u india běžnější než u gallia.
+		\item Příkladem může být \textit{cyklopentadienylindium}, které se připravuje reakcí chloridu s cyklopentadienyllithiem.\footnote[frame]{\href{https://doi.org/10.1039/DT9810002592}{A simple synthesis of cyclopentadienylindium(I)}}
+		\item \ce{InCl + CpLi ->[Et2O] CpIn + LiCl}
+		\item V pevném stavu vytváří cik-cak řetězce, ve kterých se střídají ionty indné a cyklopentadienidové kruhy.
+		\end{itemize}
+		\vfill
+		\end{column}
+		\begin{column}{0.4\textwidth}
+		\adjincludegraphics[width=0.7\textwidth]{img/Cyclopentadienylindium.png}
+		\end{column}
+		\end{columns}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{figure}
+		\adjincludegraphics[width=\textwidth]{img/InCp-chain-3D-balls.png}
+		\caption*{Řetězec cyklopentadienylindia.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:InCp-chain-3D-balls.png}{Ben Mills/Commons}}}
+	\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{columns}
+		\begin{column}{.65\textwidth}
+			\begin{itemize}
+				\item V oxidačním čísle III známe více sloučenin.
+				\item Nejdůležitější sloučeninou je \textit{trimethylindium} (\ce{InMe3}), na rozdíl od trimethylhliníku má monomerní strukturu.
+				\item Připravuje se methylací chloridu inditého:\footnote[frame]{\href{https://doi.org/10.1002/9780470132623.ch8}{Trimethylindium and Trimethylgallium}}
+				\item \ce{InCl3 + 3 LiMe ->[Et2O] Me3In.OEt2 + 3 LiCl}
+				\item Vytváří bezbarvé, jehličkovité krystaly, které jsou na vzduchu pyroforické. Tají při 88~$^\circ$C.
+				\item Využívá se pro MOVPE syntézu polovodičových materiálů -- InP, InN, GaInAs, AlInGaNP, $\dots$
+			\end{itemize}
+		\end{column}
+
+		\begin{column}{.4\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=\textwidth]{img/Trimethylindium-from-xtal-3D-balls.png}
+				\caption*{Struktura trimethylindia.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Trimethylindium-from-xtal-3D-balls.png}{Ben Mills/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item \textbf{Indium-mediated allylations} (Allylace zprostředkovaná indiem)\footnote[frame]{\href{https://doi.org/10.1021/acs.accounts.6b00362}{Indium-Mediated Stereoselective Allylation}}
+		\item Reakci lze rozdělit na dva kroky, nejprve dochází k reakci kovového india s allylhalidem za vzniku organokovového meziproduktu RInLX.
+		\item Poté dochází k adici na karbonyl.
+	\end{itemize}
+	\begin{center}
+		\adjincludegraphics[width=0.8\textwidth]{img/IMA_in_two_steps_as_scalable_vg_file.png}
+	\end{center}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Thallium, stejně jako indium, běžně vytváří sloučeniny v oxidačním čísle I, např. cyklopentadienylthallium (TlCp), které má podobnou strukturu jako indný analog.
+		\item Vyrábí se ze síranu thallného a cyklopentadienu.\footnote[frame]{\href{https://doi.org/10.1002/9780470132555.ch31}{Cyclopentadienylthallium (Thallium Cyclopentadienide)}}
+		\item \ce{Tl2SO4 + 2 NaOH -> 2 TlOH + Na2SO4}
+		\item \ce{TlOH + C5H6 -> TlC5H5 + H2O}
+		\item TlCp dokáže přenášet cyklopentadienyl na kovy z d-bloku.\footnote[frame]{\href{https://doi.org/10.1016/j.jorganchem.2017.11.003}{Indenyl rhodium complexes. Synthesis and catalytic activity in reductive amination using carbon monoxide as a reducing agent}}
+		\item Ale dokáže vystupovat i jako akceptor cyklopentadiendového aniontu, např. reakcí s \ce{MgCp2} vzniká aniont \ce{[TlCp2]^-}.
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{figure}
+		\adjincludegraphics[width=.8\textwidth]{img/TlCpPolymer.png}
+		\caption*{Struktura TlCp.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:TlCpPolymer.png}{Smokefoot/Commons}}}
+
+		\adjincludegraphics[width=.8\textwidth]{img/Cyclopentadienylthallium-chain-from-xtal-3D-sf.png}
+		\caption*{Struktura TlCp.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Cyclopentadienylthallium-chain-from-xtal-3D-sf.png}{Ben Mills/Commons}}}
+	\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Trifluoroctan thallitý se připravuje dvanáctihodinovým refluxem oxidu thallitého v kyselině trifluoroctové.\footnote[frame]{\href{https://doi.org/10.1021/jo5011087}{Ketene–Ketene Interconversion. 6-Carbonylcyclohexa-2,4-dienone–Hepta-1,2,4,6-tetraene-1,7-dione–6-Oxocyclohexa-2,4-dienylidene and Wolff Rearrangement to Fulven-6-one}}
+		\item Lze jej využít k elektrofilní thallaci aromatických sloučenin, příkladem může být jodace \textit{p}-xylenu.\footnote[frame]{\href{https://doi.org/10.15227/orgsyn.055.0070}{2-iodo-p-xylene}}
+		\item Během reakce dochází ke vzniku vazby \ce{Tl-C}.
+	\end{itemize}
+	\begin{figure}
+		\adjincludegraphics[width=\textwidth]{img/Arene_thallation.png}
+		\caption*{Jodace p-xylenu.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Arene_thallation.svg}{V8rik/Commons}}}
+	\end{figure}
+	\vfill
+}
+
+\input{../Last}
+
+\end{document}

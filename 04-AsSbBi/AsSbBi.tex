@@ -1,0 +1,1669 @@
+\documentclass[hyperref=unicode,presentation,10pt]{beamer}
+
+\usepackage[absolute,overlay]{textpos}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{adjustbox}
+\usepackage[version=4]{mhchem}
+\usepackage{chemfig}
+\usepackage{caption}
+
+%dělení slov
+\usepackage{ragged2e}
+\let\raggedright=\RaggedRight
+%konec dělení slov
+
+\addtobeamertemplate{frametitle}{
+	\let\insertframetitle\insertsectionhead}{}
+\addtobeamertemplate{frametitle}{
+	\let\insertframesubtitle\insertsubsectionhead}{}
+
+\makeatletter
+\CheckCommand*\beamer@checkframetitle{\@ifnextchar\bgroup\beamer@inlineframetitle{}}
+\renewcommand*\beamer@checkframetitle{\global\let\beamer@frametitle\relax\@ifnextchar\bgroup\beamer@inlineframetitle{}}
+\makeatother
+\setbeamercolor{section in toc}{fg=red}
+\setbeamertemplate{section in toc shaded}[default][100]
+
+\usepackage{fontspec}
+\usepackage{unicode-math}
+
+\usepackage{polyglossia}
+\setdefaultlanguage{czech}
+
+\def\uv#1{„#1“}
+
+\mode<presentation>{\usetheme{default}}
+\usecolortheme{crane}
+
+\setbeamertemplate{footline}[frame number]
+
+\title[Crisis]
+{C2062 -- Anorganická chemie II}
+
+\subtitle{(Uhlík, křemík,) germanium, cín, olovo a flerovium}
+\author{Zdeněk Moravec, hugo@chemi.muni.cz \\ \adjincludegraphics[height=60mm]{img/IUPAC_PSP.jpg}}
+\date{}
+
+\title[Crisis]
+{C2062 -- Anorganická chemie II}
+
+\subtitle{(Dusík, fosfor,) arsen, antimon, bismut a moscovium}
+\author{Zdeněk Moravec, hugo@chemi.muni.cz \\ \adjincludegraphics[height=60mm]{img/IUPAC_PSP.jpg}}
+\date{}
+
+\begin{document}
+
+\begin{frame}
+	\titlepage
+\end{frame}
+
+\section{Dusík}
+%Haber-Bosch; NI3; hypergolické látky
+\frame{
+	\frametitle{}
+	\begin{columns}
+		\begin{column}{0.6\textwidth}
+			\vfill
+			\begin{itemize}
+				\item Značka N, protonové číslo 7.
+				\item Za laboratorní teploty je plynný, kapalný dusík se běžně využívá jako ochranná atmosféra a jako chladivo.
+				\item Molekula \ce{N2} obsahuje trojnou vazbu \ce{N\bond{3}N}, která ji dává vysokou stabilitu a inertnost.
+				\item Tvoří největší podíl v Zemské atmosféře.
+				\item Koloběh dusíku na Zemi popisuje fixaci atmosférického dusíku a jeho opětovné uvolňování biologickými systémy.
+				\item Jednou z nejdůležitějších sloučenin dusíku je amoniak, \ce{NH3}.
+			\end{itemize}
+			\vfill
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=\textwidth]{img/Liquidnitrogen.jpg}
+				\caption*{Kapalný dusík.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Liquidnitrogen.jpg}{Cory Doctorow/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+}
+
+\frame{
+	\frametitle{}
+	\begin{figure}
+		\adjincludegraphics[width=.8\textwidth]{img/Nitrogen_cycle_cs.png}
+		\caption*{Koloběh dusíku.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Nitrogen_cycle_cs.svg}{Nojhan/Commons}}}
+	\end{figure}
+}
+
+\frame{
+	\frametitle{}
+	\begin{itemize}
+		\item \textbf{Amoniak}, \ce{NH3}, bezbarvý, toxický plyn.
+		\item Díky vysoké polaritě se dobře rozpouští ve vodě (31~\% při 25~$^\circ$C).
+		\item Podobně jako voda má schopnost autoionizace:
+		\item \ce{NH3 + NH3 <=> NH$^+_4$ + NH$^-_2$}
+		\item Stupnice pH v kapalném amoniaku má rozsah 0--30 (K = 10$^{-30}$).
+		\item Roztoky alkalických kovů v kapalném amoniaku poskytují tzv. solvatovaný elektron.\footnote{\href{https://en.wikipedia.org/wiki/Solvated_electron}{Solvated electron}}
+		\item Světová produkce amoniaku se blíží množství 200 miliónů tun.
+		\item Využívá se při výrobě hnojiv a dalších sloučenin dusíku, jako rozpouštědlo, dříve se využíval i v ledničkách.
+		\item Přímá syntéza z prvků je v průmyslovém měřítku neproveditelná.
+		\item V roce 1913 byla vyvinuta Haberova--Boschova metoda výroby amoniaku s využitím heterogenních katalyzátorů na bázi oxidů železa.
+	\end{itemize}
+}
+
+\frame{
+	\frametitle{}
+	\begin{figure}
+		\adjincludegraphics[width=.82\textwidth]{img/Potential_energy_diagram_for_ammonia_synthesis.png}
+		\caption*{Energetický profil syntézy amoniaku.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Potential_energy_diagram_for_ammonia_synthesis.svg}{Imalipusram/Commons}}}
+	\end{figure}
+}
+
+\frame{
+	\frametitle{}
+	\begin{figure}
+		\adjincludegraphics[width=1.1\textwidth]{img/Haber-Bosch.png}
+		\caption*{Haberova-Boschova syntéza amoniaku.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Haber-Bosch-En.svg}{Francis E Williams/Commons}}}
+	\end{figure}
+}
+
+\frame{
+	\frametitle{}
+	\begin{itemize}
+		\item \textbf{Jododusík}, \ce{NI3}, je černozelená pevná látka.
+		\item V suchém stavu ho lze velmi snadno přivést k explozi.
+		\item Připravuje se reakcí roztoku amoniaku s jodem kdy vzniká adukt \ce{NI3.NH3}.
+		\item V roce 1990 byl připraven čistý \ce{NI3} reakcí BN s \ce{IF}:\footnote{\href{https://doi.org/10.1002/anie.199006771}{Nitrogen Triiodide}}
+		\item \ce{BN + 3 IF ->[CFCl3][$-30 ^\circ$C] NI3 + BF3}
+	\end{itemize}
+	\begin{figure}
+		\adjincludegraphics[width=.9\textwidth]{img/NH3-NI3-chain-from-xtal-3D-bs-20.png}
+		\caption*{Struktura aduktu \ce{NI3.NH3}.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:NH3·NI3-chain-from-xtal-3D-bs-20.png}{Ben Mills/Commons}}}
+	\end{figure}
+}
+
+\section{Fosfor}
+\frame{
+	\frametitle{}
+	\begin{itemize}
+		\item Značka P, protonové číslo 15.
+		\item Pevná látka, vytváří řadu allotropních modifikací.
+		\item Důležitý biogenní prvek, vyskytuje se např. v kostech, zubech, ATP (ADP, AMP).
+		\item Fosforečnany jsou součástí hnojiv.
+	\end{itemize}
+	\begin{figure}
+		\adjincludegraphics[width=.9\textwidth]{img/PhosphComby.jpg}
+		\caption*{Bílý, červený a fialový fosfor.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:PhosphComby.jpg}{Commons}}}
+	\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\begin{itemize}
+		\item \textit{Bílý fosfor} -- skládá se z jednotek \ce{P4}, je velmi reaktivní, na vzduchu je samozápalný.
+		\item \textit{Červený fosfor} -- amorfní modifikace, má polymerní strukturu. Připravuje se zahříváním bílého fosforu v anaerobních podmínkách. Je výrazně méně reaktivní než bílý fosfor.
+		\item \textit{Černý fosfor} -- má kovový lesk, vlastnostmi se blíží kovům. Vzniká zahříváním červeného fosforu pod tlakem.
+		\item \textit{Fialový (Hittorfův) fosfor} -- je tvořen řetězci fosforu propojenými do polymerní sítě. Poprvé byl připraven krystalizací fosforu z taveniny olova.
+	\end{itemize}
+	\begin{figure}
+		\adjincludegraphics[height=.2\textheight]{img/Violet-phosphorus-chain-from-xtal-3D-balls.png}
+		\caption*{Krystalová struktura fialového fosforu.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Violet-phosphorus-chain-from-xtal-3D-balls.png}{Benjah-bmm27/Commons}}}
+	\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\begin{itemize}
+		\item \textit{Oxid fosforečný} -- bílý, hygroskopický prášek. Využívá se jako sušidlo i důležitá výchozí látka pro další sloučeniny fosforu.
+		\item \ce{P4O10 + 6 H2O -> 4 H3PO4}
+		\item Získává se oxidací bílého fosforu na vzduchu.
+		\item \ce{P4 + 5 O2 -> P4O10}
+		\item Má strukturu adamantanu, šest kyslíků je endocyklických a čtyři exocyklické.
+		\item Známe pět oxidů v rozmezí \ce{P4O6} až \ce{P4O10}, které se liší počtem exocyklických kyslíků.
+	\end{itemize}
+	\begin{figure}
+		\adjincludegraphics[width=\textwidth]{img/Structures_of_phosphorus_oxides.png}
+		\caption*{Oxidy fosforu v oxidačním stavu V.}
+	\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\begin{itemize}
+		\item \textit{Oxokyseliny fosforu}:
+		\item Vždy obsahují skupinu \ce{P=O}.
+		\item Vždy obsahují alespoň jednu skupinu \ce{P-OH}, která je ionizovatelná.
+		\item Vazby \ce{P-H} nejsou ionizovatelné.
+		\item Řetězení probíhá přes vazby \ce{P-O-P} nebo \ce{P-P}.
+		\item Pro přípravu sloučenin fosforu jsou důležité jak kyseliny, tak jejich estery.
+	\end{itemize}
+	\begin{figure}
+		\adjincludegraphics[width=\textwidth]{img/P-kyseliny.png}
+	\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\begin{itemize}
+		\item \textit{Fosfazeny} -- nenasycené sloučeniny fosforu a dusíku.
+		\item Obsahují zpravidla \ce{P^V} a vazbu \ce{P=N}.
+		\item Monofosfazeny připravil A. V. Kirsanovov v roce 1962:
+		\item \ce{Ph3PCl2 + PhNH2 -> Ph3P=NPh + 2 HCl}
+		\item Polyfosfazeny můžeme připravit reakcí \ce{PCl5} s amoniakem:
+		\item \ce{n PCl5 + n NH4Cl ->[120-150 $^\circ$C] (NPCl2)_n + 4n HCl}
+	\end{itemize}
+	\begin{figure}
+		\adjincludegraphics[width=\textwidth]{img/Phosphornitrilchloride.png}
+	\end{figure}
+}
+
+\section{Úvod -- arsen, antimon, bismut a moscovium}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{tabular}{|c|l|l|l|}
+	\hline
+	 & \textit{Arsen} & \textit{Antimon} & \textit{Bismut} \\\hline
+	 El. konfigurace & 3d$^{10}$ 4s$^{2}$ 4p$^{3}$ & 4d$^{10}$ 5s$^{2}$ 5p$^{3}$ & 4f$^{14}$ 5d$^{10}$ 6s$^{2}$ 6p$^{3}$ \\\hline
+	 Teplota tání [$^\circ$C] & 614 & 631 & 272 \\\hline
+	 Teplota varu [$^\circ$C]  & 817 & 1635 & 1564 \\\hline
+	 Objeven & cca 300 př.n.l. & v 9. stol. př.n.l. & v 1. tis. př.n.l. \\\hline
+	 Vzhled & kovově šedý\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Arsenic_(33_As).jpg}{Stas1995/Commons}} & stříbrnošedý\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Antimony-4.jpg}{Commons}} & stříbrnohnědý\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Bismuth_crystals_and_1cm3_cube.jpg}{Alchemist-hp/Commons}} \\
+	 &  \begin{minipage}{.2\textwidth}
+	 	\adjincludegraphics[width=\linewidth]{img/As.jpg}
+	 \end{minipage}
+	 	& \begin{minipage}{.2\textwidth}
+	 		\adjincludegraphics[width=\linewidth]{img/Sb.jpg}
+	 	\end{minipage} & \begin{minipage}{.2\textwidth}
+	 	\adjincludegraphics[width=\linewidth]{img/Bi.jpg}
+ 	\end{minipage} \\\hline
+	\end{tabular}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\textbf{Moscovium}
+	\begin{itemize}
+		\item Umělý prvek, protonové číslo 115, Mc.\footnote[frame]{\href{https://iupac.org/iupac-announces-the-names-of-the-elements-113-115-117-and-118/}{IUPAC announces the names of the elements 113, 115, 117, and 118}}
+		\item Dřívější název tohoto prvku byl \textit{ununpentium}.
+		\item Poprvé byl připraven v roce 2004:\footnote[frame]{\href{https://journals.aps.org/prc/abstract/10.1103/PhysRevC.69.021601}{Experiments on the synthesis of element 115}}
+		\item \ce{^{243}_{95}Am + ^{48}_{20}Ca -> ^{288}_{115}Mc + 3 ^1_0n}
+		\item \ce{^{243}_{95}Am + ^{48}_{20}Ca -> ^{287}_{115}Mc + 4 ^1_0n}
+		\item Předpokládaná elektronová konfigurace: [Rn] 5f$^{14}$ 6d$^{10}$ 7s$^2$ 7p$^3$.
+	\end{itemize}
+
+	\begin{center}
+	\begin{tabular}{|l|l|l|}
+		\hline
+		Izotop & Poločas rozpadu & Typ přeměny \\\hline
+		$^{286}$Mc & 20 ms & $\alpha$ \\\hline
+		$^{287}$Mc & 38 ms & $\alpha$ \\\hline
+		$^{288}$Mc & 193 ms & $\alpha$ \\\hline
+		$^{289}$Mc & 250 ms & $\alpha$ \\\hline
+		$^{290}$Mc & 650 ms & $\alpha$ \\\hline
+	\end{tabular}
+	\end{center}
+	\vfill
+}
+
+\section{Chemické a fyzikální vlastnosti}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Prvky 15. skupiny patří mezi nejstarší lidstvu známé prvky.
+		\item Arsen a bismut jsou monoizotopické, díky čemuž jsou jejich atomové hmotnosti známy s vysokou přesností.
+		\item Antimon má dva stabilní izotopy: $^{121}$Sb (57,25 \%) a $^{123}$Sb (42,75~\%).
+		\item Všechny tři prvky vytvářejí několik \textit{allotropních modifikací}.
+		\item Elektronová konfigurace valenční slupky všech prvků je ns$^2$ np$^3$.
+		\item Běžné oxidační stavy pro arsen a antimon jsou +III a +V.
+		\item Oxidační stav V není u bismutu příliš běžný, je to dáno vlivem inertního elektronového páru 6s$^2$. Vytváří sloučeniny převážně v oxidačním stavu III.
+		\item U moscovia se očekává, že jako inertní bude vystupovat i orbital 7p takže nejstabilnějším oxidačním stavem bude I.\footnote[frame]{\href{https://doi.org/10.1021/j100612a015}{Predicted Properties of the Superheavy Elements. III. Element 115, Eka-Bismuth}}
+		\item Nejběžnější \textit{koordinační čísla} ve sloučeninách těchto prvků jsou 3, 4, 5 a 6.
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Bismut nemá žádný stabilní izotop.
+		\item Dlouho byl za stabilní (a zároveň nejtěžší stabilní jádro) považován izotop $^{209}$Bi, ale v roce 2003 bylo prokázáno, že se rozpadá za uvolnění částice $\alpha$.\footnote[frame]{\href{https://doi.org/10.1038/nature01541}{Experimental detection of alpha-particles from the radioactive decay of natural bismuth}}
+		\item \ce{^{209}_{83}Bi -> ^{205}_{81}Tl + ^{4}_{2}$\alpha$}
+		\item Poločas rozpadu je 2,01.10$^{19}$ let.
+		\item Za nejtěžší stabilní jádro je nyní považováno jádro $^{208}_{\ 82}$Pb.
+	\end{itemize}
+	\begin{center}
+		\begin{tabular}{|l|l|l|}
+			\hline
+			\textbf{Izotop} & \textbf{Poločas rozpadu} & \textbf{Typ rozpadu} \\\hline
+			$^{207}$Bi & 31,55 let & $\beta^+$ \\\hline
+			$^{208}$Bi & 3,7.10$^5$ let & $\beta^+$ \\\hline
+			$^{209}$Bi & 2,01.10$^{19}$ let & $\alpha$ \\\hline
+			$^{210}$Bi & 5,012 dne & $\beta^-$/$\alpha$ \\\hline
+			$^{210m}$Bi & 3,04.10$^6$ let & $\alpha$ \\\hline
+		\end{tabular}
+	\end{center}
+	\vfill
+}
+
+\subsection{Allotropní modifikace}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{columns}
+		\begin{column}{.75\textwidth}
+			\begin{itemize}
+				\item Arsen tvoří tři běžné krystalické modifikace. V plynné fázi je ve formě čtyřatomových molekul \ce{As4}.
+				\begin{itemize}
+					\item Nejběžnější je kovový, \textit{šedý arsen} ($\alpha$ modifikace). Tato modifikace je nestálejší. Je tvořena vrstvami kovalentně vázaného arsenu a má polovodivé vlastnosti.
+					\begin{itemize}
+						\item V rámci vrstvy sousedí každý arsen se třemi dalšími ve vzdálenosti 251,7~pm a s třemi atomy v sousední vrstvě ve vzdálenosti 312~pm.
+					\end{itemize}
+					\item \textit{Žlutý arsen} vzniká prudkým ochlazením par arsenu, na světle přechází na šedou modifikaci. Je měkký a voskovitý.\footnote[frame]{\href{https://doi.org/10.1021/acs.chemrev.8b00713}{The Chemistry of Yellow Arsenic}}
+					\item \textit{Černý arsen} vzniká ochlazením par arsenu na teplotu 100~$^\circ$C a následnou krystalizací amorfního arsenu v přítomnosti par rtuti.\footnote[frame]{\href{https://doi.org/10.1039/C9NR09627B}{Black arsenic: a new synthetic method by catalytic crystallization of arsenic glass}}
+				\end{itemize}
+			\end{itemize}
+		\end{column}
+		\begin{column}{.3\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=\textwidth]{img/Yellow-arsenic.jpg}
+				\caption*{Struktura žlutého arsenu.}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Antimon tvoří šest allotropních modifikací.
+		\begin{itemize}
+			\item \textit{Kovový antimon} ($\alpha$-Sb) je stabilní modifikace, izostrukturní s $\alpha$-As. Má modro-bílou barvu.
+			\item \textit{Černý antimon} lze připravit ochlazením par antimonu, je amorfní.
+			\item \textit{Žlutý antimon} je stabilní pouze při teplotách pod $-$50~$^\circ$C. Za vyšší teploty se na světle transformuje na stabilnější černý antimon.\footnote[frame]{\href{https://chemistrytalk.org/antimony-element/}{The Lonely Element Antimony}}
+			\item Elektrolyticky lze připravit tzv. \textit{explosivní antimon}, který je velmi citlivý na náraz a zahřátí. Připravuje se elektrolýzou roztoku chloridu antimonitého (\ce{SbCl3}) v kyselině chlorovodíkové. Poprvé byl popsán už roku 1855.\footnote[frame]{\href{https://doi.org/10.1002/pssa.2210310118}{On the explosive semiconductor‐semimetal transition of antimony}}
+			\item Další dvě modifikace existují pouze za vysokého tlaku. První se připravuje působením tlaku 5~GPa na $\alpha$-Sb, dochází ke změně polohy atomů, každý antimon je obklopen šesti stejně vzdálenými atomy. Další zvýšení tlaku (9~GPa) vede ke vzniku modifikace II, která má nejtěsnější hexagonální uspořádání.
+		\end{itemize}
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{columns}
+		\begin{column}{.4\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=\textwidth]{img/Antimony.jpg}
+				\caption*{Kovový antimon z Mexika.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Antimony_(Mexico)_1_(17152321839).jpg}{James St. John/Commons}}}
+			\end{figure}
+		\end{column}
+
+		\begin{column}{.7\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=\textwidth]{img/Antimon.png}
+				\caption*{Antimonový prášek.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Antimon.PNG}{Ondřej Mangl/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Bismut vytváří několik krystalických modifikací.
+		\item Za standardních podmínek je izostrukturní s $\alpha$-As a $\alpha$-Sb (Bi-I).
+		\item Při zvýšení tlaku na 2,5~GPa vzniká monoklinická modifikace (Bi-II).
+		\item Další zvýšení tlaku na 2,7~GPa vede ke vzniku tetragonálního Bi-III.
+		\item Pokud modifikaci Bi-III zahřejeme nad teplotu 170~$^\circ$C získáme orthorombickou modifikaci Bi-IV.\footnote[frame]{\href{https://doi.org/10.1080/08957959.2012.722214}{High-pressure, high-temperature single-crystal study of Bi-IV}}
+		\item Zvýšením tlaku na 7,7 GPa získáme kubickou tělesně centrovanou mřížku Bi-V.\footnote[frame]{\href{https://doi.org/10.1080/08957959.2018.1541456}{High-pressure phase transition of bismuth}}
+	\end{itemize}
+	\begin{figure}
+		\adjincludegraphics[height=0.27\textheight]{img/Bismuth-crystal.jpg}
+		\caption*{Krystal bismutu.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Wismut_Kristall_und_1cm3_Wuerfel.jpg}{Alchemist-hp/Commons}}}
+	\end{figure}
+	\vfill
+}
+
+\section{Výskyt a získávání prvků}
+\subsection{Arsen}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Koncentrace arsenu v zemské kůře je  1,5--2~ppm.\footnote[frame]{\href{https://www.ncbi.nlm.nih.gov/books/NBK231016/}{Distribution of Arsenic in the Environment}}
+		\item Je součástí více než 500 minerálů. Nejběžnějším minerálem je arsenopyrit.\footnote[frame]{\href{https://www.mindat.org/element/Arsenic}{The mineralogy of Arsenic}}
+		\item Jako zdroj arsenu je nejdůležitější arsenopyrit a další sulfidické minerály.
+	\end{itemize}
+	\begin{columns}
+		\begin{column}{.5\textwidth}
+		\begin{center}
+	\begin{tabular}{|c|c|}
+		\hline
+		Minerál & Složení \\
+		\hline
+		Realgar &  \ce{As4S4} \\
+		\hline
+		Auripigment & \ce{As2S3} \\
+		\hline
+		Arsenolit & \ce{As2O3} \\
+		\hline
+		Loellingit & \ce{FeAs2} \\
+		\hline
+		Arsenopyrit & \ce{FeAsS} \\
+		\hline
+		Kobaltin & \ce{CoAsS} \\
+		\hline
+		Glaukodot & \ce{(Co,Fe)AsS} \\
+		\hline
+	\end{tabular}
+	\end{center}
+	\end{column}
+	\begin{column}{.5\textwidth}
+		\begin{figure}
+			\adjincludegraphics[height=0.4\textheight]{img/Arsen.jpg}
+			\caption*{Arsen.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Arsen_1.jpg}{Tomihahndorf/Commons}}}
+		\end{figure}
+	\end{column}
+	\end{columns}
+	\vfill
+}
+
+\subsubsection{Arsenopyrit}
+\frame{
+	\frametitle{}
+	\vfill
+	\textbf{Arsenopyrit}
+	\begin{itemize}
+		\item Arsenopyrit, \ce{FeAsS}, je monoklinický minerál.\footnote[frame]{\href{http://webmineral.com/data/Arsenopyrite.shtml}{Arsenopyrite Mineral Data}}
+		\item Často se vyskytuje v přítomnosti zlata, proto se využívá jako indikátor zlatých žil.\footnote[frame]{\href{https://mineraly.sci.muni.cz/sulfidy/arzenopyrit.html}{Atlas minerálů}}
+		\item Obsahuje 46 \% arsenu, díky tomu je jeho nejdůležitější rudou.
+	\end{itemize}
+	\begin{columns}
+		\begin{column}{.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=0.70\textwidth]{img/Arsenopyrite.jpg}
+				\caption*{Arsenopyrit, Kutná Hora.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Arsenopyrite_(FeAsS)_(10962863865).jpg}{Jan Helebrant/Commons}}}
+			\end{figure}
+		\end{column}
+
+		\begin{column}{.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=0.70\textwidth]{img/Arsenopyrite-117874.jpg}
+				\caption*{Arsenopyrit, Mexiko.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Arsenopyrite-117874.jpg}{Robert M. Lavinsky/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\begin{center}
+	\end{center}
+	\vfill
+}
+
+\subsubsection{Auripigment}
+\frame{
+	\frametitle{}
+	\vfill
+	\textbf{Auripigment}
+	\begin{itemize}
+		\item Auripigment, \ce{As2S3}, je jednoklonný minerál.\footnote[frame]{\href{http://webmineral.com/data/Orpiment.shtml}{Orpiment Mineral Data}}$^,$\footnote[frame]{\href{http://mineraly.sci.muni.cz/sulfidy/auripigment.html}{Atlas minerálů}}
+		\item Vzniká přeměnou realgaru (\ce{As4S4}) nebo hydrotermálně.
+		\item Byl využíván už v Římské říši, po staletí byl používán jako pigment.
+	\end{itemize}
+	\begin{columns}
+		\begin{column}{.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=0.32\textheight]{img/Baryte-Orpiment-61034.jpg}
+				\caption*{Auripigment a baryt, Rusko.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Baryte-Orpiment-61034.jpg}{Robert M. Lavinsky/Commons}}}
+			\end{figure}
+		\end{column}
+
+		\begin{column}{.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=0.32\textheight]{img/Orpiment-117492.jpg}
+				\caption*{Auripigment, Rusko.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Arsenopyrite-117874.jpg}{Robert M. Lavinsky/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\subsubsection{Realgar}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{columns}
+		\begin{column}{.7\textwidth}
+			\textbf{Realgar}
+			\begin{itemize}
+				\item Realgar, \ce{As4S4}, je jednoklonný minerál.\footnote[frame]{\href{http://webmineral.com/data/Realgar.shtml}{Realgar Mineral Data}}
+				\item Vzniká rozkladem jiných sulfidů, hlavně arsenopyritu.
+				\item Na světle se pomalu rozkládá na směs auripigmentu (\ce{As2S3}) a oxidu arsenitého.\footnote[frame]{\href{https://mineraly.sci.muni.cz/sulfidy/realgar.html}{Atlas minerálů}}
+				\item Je částečně rozpustný v kyselinách a hydroxidu draselném.
+			\end{itemize}
+		\end{column}
+
+		\begin{column}{.35\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=\textwidth]{img/Realgar-Calcite-37467.jpg}
+				\caption*{Realgar na kalcitu.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Realgar-Calcite-37467.jpg}{Robert M. Lavinsky/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\subsubsection{Arsenolit}
+\frame{
+	\frametitle{}
+	\vfill
+	\textbf{Arsenolit}
+	\begin{itemize}
+		\item Arsenolit, \ce{As2O3} (\ce{As4O6}), je kubický, vysoce toxický minerál.\footnote[frame]{\href{https://www.mindat.org/min-294.html}{Arsenolite}}
+		\item Vzniká oxidací (zvětráváním) sulfidických minerálů arsenu.
+		\item Je rozpustný ve vodě.\footnote[frame]{\href{http://mineraly.sci.muni.cz/oxidy/arsenolit.html}{Atlas minerálů}}
+	\end{itemize}
+	\begin{columns}
+		\begin{column}{.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=0.75\textwidth]{img/Arsenolite-333170.jpg}
+				\caption*{Arsenolit, USA.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Arsenolite-333170.jpg}{Robert M. Lavinsky/Commons}}}
+			\end{figure}
+		\end{column}
+
+		\begin{column}{.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=0.75\textwidth]{img/Arsenolite-90693.jpg}
+				\caption*{Arsenolit, Německo.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Arsenolite-90693.jpg}{Robert M. Lavinsky/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\subsubsection{Dobšináit}
+\frame{
+	\frametitle{}
+	\vfill
+	\textbf{Dobšináit}
+	\begin{itemize}
+		\item Dobšináit, \ce{Ca3[AsO4]2.2H2O}, je minerál objevený roku 2021 na Slovensku.\footnote[frame]{\href{https://www.czechsight.cz/dobsinait-nove-definovany-mineral-z-uzemi-slovenska/}{Dobšináit, nově definovaný minerál z území Slovenska}}
+		\item Jedná se 23. původní minerál popsaný na slovenském území.
+		\item Název je odvozen od města Dobšiná, v jehož blízkosti byl minerál objeven.\footnote[frame]{\href{https://www.sav.sk/?lang=sk&doc=services-news&source_no=20&news_no=9364}{Slovensko dalo svetu nový minerál – dobšináit}}
+		\item Na objevu se podíleli i geologové z MU.\footnote[frame]{\href{https://www.sci.muni.cz/clanky/brnensti-vedci-se-podileli-na-objevu-noveho-mineralu}{Brněnští vědci se podíleli na objevu nového minerálu}}
+		\item Má bílou barvu, díky příměsím kobaltu bývá zbarven do světle růžové barvy.\footnote[frame]{\href{https://ct24.ceskatelevize.cz/veda/3270590-brnensti-vedci-popsali-novy-mineral-dobsinait-nasli-na-vychodnim-slovensku}{Brněnští vědci popsali nový minerál. Dobšináit našli na východním Slovensku}}
+	\end{itemize}
+	\vfill
+}
+
+\subsubsection{Výroba arsenu}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Kovový arsen lze připravit žíháním \ce{FeAs2} nebo FeAsS bez přístupu vzduchu, arsen sublimuje a lze ho tedy snadno izolovat sublimací ve vakuu nebo ve vodíkové atmosféře.
+		\item \ce{FeAsS ->[700\ $^\circ$C] FeS + As(g)}
+		\item Pražením na vzduchu vzniká přímo arsenik (\ce{As2O3}), který také sublimuje.
+		\item \ce{FeAsS + 5 O2 -> Fe2O3 + As2O3 + SO2}
+		\item Ten lze získat i jako vedlejší produkt při tavení koncentrátů mědi, zlata a~olova.\footnote[frame]{\href{https://www.usgs.gov/centers/nmic/arsenic-statistics-and-information}{Arsenic Statistics and Information}}
+		\item Hlavním světovým producentem arseniku je Čína.\footnote[frame]{\href{https://pubs.usgs.gov/periodicals/mcs2020/mcs2020-arsenic.pdf}{Arsenic Data Sheet - Mineral Commodity Summaries 2020}}
+		\item Tepelným rozkladem arseniku v nepřítomnosti vzduchu lze získat přímo arsen.
+	\end{itemize}
+	\vfill
+}
+
+\subsection{Antimon}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item V zemské kůře je jeho koncentrace jen 0,2--0,5 ppm, v mořské vodě 0,3~$\mu$g.l$^{-1}$.\footnote[frame]{\href{https://www.usgs.gov/centers/nmic/antimony-statistics-and-information}{Antimony Statistics and Information}}
+		\item Je součástí více než 280 minerálů.\footnote[frame]{\href{https://www.mindat.org/element/Antimony}{The mineralogy of Antimony}}
+		\item Nejdůležitější rudou je antimonit.
+	\end{itemize}
+
+	\begin{center}
+	\begin{tabular}{|c|c|}
+		\hline
+		Minerál & Složení \\
+		\hline
+		Stibnit/Antimonit & \ce{Sb2S3} \\
+		\hline
+		Livingstonit & \ce{HgSb4S8} \\
+		\hline
+		Ullmanit & \ce{NiSbS} \\
+		\hline
+		Jamesonit & \ce{FePb4Sb6S14} \\
+		\hline
+		Tetraedit & \ce{Cu3SbS3} \\
+		\hline
+		Wolfsbergit & \ce{CuSbS2} \\
+		\hline
+		Valentinit & \ce{Sb2O3} \\
+		\hline
+	\end{tabular}
+	\end{center}
+	\vfill
+}
+
+\subsubsection{Antimonit}
+\frame{
+	\frametitle{}
+	\vfill
+	\textbf{Antimonit (stibnit)}
+	\begin{itemize}
+	\item Antimonit, \ce{Sb2S3}, je kosočtverečný minerál.\footnote[frame]{\href{https://www.mindat.org/min-3782.html}{Stibnite}} Dříve byl označován jako \textit{leštěnec antimonový}.
+	\item Vzniká na nízkoteplotních hydrotermálních žilách.\footnote[frame]{\href{http://mineraly.sci.muni.cz/sulfidy/antimonit.html}{Atlas minerálů}}
+	\item Je rozpustný v \ce{HNO3} a horké HCl, v KOH černá.
+	\end{itemize}
+	\begin{columns}
+		\begin{column}{.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=0.3\textheight]{img/Stibnite.jpg}
+				\caption*{Antimonit.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Stibnite.jpg}{Pepperedjane/Commons}}}
+			\end{figure}
+		\end{column}
+		\begin{column}{.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=0.35\textheight]{img/Stibnite-21985.jpg}
+				\caption*{Antimonit, Rumunsko.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Stibnite-196786.jpg}{Robert M. Lavinsky/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\subsubsection{Výroba antimonu}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Čína vyrábí více než 60~\% světové produkce antimonu.\footnote[frame]{\href{https://www.usgs.gov/centers/nmic/antimony-statistics-and-information}{Antimony Statistics and Information}}
+		\item V roce 2020 bylo vytěženo 111 000 tun rud antimonu.
+		\item Sulfidické rudy jsou pražením na vzduchu převedeny na oxid:\footnote[frame]{\href{https://www.researchgate.net/publication/299133344_Antimony_Production_and_Commodites}{Antimony Production and Commodites}}
+		\item \ce{2 Sb2S3 + 9 O2 ->[1000 $^\circ$C] 2 Sb2O3 + 6 SO2}
+		\item Oxid se poté redukuje uhlím:
+		\item \ce{Sb2O3 + 3 CO -> 2 Sb + 3 CO2}
+		\item \ce{3 CO2 + 3 C -> 6 CO}
+		\item Sulfid je možno redukovat i přímo pomocí železa:
+		\item \ce{Sb2S3 + 3 Fe -> 2 Sb + 3 FeS}
+		\item Vysoce čistý antimon pro polovodičové aplikace se připravuje chemickou redukcí sloučenin s vysokou čistotou, např. \ce{SbCl3}.
+		\item \ce{2 SbCl3 + 3 H2O ->[][-6 HCl] Sb2O3 + 3 H2 -> 2 Sb + 3 H2O}
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{figure}
+		\begin{figure}
+			\adjincludegraphics[height=0.7\textheight]{img/Antimony_-_world_production_trend.png}
+			\caption*{Světová produkce antimonu v letech 1900--2010.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Antimony_-_world_production_trend.svg}{Leyo/Commons}}}
+		\end{figure}
+	\end{figure}
+	\vfill
+}
+
+\subsection{Bismut}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item V zemské kůře je jeho koncentrace jen 0,2 ppm, v mořské vodě 0,02~$\mu$g.l$^{-1}$.\footnote[frame]{\href{https://www.usgs.gov/centers/nmic/bismuth-statistics-and-information}{Bismuth Statistics and Information}}
+		\item Je součástí zhruba 200 minerálů.
+		\item Nejdůležitějšími rudami jsou bismit (\ce{Bi2O3}) a bismutin (\ce{Bi2S3}).
+		\item Kovový bismut nacházíme v Německu, Austrálii, Japonsku i v Česku (Jáchymov).\footnote[frame]{\href{https://rruff.info/doclib/hom/bismuth.pdf}{Bismuth}}
+	\end{itemize}
+	\begin{center}
+		\begin{tabular}{|c|c|}
+			\hline
+			Minerál & Složení \\
+			\hline
+			Bismut & \ce{Bi} \\
+			\hline
+			Bismit & \ce{Bi2O3} \\
+			\hline
+			Bismutin & \ce{Bi2S3} \\
+			\hline
+			Bismutit & \ce{Bi2(CO3)O2} \\
+			\hline
+			Galenobismutit & \ce{PbBi2S4} \\
+			\hline
+			Bismutocolumbit & \ce{Bi(Nb,Ta)O4} \\
+			\hline
+			Francisit & \ce{Cu3Bi(SeO3)2O2Cl} \\
+			\hline
+		\end{tabular}
+	\end{center}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Hlavním zdrojem bismutu jsou vedlejší produkty výroby olova, zinku a mědi.
+		\item Ryzí bismut se vyskytuje v Austrálii, Bolívii a Číně.
+		\item Sulfidické rudy se nejprve praží na vzduchu a poté se redukují železem nebo uhlíkem (dřevěným uhlím).
+		\item Důležitým zdrojem je i \textit{recyklace}.
+		\item V 70. letech 20. století cena bismutu prudce vzrostla, šlo o reakci na zvýšenou poptávku po bismutu jako aditiva do hliníku a~ocelí.
+	\end{itemize}
+
+	\begin{figure}
+		\adjincludegraphics[height=0.3\textheight]{img/BrokenBismuthIngot.jpg}
+		\caption*{Ingot bismutu.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:BrokenBismuthIngot.jpg}{Unconventional2/Commons}}}
+	\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{figure}
+		\adjincludegraphics[height=0.65\textheight]{img/BiPrice.png}
+		\caption*{Světová produkce a cena bismutu.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:BiPrice.png}{Materialscientist/Commons}}}
+	\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Rudy bismutu se těží v Bolívii\footnote[frame]{\href{https://www.mindat.org/loc-40745.html}{Tazna Mine}} a~Číně.\footnote[frame]{\href{https://www.mindat.org/loc-48873.html}{Fankou Mine}}
+		\item Hlavním producentem bismutu je Čína, kde se získává jako vedlejší produkt při výrobě wolframu.
+	\end{itemize}
+	\begin{figure}
+		\adjincludegraphics[width=0.5\textwidth]{img/BiRedukce.jpg}
+		\caption*{Redukce oxidu bismutitého vodíkem.}
+	\end{figure}
+	\vfill
+}
+
+\subsubsection{Bismit}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{columns}
+		\begin{column}{.6\textwidth}
+			\textbf{Bismit}
+			\begin{itemize}
+				\item Bismit, \ce{Bi2O3}, je jednoklonný, žlutozelený  minerál.\footnote[frame]{\href{https://www.mindat.org/min-682.html}{Bismite}}
+				\item Vzniká jako oxidační produkt minerálů bismutu.\footnote[frame]{\href{http://webmineral.com/data/Bismite.shtml}{Bismite Mineral Data}}
+				\item Poprvé byl popsán v roce 1868 v Nevadě.
+			\end{itemize}
+		\end{column}
+		\begin{column}{.45\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=\textwidth]{img/Bismite-Pucherite-sf39a.jpg}
+				\caption*{Bismit, Německo.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Bismite-Pucherite-sf39a.jpg}{Robert M. Lavinsky/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\subsubsection{Bismutin}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{columns}
+		\begin{column}{.7\textwidth}
+			\textbf{Bismutin}
+			\begin{itemize}
+				\item Bismutinit (bismutin, leštěnec bismutový), \ce{Bi2S3}, je kosočtverečný minerál.\footnote[frame]{\href{https://www.mindat.org/min-686.html}{Bismuthinite}}$^,$\footnote[frame]{\href{http://geologie.vsb.cz/loziska/suroviny/rudy/bismutin.html}{Bismutin}}
+				\item Vzniká v hydrotermálních žilách.\footnote[frame]{\href{http://www.handbookofmineralogy.org/pdfs/bismuthinite.pdf}{Bismuthinite}}
+				\item Poprvé byl popsán v roce 1832 v bolívijských dolech.
+			\end{itemize}
+		\end{column}
+		\begin{column}{.35\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=0.9\textwidth]{img/Bismuthinite-136224.jpg}
+				\caption*{Bismutin, Bolívie.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Bismuthinite-136224.jpg}{Robert M. Lavinsky/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\subsubsection{Heyrovskýit}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{columns}
+		\begin{column}{.6\textwidth}
+			\textbf{Heyrovskýit}
+			\begin{itemize}
+				\item Heyrovskýit, \ce{Pb6Bi2S9}, je cínově bílý, až šedý kosočtverečný minerál.\footnote[frame]{\href{https://www.mindat.org/min-6993.html}{Heyrovskýite}}
+				\item Vzniká v hydrotermálních žilách.
+				\item Poprvé byl popsán v západních Čechách.
+				\item Jedná se o vzácný minerál, proto nemá komerční využití.
+			\end{itemize}
+		\end{column}
+		\begin{column}{.45\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=\textwidth]{img/Heyrovskýite_-_quartz.jpg}
+				\caption*{Heyrovskýit na křemeni, Rakovník.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Heyrovskýite_-_quartz.jpg}{Marc Gravel/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\section{Využití prvků}
+\subsection{Arsen}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Hlavní využití arsenu je v slitinách s olovem a mědí.
+		\item Malý podíl arsenu v slitině Pb/Sb zlepšuje vlastnosti mřížek používaných v akumulátorech.
+		\item Arsen (0,5--2,0~\%) také zlepšuje kulatost olověných broků.
+		\item Sloučeniny arsenu se využívají v zemědělství jako herbicidy.
+		\item Oxid arsenitý se používá k odbarvování lahvového skla.
+		\item Z arsenitanu sodného se připravovaly lázně na odhmyzování ovcí a hovězího dobytka.
+	\end{itemize}
+	\begin{figure}
+		\adjincludegraphics[width=.7\textwidth]{img/As-herbicidy.png}
+		\caption*{Methylarseničnan monosodný a kyselina dimethylarseničná se využívají jako herbicidy.}
+	\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item \textbf{GaAs} je polovodič III/V používaný pro konstrukci PN přechodů v různých typech tranzistorů, díky vlastnostem GaAs mohou tyto tranzistory pracovat až do frekvence 250~GHz.
+		\item Využívá se také při konstrukci fotovoltaických článků s vysokou účinností, např. pro vesmírné sondy.
+		\item Má strukturu sfaleritu. Vyrábí se několika metodami:
+		\item VGF (Vertical Gradient Freeze) procesem -- tavenina je ve válcovém kelímku postupně ochlazována.\footnote[frame]{\href{https://arxiv.org/pdf/2002.11447.pdf}{Control of the Vertical Gradient Freeze crystal growth process via backstepping}}
+		\item Pomocí Czochralskiho metody.\footnote[frame]{\href{https://doi.org/10.1016/0022-0248(73)90061-4}{Liquid-seal Czochralski growth of gallium arsenide}}
+		\item MOCVD:\footnote[frame]{\href{https://doi.org/10.1016/0042-207X(90)93833-5}{Mechanism of gallium arsenide MOCVD}}
+		\begin{itemize}
+			\item \ce{Ga(CH3)3 + AsH3 -> GaAs + 3 CH4}
+		\end{itemize}
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{columns}
+		\begin{column}{.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=.95\textwidth]{img/Gallium-arsenide-unit-cell-3D-balls.png}
+				\caption*{Krystalová struktura GaAs.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Gallium-arsenide-unit-cell-3D-balls.png}{Benjah-bmm27/Commons}}}
+			\end{figure}
+		\end{column}
+		\begin{column}{.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=.8\textwidth]{img/MC331694PDTA.jpg}
+				\caption*{Zesilovač z GaAs.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:MC331694PDTA.jpg}{Epop/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\subsection{Antimon}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Antimon se využívá nejvíce jako zpomalovač hoření, dále jako součást slitin pro baterie, ložiska a pájky.
+		\begin{itemize}
+			\item Přídavek antimonu do elektrod olověných akumulátoru zlepšuje jejich pevnost a nabíjecí charakteristiky.
+			\item Některé bezolovnaté pájky obsahují antimon.
+		\end{itemize}
+		\item Oxid antimonitý má ve spojení s halogenovanými sloučeniny výrazné zhášecí účinky.
+		\item Velice čistý antimon se využívá v polovodičovém průmyslu.
+		\begin{itemize}
+			\item ZnSb vykazuje termoelektrické vlastnosti.
+			\item GaSb a InSb se využívají pro konstrukci detektorů a emitorů infračerveného záření, např. pro IR LED, tranzistory a LASERy.
+		\end{itemize}
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\textbf{Liteřina}
+	\begin{columns}
+		\begin{column}{.65\textwidth}
+			\begin{itemize}
+				\item Liteřina, neboli písmový kov, je snadno tavitelná, ale stále dostatečně tvrdá slitina využívaná k odlévání tiskových písmen pro ruční sazbu.\footnote[frame]{\href{https://www.encyklopedieknihy.cz/index.php/Písmový_kov}{Písmový kov}}
+				\item Její přibližné složení je: 50-86~\% Pb,\\ 3-20~\% Sn a 11-30~\% Sb.
+				\item Využívala se od 15. století, její význam poklesl ve 20. století, s nástupem modernějších technik tisku.
+			\end{itemize}
+		\end{column}
+		\begin{column}{.15\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=.35\textheight]{img/Garamond_type_fi-ligature_2.jpg}
+				\caption*{Ligatura fi odlitá z liteřiny.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Garamond_type_ſi-ligature_2.jpg}{Daniel Ullrich/Commons}}}
+			\end{figure}
+		\end{column}
+		\begin{column}{.25\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=\textwidth]{img/Fotothek0008535.jpg}
+				\caption*{Výroba liter.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Fotothek\%20df\%20tg\%200008535\%20St\%C3\%A4ndebuch\%20\%5E\%20Beruf\%20\%5E\%20Handwerk\%20\%5E\%20Gie\%C3\%9Fer\%20\%5E\%20Letter.jpg}{Deutsche Fotothek/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\subsection{Bismut}
+\frame{
+	\frametitle{}
+	\vfill
+		\begin{itemize}
+			\item Bismut má pouze několik komerčních aplikací:
+			\item Díky podobné hustotě a nízké toxicitě ho lze využít jako náhradu olova ve střelivu, rybářských olůvcích a podobných aplikacích.
+			\item Chlorid-oxid bismutitý (\ce{BiOCl}) se využívá jako žlutý pigment v kosmetice.\footnote[frame]{\href{https://www.cosmeticsandtoiletries.com/cosmetic-ingredients/colorant/article/21833876/bismuth-oxychloridea-multifunctional-color-additive}{Bismuth Oxychloride-A Multifunctional Color Additive}}
+			\item Oxid bismutitý se využívá ve sklářském a keramickém průmyslu a také při výrobě katalyzátorů a magnetů.\footnote[frame]{\href{https://doi.org/10.1179/1743280412Y.0000000010}{Review of \ce{Bi2O3} based glasses for electronics and related applications}}
+			\item Tellurid bismutitý, \ce{Bi2Te3}, má termoelektrické vlastnosti, využívá se při konstrukci Peltierových článků pro mobilní ledničky, chladiče CPU a také jako detektor NIR záření.
+		\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\textbf{Nízkotající slitiny}
+	\begin{tabular}{|l|l|l|}
+		\hline
+		\textbf{Slitina} & \textbf{Obchodní název} & \textbf{Teplota tání [$^\circ$C]} \\
+		\hline
+		Bi45Pb23Sn8In19Cd5 & Slitina 47  &  47 \\
+		\hline
+		Bi49Pb18Sn12In21 & Slitina 58  & 58 \\
+		\hline
+		Bi50Pb27Sn13Cd & Woodův kov 1 & 68-72 \\
+		\hline
+		Bi50Pb25Sn12Cd & Woodův kov 2 & 60-64 \\
+		\hline
+		Bi50Sn25Pb & Roseův kov & 92-96 \\
+		\hline
+		Bi55Pb32Sn & Molotův kov & 96-98 \\
+		\hline
+		Bi74Pb7Sn & Biola 1 & 104-463 \\
+		\hline
+		Bi50Pb43Cd & Biola 3 & 80-84 \\
+		\hline
+		Bi8Sn57Pb & Stabia 1 & 139-178 \\
+		\hline
+		Pb45Bi10Sn & Stabia 4 & 97-169 \\
+		\hline
+		Pb25Bi25Sn & Stabia 6 & 97-161 \\
+		\hline
+		Pb73Bi23Sn3Zn & Plumbia 3 & 183-224 \\
+		\hline
+		Pb57Bi8Sn & Plumbia 5 & 174-214 \\
+		\hline
+	\end{tabular}
+}
+
+\section{Sloučeniny}
+\subsection{Hydridy}
+\frame{
+	\textbf{Hydridy prvků 15. skupiny}
+	\begin{center}
+		\begin{tabular}{|l|l|l|l|l|l|}
+			\hline
+			\textbf{Vzorec} & \textbf{Název} & \textbf{T$_t$ [$^\circ$C]} & \textbf{T$_v$ [$^\circ$C]} & Vzd. \ce{E-H} [pm] & Úhel \ce{H-E-H} \\\hline
+			\ce{NH3} & Amoniak & $-$78 & $-$33 & 101,2 & 106,7 \\\hline
+			\ce{PH3} & Fosfan & $-$133 & $-$88 & 142,0 & 93,3 \\\hline
+			\ce{AsH3} & Arsan & $-$116 & $-$63 & 151,1 & 92,1 \\\hline
+			\ce{SbH3} & Stiban & $-$88 & $-$17 & 170,4 & 91,6 \\\hline
+			\ce{BiH3} & Bismutan & - & 17 & - & 90 \\\hline
+		\end{tabular}
+	\end{center}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Všechny tři hydridy jsou nestabilní, jedovaté, bezbarvé plyny.
+		\item Na rozdíl od amoniaku a fosfanu nejeví hydridy tendenci ke tvorbě oniových iontů \ce{MH_4^+}.
+		\item Arsan a stiban jsou podobné fosfanu, ale ochotněji se rozkládají na prvky.
+		\item Oba jsou extrémně toxické plyny.
+		\item \textit{Arsan}, \ce{AsH3}, vzniká redukcí sloučenin arsenu nascentním vodíkem, viz \ce{As2O3}. Nebo redukcí chloridu arsenitého hydridy.\footnote[frame]{\href{https://doi.org/10.1021/ic50068a024}{Synthesis of the hydrides of germanium, phosphorus, arsenic, and antimony by the solid-phase reaction of the corresponding oxide with lithium aluminum hydride}}
+		\item \ce{AsCl3 + 3 LiAlH4 ->[Et2O] AsH3 + 3 LiCl + 3 AlH3}
+		\item Využívá se k výrobě GaAs.
+		\item Lze jej přímo oxidovat kyslíkem na oxid arsenitý:
+		\item \ce{2 AsH3 + 3 O2 -> As2O3 + 3 H2O}
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item \textit{Stiban}, \ce{SbH3}, zapáchá po zkažených vejcích.
+		\item Připravuje se podobně jako arsan:
+		\item \ce{4 SbCl3 + 3 NaBH4 -> 4 SbH3 + 3 NaCl + 3 BCl3}
+		\item \ce{SbO$_3^{3-}$ + 3 Zn + 9 H3O+ -> SbH3 + 3 Zn^{2+} + 12 H2O}
+		\item Za pokojové teploty se autokatalyticky rozkládá (až explozivně):
+		\item \ce{2 SbH3 -> 3 H2 + 2 Sb}
+		\item Využívá se v polovodičovém průmyslu k dopování křemíku antimonem.
+		\item \textit{Bismutan}, \ce{BiH3}, je nestabilní, rozkládá se již pod teplotou 0~$^\circ$C.\footnote[frame]{\href{https://doi.org/10.1021/jp034379y}{Infrared Spectra of Antimony and Bismuth Hydrides in Solid Matrixes}}
+		\item Můžeme jej připravit disproporcionací \ce{MeBiH2} nebo \ce{Me2BiH}:
+		\item \ce{3 MeBiH2 ->[$-45~^\circ$C] 2 BiH3 + BiMe3}
+		\item Redukce pomocí tetrahydridoboritanu není v tomto případě použitelná.
+	\end{itemize}
+	\vfill
+}
+
+\subsection{Oxidy a kyseliny}
+%As2O3, As2O5
+%Sb2O3, Sb2O4, Sb2O5
+%Bi2O3, Bi2O5
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item \textit{Oxid arsenitý}, \ce{As2O3}, dříve označovaný jako \textit{arsenik} je bílý, toxický prášek. Je to nejdůležitější sloučenina arsenu.
+		\item Získává se převážně třemi postupy:
+		\begin{itemize}
+			\item Spalováním arsenu na vzduchu:
+			\item \ce{4 As + 3 O2 -> 2 As2O3}
+			\item Hydrolýzou chloridu:
+			\item \ce{2 AsCl3 + 3 H2O -> As2O3 + 6 HCl}
+			\item Pražením sulfidických rud:
+			\item \ce{2 As2S3 + 9 O2 -> 2 As2O3 + 6 SO2}
+		\end{itemize}
+		\item V plynném stavu je tvořen molekulami \ce{As4O6}.
+		\item Stejná struktura je přítomna i v krystalickém oxidu v kubické formě.
+		\item Kromě toho známe i monoklinickou formu tvořenou polymerními jednotkami \ce{\{As2O3\}}.
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{columns}
+		\begin{column}{.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=.5\textheight]{img/Arsenic_trioxide.jpg}
+				\caption*{Oxid arsenitý.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Arsenic_trioxide.jpg}{Walkerma/Commons}}}
+			\end{figure}
+		\end{column}
+		\begin{column}{.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=.5\textheight]{img/As4O6-molecule-from-arsenolite-xtal-3D-balls.png}
+				\caption*{Molekula \ce{As2O3}.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Arsenic-trioxide-3D-balls.png}{Benjah-bmm27/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	Oxid arsenitý je výchozí sloučeninou pro mnoho dalších sloučenin arsenu.
+	\begin{figure}
+		\adjincludegraphics[height=.8\textheight]{img/As2O3-RX.png}
+	\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{columns}
+		\begin{column}{.7\textwidth}
+			\begin{itemize}
+				\item Otrava arsenikem se dokazovala pomocí \textbf{Marshovy zkoušky}.\footnote[frame]{\href{https://www.youtube.com/watch?v=-vUZdAwgl2g}{Detecting Arsenic - The Marsh-Test}}
+				\item Autorem testu je britský chemik James Marsh, který tuto metodu publikoval v roce 1836.\footnote[frame]{\href{https://archive.org/details/edinburghnewphil21edin/page/228/mode/2up?view=theater}{Account of a method of separating small quantities of arsenic from substances with which it may be mixed}}
+				\item Ke vzorku se přidá kyselina sírová a zinek (beze stop arsenu).
+				\item Reakcí zinku s kyselinou vzniká tzv. \textit{nascentní vodík}, který zredukuje oxid arseničný na arsan.
+				\item \ce{As2O3 + 6 Zn + 6 H2SO4 -> 2 AsH3 + 6 ZnSO4 + 3 H2O}
+				\item Vzniklý arsan je, po vyčištění a vysušení, veden skleněnou trubicí zahřívanou kahanem, kde se rozkládá za vzniku arsenového zrcátka.
+			\end{itemize}
+		\end{column}
+	\begin{column}{.3\textwidth}
+		\begin{figure}
+			\adjincludegraphics[height=.5\textheight]{img/Marsh_James.jpg}
+			\caption*{James Marsh, 1794-1846.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Marsh_James.jpg}{W. T. Vincent/Commons}}}
+		\end{figure}
+	\end{column}
+	\end{columns}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{figure}
+		\adjincludegraphics[width=.85\textwidth]{img/Marsh_test_apparatus.jpg}
+		\caption*{Aparatura na Marshovu zkoušku.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Marsh_test_apparatus.jpg}{Hugh McMuigan/Commons}}}
+	\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{columns}
+		\begin{column}{.5\textwidth}
+			\begin{itemize}
+				\item Tento důkaz byl použit v roce 1840 při soudním řízení s Marií Lafarge, podezřelou z otrávení manžela arsenikem.\footnote[frame]{\href{https://www.britishmuseum.org/collection/term/BIOG228917}{Marie Lafarge}}
+				\item Marshův test provedl španělský toxikolog Mathieu Joseph Bonaventure Orfila.\footnote[frame]{\href{https://www.nlm.nih.gov/exhibition/visibleproofs/galleries/biographies/orfila.html}{Mathieu Joseph Bonaventure Orfila}}
+				\item Událost byla zachycena v jednom z dílů seriálu \textit{Dobrodružství kriminalistiky}.\footnote[frame]{\href{https://www.ceskatelevize.cz/porady/898901-dobrodruzstvi-kriminalistiky/289310910380002-jed/}{Dobrodružství kriminalistiky}}
+			\end{itemize}
+		\end{column}
+		\begin{column}{.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=.7\textwidth]{img/Lafarge.jpg}
+				\caption*{Marie Lafarge.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Lafarge.jpg}{Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+		\begin{itemize}
+			\item Arsen je možno dokázat i \textit{Gutzeitovým testem}.\footnote[frame]{\href{https://doi.org/10.1039/AN9012600181}{The Gutzeit test for arsenic}}
+			\item Jeho autorem je německý chemik Max Adolf Gutzeit (1847--1915).
+			\item Arsenovodík připravíme podobně jako u Marshova testu:
+			\item \ce{6 Zn + 12 HCl + As2O3 -> 2 AsH3 + 6 ZnCl2 + 3 H2O}
+			\item Ten je veden na filtrační papír navlhčený koncentrovaným roztokem \ce{AgNO3}:
+			\item \ce{AsH3 + 6 AgNO3 -> Ag3As.3AgNO3 + 3 HNO3}
+			\item Vzniklý arsenid následně hydrolyzuje na kovové stříbro:
+			\item \ce{Ag3As.AgNO3 + 3 H2O -> 6 Ag + H3AsO3 + 3 HNO3}
+		\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{columns}
+		\begin{column}{.75\textwidth}
+			\begin{itemize}
+				\item \textit{Oxid arseničný}, \ce{As4O10}, je bílá, hygroskopická a silně toxická látka.
+				\item Na vzduchu se rozplývá a je velmi dobře rozpustný ve vodě (230 g ve 100 g vody při 20~$^\circ$C).
+				\item Při 300~$^\circ$C dochází k rozkladu za uvolnění kyslíku.
+				\item Struktura je tvořena tetraedrickými a oktaedrickými jednotkami, které jsou propojeny přes vrcholy.
+				\item Lze jej připravit zahřívání oxidu arsenitého na vzduchu nebo oxidací sulfidových rud.
+				\item \ce{As2O3 + O2 <=> As2O5}
+				\item \ce{2 As2S3 + 11 O2 -> 2 As2O5 + 6 SO2}
+				\item Je anhydridem kyseliny trihydrogenarseničné.
+			\end{itemize}
+		\end{column}
+		\begin{column}{.35\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=\textwidth]{img/Arsenic-pentoxide-As-coordination-3D-balls.png}
+				\caption*{Koordinační polyedry v \ce{As4O10}.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Arsenic-pentoxide-As-coordination-3D-balls.png}{Ben Mills/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+		\begin{figure}
+			\adjincludegraphics[height=.65\textheight]{img/Arsenic-pentoxide-3D-balls-A.png}
+			\caption*{Krystalová struktura \ce{As4O10}.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Arsenic-pentoxide-3D-balls-A.png}{Ben Mills/Commons}}}
+		\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item \textit{Kyselina trihydrogenarsenitá}, \ce{H3AsO3}, je slabá kyselina (p\textit{K}$_{a1}$~=~9,2), která existuje pouze ve vodném roztoku.
+		\item Vzniká rozpouštěním oxidu arsenitého ve vodě.
+		\item Na rozdíl od kyseliny fosforité má molekula tvar pyramidy ($C_{3v}$).
+		\item Tuto strukturu potvrzují i $^1$H NMR spektra.
+		\item Tautomer \ce{HAsO(OH)2} nebyl dosud izolován, ani charakterizován.
+	\end{itemize}
+	\begin{figure}
+		\adjincludegraphics[width=.7\textwidth]{img/H3AsO3.png}
+	\end{figure}
+	\begin{itemize}
+		\item \textit{Meyerovou reakcí} vzniká kyselina methylarseničná:\footnote[frame]{\href{https://doi.org/10.1002/cber.188301601316}{Ueber einige anomale Reaktionen}}
+		\item \ce{H3AsO3 + CH3I + NaOH -> CH3AsO(OH)2 + NaI + H2O}
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item \textbf{Kyselina trihydrogenarseničná}, \ce{H3AsO4}, je bezbarvá, hygroskopická pevná látka.
+		\item Je to trojsytná kyselina:
+	\end{itemize}
+	\begin{align*}
+		\ce{H3AsO4 + H2O &<=> H2AsO$_4^-$ + H3O+ &p\textit{K}$_{a1}$ = 2,19}\\
+		\ce{H2AsO$_4^-$ + H2O &<=> HAsO$_4^{2-}$ + H3O+ &p\textit{K}$_{a2}$ = 6,94}\\
+		\ce{HAsO$_4^{2-}$ + H2O &<=> AsO$_4^{3-}$ + H3O+ &p\textit{K}$_{a3}$ = 11,5}
+	\end{align*}
+	\begin{itemize}
+		\item Připravuje se oxidací \ce{As2O3} kyselinou dusičnou nebo rozpouštění oxidu arseničného ve vodě.
+		\item \ce{As2O3 + HNO3 + 2 H2O -> 2 H3AsO4 + N2O3}
+		\item Krystalizací z vodného roztoku získáme hemihydrát.
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item \textit{Oxid antimonitý}, \ce{Sb2O3}, je bílá pevná látka.
+		\item Připravuje se spalováním antimonu na vzduchu.
+		\item \ce{4 Sb + 3 O2 -> 2 Sb2O3}
+		\item Pro výrobu antimonu se získává pražením sulfidu:
+		\item \ce{2 Sb2S3 + 9 O2 -> 2 Sb2O3 + 6 SO2}
+		\item Je amfoterní, rozpouštěním v alkalických hydroxidech vznikají antimonitany:
+		\item \ce{Sb2O3 + 2 NaOH -> 2 NaSbO2 + H2O}
+		\item V plynném stavu vytváří molekuly \ce{Sb4O6} s adamantoidní strukturou (podobně jako \ce{P4O6}).
+		\item \textit{Oxid antimoničný}, \ce{Sb2O5}, je žlutá pevná látka.
+		\item Připravuje se hydrolýzou chloridu antimonitého roztokem amoniaku nebo oxidací antimonu koncentrovanou kyselinou dusičnou.
+		\item Antimoničnany jsou tvořeny oktaedry \ce{SbO6}, často propojenými přes vrcholy.
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Směsný oxid \ce{Sb2O4} je tvořen antimonem v oxidačním čísle III i V.
+		\item V přírodě se vyskytuje jako minerál cervantit.\footnote[frame]{\href{https://www.mindat.org/min-936.html}{Cervantite}}
+		\item Můžeme ho připravit buď částečnou oxidací oxidu antimonitého vzduchem nebo tepelným rozkladem oxidu antimoničného:
+		\item \ce{2 Sb2O3 + O2 -> 2 Sb2O4}
+		\item \ce{2 Sb2O5 ->[800 $^\circ$C] 2 Sb2O4 + O2}
+	\end{itemize}
+	\begin{figure}
+		\adjincludegraphics[width=.5\textwidth]{img/Sb2O4_structure.jpg}
+		\caption*{Krystalová struktura \ce{Sb2O4}.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Sb2O4_structure.jpg}{Materialscientist/Commons}}}
+	\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item \textit{Oxid bismutitý}, \ce{Bi2O3}, je žlutý prášek.
+		\item Připravuje se termickým rozkladem bazického dusičnanu nebo hydroxidu bismutitého.
+		\item \ce{2 [4 BiNO3(OH)2BiO(OH)] -> 5 Bi2O3 + 8 NO2 + 9 H2O + 2 O2}
+		\item Za laboratorní teploty je stabilní monoklinická forma $\alpha$-\ce{Bi2O3} s vrstevnatou strukturou.\footnote[frame]{\href{https://doi.org/10.1002/zaac.19784440118}{On the Structure of Bismuthsesquioxide}}
+		\item Při zahřátí nad 717~$^\circ$C přechází na defektní kubickou modifikaci $\delta$-\ce{Bi2O3}.
+		\item $\beta$ modifikace má strukturu fluoritu a může obsahovat i \ce{Bi^V}, kdy dochází k obsazení vakancí v krystalové struktuře  anionty \ce{O^{2-}}.
+		\item \textit{Oxid bismutičný}, \ce{Bi2O5}, je tmavěčervená pevná látka.
+		\item Je nestabilní, snadno uvolňuje kyslík.
+		\item Bismutičnany se využívají při stanovení manganu v oceli, kdy mangan oxidují na manganistan. Koncentrace manganistanu se stanovuje kolorimetricky.
+	\end{itemize}
+	\vfill
+}
+
+\subsection{Sulfidy a další chalkogenidy}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{columns}
+		\begin{column}{.6\textwidth}
+			\begin{itemize}
+		\item Sulfidů arsenu známe poměrně velké množství.
+		\item \textit{Realgar}, \ce{As4S4} viz minerály arsenu.
+		\item \textit{Auripigment}, \ce{As2S3}, je tmavě-žlutá, nerozpustná látka.
+		\item Dříve se využíval jako pigment (\textit{královská žluť}).\footnote[frame]{\href{https://ivahonkova.webnode.cz/olejove-barvy/zlute/}{Žlutě}}
+		\item Je to V/VI polovodič typu p, vykazuje i fotoresistivní vlastnosti. Díky velikosti zakázaného pásu (2,7 eV) propouští infračervené záření v oblasti 900-16~000~cm$^{-1}$.
+		\item Využívá se pro konstrukci optických prvků pro IR spektrometry.
+	\end{itemize}
+	\end{column}
+	\begin{column}{.4\textwidth}
+		\begin{figure}
+			\adjincludegraphics[width=.95\textwidth]{img/Orpiment_7.jpg}
+			\caption*{Auripigment.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Orpiment_7.jpg}{Géry PARENT/Commons}}}
+		\end{figure}
+	\end{column}
+	\end{columns}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{columns}
+		\begin{column}{.6\textwidth}
+			\begin{itemize}
+				\item \textit{Sulfid arseničný}, \ce{As2S5}, je oranžová, nerozpustná látka.
+				\item Lze ho připravit srážením roztoků arseničných solí sulfanem nebo zahříváním arsenu se sírou.
+				\item Ve vařící vodě hydrolyzuje za vzniku kyseliny arsenité:
+				\item \ce{As2S5 + 6 H2O ->[100 $^\circ$C] 2 H3AsO3 + 2 S + 3 H2S}
+				\item S roztoky alkalických sulfidů poskytuje thioarseničnany:
+				\item \ce{2 As2S5 + 6 Na2S -> 4 Na3AsS4}
+			\end{itemize}
+		\end{column}
+		\begin{column}{.4\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=\textwidth]{img/As2S5-SEM.jpg}
+				\caption*{SEM snímek vulkanického \ce{As2S5}\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Color_SEM_2.jpg}{Ppm61/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{columns}
+		\begin{column}{.6\textwidth}
+			\begin{itemize}
+				\item \textit{Sulfid antimonitý}, \ce{Sb2S3}, je šedá až černá pevná látka.
+				\item V přírodě se vyskytuje jako minerál stibnit.
+				\item Lze jej připravit zahříváním antimonu se sírou nebo srážením roztoků antimonitých solí sulfanem.
+				\item Reakce na mokré cestě je využívána jako gravimetrická metoda stanovení antimonu.
+			\end{itemize}
+		\end{column}
+		\begin{column}{.4\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=\textwidth]{img/Sulfid_antimonitý.jpg}
+				\caption*{Sulfid antimonitý.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Sulfid_antimonitý.JPG}{Ondřej Mangl/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\ce{2 SbCl3 + 3 H2S ->[95 $^\circ$C] Sb2S3 + 6 HCl}
+	\vfill
+}
+
+\subsection{Halogenidy \ce{MX3}}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Všechny halogenidy \ce{MX3} jsou stabilní a komerčně dostupné.
+		\item Fluoridy lze snadno připravit reakcí oxidu s HF. V případě arsenu nejlépe v bezvodém prostředí:
+		\item \ce{M2O3 + 6 HF ->[H2SO4 /CaF2] 2 MF3 + 3 H2O}
+		\item Ostatní halogenidy lze připravit reakcí kovu nebo oxidu s halogenem.
+	\end{itemize}
+	\begin{tabular}{|l|r@{,}l|r@{,}l||l|r@{,}l|r@{,}l|}
+		\hline
+		\textbf{\ce{MX3}} & \multicolumn{2}{c|}{\textbf{T$_t$ [$^\circ$C]}}
+		& \multicolumn{2}{c||}{\textbf{T$_v$ [$^\circ$C]}}
+		& \textbf{\ce{MX3}} & \multicolumn{2}{c|}{\textbf{T$_t$ [$^\circ$C]}}
+		& \multicolumn{2}{c|}{\textbf{T$_v$ [$^\circ$C]}} \\\hline
+		\ce{AsF3} & -8 & 5 & 60 & 4 & \ce{SbBr3} & 96 & 6 & 288 & 0 \\\hline
+		\ce{AsBr3} & -12 & 2 & 130 & 2 & \ce{SbI3} & 170 & 5 & 401 & 6 \\\hline
+		\ce{AsCl3} & 31 & 1 & 221 & 0 & \ce{BiF3} & 649 & 0 & \multicolumn{2}{c|}{-} \\\hline
+		\ce{AsI3} & 146 & 0 & 403 & 0 & \ce{BiCl3} & 227 & 0 & 447 & 0 \\\hline
+		\ce{SbF3} & 292 & 0 & 376 & 0 & \ce{BiBr3} & 219 & 0 & 462 & 0 \\\hline
+		\ce{SbCl3} & 73 & 4 & 223 & 5 & \ce{BiI3} & 408 & 6 & 542 & 0 \\\hline
+	\end{tabular}
+	\vfill
+}
+
+\subsection{Halogenidy \ce{MX5}}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Známe všechny fluoridy a chlorid antimoničný.
+		\item Chlorid arseničný se rozkládá při teplotě $-50\ ^\circ$C. Lze ho připravit oxidací chloridu arsenitého kapalným chlorem při teplotě $-105\ ^\circ$C v přítomnosti UV záření.\footnote[frame]{\href{https://doi.org/10.1002/anie.197603771}{Arsenic Pentachloride, \ce{AsCl5}}}
+		\item \ce{AsCl3 + Cl2 ->[UV, -105 $^\circ$C] AsCl5}
+	\end{itemize}
+	\begin{tabular}{|l|r@{,}l|r@{,}l|}
+		\hline
+		\textbf{\ce{MX5}} & \multicolumn{2}{c|}{\textbf{T$_t$ [$^\circ$C]}}
+		& \multicolumn{2}{c|}{\textbf{T$_v$ [$^\circ$C]}} \\\hline
+		\ce{AsF5} & $-$79 & 8 & $-$52 & 8 \\\hline
+		\ce{AsCl5} & \multicolumn{4}{c|}{Rozklad při teplotě $-50\ ^\circ$C} \\\hline
+		\ce{SbF5} & 8 & 3 & 149 & 5 \\\hline
+		\ce{SbCl5} & 2 & 8 & 140 & 0 \\\hline
+		\ce{BiF5} & 151 & 4 & 230 & 0 \\\hline
+	\end{tabular}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item \ce{SbCl5} vratně přechází při ochlazení pod $-$55~$^\circ$C na dimerní formu:
+	\end{itemize}
+	\begin{figure}
+		\adjincludegraphics[width=.8\textwidth]{img/SbCl5.png}
+	\end{figure}
+	\begin{itemize}
+		\item Přídavkem chloridu přechází hexachloroantimoničnan:
+		\item \ce{SbCl5 + KCl -> KSbCl6}
+		\item Reakcí s bezvodým HF vzniká fluorid antimoničný:
+		\item \ce{SbCl5 + 5 HF -> SbF5 + 5 HCl}
+		\item Reakcí fluoridu antimoničného s fluorem a kyslíkem vzniká hexafluoroantimoničnan dioxygenylu:
+		\item \ce{2 SbF5 + F2 + 2 O2 -> 2 [O2]+[SbF6]-}
+	\end{itemize}
+	\vfill
+}
+%https://en.wikipedia.org/wiki/Bismuth_vanadate
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Kyselina hexafluoroantimoničná, \ce{[H2F][SbF6]}, vzniká reakcí fluoridu antimoničného s fluorovodíkem:
+		\item \ce{SbF5 + 2 HF <=> H2F+ + SbF$_6^-$}
+		\item Je to nejsilnější známá kyselina, označuje se jako \textit{superkyselina}.
+	\end{itemize}
+	\begin{figure}
+		\adjincludegraphics[width=.6\textwidth]{img/Fluoroantimonic_acid-3D-balls.png}
+		\caption*{Model kyseliny hexafluoroantimoničné.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Fluoroantimonic_acid-3D-balls.png}{DFliyerz/Commons}}}
+	\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Anion \ce{SbF$_6^-$}, na rozdíl od \ce{SbCl5}, ochotně vytváří větší částice asociací pomocí fluoridu, např. \ce{[Sb2F11]^-} nebo \ce{[Sb3F16]-}.
+	\end{itemize}
+	\begin{figure}
+		\adjincludegraphics[width=\textwidth]{img/Sb2F11-Sb3F16.png}
+	\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item \textit{Magická kyselina} -- vzniká reakcí fluoridu antimoničného s kyselinou fluorsírovou.\footnote[frame]{\href{http://pubsapp.acs.org/subscribe/journals/tcaw/12/i03/pdf/303chronicles.pdf}{A Basic History of Acid-From Aristotle to Arnold}}
+		\item Dochází ke koordinaci volného elektronového páru kyslíku do volného orbitalu na antimonu.\footnote[frame]{\href{https://new.societechimiquedefrance.fr/wp-content/uploads/2019/12/2006-301-302-octnov-Olah-p.68.pdf}{Fluorinated superacidic systems}}
+		\item Tuto reakci lze dobře monitorovat pomocí $^{19}$F NMR.
+		\item Při nižší koncentraci \ce{SbF5} vzniká monoadukt, při vyšší začíná vznikat adukt 1:2.
+		\item \ce{SbF5 + 2 HSO3F -> [SbF5.SO3F]- + H2SO3F+}
+		\item \ce{2 SbF5 + 2 HSO3F -> [2SbF5.SO3F]- + H2SO3F+}
+		\item Kyselost tohoto systému lze zvýšit přídavkem tří molů \ce{SO3}.
+		\item Roztoky \ce{SbF_{5}/HSO3F/SO3} se označují jako superkyselá média.
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{figure}
+		\adjincludegraphics[width=.9\textwidth]{img/Magic_acid_structure.png}
+	\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item \textit{Hammettova kyselostní funkce}  ($H_0$) -- používá se k vyjádření kyselosti koncentrovaných roztoků silných kyselin a superkyselin.
+		\item Lze ji zjistit pomocí interakce kyseliny s velmi slabou bazí:
+		\item $H_0 = pK_{BH^+} + \log \frac{[B]}{[BH^+]} = -\log(a_{H^+} \frac{\gamma_B}{\gamma_{BH^+}})$
+	\end{itemize}
+	\begin{tabular}{|l|l|}
+		\hline
+		Kyselina sírová & $-$12,0 \\\hline
+		Kyselina chloristá & $-$12,78 \\\hline
+		Kyselina trifluormethansulfonová & $-$14,1 \\\hline
+		Fluorovodík & $-$15,1 \\\hline
+		Kyselina fluorsírová & $-$15,1 \\\hline
+		Magická kyselina & $-$19,2 \\\hline
+		Kyselina hexafluorantimoničná & $-$21 -- $-$23 \\\hline
+	\end{tabular}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item \textbf{Fluorid bismutičný}, \ce{BiF5}, je jedna z mála sloučenin bismutu v oxidačním stavu V.
+		\item Je to velmi silné fluorační a oxidační činidlo.
+		\item Lze ho připravit fluorací \ce{BiF3} pomocí fluoru nebo fluoridu chloritého:\footnote[frame]{\href{https://doi.org/10.1002/zaac.19895760128}{Synthesis and properties of pentavalent antimony and bismuth fluorides}}
+		\item \ce{BiF3 + F2 ->[500 $^\circ$C] BiF5}
+		\item \ce{BiF3 + ClF3 ->[350 $^\circ$C] BiF5 + ClF}
+		\item Dokáže velmi účinně fluorovat jiné sloučeniny:\footnote[frame]{\href{https://doi.org/10.1021/ja01533a009}{Preparation, Properties and Reactions of Bismuth Pentafluoride}}
+		\item \ce{BiF5 + UF4 ->[150 $^\circ$C] BiF3 + UF6}
+		\item \ce{3 BiF5 + Br2 ->[180 $^\circ$C] 3 BiF3 + 2 BrF3}
+		\item \ce{3 BiF5 + S ->[25 $^\circ$C] 3 BiF3 + SF6}
+		\item Krystalová struktura je tvořena řetězci oktaedrů \ce{BiF6} spojenými vrcholy v poloze trans.\footnote[frame]{\href{https://doi.org/10.1002/zaac.19713840204}{Zur Kristallstruktur von Wismutpentafluorid}}
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{columns}
+		\begin{column}{.4\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=\textwidth,rotate=90]{img/Bismuth-pentafluoride-chain.png}
+				\caption*{Řetězec oktaedrů \ce{BiF6}.\footnote[frame]{\href{https://en.wikipedia.org/wiki/File:Bismuth-pentafluoride-chain-from-xtal-1971-3D-balls.png}{Zdroj: Ben Mills/Commons}}}
+			\end{figure}
+		\end{column}
+
+	\begin{column}{.6\textwidth}
+			\begin{figure}
+			\adjincludegraphics[width=.8\textwidth]{img/Bismuth-pentafluoride-chain-packing.png}
+			\caption*{Uspořádání řetězců v krystalu \ce{BiF5}.\footnote[frame]{\href{https://en.wikipedia.org/wiki/File:Bismuth-pentafluoride-chain-packing-from-xtal-1971-3D-balls.png}{Zdroj: Ben Mills/Commons}}}
+		\end{figure}
+	\end{column}
+	\end{columns}
+	\vfill
+}
+
+\subsection{Další halogenidy}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Tendence ke tvorbě směsných halogenidů je nižší než u fosforu.
+		\item Výměna halogenidů mezi \ce{AsF3} a \ce{AsCl3} (za laboratorní teploty) byla prokázána pomocí NMR a Ramanovy spektroskopie.
+		\item U pentahalogenidů je tvorba směsných sloučenin běžnější.
+		\item \ce{2 AsCl3 + 2 AsF3 + Cl2 -> 2 [AsCl4][AsF6]}
+		\item \ce{AsCl3 + SbCl5 + Cl2 -> [AsCl4][SbCl6]}
+	\end{itemize}
+	\vfill
+}
+
+\subsection{Vanadičnan bismutitý}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{columns}
+		\begin{column}{.65\textwidth}
+			\begin{itemize}
+				\item Vanadičnan bismutitý, \ce{BiVO4}.
+				\item Světle žlutý prášek, je studován jako fotokatalyzátor pro rozklad vody viditelným světlem.\footnote[frame]{\href{https://doi.org/10.1039/C4EE03271C}{Visible-light driven heterojunction photocatalysts for water splitting – a critical review}}
+				\item Využívá se jako žlutý pigment, připravuje se srážením nebo reakcí \ce{Bi2O3} a \ce{V2O5} v pevné fázi.
+				\item V přírodě se vyskytuje ve formě vzácných minerálů: dreyeritu,\footnote[frame]{\href{https://www.mindat.org/min-1320.html}{Dreyerite}} clinbisvanitu\footnote[frame]{\href{https://www.mindat.org/min-1067.html}{Clinobisvanite}} a pucheritu\footnote[frame]{\href{https://www.mindat.org/min-3306.html}{Pucherite}}.
+			\end{itemize}
+		\end{column}
+
+		\begin{column}{.4\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=.3\textheight]{img/Bismuthvanadat.jpg}
+				\caption*{Vanadičnan bismutitý.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Bismuthvanadat.jpg}{FK1954/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\subsection{Organokovové sloučeniny}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Všechny tři prvky vytváří organokovové sloučeniny v oxidačních číslech III a V.
+		\item Stabilita klesá se stoupající hmotností prvku.
+		\item Sloučeniny antimonu a bismutu nejsou tak široce prostudovány jako sloučeniny arsenu.
+		\item První organokovovou sloučeninou arsenu byl kakodyl, neboli tetramethyldiarsan.
+		\item Arsen vytváří arsonové a arsinové kyseliny (podobně jako fosfor).
+	\end{itemize}
+	\begin{figure}
+		\adjincludegraphics[width=\textwidth]{img/As-acids.png}
+	\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{figure}
+		\adjincludegraphics[width=\textwidth]{img/As-aromatic.png}
+	\end{figure}
+	\begin{itemize}
+		\item Známe řadu aromatických sloučenin, ve kterých má arsen oxidační číslo III a~koordinační číslo~2.
+		\item \textit{Arsabenzen} je bezbarvý plyn, odolný vůči hydrolýze slabými kyselinami a zásadami.
+		\item Připravuje se z 1,4-pentadiynu:\footnote[frame]{\href{https://doi.org/10.1271/kagakutoseibutsu1962.33.100}{Chemistry of heterobenzenes containing group 15 element}}
+	\end{itemize}
+	\begin{figure}
+		\adjincludegraphics[width=\textwidth]{img/Arsabenzen.png}
+	\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Molekula arsabenzenu je planární.
+		\item \textit{Stibabenzen} se připravuje podobně jako arsabenzen.\footnote[frame]{\href{https://doi.org/10.1021/ja00753a069}{Stibabenzene}}
+		\item Posledním členem řady je \textit{bismabenzen}, ten je ale nestabilní a dosud nebyl izolován v čistém stavu.
+		\item Byly připraveny jeho deriváty, které jsou stabilnější.\footnote[frame]{\href{https://www.chemistryworld.com/news/chemists-create-stable-bismuth-benzene-derivative/1017447.article}{Chemists create stable bismuth benzene derivative}}
+	\end{itemize}
+	\begin{figure}
+		\adjincludegraphics[width=\textwidth]{img/Bond_lengths_of_group_15_heterobenzenes_and_benzene.png}
+		\caption*{Délky vazeb a vazebné úhly benzenu a heterobenzenech.\footnote[frame]{\href{https://commons.wikimedia.org/wiki/File:Bond_lengths_of_group_15_heterobenzenes_and_benzene.svg}{Zdroj: Sponk/Commons}}}
+	\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{figure}
+		\adjincludegraphics[width=\textwidth]{img/BiC5H5-Si2.png}
+		\caption*{Stabilní derivát bismabenzenu\footnote[frame]{\href{https://www.chemistryworld.com/news/chemists-create-stable-bismuth-benzene-derivative/1017447.article}{Chemists create stable bismuth benzene derivative}}}
+	\end{figure}
+	\vfill
+}
+
+\section{Biologie}
+\subsection{Arsen}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Arsenité sloučeniny jsou toxičtější než arseničné.
+		\item Atoxyl byl využíván při léčbě spavé nemoci.
+		\item Některé organické sloučeniny arsenu byly dříve využívány při léčbě syfilidy.
+		\item Sloučeniny arsenu se využívají při léčbě africké trypanosomiasy.\footnote[frame]{\href{https://doi.org/10.1186/1756-3305-3-15}{The development of drugs for treatment of sleeping sickness: a historical review}}
+	\end{itemize}
+	\begin{figure}
+		\adjincludegraphics[width=.8\textwidth]{img/Atoxyl.png}
+	\end{figure}
+	\vfill
+}
+
+\subsection{Antimon}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Kovový antimon neovlivňuje lidské zdraví.
+		\item Oxid antimonitý a další nerozpustné antimonité sloučeniny jsou nebezpečné při vdechování.
+		\item Otrava antimonitými sloučeninami je podobná otravě arsenikem.
+		\item Oxid antimonitý je také potenciálně karcinogenní.\footnote[frame]{\href{https://doi.org/10.1016/j.mrfmmm.2003.07.012}{Cobalt and antimony: genotoxicity and carcinogenicity}}
+	\end{itemize}
+	\vfill
+}
+
+\input{../Last}
+
+\end{document}

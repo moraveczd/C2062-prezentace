@@ -1,0 +1,166 @@
+{
+    "InternalPDFViewer": {
+        "Embedded": true,
+        "File": "01-Uvod/Uvod.pdf"
+    },
+    "Session": {
+        "Bookmarks": [
+            {
+                "bookmarkNumber": 1,
+                "fileName": "../../../Chem-Descartes/Moderní materiály kolem nás/04-Kovy/04-Kovy.tex",
+                "lineNumber": 273,
+                "text": "04-Kovy.tex\n\\item Ocel je slitina želaza s uhlíkem a dalšími prvky, která obsahuje méně než 2,14~\\%"
+            }
+        ],
+        "CurrentFile": "01-Uvod/Uvod.tex",
+        "FileVersion": 1,
+        "Files": [
+            {
+                "Col": 0,
+                "EditorGroup": 0,
+                "FileName": "01-Uvod/Uvod.tex",
+                "FirstLine": 1443,
+                "FoldedLines": "",
+                "Line": 1536
+            },
+            {
+                "Col": 15,
+                "EditorGroup": 0,
+                "FileName": "02-GaInTl/GaInTl.tex",
+                "FirstLine": 0,
+                "FoldedLines": "",
+                "Line": 33
+            },
+            {
+                "Col": 0,
+                "EditorGroup": 0,
+                "FileName": "03-GeSnPb/GeSnPb.tex",
+                "FirstLine": 0,
+                "FoldedLines": "",
+                "Line": 57
+            },
+            {
+                "Col": 0,
+                "EditorGroup": 0,
+                "FileName": "04-AsSbBi/AsSbBi.tex",
+                "FirstLine": 0,
+                "FoldedLines": "",
+                "Line": 133
+            },
+            {
+                "Col": 0,
+                "EditorGroup": 0,
+                "FileName": "05-SeTePo/SeTePo.tex",
+                "FirstLine": 0,
+                "FoldedLines": "",
+                "Line": 386
+            },
+            {
+                "Col": 0,
+                "EditorGroup": 0,
+                "FileName": "06-ScYLaLn/ScYLaAc.tex",
+                "FirstLine": 0,
+                "FoldedLines": "",
+                "Line": 81
+            },
+            {
+                "Col": 0,
+                "EditorGroup": 0,
+                "FileName": "07-TiZrHf/TiZrHf.tex",
+                "FirstLine": 0,
+                "FoldedLines": "",
+                "Line": 87
+            },
+            {
+                "Col": 0,
+                "EditorGroup": 0,
+                "FileName": "08-VNbTa/VNbTa.tex",
+                "FirstLine": 0,
+                "FoldedLines": "",
+                "Line": 52
+            },
+            {
+                "Col": 0,
+                "EditorGroup": 0,
+                "FileName": "09-CrMoW/CrMoW.tex",
+                "FirstLine": 0,
+                "FoldedLines": "",
+                "Line": 88
+            },
+            {
+                "Col": 0,
+                "EditorGroup": 0,
+                "FileName": "10-MnTcRe/MnTcRe.tex",
+                "FirstLine": 0,
+                "FoldedLines": "",
+                "Line": 89
+            },
+            {
+                "Col": 0,
+                "EditorGroup": 0,
+                "FileName": "11-FeCoNi/FeCoNi.tex",
+                "FirstLine": 0,
+                "FoldedLines": "",
+                "Line": 1018
+            },
+            {
+                "Col": 0,
+                "EditorGroup": 0,
+                "FileName": "12-RuRhPd/RuRhPd.tex",
+                "FirstLine": 0,
+                "FoldedLines": "",
+                "Line": 110
+            },
+            {
+                "Col": 0,
+                "EditorGroup": 0,
+                "FileName": "13-OsIrPt/OsIrPt.tex",
+                "FirstLine": 0,
+                "FoldedLines": "",
+                "Line": 79
+            },
+            {
+                "Col": 0,
+                "EditorGroup": 0,
+                "FileName": "14-CuAgAu/CuAgAu.tex",
+                "FirstLine": 0,
+                "FoldedLines": "",
+                "Line": 52
+            },
+            {
+                "Col": 0,
+                "EditorGroup": 0,
+                "FileName": "15-ZnCdHg/ZnCdHg.tex",
+                "FirstLine": 0,
+                "FoldedLines": "",
+                "Line": 53
+            },
+            {
+                "Col": 0,
+                "EditorGroup": 0,
+                "FileName": "16-BioanorganickaChemie/BioanorganickaChemie.tex",
+                "FirstLine": 0,
+                "FoldedLines": "",
+                "Line": 136
+            },
+            {
+                "Col": 0,
+                "EditorGroup": 0,
+                "FileName": "17-ModerniAnorganickaChemie/ModerniAnorg.tex",
+                "FirstLine": 0,
+                "FoldedLines": "",
+                "Line": 496
+            },
+            {
+                "Col": 14,
+                "EditorGroup": 0,
+                "FileName": "last.tex",
+                "FirstLine": 0,
+                "FoldedLines": "",
+                "Line": 0
+            }
+        ],
+        "MasterFile": "",
+        "VerticalSplit": false
+    }
+}

@@ -1,0 +1,1249 @@
+\documentclass[hyperref=unicode,presentation,10pt]{beamer}
+
+\usepackage[absolute,overlay]{textpos}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{adjustbox}
+\usepackage[version=4]{mhchem}
+\usepackage{chemfig}
+\usepackage{caption}
+\usepackage{makecell}
+
+%dělení slov
+\usepackage{ragged2e}
+\let\raggedright=\RaggedRight
+%konec dělení slov
+
+\addtobeamertemplate{frametitle}{
+	\let\insertframetitle\insertsectionhead}{}
+\addtobeamertemplate{frametitle}{
+	\let\insertframesubtitle\insertsubsectionhead}{}
+
+\makeatletter
+\CheckCommand*\beamer@checkframetitle{\@ifnextchar\bgroup\beamer@inlineframetitle{}}
+\renewcommand*\beamer@checkframetitle{\global\let\beamer@frametitle\relax\@ifnextchar\bgroup\beamer@inlineframetitle{}}
+\makeatother
+\setbeamercolor{section in toc}{fg=red}
+\setbeamertemplate{section in toc shaded}[default][100]
+
+\usepackage{fontspec}
+\usepackage{unicode-math}
+
+\usepackage{polyglossia}
+\setdefaultlanguage{czech}
+
+\def\uv#1{„#1“}
+
+\mode<presentation>{\usetheme{default}}
+\usecolortheme{crane}
+
+\setbeamertemplate{footline}[frame number]
+
+\title[Crisis]
+{C2062 -- Anorganická chemie II}
+
+\subtitle{Titan, zirkonium, hafnium a rutherfordium}
+\author{Zdeněk Moravec, hugo@chemi.muni.cz \\ \adjincludegraphics[height=60mm]{img/IUPAC_PSP.jpg}}
+\date{}
+
+\begin{document}
+
+\begin{frame}
+	\titlepage
+\end{frame}
+
+\section{Úvod}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{tabular}{|l|l|l|l|}
+	\hline
+	 & \textit{Titan} & \textit{Zirkonium} & \textit{Hafnium} \\\hline
+	 El. k. & 3d$^{2}$ 4s$^{2}$ & 4d$^{2}$ 5s$^{2}$ & 4f$^{14}$ 5d$^{2}$ 6s$^{2}$ \\\hline
+	 T$_v$ [$^\circ$C] & 3287 & 4377 & 4603 \\\hline
+	 T$_t$ [$^\circ$C] & 1668 & 1855 & 2233 \\\hline
+	 Objev & 1791 & 1789 & 1922 \\\hline
+	 & šedý\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Titan-crystal_bar.JPG}{Alchemist-hp/Commons}} & stříbrnobílý\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Zirconium_crystal_bar_and_1cm3_cube.jpg}{Alchemist-hp/Commons}} & ocelově šedé\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Hf-crystal_bar.jpg}{Alchemist-hp/Commons}} \\
+	 & \begin{minipage}{.2\textwidth}
+	 	\adjincludegraphics[width=\linewidth]{img/Titan-crystal_bar.jpg}
+	 \end{minipage}
+	 	& \begin{minipage}{.2\textwidth}
+	 		\adjincludegraphics[width=\linewidth]{img/Zirconium_crystal_bar.jpg}
+	 	\end{minipage} & \begin{minipage}{.2\textwidth}
+	 	\adjincludegraphics[width=\linewidth]{img/Hf-crystal_bar.jpg} \end{minipage} \\\hline
+	\end{tabular}
+	\vfill
+}
+
+\section{Rutherfordium}
+\frame{
+	\frametitle{}
+	\vfill
+	\textbf{Rutherfordium}
+	\begin{itemize}
+		\item Umělý prvek, transuran, protonové číslo 104, Rf.
+		\item Poprvé byl připraven v roce 1964:
+		\item \ce{^{242}_{94}Pu + ^{22}_{10}Ne -> ^{264}_{104}Rf}
+		\item \ce{^{249}_{98}Cf + ^{12}_{6}C -> ^{257}_{104}Rf + 4 ^1_0n}
+		\item Název byl schválen roku 1997.\footnote[frame]{\href{https://doi.org/10.1103/PhysRevLett.31.647}{X-Ray Identification of Element 104}}
+		\item Známe izotopy v rozmezí nukleonových čísel od 253 do 270.
+		\item Nejstabilnějším izotopem je \ce{^{267}Rf} s poločasem rozpadu 1,3 hodiny.
+		\item \ce{^{279}_{110}Ds -> ^{275}_{108}Ds + $\alpha$ -> ^{271}_{106}Sg + $\alpha$}
+		\item \ce{^{271}_{106}Sg -> ^{267}_{104}Rf + $\alpha$}
+	\end{itemize}
+
+	\begin{tabular}{|l|l|}
+		\hline
+		\ce{^{261}Rf} & 2,1 s \\\hline
+		\ce{^{263}Rf} & 15 minut \\\hline
+		\ce{^{265}Rf} & 1,1 minut \\\hline
+		\ce{^{267}Rf} & 48 minut \\\hline
+	\end{tabular}
+	\vfill
+}
+
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{columns}
+		\begin{column}{.7\textwidth}
+			\begin{itemize}
+				\item Reakcí s halogeny vznikají tetrahalogenidy \ce{RfX4}.
+				\item Ve vodných roztocích jsou Rf$^{4+}$ stabilnější než titaničité sloučeniny, hydrolýza poskytuje ionty RfO$^{2+}$.\footnote[frame]{\href{https://doi.org/10.1351/pac200375010103}{Critical evaluation of the chemical properties of the transactinide elements}}
+				\item V 10 M HCl vznikají oktaedrické ionty \ce{RfCl$_6^{2-}$}.\footnote[frame]{\href{https://doi.org/10.1524/ract.2005.93.9-10.519}{Chemical studies on rutherfordium (Rf) at JAERI}}
+				\item \ce{Rf^{4+} + 6 Cl^- -> [RfCl6]^{2-}}
+				\item Podobné chování bylo pozorováno i při reakci s fluoridy.
+			\end{itemize}
+		\end{column}
+		\begin{column}{.3\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=\textwidth]{img/Ernest_Rutherford2.jpg}
+				\caption*{Ernest Rutherford.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Ernest_Rutherford2.jpg}{Sadi Carnot/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\section{Chemické a fyzikální vlastnosti}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Všechny tři kovy jsou poměrně reaktivní, ale na povrchu vytvářejí inertní, kompaktní vrstvu oxidu.
+		\item Krystalizují v nejtěsnějším hexagonálním uspořádání.
+		\item Mají vysoké teploty tání.
+		\item V práškovém stavu jsou pyroforické.
+		\item Při zahřívání reagují s většinou nekovů. Titan se také ochotně slučuje s dusíkem. Při teplotě 800~$^\circ$C v dusíkové atmosféře hoří za vzniku nitridu.
+		\item \ce{2 Ti + N2 ->[800 $^\circ$C] 2 TiN}
+		\item V kyselinách a zásadách se rozpouštějí pouze za horka.
+		\item Výjimkou je kyselina fluorovodíková, která vytváří rozpustné fluoro- komplexy.
+		\item \ce{2 Ti + 12 HF -> 2 [TiF6]^{3-} + 3 H2 + 6 H+}
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Vytvářejí stabilní sloučeniny v oxidačním čísle IV.
+		\item Díky podobnosti atomových poloměrů jsou titaničité sloučeniny podobné sloučeninám cíničitým.
+		\item Sloučeniny v oxidačním čísle III mají redukční účinky.
+		\item Sloučeniny \ce{Zr^{III}} a \ce{Hf^{III}} redukují i vodu, proto nemáme poznatky o~chemii jejich vodných roztoků.
+		\item V komplexních sloučeninách dosahují koordinačního čísla 8 a někdy i~vyššího.
+		\item Chemie titanu a zirkonia je poměrně dobře prozkoumaná, u hafnia je množství poznatků menší.
+	\end{itemize}
+	\vfill
+}
+
+\section{Výskyt a získávání prvků}
+\subsection{Titan}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Titan patří mezi hojně rozšířené prvky, jeho koncentrace v zemské kůře je 6320~ppm (9. nejrozšířenější prvek v zemské kůře).
+		\item Známe skoro 400 minerálů titanu, nejdůležitějšími jsou ilmenit a rutil.\footnote[frame]{\href{https://www.mindat.org/element/Titanium}{The mineralogy of Titanium}}
+		\item Má pět stabilních izotopů: \ce{^{46}Ti}, \ce{^{47}Ti}, \ce{^{48}Ti}, \ce{^{49}Ti} a \ce{^{50}Ti}.
+	\end{itemize}
+	\begin{columns}
+		\begin{column}{.2\textwidth}
+			\begin{tabular}{|l|r@{,}l|}
+				\hline
+				\ce{^{46}Ti} & 8 & 25 \% \\\hline
+				\ce{^{47}Ti} & 7 & 44 \% \\\hline
+				\ce{^{48}Ti} & 73 & 72 \% \\\hline
+				\ce{^{49}Ti} & 5 & 41 \% \\\hline
+				\ce{^{50}Ti} & 5 & 18 \% \\\hline
+			\end{tabular}
+		\end{column}
+		\begin{column}{.6\textwidth}
+		\begin{figure}
+			\adjincludegraphics[height=.35\textheight]{img/Titanium_products.jpg}
+			\caption*{Kovový titan.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Titanium_products.jpg}{Mark Fergus/Commons}}}
+		\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{columns}
+		\begin{column}{.65\textwidth}
+			\begin{itemize}
+				\item \textbf{Ilmenit}
+				\item \ce{FeTiO3}, trigonální minerál.\footnote[frame]{\href{http://mineraly.sci.muni.cz/oxidy/ilmenit.html}{Ilmenit}}
+				\item Často obsahuje také příměsi hořčíku a manganu, \ce{(Fe,Mg,Mn,Ti)O3}.\footnote[frame]{\href{http://www.webmineral.com/data/Ilmenite.shtml}{Ilmenite Mineral Data}}
+				\item Struktura obsahuje ionty \ce{Fe^{2+}} a \ce{Ti^{4+}} umístěné v mřížce korundového typu.
+				\item V Česku se nachází v Orlických horách, Železných horách, v okolí Třebíče, atd.
+				\item Byl nalezen i na Měsíci.\footnote[frame]{\href{https://www.nytimes.com/2015/12/29/science/new-type-of-rock-is-discovered-on-moon.html}{New Type of Rock Is Discovered on Moon}}
+			\end{itemize}
+		\end{column}
+		\begin{column}{.35\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=.9\textwidth]{img/Ilmenit-Struktur.png}
+				\caption*{Struktura ilmenitu.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Ilmenit-Struktur.png}{Speedpera/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{columns}
+		\begin{column}{.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=.6\textheight]{img/Ilmenite-173863.jpg}
+				\caption*{Ilmenit, Kanada.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Ilmenite-173863.jpg}{Modris Baum/Commons}}}
+			\end{figure}
+		\end{column}
+		\begin{column}{.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=.6\textheight]{img/Ilmenite-Cassiterite-Quartz-130337.jpg}
+				\caption*{Ilmenit, kasiterit a křemen, Namíbie.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Ilmenite-Cassiterite-Quartz-130337.jpg}{Robert M. Lavinsky/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{columns}
+		\begin{column}{.65\textwidth}
+			\begin{itemize}
+				\item \textbf{Rutil}\footnote[frame]{\href{http://mineraly.sci.muni.cz/oxidy/rutil.html}{Rutil}}
+				\item \ce{TiO2}, tetragonální minerál.
+				\item Hlavní surovina pro výrobu oxidu titaničitého.
+				\item Jedna ze tří přírodních forem oxidu titaničitého.
+				\item Je to termodynamicky nejstabilnější forma \ce{TiO2}.
+				\item V Česku ho nacházíme u Písku, Golčova Jeníkova, Ledče nad Sázavou, atd.\footnote[frame]{\href{https://www.youtube.com/watch?v=12TWLGP3zNY}{Rutil z Chřenovic}}
+			\end{itemize}
+		\end{column}
+
+		\begin{column}{.4\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=.2\textheight]{img/Hematite-Rutile-57088.jpg}
+				\caption*{Rutil a hematit, Švýcarsko.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Hematite-Rutile-57088.jpg}{Robert M. Lavinsky/Commons}}}
+			\end{figure}
+		\begin{figure}
+			\adjincludegraphics[height=.2\textheight]{img/Rutile_et_hématite.jpg}
+			\caption*{Rutil a hematit, Brazílie.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Rutile_et_hématite_(Brésil).jpg}{Parent Géry/Commons}}}
+		\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item \textbf{Anatas}\footnote[frame]{\href{https://www.mindat.org/min-213.html}{Anatase}}
+		\item \ce{TiO2}, čtverečný minerál.
+		\item Jedna ze tří přírodních forem oxidu titaničitého.
+		\item Občas se využívá jako drahý kámen.
+	\end{itemize}
+	\begin{columns}
+		\begin{column}{.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=.4\textheight]{img/Anatase_Oisans.jpg}
+				\caption*{Anatas, Francie.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Anatase_Oisans.jpg}{Didier Descouens/Commons}}}
+			\end{figure}
+		\end{column}
+		\begin{column}{.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=.4\textheight]{img/Anatase-mun05-15a.jpg}
+				\caption*{Anatas, Balúčistán.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Anatase-mun05-15a.jpg}{Robert M. Lavinsky/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item \textbf{Brookit}\footnote[frame]{\href{https://www.mindat.org/min-787.html}{Brookite}}
+		\item \ce{TiO2}, kosočtverečný minerál.
+		\item Jedna ze tří přírodních forem oxidu titaničitého.
+	\end{itemize}
+	\begin{columns}
+		\begin{column}{.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=.4\textheight]{img/Brookite.jpg}
+				\caption*{Brookit a křemen, Pákistán.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Brookite,_quartz_11.jpeg}{Parent Géry/Commons}}}
+			\end{figure}
+		\end{column}
+		\begin{column}{.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=.4\textheight]{img/Brookite-238977.jpg}
+				\caption*{Brookit, Pákistán.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Brookite-238977.jpg}{Robert M. Lavinsky/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item \textbf{Perovskit}\footnote[frame]{\href{http://mineraly.sci.muni.cz/oxidy/perovskit.html}{Perovskit}}
+		\item \ce{CaTiO3}, rombický minerál.
+		\item Struktura obsahuje oktaedry \ce{TiO6} a kubooktaedry \ce{CaO12}.
+		\item Syntetické perovskity se využívají ke konstrukci fotovoltaických článků.
+	\end{itemize}
+	\begin{columns}
+		\begin{column}{.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=.3\textheight]{img/Perovskite-155026.jpg}
+				\caption*{Perovskit, USA.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Perovskite-155026.jpg}{Robert M. Lavinsky/Commons}}}
+			\end{figure}
+		\end{column}
+		\begin{column}{.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=.3\textheight]{img/Kristallstruktur_Perovskit.png}
+				\caption*{Struktura perovskitu.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Kristallstruktur_Perovskit.png}{Orci/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Při výrobě titanu není možné využít redukci uhlíkem, protože dochází ke vzniku velmi stabilních karbidů.
+		\item Redukcí kovy, např. Na, Ca nebo Mg zase nedojde k úplnému odstranění kyslíku z výchozího materiálu.
+		\item Další překážkou je i vysoká reaktivita titanu za vyšších teplot.
+		\item Do 40. let 20. století se pro přípravu titanu využíval postup vyvinutý novozélandským metalurgem Matthewem A. Hunterem v roce 1910.\footnote[frame]{\href{https://doi.org/10.1021/ja01921a006}{Metallic titanium}}
+		\item Je založen na redukci chloridu titaničitého kovovým sodíkem v inertní atmosféře.
+		\item \ce{TiCl4 + 4 Na -> Ti + 4 NaCl}
+		\item Toto byl první postup, který umožnil přípravu kovového titanu bez znečištění nitridy.
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item V roce 1940 tento postup nahrazen ekonomičtějším \textit{Krollovým procesem}, který vyvinul lucembruský metalurg William J. Kroll.\footnote[frame]{\href{https://www.youtube.com/watch?v=oWyrzZh3We0}{Titanium: Kroll Method}}
+		\item Místo sodíku probíhá redukce taveninou hořčíku v atmosféře argonu:
+		\item \ce{TiCl4 + 2 Mg ->[950 $^\circ$C, Ar] Ti + 2 MgCl2}
+		\item Chlorid titaničitý je získáván zahříváním ilmenitu nebo rutilu s koksem v proudu chloru:\footnote[frame]{\href{https://dx.doi.org/10.22063/poj.2017.1453}{Production of titanium tetrachloride (\ce{TiCl4}) from titanium ores: A review}}
+		\item \ce{2 FeTiO3 + 7 Cl2 + 6 C ->[900 $^\circ$C] 2 TiCl4 + 2 FeCl3 + 6 CO}
+		\item \ce{TiO2 + 2 Cl2 + 2 C ->[1000 $^\circ$C] TiCl4 + 2 CO}
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Připravený chlorid titaničitý se čistí frakční destilací, tím dojde k odstranění chloridu železitého a dalších nečistot.
+		\item Následně se redukuje taveninou hořčíku (T$_{\textrm{t}}$ = 650~$^\circ$C) v uzavřeném reaktoru v atmosféře argonu.
+		\item \ce{TiCl4 + 2 Mg ->[950-1150 $^\circ$C, Ar] Ti + 2 MgCl2}
+		\item Vzniklý chlorid hořečnatý a přebytečný hořčík se odstraní rozpuštěním ve vodě a zředěné kyselině chlorovodíkové.
+		\item Redukce hořčíkem se ukázala jako výhodnější než redukce vápníkem, po té zůstává velký podíl oxidických nečistot.
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Krollovým procesem získáme tzv. \textit{titanovou houbu}, která se musí dále zpracovat na ingoty.
+		\item Houba se rozdrtí na prášek, který se přečistí vyluhováním v lučavce královské (\ce{HNO3 + HCl}).
+		\item Poté se přetaví ve vakuu nebo argonové atmosféře za vzniku ingotů.
+		\item Ty lze dále zpracovávat na titanové plechy.
+		\item Krollův proces lze snadno upravit na redukci sodíkem, která neposkytuje titanovou houbu, ale granulovaný titan.
+		\item Další výhodou redukce sodíkem je vznik chloridu sodného, který se dá velmi snadno odstranit z produktu.
+		\item \ce{TiCl4 + 4 Na -> Ti + 4 NaCl}
+		\item Tento proces je stále velmi neekonomický, proto se neustále hledají levnější metody přípravy čistého titanu.
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{figure}
+		\adjincludegraphics[height=.68\textheight]{img/Titanium-cylinder.jpg}
+		\caption*{Titanová houba.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Titanium-cylinder.jpg}{Jurii/Commons}}}
+	\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item \textbf{FFC Cambridge Process} -- Fray-Farthing-Chen
+		\item Byl vyvinut v Cambridgi, patentován byl v roce 1998.\footnote[frame]{\href{https://www.asminternational.org/documents/10192/1884362/amp16202p051.pdf/c40e8850-2fc7-456b-a0ec-b4b6e650e9bd}{Exploiting the FFC Cambridge Process}}
+		\item Elektrolytická metoda redukce oxidu na taveninu kovu.
+		\item Metoda je založena na elektrolýze taveniny oxidu kovu, vzniká tavenina čistého kovu.
+		\item Elektrolýza probíhá při teplotě 550--850~$^\circ$C, jako rozpouštědlo se využívá zpravidla chlorid vápenatý (T$_{\textrm{t}}$ = 772~$^\circ$C).
+		\item V případě titanu získáme houbovitý produkt.
+		\item Tuto metodu lze využít i jako alternativní cestu pro výrobu:
+		\begin{itemize}
+			\item Supravodičů: \ce{Nb3Sn}, \ce{NbTi}
+			\item Permanentních magnetů: \ce{Nd-Fe-B}, \ce{Sm-Co}
+			\item Katalyzátorů: Pt, Pd, $\ldots$
+		\end{itemize}
+	\end{itemize}
+	\vfill
+}
+
+\subsection{Zirkonium}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Koncentrace zirkonia v zemské kůře je 162~ppm.
+		\item Známe více než 100 minerálů zirkonia, hlavními jsou zirkon a baddeleyit.\footnote[frame]{\href{https://www.mindat.org/element/Zirconium}{The mineralogy of Zirconium}}
+		\item Má čtyři stabilní izotopy: \ce{^{90}Zr}, \ce{^{91}Zr}, \ce{^{92}Zr} a \ce{^{94}Zr}.
+	\end{itemize}
+		\begin{columns}
+		\begin{column}{.2\textwidth}
+			\begin{tabular}{|l|r@{,}l|}
+				\hline
+				\ce{^{90}Zr} & 51 & 45 \% \\\hline
+				\ce{^{91}Zr} & 11 & 22 \% \\\hline
+				\ce{^{92}Zr} & 17 & 15 \% \\\hline
+				\ce{^{94}Zr} & 17 & 38 \% \\\hline
+			\end{tabular}
+		\end{column}
+		\begin{column}{.6\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=.4\textheight]{img/Zirconium_crystal_bar.jpg}\caption*{Kovové zirkonium.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Zirconium_crystal_bar_and_1cm3_cube.jpg}{Alchemist-hp/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{figure}
+		\adjincludegraphics[height=.65\textheight]{img/Zirconium_mineral_concentrates_-_world_production_trend.png}
+		\caption*{Světová produkce koncentrátu minerálů zirkonu.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Zirconium_mineral_concentrates_-_world_production_trend.svg}{Leyo/Commons}}}
+	\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item \textbf{Zirkon},\footnote[frame]{\href{https://mineraly.sci.muni.cz/nesosilikaty/zirkon.html}{Zirkon}} \ce{ZrSiO4}, tetragonální minerál.\footnote[frame]{\href{https://www.mindat.org/min-4421.html}{Zircon}}
+		\item Patří do skupiny nesosilikátů\footnote[frame]{\href{https://mineralogie.sci.muni.cz/kap_7_9_nesosil/kap_7_9_nesosil.htm}{Nesosilikáty mají ve své struktuře izolované tetraedry \ce{SiO4}, které jsou v prostoru propojeny přes koordinační polyedry jiných kationtů}} a jde o jeden z hlavních zdrojů pro výrobu kovového zirkonia.
+	\end{itemize}
+	\begin{columns}
+		\begin{column}{.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=.33\textheight]{img/Zircon-59684.jpg}
+				\caption*{Krystal zirkonu, Afganistán.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Zircon-59684.jpg}{Robert M. Lavinsky/Commons}}}
+			\end{figure}
+		\end{column}
+		\begin{column}{.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=.33\textheight]{img/Aegirine-Zircon-Feldspar-Group-238900.jpg}
+				\caption*{Krystaly zirkonu, Malawi.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Aegirine-Zircon-Feldspar-Group-238900.jpg}{Robert M. Lavinsky/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item \textbf{Baddeleyit}
+		\item \ce{ZrO2}, monoklinický minerál.\footnote[frame]{\href{https://www.mindat.org/min-480.html}{Baddeleyite}}
+	\end{itemize}
+	\begin{columns}
+		\begin{column}{.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=.45\textheight]{img/Baddeleyite-md12a.jpg}
+				\caption*{Krystaly badeleyitu.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Baddeleyite-md12a.jpg}{Robert M. Lavinsky/Commons}}}
+			\end{figure}
+		\end{column}
+		\begin{column}{.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=.45\textheight]{img/BaddeleyiteStructure.png}
+				\caption*{Krystalová struktura badeleyitu.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:BaddeleyiteStructure.png}{Materialscientist/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Zirkonium se vyrábí, stejně jako titan, Krollovým procesem.
+		\item \ce{ZrCl4 + 2 Mg -> Zr + 2 MgCl2}
+		\item Pokud potřebujeme zirkonium beze stop kyslíku a dusíku, používá se tzv. \textit{jodová metoda} nebo \textit{van Arkelova-de Boerova metoda}.
+		\item Tato metoda se používá pro přípravu nejen zirkonia, ale i velmi čistého titanu, hafnia a vanadu.
+		\item Jedinou podmínkou pro použití této metody je existence těkavého halogenidu daného kovu.
+		\item Surový materiál je zahříván ve vakuu s parami halogenu.
+		\item Vzniklý těkavý halogenid je veden na žhavené wolframové vlákno, kde se rozkládá za vzniku čistého kovu.
+		\item Nečistoty zůstávají v pevné fázi v zásobníku.
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{figure}
+		\adjincludegraphics[height=.67\textheight]{img/Van-Arkel-de-Boer-Apparat.png}
+		\caption*{1 - přívod vakua; 2 - molybdenová elektroda; 3 - molybdenová síť; 4 - zásobník surového materiálu; 5 - wolframové vlákno\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Van-Arkel-de-Boer-Apparat.png}{Roland Mattern/Commons}}}
+	\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Zirkonium standardně obsahuje malý podíl hafnia. Což při běžných aplikacích nevadí.
+		\item Problém je ale v jaderných aplikacích, kde se zirkonium používá k potahování palivových tyčí.
+		\item Slitina zirkonia s cínem má pro tyto účely ideální vlastnosti, včetně nízké absorpce tepelných neutronů.
+		\item Absorpční vlastnosti hafnia jsou až šestsetkrát vyšší, proto je nutné jej odstranit.
+		\item Využívá se extrakce dusičnanů tributylfosfátem nebo thiokyanatanů v methylisobutylketonu. Tak je možné snížit obsah hafnia až pod 100~ppm.
+		\item Další možností je provést separaci zirkonia zonální tavbou.
+	\end{itemize}
+	\vfill
+}
+
+\subsection{Hafnium}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Koncentrace hafnia v zemské kůře je jen 5,8~ppm.
+		\item Vyskytuje se v minerálech společně ze zirkoniem, zpravidla v nižší koncentraci.\footnote[frame]{\href{https://www.mindat.org/element/Hafnium}{The mineralogy of Hafnium}}
+		\item To je dáno podobným iontovým poloměrem.
+		\begin{itemize}
+			\item Iontový poloměr zirkonia pro k.č. 6 je 72~pm.
+			\item Iontový poloměr hafnia pro k.č. 6 je 71~pm.
+		\end{itemize}
+	\item Přírodní hafnium se skládá z pěti stabilních izotopů (\ce{^{176}Hf}, \ce{^{177}Hf}, \ce{^{178}Hf}, \ce{^{179}Hf} a \ce{^{180}Hf}) a jednoho radioizotopu.
+	\end{itemize}
+	\begin{columns}
+		\begin{column}{.5\textwidth}
+			\begin{tabular}{|l|r@{,}l|l|}
+				\hline
+				\ce{^{174}Hf} & 0 & 16 \% & 7,0$\times$10$^{16}$ let \\
+				\hline
+				\ce{^{176}Hf} & 5 & 26 \% & stabilní \\
+				\hline
+				\ce{^{177}Hf} & 18 & 60 \% & stabilní\\\hline
+				\ce{^{178}Hf} & 27 & 28 \% & stabilní\\\hline
+				\ce{^{179}Hf} & 13 & 62 \% & stabilní\\\hline
+				\ce{^{180}Hf} & 35 & 08 \% & stabilní\\\hline
+			\end{tabular}
+		\end{column}
+		\begin{column}{.5\textwidth}
+		\begin{figure}
+			\adjincludegraphics[height=.3\textheight]{img/Hafnium_ebeam_remelted.jpg}
+			\caption*{Kovové hafnium.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Hafnium_ebeam_remelted.jpg}{Alchemist-hp/Commons}}}
+		\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Hafnium se také vyrábí Krollovým procesem.
+		\item \ce{HfCl4 + 2 Mg ->[1100 $^\circ$C] Hf + 2 MgCl2}
+		\item Další čištění lze provést jodovou metodou:
+		\item \ce{Hf + 2 I2 ->[500 $^\circ$C] HfI4}
+		\item \ce{HfI4 ->[W, 1700 $^\circ$C] Hf + 2 I2}
+		\item Po nehodě jaderné elektrárny Fukušima došlo ke snížení poptávky po zirkoniu, což způsobilo zvýšení ceny hafnia.\footnote[frame]{\href{https://www.kitco.com/ind/Albrecht/2015-03-11-Weak-Zirconium-Demand-Depleting-Hafnium-Stock-Piles.html}{Weak Zirconium Demand Depleting Hafnium Stock Piles}}
+	\end{itemize}
+	\begin{figure}
+		\adjincludegraphics[height=.25\textheight]{img/Hafnium_pellets_with_a_thin_oxide_layer.jpg}
+		\caption*{Hafnium. Barvy jsou způsobeny tenkým oxidickým filmem na povrchu.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Hafnium_pellets_with_a_thin_oxide_layer.jpg}{Alchemist-hp/Commons}}}
+	\end{figure}
+	\vfill
+}
+
+\section{Využití prvků}
+\subsection{Titan}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Kovový titan je za laboratorní teploty odolný vůči korozi a je lehký ($\rho$ = 4,51~g.cm$^{-3}$) a mechanicky odolný.
+		\item Proto se využívá ve slitinách pro letecký průmysl.
+		\item Vysoké odolnosti těchto slitin vůči mořské vodě se využívá v zařízeních pro odsolování vody.
+		\item Slitiny titanu se také využívají pro výrobu kuchyňského nádobí, sportovních potřeb a další aplikace.
+		\item Supravodivé dráty NbTi se využívají v MRI (Magnet Resonance Imaging) magnetech a také v magnetech u LHC. Kritická teplota je okolo 10~K a hodnota kritického pole dosahuje 15~T.\footnote[frame]{\href{https://doi.org/10.1016/0011-2275(87)90057-9}{Emergence of Nb-Ti as supermagnet material}}
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\textbf{Nitinol}
+	\begin{columns}
+		\begin{column}{.7\textwidth}
+			\begin{itemize}
+				\item Nitinol je skupina slitin titanu a niklu, zastoupení obou prvků se pohybuje okolo 50~\%.
+				\item Hmotnostní zlomek niklu se označuje číslem v názvu, např. \textit{Nitinol60}.
+				\item Tyto slitiny vykazují \textit{tvarovou paměť} a \textit{superelasticitu}.
+				\item Pokud ho mechanicky deformujeme, zachová si nový tvar. Po zahřátí nad teplotu přechodu, dojde k návratu do původního tvaru.
+				\item Toho lze využít ke konstrukci různých pohyblivých součástek, např. servomotorů.\footnote[frame]{\href{https://www.youtube.com/watch?v=sscoMtJV0uY}{Very strong Nitinol Engine running on warm water and ice}}
+				\item NASA testuje nitinol jako možný materiál pro bezvzduchové pneumatiky.\footnote[frame]{\href{https://technology.nasa.gov/patent/LEW-TOPS-99}{Superelastic Tire (LEW-TOPS-99)}}
+			\end{itemize}
+		\end{column}
+		\begin{column}{.3\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=\textwidth]{img/Nitinol_draht.jpg}
+				\caption*{Dráty z nitinolu.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Nitinol_draht.jpg}{Petermaerki/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\subsection{Zirkonium}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{columns}
+		\begin{column}{.7\textwidth}
+			\begin{itemize}
+				\item Kovové zirkonium je vysoce odolné vůči korozi.
+				\item Za vysoké teploty dokáže pohlcovat i stopová množství kyslíku, proto se využívá v tzv. zirkoniových getterech pro deoxygenaci plynů.
+				\item \ce{Zr + O2 -> ZrO2}
+				\item Palivové tyče pro jaderné reaktory se potahují ochranou vrstvou kovového zirkonia.\footnote[frame]{\href{https://aktualne.cvut.cz/stalo-se/20241111-vedec-z-cvut-vyvinul-efektivnejsi-a-odolnejsi-palivo-pro-jaderne-elektrarny}{Vědec z ČVUT vyvinul efektivnější a odolnější palivo pro jaderné elektrárny}}
+				\item Sloučeniny zirkonia se využívají také v medicíně, najdeme je v zubních implantátech, kloubních náhradách, apod.
+				\item \ce{ZrO2} je velmi odolný keramický materiál využívaný např. v rotorcích pro MAS NMR.
+			\end{itemize}
+		\end{column}
+		\begin{column}{.3\textwidth}
+				\begin{figure}
+				\adjincludegraphics[height=.6\textheight]{img/Rotor_ssNMR.png}
+				\caption*{Rotor pro MAS NMR.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Rotor_ssNMR.png}{AndrijMahun/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{figure}
+		\adjincludegraphics[height=.6\textheight]{img/Zr-getter.jpg}
+		\caption*{Zirkoniové gettery, nový a použitý.}
+	\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Izotop \ce{^{89}Zr} se využívá při diagnostice nádorů pomocí PET (pozitronové emisní tomografie).\footnote[frame]{\href{https://doi.org/10.3390/ijms21124309}{Current Perspectives on $^{89}$Zr-PET Imaging}}
+		\item Jeho poločas rozpadu je 78,41 hodin.
+		\item Připravuje se ozařováním tenké yttriové fólie protony nebo deuterony:
+		\item \ce{^{89}Y + p -> ^{89}Zr + n}
+		\item \ce{^{89}Y + ^2H -> ^{89}Zr + 2 n}
+		\item Po ozařování je yttrium rozpuštěno v kyselině chlorovodíkové a peroxidu vodíku.
+		\item Zirkoničité ionty jsou odděleny od yttria na ionexu a následně jsou eulovány roztokem kyseliny šťavelové.
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\textbf{Zieglerovy-Nattovy katalyzátory}
+	\begin{itemize}
+		\item Výroba polyethylenu se původně prováděla za vysokých teplot a tlaků.
+		\item Německý chemik Karl Ziegler zjistil, že v přítomnosti směsi \ce{TiCl4} a~\ce{AlEt3} probíhá polymerace za laboratorní teploty a tlaku.
+		\item Italský chemik Giulio Natta dokázal vhodnou kombinací katalyzátorů řídit polymeraci propylenu tak, aby vznikal isotaktický nebo syndiotaktický polypropylen.
+		\item V roce 1963 získali oba za tento výzkum Nobelovu cenu za chemii.\footnote[frame]{\href{https://www.nobelprize.org/prizes/chemistry/1963/summary/}{The Nobel Prize in Chemistry 1963}}
+		\item Kromě \ce{TiCl4} lze využít i \ce{TiCl3} a cyklopentadienyly zirkonia.
+	\end{itemize}
+	\begin{figure}
+		\adjincludegraphics[width=.8\textwidth]{img/ZNonSingleSite.png}
+		\caption*{Zjednodušený mechanismus polymerace ethylenu.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:ZNonSingleSite.png}{Smokefoot/Commons}}}
+	\end{figure}
+	\vfill
+}
+
+\subsection{Hafnium}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Vzhledem k vysoké schopnosti absorpce neutronů se využívá hafnium v řídících tyčích pro jaderné reaktory.\footnote[frame]{\href{http://large.stanford.edu/courses/2011/ph241/grayson1/}{Control Rods in Nuclear Reactors}}
+		\item Slitiny hafnia s dalšími kovy (Ti, Fe, Nb, Ta) se využívají v kosmických technologiích pro konstrukci trysek motorů na kapalné paliva.\footnote[frame]{\href{https://samario01.cbmm.com.br/cgs/publico/VisualizaArquivoBVPublica.ashx?DOC_Codigo=747}{Niobium Alloys and High Temperature Applications}}
+		\item Např. slitina C103 byla využita v roce 1965 v programu Apollo.\footnote[frame]{\href{https://www.bayvillechemical.net/niobium-c-103-alloy}{Niobium C-103 Alloy}}
+	\end{itemize}
+	\begin{center}
+		\begin{tabular}{|l|l|}
+		\hline
+		\textbf{Slitina} & \textbf{Složení} \\\hline
+		C103 & 90 \% Nb, 10 \% Hf a 1 \% Ti \\\hline
+		FS85 & 61 \% Nb, 10 \% W, 28 \% Ta a 1 \% Zr \\\hline
+		Cb129Y & 79.8 \% Nb, 10 \% W, 10 \% Hf a 0.2 \% Y \\\hline
+		Cb752 & 87.5 \% Nb, 10 \% W a 2.5 \% Zr \\\hline
+		Nb1Zr & 99 \% Nb a 1 \% Zr \\\hline
+	\end{tabular}
+	\end{center}
+	\vfill
+}
+
+\section{Sloučeniny}
+\subsection{Halogenidy}
+\frame{
+	\frametitle{}
+	\begin{tabular}{|c|c|r@{,}l|r@{,}l|}
+		\hline
+		 & \textbf{Barva} & \multicolumn{2}{c|}{Teplota tání [$^\circ$C]} & \multicolumn{2}{c|}{Teplota varu [$^\circ$C]} \\\hline
+		\ce{TiF4} & bílá & 284 & 0 & \multicolumn{2}{c|}{--} \\\hline
+		\ce{TiCl4} & bezbarvý & $-$24 & 0 & 136 & 6 \\\hline
+		\ce{TiBr4} & oranžová & 39 & 0 & 230 & 0 \\\hline
+		\ce{TiI4} & tmavě hnědá & 150 & 0 & 377 & 0 \\\hline
+		\hline
+		\ce{TiF3} & fialová & 1200 & 0 & 1400 & 0 \\\hline
+		\ce{TiCl3} & červenofialová & 425 & 0 & 960 & 0 \\\hline
+		\ce{TiBr3} & modročervená & \multicolumn{2}{c|}{--} & \multicolumn{2}{c|}{--} \\\hline
+		\ce{TiI3} & červenofialová & \multicolumn{2}{c|}{--} & \multicolumn{2}{c|}{--} \\\hline
+		\hline
+		\ce{TiCl2} & černá & 1035 & 0 & 1500 & 0 \\\hline
+		\ce{TiBr2} & černá & 500 & 0 & \multicolumn{2}{c|}{--} \\\hline
+		\ce{TiI2} & černá & \multicolumn{2}{c|}{--} & \multicolumn{2}{c|}{--} \\\hline
+	\end{tabular}
+}
+
+\frame{
+	\frametitle{}
+	\begin{columns}
+		\begin{column}{0.75\textwidth}
+			\vfill
+			\begin{itemize}
+				\item Titan vytváří tři stechiometrické chloridy.
+				\item \textbf{Chlorid titaničitý}, \ce{TiCl4}, je bezbarvá kapalina. Vzdušnou vlhkostí hydrolyzuje za vzniku oxidu titaničitého:
+				\item \ce{TiCl4 + 2 H2O -> TiO2 + 4 HCl}
+				\item Využívá se pro výrobu kovového titanu a oxidu titaničitého.
+				\item Při kontaktu s vlhkým vzduchem produkuje intenzivní dým, proto se využívá v dýmovnicích a pro tvorbu kouřové clony.
+				\item S tetrahydrofuranem vytváří žlutý krystalický solvát, \ce{TiCl4.2THF}.\footnote[frame]{\href{https://doi.org/10.1002/9780470132524.ch31}{Tetrahydrofuran Complexes of Selected Early Transition Metals}}
+				\item S objemnějšími ligandy vytváří pětikoordinované komplexy \ce{TiCl4.L}.
+			\end{itemize}
+			\vfill
+		\end{column}
+		\begin{column}{0.3\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=0.8\textwidth]{img/TiCl4.jpg}
+				\caption*{Chlorid titaničitý.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Sample_of_Titanium_tetrachloride_01.jpg}{Σ64/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+}
+
+\frame{
+	\frametitle{}
+	\begin{columns}
+		\begin{column}{0.85\textwidth}
+			\vfill
+			\begin{itemize}
+				\item \textbf{Chlorid titanitý}, \ce{TiCl3}, je červenofialová krystalická látka.
+				\item Známe čtyři polymorfní modifikace a několik krystalických hydrátů.
+				\item Připravuje se redukcí chloridu titaničitého hliníkem, takto získáme adukt s \ce{AlCl3}, který je komerčně dostupný:
+				\item \ce{3 TiCl4 + Al -> 3TiCl3.AlCl3}
+				\item Využívá se jako katalyzátor při výrobě polyolefinů.
+				\item \textbf{Chlorid titanatý}, \ce{TiCl2}, je černá krystalická látka.
+				\item Krystaly mají vrstevnatou strukturu, stejně jako \ce{CdI2}, tzn. že titan je koordinován šesti chloridy.
+				\item Je to silné redukční činidlo, z vody uvolňuje vodík.
+				\item Připravuje se termickou disproporcionací \ce{TiCl3}:
+				\item \ce{2 TiCl3 ->[500 $^\circ$C] TiCl2 + TiCl4}
+			\end{itemize}
+			\vfill
+		\end{column}
+		\begin{column}{0.2\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=0.9\textwidth]{img/TiCl3.jpg}
+				\caption*{Roztok chloridu titanitého.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:TiCl3.jpg}{W. Oelen/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Halogenidy zirkoničité a hafničité se připravují přímou reakcí z prvků.
+		\item V pevném stavu tvoří polymerní struktury tvořené tetraedry propojenými stranami, v plynném stavu jsou tvořeny tetraedrickými molekulami.
+	\end{itemize}
+
+	\begin{tabular}{|l|l|l||l|l|l|}
+		\hline
+		\ce{ZrX4} & barva & T$_t$ [$^\circ$C] &  \ce{HfX4} & barva & T$_t$ [$^\circ$C] \\\hline
+		\ce{ZrF4} & bílý & 910 &  \ce{HfF4} & bílý & 970  \\\hline
+		\ce{ZrCl4} & bílý & 437 & \ce{HfCl4} & bílý & 432  \\\hline
+		\ce{ZrBr4} & bílý & 450 & \ce{HfBr4} & bílý & 424 \\\hline
+		\ce{ZrI4} & oranžový & 499 & \ce{HfI4} & červeno-oranžový & 449 \\\hline
+	\end{tabular}
+	\vfill
+}
+
+\subsection{Oxidy a hydroxidy}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item \textbf{Oxid titaničitý -- \ce{TiO2}}.
+		\item V přírodě se vyskytuje ve dvou minerálech -- rutilu\footnote[frame]{\href{https://mineraly.sci.muni.cz/oxidy/rutil.html}{Rutil}} a~anatasu.\footnote[frame]{\href{https://mineraly.sci.muni.cz/oxidy/anatas.html}{Anatas}}
+		\item Hlavní surovinou pro jeho výrobu je minerál ilmenit (\ce{FeTiO3}).
+		\item \ce{FeTiO3 + H2SO4 -> FeSO4 + TiO2 + H2O}
+		\item Hlavní aplikací je \textit{titanová běloba} -- bílý pigment.
+		\item Dále se využívá v kosmetice jako pigment a opalovací krém. (P25)\footnote[frame]{\href{https://www.acsmaterial.com/titanium-dioxide-tio2.html}{Titanium Dioxide (TiO2) P25}}
+		\item Perspektivní využití do budoucna je jako povrchová úprava skleněných ploch.
+		\item V nanoskopické podobě má fotokatalytické vlastnosti.\footnote[frame]{\href{https://doi.org/10.1021/cr5001892}{Understanding \ce{TiO2} Photocatalysis: Mechanisms and Materials}}
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=.9\textwidth]{img/Rutile_crystal_structure.png}
+				\caption*{Struktura rutilu.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Rutile_crystal_structure.png}{Cynthia Striley/Commons}}}
+			\end{figure}
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=.9\textwidth]{img/Anatase_crystal_structure.png}
+				\caption*{Struktura anatasu.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Anatase_crystal_structure.png}{Cynthia Striley/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+}
+
+\frame{
+\frametitle{}
+\vfill
+\begin{itemize}
+	\item Oxid titaničitý se vyrábí dvěma způsoby.
+	\item \textit{Chloridový způsob} je založen na reakci rutilu s chlorem a koksem, kdy vzniká těkavý chlorid titaničitý:\footnote[frame]{\href{https://ti-cons.com/TC2/images/Ti-Cons/pdf/ti-cons_cp_en.pdf}{\ce{TiO2} Chloride Process}}.
+	\item \ce{TiO2 + 2 Cl2 + 2 C ->[900 $^\circ$C] TiCl4 + 2 CO}
+	\item Chlorid je poté spalován v kyslíkové atmosféře, čímž zároveň dochází k regeneraci chloru:
+	\item \ce{TiCl4 + O2 ->[900-1400 $^\circ$C] TiO2 + 2 Cl2}
+	\item Tato metoda není vhodná pro rudy obsahující velké množství železa, protože ze vzniklých chloridů není možné získat zpět použitý chlor.
+	\item V dnešní době jde o preferovaný způsob výroby \ce{TiO2}.
+\end{itemize}
+\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item \textit{Síranový způsob} je založen na reakci mletého ilmenitu s kyselinou sírovou:
+		\item \ce{FeTiO3 + 2 H2SO4 ->[80-100 $^\circ$C] FeSO4 + TiOSO4 + 2 H2O}
+		\item Vznikající síran železitý je redukován železnýma hoblinama.
+		\item Zelená skalice je po ochlazení odfiltrována.
+		\item Síran titanylu je hydrolyzován varem ve vodě za vzniku gelu \ce{TiO2}:
+		\item \ce{TiOSO4 + n H2O -> TiO2.(n-1)H2O + H2SO4}
+		\item Kyselina sírová je neutralizována uhličitanem vápenatým za vzniku sádrovce jako vedlejšího produktu.
+		\item Přečištěný gel je kalcinován při teplotě 800--1000~$^\circ$C.
+		\item Po kalcinaci je produkt mlet na jemný prášek pomocí tryskového mlýnu.
+		\item Pomletý materiál se separuje pomocí flotace.
+		\item Tímto postupem získáme anatas, pokud chceme připravit rutil je nutné použít krystalizační zárodek rutilu.
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\begin{columns}
+		\begin{column}{0.6\textwidth}
+			\vfill
+			\begin{itemize}
+				\item Povrchy, které zabraňují usazování nečistot a baktérií.
+				\item Tři základní mechanismy:
+				\begin{itemize}
+					\item Superhydrofobicita
+					\item Superhydrofilita
+					\item Fotokatalýza
+				\end{itemize}
+				\item Tyto povrchy nacházíme i v přírodě.
+				\begin{itemize}
+					\item Lotosový květ
+					\item Motýlí křídla
+					\item Žraločí kůže
+				\end{itemize}
+			\end{itemize}
+			\vfill
+		\end{column}
+		\begin{column}{0.4\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=.8\textwidth]{img/One_World_Trade_Center_and_7_World_Trade_Center,_Manhattan,_July_2019.jpg}
+				\caption*{Mrakodrapy na Manhattanu.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:A627,_One_World_Trade_Center_and_7_World_Trade_Center,_Manhattan,_July_2019.jpg}{Brian W. Schaller/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item \textbf{Superhydrofóbní povrchy}.
+		\item Silně odpuzují vodu, kapky vody nesmáčí povrch, ale sklouzávají po něm.
+		\item Kontaktní úhel ($\theta$, vymezen rozhraním plyn/povrch a plyn/kapalina) je větší než 150°.
+		\begin{itemize}
+			\item $\cos \theta = \frac{\gamma_{SG} - \gamma_{SL}}{\gamma_{LG}}$, $\gamma$ -- povrchové napětí
+		\end{itemize}
+		\item Příkladem mohou být fluorované polymery.\footnote[frame]{\href{https://doi.org/10.1002/0471440264.pst594}{Superhydrophobic Polymers}}
+		\item Hydrofobicitu povrchu je možné zvýšit pomocí působení plazmatu.
+	\end{itemize}
+	\begin{figure}
+		\adjincludegraphics[width=0.5\textwidth]{img/PEOTF-F4.png}
+	\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=\textwidth]{img/DropConnectionAngel.jpg}
+				\caption*{Kapka vody na hydrofobním povrchu.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:DropConnectionAngel.jpg}{Na2jojon/Commons}}}
+			\end{figure}
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=\textwidth]{img/Rame-hart_goniometer.jpg}
+				\caption*{Stanovení kontaktního úhlu.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Rame-hart_goniometer.jpg}{Ramehart/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\footnotetext{\href{https://doi.org/10.1002/0471440264.pst594}{Superhydrophobic Polymers}}
+}
+
+\frame{
+	\frametitle{}
+	\begin{columns}
+		\begin{column}{0.8\textwidth}
+			\vfill
+			\begin{itemize}
+				\item \textbf{Superhydrofilní povrchy}.
+				\item Silně smáčeny vodou.
+				\item Kontaktní úhel se blíží 0°.
+				\item Superhydrofilicita byla objevena v roce 1995 v japonskou společností \textit{Toto Ltd.}
+				\item Výhodou těchto povrchů je snadné čištění olejových skvrn, lze je spláchnout vodou.
+				\item Příkladem je oxid titaničitý (\ce{TiO2}) po aktivaci UV složkou slunečního záření.
+			\end{itemize}
+			\vfill
+		\end{column}
+		\begin{column}{0.3\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=\textwidth]{img/Video_contact_angle.png}
+				\caption*{Kapka vody na hydrofilním povrchu.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Video_contact_angle.gif}{Deglr6328/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item \textbf{Katalyzátory} jsou látky, které mění reakční mechanismus a tím i~rychlost probíhající reakce.
+		\item Katalyzátor není během reakce spotřebováván, i když se reakce účastní. Proto není nutné používat stechiometrické množství.
+		\item Rozlišujeme homogenní a heterogenní katalýzu.
+		\item Reakce: \ce{X + Y -> Z} může v přítomnosti katalyzátoru \textbf{C} probíhat takto:
+	\end{itemize}
+	\begin{columns}
+		\begin{column}{0.3\textwidth}
+			\begin{tabular}{r@{\ce{->}}l}
+				X + \textbf{C} & X\textbf{C} \\
+				X\textbf{C} + Y & XY\textbf{C} \\
+				XY\textbf{C} & Z\textbf{C} \\
+				Z\textbf{C} & Z + \textbf{C} \\
+			\end{tabular}
+		\end{column}
+		\begin{column}{0.7\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=0.7\textwidth]{img/CatalysisScheme.png}
+				\caption*{Reakční koordináta nekatalyzované a katalyzované reakce.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:CatalysisScheme.png}{Smokefoot/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item \textbf{Fotochemie} je obor chemie, který se zabývá vlivem záření na průběh chemických reakcí.
+		\item V přírodě se setkáváme např. s fotosyntézou vyvolanou slunečním zářením, v laboratoři zpravidla používáme umělé zdroje záření v oblastech:
+		\begin{itemize}
+			\item UV (100--400 nm)
+			\item VIS (400--750 nm)
+			\item IR (750--2500 nm)
+		\end{itemize}
+	\end{itemize}
+	\begin{figure}
+		\adjincludegraphics[width=0.75\textwidth]{img/Jablonski_Diagram.png}
+		\caption*{Jablonskiho diagram.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Jablonski_Diagram.png}{Organicoboist/Commons}}}
+	\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item \textbf{Fotokatalyzátor} je látka která katalyzuje fotochemické reakce.
+		\item Rozlišujeme opět homogenní a heterogenní katalyzátory.
+		\item U samočistících povrchů se setkáváme s heterogenní katalýzou.
+		\item Katalyzátor je nanesen na povrch skla a po ozáření sluncem dochází k degradaci nečistot na menší molekuly, které jsou následně odstraněny působením deště nebo větru.
+		\item Tento mechanismus využívá kombinaci fotokatalýzy a hydrofobicity povrchu.
+	\end{itemize}
+	\begin{center}
+		\adjincludegraphics[width=0.75\textwidth]{img/Self-cleaning-photocatalyst.png}
+	\end{center}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{columns}
+		\begin{column}{0.75\textwidth}
+			\begin{itemize}
+				\item \textit{Oxid zirkoničitý}, \ce{ZrO2}, zirkonia, je velmi tvrdá a nereaktivní látka.
+				\item Krystaluje v monoklinické soustavě, při vyšší teplotě má strukturu rutilu.
+				\item Za teplot nad 2700~$^\circ$C krystaluje v krychlové soustavě, typ fluorit.
+				\item Díky jeho vodivosti a tepelné odolnosti se využívali ke konstrukci prvních zdrojů IR záření -- \textit{Nernstových lamp}.
+				\item Ve šperkařství se využívá jako náhrada diamantu.
+				\item \textit{Oxid hafničitý}, \ce{HfO2}, je bílý izolant, jde o velmi stabilní sloučeninu hafnia.
+				\item Krystaluje ve stejné soustavě jako zirkonia.
+			\end{itemize}
+		\end{column}
+		\begin{column}{0.4\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=.8\textwidth]{img/CZ_brilliant.jpg}
+				\caption*{Broušený \ce{ZrO2}.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:CZ_brilliant.jpg}{Gregory Phillips/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{figure}
+		\adjincludegraphics[height=.7\textheight]{img/ZrO2.png}
+		\caption*{Krystalová struktura \ce{ZrO2}.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Kristallstruktur_Zirconium(IV)-oxid.png}{Orci/Commons}}}
+	\end{figure}
+	\vfill
+}
+
+\subsection{Soli}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{columns}
+		\begin{column}{0.6\textwidth}
+			\begin{itemize}
+				\item \textit{Síran titanylu}, \ce{TiOSO4}, bílá pevná látka.
+				\item Hydrolýzou poskytuje oxid titaničitý.
+				\item Má polymerní strukturu, síra je koordinována tetraedricky, titan vytváří oktaedry \ce{TiO6}.\footnote[frame]{\href{http://dx.doi.org/10.21577/0100-4042.20170427}{Titanyl sulphate, an inorganic polymer: structural studies and vibrational assignment}}
+			\end{itemize}
+		\end{column}
+		\begin{column}{0.45\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=1.1\textwidth]{img/TiOSO4.png}
+				\caption*{Krystalová struktura \ce{TiOSO4}.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:72972-ICSD.png}{Smokefoot/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+
+\subsection{Karbidy}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{columns}
+		\begin{column}{0.7\textwidth}
+			\begin{itemize}
+				\item \textit{Karbid titanu}, TiC, je extrémně tvrdý keramický materiál, podobný karbidu wolframu.
+				\item Jeho tvrdost v Mohsově stupnici je 9,0-9,5.\footnote[frame]{Tvrdost diamantu je 10.}
+				\item Vytváří kubické, plošně centrované krystaly, podobně jako chlorid sodný.
+				\item V přírodě se vyskytuje jako velmi vzácný, tmavě šedý minerál khamrabaevit.\footnote[frame]{\href{https://www.mindat.org/min-2194.html}{Khamrabaevite}}
+				\item Jeho hlavní využití je jako součást kompozitních keramik pro řezné nástroje (\textit{CerMet} -- \textit{Ceramic Metal}).\footnote[frame]{\href{https://www.vut.cz/www_base/zav_prace_soubor_verejne.php?file_id=15571}{Cermety a jejich efektivní využití}}
+				\item Jeho vysoké tepelné odolnosti se využívá při konstrukci tepelných štítů raketoplánů.
+			\end{itemize}
+		\end{column}
+		\begin{column}{0.4\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=\textwidth]{img/TiC.png}
+				\caption*{Krystalová struktura \ce{TiC}.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:TiC-xtal-3D-vdW.png}{Ben Mills/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item \textit{Karbid zirkonia}, ZrC, je extrémně tvrdý keramický materiál, podobný karbidu wolframu.
+		\item Jeho tvrdost v Mohsově stupnici je vyšší než 8,0.
+		\item Vytváří kubické, plošně centrované krystaly.
+		\item Vyrábí se práškovou metalurgií, slinováním.
+		\item V jaderných reaktorech se využívá karbidu zirkonia, který byl zbaven příměsí hafnia.
+		\item Povrchové vrstvy ZrC se zpravidla vyrábějí pomocí CVD.\footnote[frame]{\href{https://doi.org/10.1111/j.1551-2916.2007.02253.x}{Deposition Mechanism for Chemical Vapor Deposition of Zirconium Carbide Coatings}}
+		\item \ce{Zr + 2 Cl2 -> ZrCl4}
+		\item \ce{ZrCl4 + CH4 + H2 -> ZrC}
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=.55\textheight]{img/ZrN-polyhedral.png}
+				\caption*{Krystalová struktura \ce{ZrC}.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:ZrN-polyhedral.png}{Ktlabe/Commons}}}
+			\end{figure}
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=.55\textheight]{img/Zirconium_carbide_ZrC.jpg}
+				\caption*{Práškový \ce{ZrC}.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Zirconium_carbide_ZrC.jpg}{Sa123/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item \textit{Karbid hafnia}, HfC, krystaluje ve struktuře NaCl.
+		\item Jeho tvrdost je vyšší než 9,0.
+		\item Zpravidla vytváří nestechiometrické fáze \ce{HfC_x}, x je mezi 0,5 a 1.
+		\item S nižším obsahem uhlíku než 0,8 je paramagnetický, při vyšším obsahu diamagnetický.\footnote[frame]{\href{https://www.assignmentpoint.com/science/chemistry/hafnium-carbide-hfc.html}{Hafnium Carbide (HfC)}}
+		\item Má velmi vysokou teplotu tání, $>$3900~$^\circ$C.
+		\item Připravuje se redukcí oxidu uhlíkem:
+		\item \ce{HfO2 + 2 C ->[2000 $^\circ$C] HfC + CO2}
+		\item Na rozdíl od předchozích karbidů je výrazně dražší, proto má velmi omezené použití.
+	\end{itemize}
+	\vfill
+}
+
+\subsection{Nitridy}
+\frame{
+	\frametitle{}
+	\vfill
+
+	\begin{columns}
+		\begin{column}{.8\textwidth}
+			\begin{itemize}
+				\item \textit{Nitrid titanu}, TiN, je extrémně tvrdý materiál.
+				\item Využívá se ve formě povrchových vrstev, jako ochrana řezných nástrojů\footnote[frame]{\href{https://www.youtube.com/watch?v=kpCpse6Jvqw}{TiN: The titanium-nitride coating}} nebo z dekorativních důvodů (má zlatou barvu).
+				\item Připravuje se reakcí titanu s dusíkem za vysoké teploty, často s~využitím metod PVD nebo CVD.
+			\end{itemize}
+			\begin{figure}
+				\adjincludegraphics[height=.25\textheight]{img/Titanium_nitride_TiN.jpg}
+				\caption*{Nitrid titanu.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Titanium_nitride_TiN.jpg}{Sa123/Commons}}}
+			\end{figure}
+		\end{column}
+		\begin{column}{.25\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=.6\textheight]{img/Titanium_nitride_coating.jpg}
+				\caption*{Vrták s povrchovou úpravou z TiN.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Titanium_nitride_coating.jpg}{Peter Binter/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item \textit{Nitridy zirkonia a hafnia}, jsou také velmi tvrdé materiály, které se využívají i k dekorativním účelům.\footnote[frame]{\href{https://doi.org/10.3390/ma12172728}{Carbides and Nitrides of Zirconium and Hafnium}}
+		\item Připravují se buď přímou reakcí z prvků, což je exotermní reakce, probíhající za zvýšené teploty nebo \textit{karbotermální nitridací} z oxidu:
+		\item \ce{2 ZrO2 + 4 C + N2 -> 2 ZrN + 4 CO}
+		\item \ce{2 HfO2 + 4 C + 2 NH3 -> 2 HfN + 4 CO + 3 H2}
+		\item U hafnia známe i dva subnitridy, oba s trigonální strukturou:
+		\begin{itemize}
+			\item \ce{Hf3N2} -- stabilní do teploty 1970~$^\circ$C
+			\item \ce{Hf4N3} -- stabilní do teploty 2300~$^\circ$C
+		\end{itemize}
+	\end{itemize}
+
+	\begin{figure}
+		\adjincludegraphics[height=.25\textheight]{img/Zirconiun_nitride_coated_cutters.jpg}
+		\caption*{Frézy s povrchovou vrstvou ZrN.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Zirconiun_nitride_coated_cutters..JPG}{Heilite/Commons}}}
+	\end{figure}
+	\vfill
+}
+
+\input{../Last}
+
+\end{document}

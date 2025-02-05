@@ -1,0 +1,1215 @@
+\documentclass[hyperref=unicode, presentation,10pt]{beamer}
+
+\usepackage[absolute,overlay]{textpos}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{adjustbox}
+\usepackage{mhchem}
+\usepackage{chemfig}
+\usepackage{caption}
+
+%dělení slov
+\usepackage{ragged2e}
+\let\raggedright=\RaggedRight
+%konec dělení slov
+
+\addtobeamertemplate{frametitle}{
+	\let\insertframetitle\insertsectionhead}{}
+\addtobeamertemplate{frametitle}{
+	\let\insertframesubtitle\insertsubsectionhead}{}
+
+\makeatletter
+\CheckCommand*\beamer@checkframetitle{\@ifnextchar\bgroup\beamer@inlineframetitle{}}
+\renewcommand*\beamer@checkframetitle{\global\let\beamer@frametitle\relax\@ifnextchar\bgroup\beamer@inlineframetitle{}}
+\makeatother
+\setbeamercolor{section in toc}{fg=red}
+\setbeamertemplate{section in toc shaded}[default][100]
+
+\usepackage{fontspec}
+\usepackage{unicode-math}
+
+\usepackage{polyglossia}
+\setdefaultlanguage{czech}
+
+\def\uv#1{„#1“}
+
+\mode<presentation>{\usetheme{default}}
+ \usecolortheme{crane}
+
+\setbeamertemplate{footline}[frame number]
+
+\title[Crisis]
+{C2062 -- Anorganická chemie II}
+
+\subtitle{Zinek, kadmium, rtuť a kopernicium}
+\author{Zdeněk Moravec, hugo@chemi.muni.cz \\ \adjincludegraphics[height=60mm]{img/IUPAC_PSP.jpg}}
+\date{}
+
+\begin{document}
+
+\begin{frame}
+	\titlepage
+\end{frame}
+
+\section{Úvod}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{tabular}{|c|l|l|l|}
+	\hline
+	 & \textit{Zinek} & \textit{Kadmium} & \textit{Rtuť} \\\hline
+	 El. konfigurace & 3d$^{10}$ 4s$^{2}$ & 4d$^{10}$ 5s$^{2}$ & 4f$^{14}$ 5d$^{10}$ 6s$^{2}$ \\\hline
+	 Teplota tání [$^\circ$C] & 420 & 321 & $-$39 \\\hline
+	 Teplota varu [$^\circ$C]  & 907 & 767 & 357 \\\hline
+	 Objeven & před 1000 př.n.l. & 1817 & před 1500 př.n.l. \\\hline
+	 Vzhled & Stříbrošedý\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Zinc_fragment_sublimed_and_1cm3_cube.jpg}{Alchemist-hp/Commons}} & stříbřitě modrošedý\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Cadmium-crystal_bar.jpg}{Alchemist-hp/Commons}} & stříbrná kap.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Pouring_liquid_mercury_bionerd.jpg}{Bionerd/Commons}} \\
+	 &  \begin{minipage}{.2\textwidth}
+	 	\adjincludegraphics[width=\linewidth]{img/Zinc_fragment_sublimed_and_1cm3_cube.jpg}
+	 \end{minipage}
+	 	& \begin{minipage}{.2\textwidth}
+	 		\adjincludegraphics[width=\linewidth]{img/Cadmium-crystal_bar.jpg}
+	 	\end{minipage} & \begin{minipage}{.2\textwidth}
+	 	\adjincludegraphics[width=\linewidth]{img/Pouring_liquid_mercury_bionerd.jpg}
+ 	\end{minipage} \\\hline
+	\end{tabular}
+	\vfill
+}
+
+\section{Kopernicium}
+\frame{
+	\frametitle{}
+	\vfill
+	\textbf{Kopernicium}
+	\begin{columns}
+		\begin{column}{.65\textwidth}
+			\begin{itemize}
+				\item Umělý prvek, protonové číslo 112, Cn.
+				\item Poprvé byl připraven v roce 1991 v Darmstadtu.\footnote[frame]{\href{https://doi.org/10.1007/BF02769517}{The new element 112}}
+				\item \ce{^{208}_{82}Pb + ^{70}_{30}Zn -> ^{278}_{112}Cn^* -> ^{277}_{112}Cn + ^1_0n}
+				\item Nejstabilnějším izotopem je \ce{^{285}Cn} s poločasem rozpadu 30~s.\footnote[frame]{\href{https://dx.doi.org/10.1088/1674-1137/abddae}{The NUBASE2020 evaluation of nuclear physics properties}}
+				\item \ce{^{285}_{112}Cn -> ^{281}_{110}Ds + $\alpha$}
+				\item 19. února 2010 byl IUPACem schválen název Kopernicium, Cn, na počest polského astronoma a matematika Mikuláše Koperníka (1473--1543).\footnote[frame]{\href{https://www.sciencedaily.com/releases/2010/02/100224102231.htm}{Chemical element 112 is officially named 'Copernicium'}}
+			\end{itemize}
+		\end{column}
+
+		\begin{column}{.4\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=\textwidth]{img/Nikolaus_Kopernikus.jpg}
+				\caption*{Mikuláš Koperník.\footnote[frame]{Zdroj: \href{https://en.wikipedia.org/wiki/File:Nikolaus_Kopernikus.jpg}{District Museum in Toruń/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\section{Chemické a fyzikální vlastnosti}
+\subsection{Zinek}
+\frame{
+	\frametitle{}
+	\vfill
+	\textbf{Zinek}
+	\begin{itemize}
+		\item Diamagnetický kov, krystaluje v hexagonální soustavě.
+		\item Dobrý vodič elektřiny.
+		\item Má pět stabilních izotopů a 25 charakterizovaných radioizotopů.
+	\end{itemize}
+	\begin{center}
+		\begin{tabular}{|l|r@{,}l|}
+			\hline
+			64 & 49 & 2 \\\hline
+			66 & 27 & 7 \\\hline
+			67 & 4 & 0 \\\hline
+			68 & 18 & 5 \\\hline
+			70 & 0 & 6 \\\hline
+		\end{tabular}
+	\end{center}
+	\begin{itemize}
+		\item Preferuje oxidační číslo II, ale je známo i několik sloučenin v oxidačním čísle I.
+		\item Je reaktivnější než měď.
+		\item Na vlhkém vzduchu rychle ztrácí lesk.
+		\item Reaguje s kyslíkem, sírou a fosforem. Při zahřívání s halogeny.
+		\item Z minerálních kyselin uvolňuje vodík:
+		\item \ce{Zn + 2 HCl -> ZnCl2 + H2}
+		\item Má redukční vlastnosti.
+	\end{itemize}
+	\vfill
+}
+
+\subsection{Kadmium}
+\frame{
+	\frametitle{}
+	\textbf{Kadmium}
+	\vfill
+	\begin{itemize}
+		\item Měkký kov, odolný vůči korozi.
+		\item Je toxické.
+		\item Přírodní kadmium se skládá ze šesti stabilních izotopů a dvou radioizotopů s velmi dlouhým poločasem rozpadu. Dále známe 38 radioizotopů.
+	\end{itemize}
+	\begin{center}
+	\begin{tabular}{|l|r@{,}l|l|}
+		\hline
+		106 & 1 & 25 &  \\\hline
+		108 & 0 & 89 & \\\hline
+		110 & 12 & 49 & \\\hline
+		111 & 12 & 80 & \\\hline
+		112 & 24 & 13 & \\\hline
+		113 & 12 & 22 & 7,7 $\times$ 10$^{15}$ let\\\hline
+		114 & 28 & 73 & \\\hline
+		116 & 7 & 49 & 3,1 $\times$ 10$^{19}$ let\\\hline
+	\end{tabular}
+	\end{center}
+	\begin{itemize}
+		\item Chemicky je podobné zinku, vytváří sloučeniny v oxidačním čísle II, velmi výjimečně i I.
+		\item Na vzduchu hoří za vzniku amorfního \ce{CdO}.
+		\item \ce{2 Cd + O2 -> 2 CdO}
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Toxicita kadmia je dána tím, že kadmium vstupuje do metabolických drah zinku. Tím tyto dráhy narušuje.\footnote[frame]{\href{https://www.wikiskripta.eu/w/Kontaminace_kovy\#Kadmium}{Kontaminace kovy}}
+		\item Otravu je možné potlačit podáváním zinku.
+		\item Při inhalaci dochází primárně k poškození plic.
+		\item Kadmium může také do těla vstupovat kůží.
+		\item Velkým problémem při otravě kadmiem je dlouhý poločas jeho eliminace, takže může docházet k postupné akumulaci kadmia v organismu i při expozici nižším dávkám.
+		\item Při projevu symptomů jsou následky otravy nevratné a dochází k postupnému zhoršování stavu.
+		\item Kadmium může také podpořit rozvoj rakoviny plic a prostaty. Na druhou stranu, u některých nádorů mohou může kadmium působit jako supresivní látka.
+	\end{itemize}
+	\vfill
+}
+
+\subsection{Rtuť}
+\frame{
+	\frametitle{}
+	\vfill
+	\textbf{Rtuť}
+	\begin{itemize}
+		\item Kapalný, toxický kov s vysokou hustotou.
+		\item Dobrý vodič elektřiny, ale špatně vede teplo.
+		\item Má nejnižší teplotu varu i tání ze všech stabilních kovů.
+		\item Má sedm stabilních izotopů a 43 radioizotopů.
+	\end{itemize}
+	\begin{center}
+		\begin{tabular}{|l|r@{,}l|}
+			\hline
+			196 & 0 & 15 \\\hline
+			198 & 10 & 04 \\\hline
+			199 & 16 & 94 \\\hline
+			200 & 23 & 14 \\\hline
+			201 & 13 & 17 \\\hline
+			202 & 29 & 74 \\\hline
+			204 & 6 & 82 \\\hline
+		\end{tabular}
+	\end{center}
+	\begin{itemize}
+		\item Chemicky se mírně liší od zinku a kadmia.
+		\item S kyselinami nereaguje, s výjimkou oxidujících -- dusičnou a koncentrovanou kyselinu sírovou.
+		\item Kovy rozpouští za vzniku \textit{amalgámů}.
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Rtuť je toxická ve všech formách, jako kov i jako anorganické a organokovové sloučeniny \ce{Hg^{2+}} a \ce{Hg$_2^{2+}$}.\footnote[frame]{\href{https://www.wikiskripta.eu/w/Intoxikace\_rtut\%C3\%AD\_a\_jej\%C3\%ADmi\_slou\%C4\%8Deninami}{Intoxikace rtutí a jejími sloučeninami}}
+		\item K intoxikaci může dojít jak vlivem přírodních jevů (ze zemské kůry se uvolňují velká množství rtuti), tak vlivem průmyslové činnosti (těžba zlata, elektrolytické procesy, apod.).\footnote[frame]{\href{https://www.epa.gov/international-cooperation/mercury-emissions-global-context}{Mercury Emissions: The Global Context}}
+		\item Kvůli vysoké těkavosti jsou často vdechovány páry rtuti, která pak prostupuje z plic do dalších orgánů (ledvin, CNS, červených krvinek).
+		\item Vysoká mobilita rtuti v organismu je dána její rozpustností v tucích, což umožňuje transport přes buněčné membrány.
+		\item Při chronické expozici dochází k poškozování CNS, které se projevuje třesavkou, emocionální nestabilitou a změnami chování. Dochází také k poškození ledvin a v případě těhotných žen i k poškození plodu.
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Při otravě rtutí se využívají chelatační činidla, které umožní rychlé vyloučení rtuti močí. Jde např. o 2,3-disulfanylpropan-1-ol (dimerkaprol).
+		\item Při nižší expozici se používá také dimethylcystein.
+		\item Je také možné využít 2,3-disulfanyljantarovou kyselinu (DMSA).
+	\end{itemize}
+	\begin{figure}
+		\adjincludegraphics[width=0.8\textwidth]{img/disulfanylpropanol.png}
+	\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\begin{itemize}
+		\item U rtuti byla poprvé pozorována supravodivost. Heike Kamerlingh-Onnes prováděl v roce 1911 měření odporu rtuti za nízkých teplot.\footnote[frame]{\href{https://home.cern/science/engineering/superconductivity}{Superconductivity}}
+		\item Při teplotě 4,2 K pozoroval vymizení elektrického odporu.
+		\item K chlazení rtuti využíval kapalné helium.
+	\end{itemize}
+	\begin{columns}
+		\begin{column}{.6\textwidth}
+		\begin{figure}
+			\adjincludegraphics[width=.75\textwidth]{img/mercury-temp-res-1.png}
+			\caption*{Závislost elektrického odporu rtuti na teplotě.}
+		\end{figure}
+		\end{column}
+		\begin{column}{.4\textwidth}
+		\begin{figure}
+			\adjincludegraphics[width=.65\textwidth]{img/Kamerlingh_portret.jpg}
+			\caption*{Heike Kammerling Onnes.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Kamerlingh_portret.jpg}{Commons}}}
+		\end{figure}
+	\end{column}
+	\end{columns}
+}
+
+\section{Výskyt a získávání prvků}
+\subsection{Zinek}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Koncentrace zinku v zemské kůře je 75 ppm, mořská voda obsahuje přibližně 30~ppb zinku.
+		\item Zinek patří mezi \textit{chalkofilní prvky},\footnote[frame]{Další chalkofilní prvky jsou Ag, As, Bi, Cd, Cu, Ga, Ge, Hg, In, Pb, S, Sb, Se, Sn, Te, Tl a Zn} tzn. že se ochotněji slučuje se sírou a těžšími chalkogeny než s kyslíkem.
+		\item Hlavními minerály zinku jsou:
+		\begin{itemize}
+			\item Sfalerit, \ce{(Zn,Fe)S}
+			\item Smithsonit, \ce{ZnCO3}
+			\item Hemimorfit, \ce{Zn4(Si2O7)(OH)2.H2O}
+			\item Wurtzit, \ce{(Zn,Fe)S}
+		\end{itemize}
+	\item Část zinku se získává i recyklací.
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\textbf{Sfalerit}
+	\begin{itemize}
+		\item Kubický minerál, \ce{(Zn,Fe)S}, žluté až světle-hnědé barvy.\footnote[frame]{\href{https://mineraly.sci.muni.cz/sulfidy/sfalerit.html}{Sfalerit}}
+		\item Důležitá ruda zinku.\footnote[frame]{\href{https://www.mindat.org/min-3727.html}{Sphalerite}}
+		\item Jeden z nejběžnějších sulfidických minerálů.
+		\item Patří mezi základní strukturní typy, každý atom v mřížce má tetraedrickou konfiguraci.
+	\end{itemize}
+
+	\begin{columns}
+		\begin{column}{.4\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=.32\textheight]{img/Sphalerite.jpg}
+				\caption*{Sfalerit, USA.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Sphalerite_-_Iron_Cap_mine,_Graham,_Arizona,_USA.jpg}{Ivar Leidus/Commons}}}
+			\end{figure}
+		\end{column}
+		\begin{column}{.6\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=.32\textheight]{img/Sphalerite_polyhedra.png}
+				\caption*{Krystalová struktura sfaleritu.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Sphalerite_polyhedra.png}{Solid State/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\textbf{Wurtzit}
+	\begin{itemize}
+		\item Hexagonální minerál, \ce{(Zn,Fe)S}, tmavě hnědé, oranžové nebo zelené barvy.\footnote[frame]{\href{https://mineraly.sci.muni.cz/sulfidy/wurtzit.html}{Wurtzit}}
+		\item Polymorf sfaleritu.\footnote[frame]{\href{https://www.mindat.org/min-4318.html}{Wurtzite}}
+		\item Patří mezi základní strukturní typy, každý atom v mřížce má tetraedrickou konfiguraci a jsou uspořádány ve sledu ABABABABAB.
+	\end{itemize}
+
+	\begin{columns}
+		\begin{column}{.4\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=.32\textheight]{img/Wurtzite-245570.jpg}
+				\caption*{Wurtzitu.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Wurtzite-245570.jpg}{Robert M. Lavinsky/Commons}}}
+			\end{figure}
+		\end{column}
+		\begin{column}{.6\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=.32\textheight]{img/Wurtzite_polyhedra.png}
+				\caption*{Krystalová struktura wurtzitu.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Wurtzite_polyhedra.png}{Solid State/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\textbf{Smithsonit}
+	\begin{itemize}
+		\item Trigonální minerál, \ce{ZnCO3}, bílé, nažloutlé až zelené barvy.\footnote[frame]{\href{https://mineraly.sci.muni.cz/karbonaty/smitsonit.html}{Smitsonit}}
+		\item Pojmenován byl po anglickém chemikovi a mineralogovi Jamesi Smithsonovi.\footnote[frame]{\href{https://www.mindat.org/min-3688.html}{Smithsonite}}
+	\end{itemize}
+
+	\begin{columns}
+		\begin{column}{.6\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=.3\textheight]{img/Smithsonite.jpg}
+				\caption*{Smithsonit, Nové Mexiko.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Smithsonite_-_USGS_Mineral_Specimens_016.jpg}{Bureau of Mines/Commons}}}
+			\end{figure}
+		\end{column}
+		\begin{column}{.4\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=.3\textheight]{img/Smithsonite-191703.jpg}
+				\caption*{Smithsonit, Nové Mexiko.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Smithsonite-191703.jpg}{Robert M. Lavinsky/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\textbf{Hemimorfit}
+	\begin{itemize}
+		\item Orthorombický minerál, \ce{Zn4Si2O7(OH)2.H2O}, bezbarvé, zelené až modré barvy.\footnote[frame]{\href{https://mineraly.sci.muni.cz/sorosilikaty/hemimorfit.html}{Hemimorfit}}
+		\item Často bývá asociován se smithsonitem.\footnote[frame]{\href{https://www.mindat.org/min-1860.html}{Hemimorphite}}
+	\end{itemize}
+
+	\begin{columns}
+		\begin{column}{.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=.4\textheight]{img/Hemimorphit.jpg}
+				\caption*{Hemimorfit, Čína.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Hemimorphit._China....2H1A7095WI.jpg}{Kora27/Commons}}}
+			\end{figure}
+		\end{column}
+		\begin{column}{.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=.4\textheight]{img/Hemimorfit_Chiny.jpg}
+				\caption*{Hemimorfit, Čína.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Hemimorfit,_Chiny.jpg}{Kluka/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Většina zinku se (mimo recyklace) získává ze sulfidických rud, které zpravidla obsahují příměsi mědi, olova a železa.\footnote[frame]{\href{https://youtu.be/LcU5miQbtNE}{Zinc Process Animation Video}}
+		\item Ruda je rozdrcena a separována flotací, čímž se získá koncentrát sulfidu zinečnatého. Ten je následně pražen na vzduchu:
+		\item \ce{2 ZnS + 3 O2 -> 2 ZnO + 2 SO2}
+		\item Oxid siřičitý je dále zpracován na kyselinu sírovou, která je důležitým vedlejším produktem výroby zinku.
+		\item Kovový zinek se vyrábí buď pyrometallurgicky nebo elektrolyticky.
+		\item Pyrometallurgická metoda je založena na redukci uhlíkem nebo oxidem uhelnatým:
+		\item \ce{2 ZnO + C -> 2 Zn + CO2}
+		\item \ce{ZnO + CO -> Zn + CO2}
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{columns}
+		\begin{column}{.65\textwidth}
+			\begin{itemize}
+				\item Elektrolytická metoda je založena na rozpuštění oxidu v kyselině sírové:
+				\item \ce{ZnO + H2SO4 -> ZnSO4 + H2O}
+				\item Vzniklý roztok síranu je elektrolyzován:
+				\item \ce{2 ZnSO4 + 2 H2O -> 2 Zn + 2 H2SO4 + O2}
+				\item Kyselina sírová se tímto krokem regeneruje a vrací zpět na začátek procesu.
+				\item Zinek se vylučuje na hliníkové fólii, z které je odloupnut a roztaven v indukční peci.
+				\item Z taveniny se odlévají ingoty, příp. se upravují vlastnosti kovu sléváním s jinými prvky.
+			\end{itemize}
+		\end{column}
+		\begin{column}{.4\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=.4\textheight]{img/Zinc_world_production.png}
+				\caption*{Celosvětový objem výroby zinku.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Zinc_world_production.svg}{Con-struct/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{figure}
+		\adjincludegraphics[width=\textwidth]{img/Primary_zinc_smelting_flowchart.png}
+		\caption*{Schéma výroby zinku. Horní část popisuje pyrometallurgický proces a spodní elektrolytický.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Primary_zinc_smelting_flowchart_-vector.svg}{US Environmental Protection Agency/Commons}}}
+	\end{figure}
+	\begin{itemize}
+		\item Těžba a výroba zinku je ekologicky velmi problematická, do ovzduší se dostává velké množství oxidu siřičitého a kadmia.\footnote[frame]{\href{https://doi.org/10.1007/BF00770598}{Primary minerals of Zn-Pb mining and metallurgical dumps and their environmental behavior at Plombières, Belgium}}
+	\end{itemize}
+	\vfill
+}
+
+\subsection{Kadmium}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Kadmium je výrazně vzácnější než zinek, jeho koncentrace v zemské kůře je asi 0,1~ppm.
+		\item Jediný významný minerál kadmia je greenockit, CdS.
+		\item Kadmium se získává jako vedlejší produkt při výrobě zinku a také olova a mědi.
+		\item Vakuově se oddestilovává ze zinku nebo se při elektrolytické výrobě sráží jako síran, \ce{CdSO4}.
+		\item Celosvětový objem roční výroby kadmia se blíží k 20 000 tunám.
+	\end{itemize}
+	\begin{figure}
+		\adjincludegraphics[height=0.3\textheight]{img/2005cadmium.png}
+		\caption*{Světová produkce kadmia v roce 2005.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:2005cadmium.PNG}{Anwar saadat/Commons}}}
+	\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\textbf{Greenockit}
+	\begin{itemize}
+		\item Hexagonální minerál, \ce{CdS}, žlutá, hnědá nebo načervenalá barva.\footnote[frame]{\href{https://mineraly.sci.muni.cz/sulfidy/greenockit.html}{Greenockit}}
+		\item Za nižší teplot je izostrukturní se sfaleritem, za vyšší s wurtzitem.\footnote[frame]{\href{https://www.mindat.org/min-1746.html}{Greenockite}}
+		\item Dříve se využíval jako žlutý pigment, kadmiová žluť.\footnote[frame]{\href{https://www.winsornewton.com/row/articles/colours/spotlight-on-cadmium-yellow/}{Colour story: cadmium yellow}}
+	\end{itemize}
+
+	\begin{columns}
+		\begin{column}{.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=.35\textheight]{img/Greenockite-259580.jpg}
+				\caption*{Greenockit, Namíbie.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Greenockite-259580.jpg}{Christian Rewitzer/Commons}}}
+			\end{figure}
+		\end{column}
+		\begin{column}{.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=.35\textheight]{img/Greenockite-Hemimorphite.jpg}
+				\caption*{Greenockit, USA.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Greenockite-Hemimorphite-Sphalerite-285103.jpg}{Robert M. Lavinsky/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\subsection{Rtuť}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{columns}
+		\begin{column}{.65\textwidth}
+			\begin{itemize}
+				\item Rtuť je poměrně vzácná, její koncentrace v zemské kůře je jen 0,08~ppm.
+				\item Známe 88 minerálů obsahujících rtuť.\footnote[frame]{\href{https://www.mindat.org/element/Mercury}{The mineralogy of Mercury}}
+				\item Velmi vzácně se nachází v ryzím stavu, nejběžnější minerál je cinabarit, \ce{HgS}.
+				\item Celosvětová produkce rtuti v roce 2019 byla necelých 4 000 tun.\footnote[frame]{\href{https://www.usgs.gov/centers/nmic/mercury-statistics-and-information}{Mercury Statistics and Information}}
+				\item Hlavními producenty jsou Čína a Mexiko.
+			\end{itemize}
+		\end{column}
+		\begin{column}{.4\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=\textwidth]{img/HgProductionPrice.png}
+				\caption*{Vývoj ceny a objemu výroby rtuti.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:HgProductionPrice.png}{USGS/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\textbf{Cinabarit}
+	\begin{itemize}
+		\item Trigonální minerál, \ce{HgS}, červené barvy.\footnote[frame]{\href{https://mineraly.sci.muni.cz/sulfidy/cinabarit.html}{Cinabarit}}
+		\item Zdroj pro průmyslovou výrobu rtuti.\footnote[frame]{\href{https://www.mindat.org/min-1052.html}{Cinnabar}}
+		\item Ve středověku se využíval jako červený pigment.
+	\end{itemize}
+
+	\begin{columns}
+		\begin{column}{.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=.35\textheight]{img/Cinnabar.jpg}
+				\caption*{Cinabarit, USA.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Cinnabar_(New_Almaden,_California,_USA)_(18824306236).jpg}{James St. John/Commons}}}
+			\end{figure}
+		\end{column}
+		\begin{column}{.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=.35\textheight]{img/Cinnabar-3d6c.jpg}
+				\caption*{Cinabarit, Čína.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Cinnabar-3d6c.jpg}{Robert M. Lavinsky/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{figure}
+		\adjincludegraphics[height=.7\textheight]{img/Chinese_carved_cinnabar_lacquerware.jpg}
+		\caption*{Čínské vázy barvené cinabaritem.\footnote[frame]{Zdroj: \href{https://en.wikipedia.org/wiki/File:Chinese_carved_cinnabar_lacquerware.jpg}{Danieliness}}}
+	\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\textbf{Kalomel}
+	\begin{itemize}
+		\item Tetragonální minerál, \ce{Hg2Cl2}, červené barvy.\footnote[frame]{\href{https://www.mindat.org/min-869.html}{Calomel}}
+		\item Využívá se pro konstrukci kalomelových referenčních elektrod.
+		\item Název kalomel je odvozen z řeckých slov \textit{kalós} (krásný) a \textit{mélas} (černý), pravděpodobně z důvodu černé barvy vznikající reakcí amoniaku s kalomelem.
+		\item Čistý \ce{Hg2Cl2} je bílý.
+	\end{itemize}
+
+	\begin{columns}
+		\begin{column}{.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=.27\textheight]{img/Calomel-154907.jpg}
+				\caption*{Kalomel, Texas.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Calomel-154907.jpg}{Robert M. Lavinsky/Commons}}}
+			\end{figure}
+		\end{column}
+		\begin{column}{.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=.27\textheight]{img/Calomel-222734.jpg}
+				\caption*{Kalomel a terlinguait (\ce{Hg4Cl2O2}), Texas.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Calomel,_Terlinguaite-222734.jpg}{Kelly Nash/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{columns}
+		\begin{column}{.65\textwidth}
+			\begin{itemize}
+				\item Dříve se rtuť získávala zahříváním cinabaritu na vzduchu a kondenzací par.
+				\item \ce{HgS + O2 ->[600 $^\circ$C] Hg + SO2}
+				\item Výhodnější je provést redukci železem nebo páleným vápnem:
+				\item \ce{HgS + Fe -> Hg + FeS}
+				\item \ce{4 HgS + 4 CaO -> 4 Hg + 3 CaS + CaSO4}
+				\item Zbytky kovů lze odstranit oxidací vzduchem, kdy dochází ke vzniku oxidů, které přecházejí do strusky.
+				\item Rtuť lze dále přečistit destilací.
+			\end{itemize}
+		\end{column}
+		\begin{column}{.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=.35\textheight]{img/Mercury-distillation.png}
+				\caption*{Destilace rtuti.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:\%D0\%9E\%D1\%87\%D0\%B8\%D1\%81\%D1\%82\%D0\%BA\%D0\%B0_\%D1\%80\%D1\%82\%D1\%83\%D1\%82\%D0\%B8_\%D0\%BF\%D0\%B5\%D1\%80\%D0\%B5\%D0\%B3\%D0\%BE\%D0\%BD\%D0\%BA\%D0\%BE\%D0\%B9_\%D0\%B2_\%D1\%82\%D0\%BE\%D0\%BA\%D0\%B5_\%D0\%B3\%D0\%B0\%D0\%B7\%D0\%B0.png}{Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\section{Využití prvků}
+\subsection{Zinek}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Velká část zinku se využívá jako antikorozní ochrana, protože je jeho reaktivita vyšší než reaktivita běžných ocelí.
+		\item Jeho korozí vzniká povrchová vrstva o složení \ce{Zn5(OH)6(CO3)2}.
+		\item Zinek se na povrch kovů nanáší elektrochemicky nebo z taveniny.
+		\item Díky zápornému elektrodovému potenciálu ($-$0,76~V) se využívá jako anoda v bateriích.
+	\end{itemize}
+	\begin{figure}
+		\adjincludegraphics[height=0.4\textheight]{img/Zincbattery.png}
+		\caption*{Zinková baterie.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Zincbattery.png}{Jacek FH/Commons}}}
+	\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item \textit{Mosaz} je slitina zinku a mědi.
+		\item Používá se už od starověku.
+		\item Vyrábí se sléváním mědi a zinku, tady je ale komplikací těkavost zinku.
+		\item Mosazi se také legují, zpravidla Fe, Al, Mn, Ni a Sn.
+	\end{itemize}
+	\begin{figure}
+		\adjincludegraphics[height=0.4\textheight]{img/Brass_leopard.jpg}
+		\caption*{Socha leoparda z mosazi.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Brass_leopard.jpg}{ZSM/Commons}}}
+	\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{columns}
+		\begin{column}{.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=0.6\textheight]{img/Torun_kosciol_garn_dach.jpg}
+				\caption*{Střecha z pozinkovaného plechu.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Torun_kosciol_garn_dach.jpg}{Pko/Commons}}}
+			\end{figure}
+		\end{column}
+		\begin{column}{.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=0.6\textheight]{img/Brassdoor.jpg}
+				\caption*{Mosazné dveře.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:A_brassdoor_in_the_City_Palace_complex,_Jaipur.jpg}{Fernando Nunes/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Organozinečnaté sloučeniny se využívají v organické katalýze.
+	\end{itemize}
+	\begin{figure}
+		\adjincludegraphics[height=0.6\textheight]{img/DiphenylzincCarbonylAddition.png}
+		\caption*{Adice difenylzinku na karbonyl.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:DiphenylzincCarbonylAddition.png}{V8rik/Commons}}}
+	\end{figure}
+	\vfill
+}
+
+\subsection{Kadmium}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Kadmium je součástí Ni--Cd akumulátorů.
+		\item První baterie tohoto typu byla vyrobena už roku 1899.
+		\item Kladná elektroda je tvořena NiO(OH) a záporná kovovým kadmiem.
+		\item Vybíjení akumulátoru:
+		\item \ce{Cd + 2 NiO(OH) + 2 H2O -> Cd(OH)2 + 2 Ni(OH)2}
+	\end{itemize}
+	\begin{figure}
+		\adjincludegraphics[height=0.4\textheight]{img/Varta_batteries.jpg}
+		\caption*{Ni--Cd akumulátory.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Varta_batteries.JPG}{Tukka/Commons}}}
+	\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Významnou sloučeninou je tellurid kademnatý (\ce{CdTe}), má strukturu sfaleritu.
+		\item Využívá se při konstrukci solárních článků, výhodou jsou malé náklady. Tenkovrstvé CdTe články patří mezi levnější a jsou velmi rozšířené.
+	\end{itemize}
+	\begin{columns}
+		\begin{column}{.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=0.4\textheight]{img/Photodetector.jpg}
+				\caption*{CdTe fotodetektor z CD--ROM.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:CD-ROM_Photodetector.jpg}{H0dges/Commons}}}
+			\end{figure}
+		\end{column}
+		\begin{column}{.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=0.4\textheight]{img/NREL_Array.jpg}
+				\caption*{Tenkovrstvé CdTe solární články.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:NREL_Array.jpg}{NREL/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+			\item Slitina s rtutí se využívá pro konstrukci MCT detektorů pro infračervenou spektroskopii.\footnote[frame]{\href{http://irassociates.com/index.php?page=ln2-cooled}{LN2 Cooled HgCdTe Detectors}}
+		\item MCT -- Mercury-Cadmium-Telluride
+	\end{itemize}
+	\begin{columns}
+		\begin{column}{.5\textwidth}
+			\adjincludegraphics[width=\textwidth]{img/TGIR2.jpg}
+		\end{column}
+		\begin{column}{.5\textwidth}
+			\adjincludegraphics[width=\textwidth]{img/TGIR3.jpg}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\subsection{Rtuť}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Rtuť se využívá v medicíně, ale kvůli její toxicitě se poptávka po ní snižuje.
+		\item V zubařství se využívají amalgámové plomby (Hg 50~\%, Ag 22--32~\%, Sn 14~\% a Zn 8~\%).\footnote[frame]{\href{https://www.wikiskripta.eu/w/Amalgam}{Amalgám}}
+		\item Amalgámy se připravují smísením rtuti s práškovými kovy.
+		\item Vysoké teplotní roztažnosti se využívá v lékařských teploměrech.
+	\end{itemize}
+	\begin{columns}
+		\begin{column}{.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=0.32\textheight]{img/Maximum_thermometer.jpg}
+			\caption*{Rtuťový teploměr.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Maximum_thermometer_close_up_2.JPG}{CambridgeBayWeather/Commons}}}
+			\end{figure}
+		\end{column}
+		\begin{column}{.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=0.32\textheight]{img/Amalgam.jpg}
+				\caption*{Amalgámová plomba.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Amalgam.jpg}{Ulrich Birkhoff/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Elektrické vodivosti a tekutosti rtuti se využívá v různých modifikacích elektronických spínačů.\footnote[frame]{\href{http://danyk.cz/hg_sp.html}{Rtuťové spínače}}
+		\item Mohou sloužit i jako snímače polohy.
+	\end{itemize}
+	\begin{figure}
+		\adjincludegraphics[height=0.5\textheight]{img/Mercury_Switch.jpg}
+		\caption*{Rtuťový spínač.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Mercury_Switch_without_housing.jpg}{Medvedev/Commons}}}
+	\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Polarografie je elektrochemická metoda, kterou objevil Jaroslav Heyrovský. Za tento objev dostal v roce 1959 Nobelovu cenu za chemii.\footnote[frame]{\href{https://www.nobelprize.org/prizes/chemistry/1959/summary/}{The Nobel Prize in Chemistry 1959}}
+		\item Jde o kvantitativní i kvalitativní metodu.
+		\item Kvalitu určuje poloha vlny a kvantitu její výška.
+		\item Analýza probíhá na rtuťové kapce.
+		\item V roztoku nesmí být přítomen kyslík.
+	\end{itemize}
+
+	\begin{columns}
+		\begin{column}{.4\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=.3\textheight]{img/Heyrovsky_Jaroslav.jpg}
+				\caption*{Jaroslav Heyrovský.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Heyrovsky_Jaroslav.jpg}{archiv ÚFCH J.Heyrovského AV ČR, v.v.i./Commons}}}
+			\end{figure}
+		\end{column}
+		\begin{column}{.6\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=.3\textheight]{img/Polarogramm.jpg}
+				\caption*{Polarogram.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Beispiel-Polarogramm.JPG}{Bashir001/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{figure}
+		\adjincludegraphics[width=.9\textwidth]{img/Polarografie.jpg}
+		\caption*{Heyerovského polarograf.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Polarografie_-_P\%C5\%99\%C3\%ADb\%C4\%9Bh_kapky_foto_Pavl\%C3\%ADna_J\%C3\%A1chimov\%C3\%A1\%2C_AV_\%C4\%8CR_\%281\%29.jpg}{Akademie věd České republiky/Commons}}}
+	\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{columns}
+		\begin{column}{.7\textwidth}
+			\begin{itemize}
+				\item \textbf{Kalomelová elektroda} je srovnávací (referentní) elektrodou, je konstrukčně jednodušší než vodíková elektroda.
+				\item Je tvořená rtutí pokrytou vrstvou kalomelu v roztoku KCl.
+				\item Hg, \ce{Hg2Cl2} \ce{|} KCl
+				\item Na fázovém rozhraní se ustavuje rovnováha:
+				\item \ce{Hg2Cl2 + 2 e- <=> 2 Hg + 2 Cl-}
+				\item Potenciál je dán koncentrací chloridových aniontů:
+				\item $E = E^0(Hg_2Cl_2) - 0,059 \log a(Cl^-)$
+				\item $E = 0,268 - 0,059 \log a(Cl^-)$
+			\end{itemize}
+		\end{column}
+		\begin{column}{.3\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=1.2\textwidth]{img/Calomol_electrode_image.jpg}
+				\caption*{Kalomelová elektroda.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Calomol_electrode_image.jpg}{Janakiraman janaki/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Merkurimetrie je metoda odměrné analýzy, konkrétně komplexometrické odměrné analýzy.
+		\item Jako odměrný roztok se využívá vodný roztok \ce{Hg(NO3)2}.
+		\item Využívá se ke stanovení koncentrace halogenidů a kyanidů.
+		\item Jde o levnější alternativu argentometrie.
+		\item Při titraci dochází ke vzniku koordinačních sloučenin:
+		\item \ce{Hg(NO3)2 + 4 NaCl -> Na2[HgCl4] + 2 NaNO3}
+		\item Následně dochází k rozpadu komplexů:
+		\item \ce{[HgCl4]^{2-} -> [HgCl3]^{-} -> HgCl2 -> HgCl^+}
+		\item Jako indikátor se využívá nitroprussid sodný (\ce{Na2[Fe(CN)5NO]}) nebo difenylkarbazon.
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{columns}
+		\begin{column}{.5\textwidth}
+		\begin{itemize}
+		\item Rtuť se využívá při elektrolýze NaCl, kdy se vznikající sodík váže do amalgámu a následně reaguje s vodou za vzniku NaOH, druhým produktem je chlor.
+		\item Rtuť se také používá v rtuťových manometrech.
+		\item Kapalná zrcadla do teleskopů.\footnote[frame]{\href{https://physicsfootnotes.com/footnotes/liquid-mirror-telescopes/}{Liquid Mirror Telescopes}}
+		\item Stopy rtuti se nacházejí v zářivkách.\footnote[frame]{\href{https://www.youtube.com/watch?v=NY3Q_Lt7XYw}{Video - Je rtuť opravdu tolik nebezpečná?}}
+	\end{itemize}
+	\end{column}
+	\begin{column}{.5\textwidth}
+		\begin{figure}
+			\adjincludegraphics[width=.75\textwidth]{img/Barometer_mercury.jpg}
+			\caption*{Rtuťový manometr.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Barometer_mercury_column_hg.jpg}{Hannes Grobe/Commons}}}
+		\end{figure}
+	\end{column}
+	\end{columns}
+	\vfill
+}
+
+\section{Sloučeniny}
+\subsection{Halogenidy}
+\frame{
+	\frametitle{}
+	\vfill
+	Ve třetím řádku jsou T$_t$ a T$_v$ [$^\circ$C]
+	\begin{tabular}{|c|c|c|c|}
+		\hline
+		\textbf{Fluoridy} & \textbf{Chloridy} & \textbf{Bromidy} & \textbf{Jodidy} \\\hline
+		\ce{ZnF2} & \ce{ZnCl2} & \ce{ZnBr2} & \ce{ZnI2} \\
+		bílý & bílý & bílý & bílý \\
+		872, 1500 & 275, 756 & 394, 702 & 446, rozkl. $>$700 \\\hline
+		\ce{CdF2} & \ce{CdCl2} & \ce{CdBr2} & \ce{CdI2} \\
+		bílý & bílý & světle žlutý & bílý \\
+		1049, 1748 & 568, 980 & 566, 863 & 388, 787 \\\hline
+		\ce{HgF2} & \ce{HgCl2} & \ce{HgBr2} & \ce{HgI2} \\
+		bílý & bílý & bílý & červený, žlutý \\
+		rozkl. $>$645 & 280, 303 & 238, 318 & 257, 351 \\\hline
+		\ce{Hg2F2} & \ce{Hg2Cl2} & \ce{Hg2Br2} & \ce{Hg2I2} \\
+		žlutý & bílý & bílý & žlutý \\
+		rozkl. $>$570 & subl. 383 & subl. 345 & subl. 140 \\\hline
+	\end{tabular}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Bezvodé fluoridy lze připravit reakcí HF se Zn nebo fluoru s~Cd a Hg.
+		\item Ostatní zinečnaté a kademnaté halogenidy jsou hygroskopické a~dobře rozpustné ve vodě.
+		\begin{itemize}
+			\item Halogenidy zinečnaté mají rozpustnost asi 400~g na 100~g vody.
+			\item Halogenidy kademnaté mají rozpustnost asi 100~g na 100~g vody.
+		\end{itemize}
+		\item Vysoká rozpustnost je dána tvorbou komplexních iontů:
+		\item \ce{ZnCl2 + 4 H2O -> [Zn(H2O)4]Cl2}
+		\item U halogenidů rtuťnatých pozorujeme výraznější kovalentní charakter než u lehčích analog.
+		\item Lze je snadno připravit z prvků.
+		\item \ce{HgCl2} se skládá z lineárních molekul \ce{Cl-Hg-Cl}.
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{figure}
+		\adjincludegraphics[width=\textwidth]{img/HgCl2-xtal.png}
+		\caption*{Krystalová struktura \ce{HgCl2}\footnote[frame]{\href{https://commons.wikimedia.org/wiki/File:Mercury(II)-chloride-xtal-1980-3D-balls.png}{Zdroj: Ben Mills/Commons}}}
+	\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item \ce{HgI2} vykazuje termochromismus.\footnote[frame]{Změna barvy s teplotou} Přechod nastává při teplotě 126~°C.
+		\item Červená $\alpha$-forma přechází na žlutou $\beta$-formu.
+		\item Známe ještě třetí formu, ta je oranžová, vzniká rekrystalizací.
+		\item Je také metastabilní a samovolně přechází na červenou formu.
+		\item V přírodě se vyskytuje jako vzácný minerál coccinit.\footnote[frame]{\href{https://www.mindat.org/min-1100.html}{Coccinite}}
+	\end{itemize}
+
+	\begin{figure}
+		\adjincludegraphics[height=.35\textheight]{img/Mercury_iodide.jpg}
+		\caption*{Jodid rtuťnatý.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Mercury_iodide.jpg}{W. Oelen/Commons}}}
+	\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Chlorid rtuťnatý je velmi málo rozpustný ve vodě (0,006~g/100~g), ale dobře se rozpouští v roztocích alkalických iodidů. Dochází totiž ke vzniku komplexních sloučenin:\footnote[frame]{\href{https://edu.ceskatelevize.cz/video/3404-vznik-nesslerova-cinidla}{Vznik Nesslerova činidla}}
+		\item \ce{HgI2 + 2 KI -> K2[HgI4]}
+		\item Podobně se chová i chlorid rtuťnatý:
+		\item \ce{HgCl2 + 4 KI -> K2[HgI4] + 2 KCl}
+		\item Vzniklý tetrajodidortuťnatan draselný se označuje jako \textit{Nesslerovo činidlo} a používá se k důkazu přítomnosti amoniaku v bazickém prostředí:
+		\item \ce{NH4Cl + 2 K2[HgI4] + 4 KOH -> HgO.Hg(NH2)I v + 7 KI + KCl + 3 H2O}
+		\item Vzniklý komplex se označuje jako \textit{Millonova báze} a má žlutou nebo hnědou barvu.
+	\end{itemize}
+	\vfill
+}
+
+\subsection{Zinek}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{columns}
+	\begin{column}{.75\textwidth}
+	\begin{itemize}
+		\item Na vlhkém vzduchu rychle ztrácí lesk.
+		\item Je reaktivnější než měď.
+		\item Reaguje s kyslíkem, sírou a fosforem. Při zahřívání s halogeny.
+		\item Z minerálních kyselin uvolňuje vodík.
+		\item Má redukční vlastnosti.
+		\item Preferuje oxidační číslo II, ale je známo i několik sloučenin v oxidačním čísle I.
+		\item První připravenou sloučeninou \ce{Zn^I} byl dekamethyldizinkonocen. Byl získán reakcí zinkonocenu s diethylzinkem. Obsahuje vazbu \ce{Zn-Zn}.\footnote[frame]{\href{https://doi.org/10.1126/science.1101356}{Decamethyldizincocene, a Stable Compound of Zn(I) with a Zn-Zn Bond}}
+		\item Později se povedlo tuto sloučeninu připravit i redukcí zinkonocenu pomocí KH.\footnote[frame]{\href{https://doi.org/10.1021/ja0668217}{Zinc-Zinc Bonded Zincocene Structures}}
+	\end{itemize}
+	\end{column}
+	\begin{column}{.3\textwidth}
+		\begin{figure}
+			\adjincludegraphics[width=1\textwidth]{img/Decamethyldizincocene_xtal.png}
+			\caption*{Dekamethyldizinkonocen.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Decamethyldizincocene_xtal.png}{Rifleman 82/Commons}}}
+		\end{figure}
+	\end{column}
+	\end{columns}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{figure}
+		\adjincludegraphics[width=1\textwidth]{img/ZnI-konocene.png}
+		\caption*{Syntéza dekamethylzinconocenu.\footnote[frame]{\href{https://doi.org/10.1126/science.1101356}{Decamethyldizincocene, a Stable Compound of Zn(I) with a Zn-Zn Bond}}}
+	\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Elektronová konfigurace iontu \ce{Zn+} je 5d$^{10}$ 4s$^1$.
+		\item Sloučeniny \ce{Zn^I} disproporcionují za vzniku zinečnaté soli a kovového zinku.
+		\item \ce{Zn$_2^{2+}$ -> Zn^{2+} + Zn}
+		\item Zinečnaté soli jsou stabilní, v bazických roztocích se srážejí za vzniku amorfního \ce{Zn(OH)2}. V silně bazických roztocích se rozpouští za vzniku \ce{[Zn(OH)4]^{2-}}.
+		\item \ce{Zn^{2+} + 2 OH- -> Zn(OH)2 v ->[OH-] [Zn(OH)4]^{2-}}
+		\item Známe všechny halogenidy i chalkogenidy zinečnaté. Chalkogenidy se využívají v elektronice a optice.
+		\item Zinečnatý ion má elektronovou konfiguraci d$^{10}$, proto jsou sloučeniny bezbarvé a diamagnetické.
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{columns}
+		\begin{column}{.65\textwidth}
+			\begin{itemize}
+				\item \textit{Oxid zinečnatý}, ZnO, se označuje jako \textit{zinková běloba}. Využívá se jako bílý pigment.
+				\item Je amfoterní, rozpouští se v kyselinách i hydroxidech.
+				\item Lze jej připravit termickým rozkladem hydroxidu, uhličitanu nebo dusičnanu zinečnatého:
+				\item \ce{2 Zn(NO3)2 -> 2 ZnO + 4 NO2 + O2}
+				\item Průmyslově se vyrábí spalováním kovového zinku:
+				\item \ce{2 Zn + O2 -> 2 ZnO}
+			\end{itemize}
+		\end{column}
+		\begin{column}{.4\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=\textwidth]{img/Zinc_oxide.jpg}
+				\caption*{Oxid zinečnatý.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Zinc_oxide.jpg}{Walkerma/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Uhličitan zinečnatý, \ce{ZnCO3}, je nerozpustná bílá látka. V přírodě se vyskytuje jako minerál \textit{smithsonit}.
+		\item Zahříváním se mění na bazický uhličitan zinečnatý, \ce{Zn5(CO3)2(OH)6}.
+		\item Krystalová struktura je podobná uhličitanu vápenatému, zinečnaté ionty mají oktaedrickou konfiguraci a uhličitany jsou vázány k šesti zinkům, atomy kyslíku mají koordinační číslo tři.
+		\item Využívá se v dermatologii jako součást kalamínových mastí.\footnote[frame]{\href{https://www.sciencedirect.com/topics/pharmacology-toxicology-and-pharmaceutical-science/zinc-carbonate}{Zinc Carbonate}}
+	\end{itemize}
+	\begin{figure}
+		\adjincludegraphics[width=.7\textwidth]{img/ZnCO3.png}
+		\caption*{Uhličitan zinečnatý.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Uhli\%C4\%8Ditan_zine\%C4\%8Dnat\%C3\%BD.PNG}{Ondřej Mangl/Commons}}}
+	\end{figure}
+	\vfill
+}
+
+\subsection{Kadmium}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Chemicky je kadmium podobné zinku, vytváří sloučeniny v oxidačním čísle II, velmi výjimečně i I.
+		\item Na vzduchu hoří za vzniku amorfního \ce{CdO}.
+		\item V minerálních kyselinách se rozpouští za vzniku kademnatých solí.
+		\item Redukcí chloridu kademnatého v tavenině kadmia vzniká kation \ce{Cd$_2^{2+}$} s vazbou \ce{Cd-Cd}:
+		\item \ce{CdCl2 + Cd -> Cd2Cl2}
+		\item Následnou reakcí s \ce{AlCl3} vzniká \ce{Cd2(AlCl4)2}:\footnote[frame]{\href{https://doi.org/10.1021/ja01462a016}{Stabilization of the Cadmium(I) Oxidation State.}}
+		\item \ce{Cd2Cl2 + 2 AlCl3 -> Cd2(AlCl4)2}
+		\item Molekula obsahuje jednotky \ce{Cd2Cl6} a tetraedry \ce{AlCl4} spojené vrcholy.
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{figure}
+		\adjincludegraphics[height=.65\textheight]{img/Cd-AlCl4.png}
+		\caption*{Krystalová struktura \ce{Cd2(AlCl4)2}.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Cadmium(I)-tetrachloroaluminate-xtal-1987-unit-cell-CM-3D-ellipsoids.png}{Ben Mills/Commons}}}
+	\end{figure}
+	\vfill
+}
+
+\subsection{Rtuť}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Chemicky se mírně liší od zinku a kadmia.
+		\item S kyselinami nereaguje, s výjimkou oxidujících -- dusičnou a koncentrovanou kyselinu sírovou.
+		\item Kovy rozpouští za vzniku \textit{amalgámů}.\footnote[frame]{\href{https://www.youtube.com/watch?v=IrdYueB9pY4}{Aluminum and Mercury}}
+		\item Rtuť vytváří sloučeniny v oxidačních stavech I a II.
+		\item V oxidačním stavu I vytváří dikation \ce{Hg$_2^{2+}$} s vazbou \ce{Hg-Hg}.
+		\item Působením silných ligandů, jako jsou např. kyanidy, dochází k disproporcionaci na \ce{Hg^{2+}} a kovovou rtuť.
+		\item Nejběžnějším oxidačním stavem je II.
+		\item Halogenidy rtuťnaté jsou lineární. Vytvářejí tetrahalogenidové komplexy, které mají tetraedrickou symetrii:
+		\item \ce{HgCl2 + 2 KCl -> K2[HgCl4]}
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\textbf{Polykationty rtuti}
+	\begin{itemize}
+		\item Vazbu mezi atomy rtuti v kationtu \ce{Hg$_2^{2+}$} můžeme popsat překryvem orbitalů 6s.\footnote[frame]{\href{https://doi.org/10.1007/BF02903655}{On formation of polyatomic mercury cations}}
+		\item Známe i větší polykationty rtuti, reakcí v tavenině můžeme získat lineární kation \ce{Hg$_3^{2+}$}:
+		\item \ce{2 Hg + HgCl2 + 2 AlCl3 -> Hg3[AlCl4]2}
+		\item Oxidací rtuti pomocí \ce{AsF5} získáme kation \ce{Hg$_4^{2+}$}:\footnote[frame]{\href{https://doi.org/10.1021/ic00151a015}{Preparation and crystal structure of tetramercury bis(hexafluoroarsenate) \ce{Hg4(AsF6)2}}}
+		\item \ce{4 Hg + 3 AsF5 ->[-196 $^\circ$C, SO2] Hg4[AsF6]2 + AsF3}
+	\end{itemize}
+
+	\begin{center}
+	\begin{tabular}{|c|c|}
+		\hline
+		\textbf{Kation} & \textbf{Délka vazby \ce{Hg-Hg} [pm]} \\\hline
+		\ce{Hg$_2^{2+}$} & 249--256 \\\hline
+		\ce{Hg$_3^{2+}$} & 251--255 \\\hline
+		\ce{Hg$_4^{2+}$} & 259--267 \\\hline
+	\end{tabular}
+	\end{center}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{figure}
+		\adjincludegraphics[height=.75\textheight]{img/35412-ICSD.png}
+		\caption*{Struktura \ce{Hg4(AsF6)2}}
+	\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\textbf{Organokovové sloučeniny rtuti}
+	\begin{itemize}
+		\item Známe velké množství organokovových sloučenin rtuti.
+		\item Většina má stechiometrii RHgX nebo \ce{R2Hg}, sloučeniny jsou zpravidla tepelně a fotochemicky nestabilní.
+		\item Připravují se reakcí sodného amalgámu s organickými halogenidy:
+		\item \ce{2 Hg + 2 RX -> R2Hg + HgX2}
+		\item \ce{HgX2 + 2 Na -> Hg + 2 NaX}
+		\item Nebo reakcí Grignardova činidla s \ce{HgCl2}:
+		\item \ce{RMgX + HgCl2 ->[THF] RHgCl+ MgXCl}
+		\item \ce{RMgX + RHgCl ->[THF] R2Hg + MgXCl}
+		\item RHgX jsou krystalické látky, \ce{R2Hg} jsou vysoce toxické kapaliny nebo nízkotající látky.
+		\item Jsou tvořeny lineárními jednotkami \ce{R-Hg-R} nebo \ce{R-Hg-X}.
+		\item Rtuť si v těchto sloučeninách zpravidla zachovává koordinační číslo 2.
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{figure}
+		\adjincludegraphics[height=.75\textheight]{img/o-fenylhydrargium.png}
+		\caption*{Trimer \textit{o}-fenylenhydrargyria}
+	\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{columns}
+		\begin{column}{.7\textwidth}
+			\textbf{Dimethylrtuť}
+			\begin{itemize}
+				\item Dimethylrtuť, \ce{(CH3)2Hg}, je silně toxická, těkavá kapalina.
+				\item Vysoká toxicita je dána i schopností prostupovat kůží, smrtelná dávka pro člověka je 5 mg.kg$^{-1}$.\footnote[frame]{\href{https://cen.acs.org/safety/lab-safety/25-years-Karen-Wetterhahn-died-dimethylmercury-poisoning/100/i21}{25 years after Karen Wetterhahn died of dimethylmercury poisoning, her influence persists}}
+				\item Molekula je lineární.
+				\item Připravuje se reakcí sodného amalgámu s methyljodidem:
+				\item \ce{Hg + 2 Na + 2 CH3I -> Hg(CH3)2 + 2 NaI}
+				\item Využívá se jako primární standard v $^{199}$Hg a $^{201}$Hg NMR.\footnote[frame]{\href{http://chem.ch.huji.ac.il/nmr/techniques/1d/row6/hg.html}{(Hg) Mercury NMR}}
+			\end{itemize}
+		\end{column}
+		\begin{column}{.35\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=\textwidth]{img/Dimethyl-mercury-3D-vdW.png}
+				\caption*{Struktura dimethylrtuti.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Dimethyl-mercury-3D-vdW.png}{Benjah-bmm27/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\section{Biologie}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Zinek patří mezi nejdůležitější kovy pro rostliny i živočichy.
+		\item Lidské tělo obsahuje asi 2--4 g zinku, většinu ve formě enzymů.
+		\item Zinek je Lewisovská kyselina, proto je z katalytického hlediska velice zajímavý.
+		\item Také je velice flexibilní z hlediska koordinační geometrie, proto umožňuje rychlou změnu konformace enzymu.
+		\item V ústech je přítomen v zubním plaku, slinách a sklovině. Využívá se v zubních pastách pro potlačení tvorby zubního plaku kamene a snížení pachu z úst.\footnote[frame]{\href{https://doi.org/10.1111/j.1875-595x.2011.00049.x}{Zinc in the mouth, its interactions with dental enamel and possible effects on caries; a review of the literature}}
+		\item Nedostatek zinku se projevuje mnoha symptomy:\footnote[frame]{\href{https://ods.od.nih.gov/factsheets/Zinc-HealthProfessional/}{Zinc}}
+		\begin{itemize}
+			\item lámavostí vlasů a nehtů
+			\item suchou a popraskanou kůží
+			\item zpomalením růstu u dětí
+			\item šeroslepostí
+			\item nechutenstvím
+		\end{itemize}
+		\item Na rozdíl od zinku jsou sloučeniny kadmia a rtuti velmi toxické.
+	\end{itemize}
+	\vfill
+}
+
+\input{../Last}
+
+\end{document}

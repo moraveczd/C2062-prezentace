@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.2 (dc2aedaf03, 2022-05-15)"
+   sodipodi:docname="pasova-teorie.svg"
+   inkscape:export-filename="pasova-teorie.png"
+   inkscape:export-xdpi="150"
+   inkscape:export-ydpi="150"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="true"
+     inkscape:zoom="1.5091049"
+     inkscape:cx="204.09449"
+     inkscape:cy="556.62133"
+     inkscape:window-width="1602"
+     inkscape:window-height="1027"
+     inkscape:window-x="1272"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1">
+    <inkscape:grid
+       type="xygrid"
+       id="grid5621" />
+  </sodipodi:namedview>
+  <defs
+     id="defs2">
+    <marker
+       style="overflow:visible"
+       id="Arrow2"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Arrow2"
+       markerWidth="7.6999998"
+       markerHeight="5.5999999"
+       viewBox="0 0 7.7 5.6"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.7)"
+         d="M -2,-4 9,0 -2,4 c 2,-2.33 2,-5.66 0,-8 z"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:none"
+         id="arrow2L" />
+    </marker>
+  </defs>
+  <g
+     inkscape:label="Vrstva 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       style="fill:#000000;stroke:#000000;stroke-width:1.465;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;image-rendering:auto;marker-start:url(#Arrow2);stroke-miterlimit:15.8;stroke-dasharray:none"
+       d="M 26.298701,47.337662 26.139943,127.9867 25.948052,225.46753"
+       id="path72"
+       sodipodi:nodetypes="ccc" />
+    <rect
+       style="display:inline;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-miterlimit:15.8;stroke-dasharray:none;stroke-opacity:1"
+       id="rect2150-2-7"
+       width="16.48052"
+       height="39.623375"
+       x="37.309032"
+       y="87.837662" />
+    <path
+       style="fill:#0000ff;fill-opacity:1;stroke:#000000;stroke-width:0.662644;stroke-miterlimit:15.8;stroke-dasharray:none;stroke-opacity:1"
+       d="m 37.507489,219.95106 c -0.09356,-0.24451 -0.129135,-9.35983 -0.07906,-20.25625 l 0.09105,-19.81169 h 8.59091 8.590906 v 20.16234 20.16233 l -8.511849,0.0939 c -6.61948,0.073 -8.549671,-0.005 -8.681958,-0.35065 z"
+       id="path2296" />
+    <rect
+       style="display:inline;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-miterlimit:15.8;stroke-dasharray:none;stroke-opacity:1"
+       id="rect2150-2-7-1"
+       width="16.48052"
+       height="39.623375"
+       x="74.279442"
+       y="132.467" />
+    <path
+       style="fill:#0000ff;fill-opacity:1;stroke:#000000;stroke-width:0.662644;stroke-miterlimit:15.8;stroke-dasharray:none;stroke-opacity:1"
+       d="m 74.477898,220.4875 c -0.09356,-0.24451 -0.129135,-9.35983 -0.07906,-20.25625 l 0.09105,-19.81169 h 8.59091 8.590906 v 20.16234 20.16233 l -8.511849,0.0939 c -6.61948,0.073 -8.549671,-0.005 -8.681958,-0.35065 z"
+       id="path2296-8" />
+    <path
+       style="fill:#0000ff;fill-opacity:1;stroke:#000000;stroke-width:0.499999;stroke-miterlimit:15.8;stroke-dasharray:none;stroke-opacity:1"
+       d="m 127.28006,201.62338 v -19.63637 h 8.06498 8.06497 v 19.63637 19.63636 h -8.06497 -8.06498 z"
+       id="path2574-3" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="Vrstva 2">
+    <rect
+       style="display:inline;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-miterlimit:15.8;stroke-dasharray:none;stroke-opacity:1"
+       id="rect2150-2"
+       width="16.48052"
+       height="39.623375"
+       x="127.10452"
+       y="151.65584" />
+  </g>
+</svg>

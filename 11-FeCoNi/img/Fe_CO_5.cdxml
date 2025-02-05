@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE CDXML SYSTEM "http://www.cambridgesoft.com/xml/cdxml.dtd" >
+<CDXML
+ CreationProgram="ChemDraw 22.2.0.3300"
+ Name="Fe_CO_5.cdxml"
+ BoundingBox="12.26 54.95 517.35 478.39"
+ WindowPosition="0 0"
+ WindowSize="858980352 -859045888"
+ WindowIsZoomed="yes"
+ FractionalWidths="yes"
+ InterpretChemically="yes"
+ ShowAtomQuery="yes"
+ ShowAtomStereo="no"
+ ShowAtomEnhancedStereo="yes"
+ ShowAtomNumber="no"
+ ShowResidueID="no"
+ ShowBondQuery="yes"
+ ShowBondRxn="yes"
+ ShowBondStereo="no"
+ ShowTerminalCarbonLabels="no"
+ ShowNonTerminalCarbonLabels="no"
+ HideImplicitHydrogens="no"
+ LabelFont="3"
+ LabelSize="61.75"
+ LabelFace="96"
+ CaptionFont="20"
+ CaptionSize="74.1"
+ HashSpacing="16.67"
+ MarginWidth="12.35"
+ LineWidth="6.18"
+ BoldWidth="24.70"
+ BondLength="185.27"
+ BondSpacing="12"
+ ChainAngle="120"
+ LabelJustification="Auto"
+ CaptionJustification="Left"
+ AminoAcidTermini="HOH"
+ ShowSequenceTermini="yes"
+ ShowSequenceBonds="yes"
+ ShowSequenceUnlinkedBranches="no"
+ ResidueWrapCount="40"
+ ResidueBlockCount="10"
+ PrintMargins="36 36 36 36"
+ MacPrintInfo="0003000002580258000000001B68135E000000001B69135E0367057B03DF0002000002580258000000001B68135E000100000064000000010001010100020001270F000100010000000000000000000000000002001901900000000000600000000000000000000100000000000000000000000000000000"
+ ChemPropName=""
+ ChemPropFormula="Chemical Formula: "
+ ChemPropExactMass="Exact Mass: "
+ ChemPropMolWt="Molecular Weight: "
+ ChemPropMOverZ="m/z: "
+ ChemPropAnalysis="Elemental Analysis: "
+ ChemPropBoilingPt="Boiling Point: "
+ ChemPropMeltingPt="Melting Point: "
+ ChemPropCritTemp="Critical Temp: "
+ ChemPropCritPres="Critical Pres: "
+ ChemPropCritVol="Critical Vol: "
+ ChemPropGibbs="Gibbs Energy: "
+ ChemPropLogP="Log P: "
+ ChemPropMR="MR: "
+ ChemPropHenry="Henry&apos;s Law: "
+ ChemPropEForm="Heat of Form: "
+ ChemProptPSA="tPSA: "
+ ChemPropLogS="LogS: "
+ ChemPropPKa="pKa: "
+ ChemPropID=""
+ ChemPropFragmentLabel=""
+ color="0"
+ bgcolor="1"
+ RxnAutonumberStart="1"
+ RxnAutonumberConditions="no"
+ RxnAutonumberStyle="Roman"
+ RxnAutonumberFormat="(#)"
+><colortable>
+<color r="1" g="1" b="1"/>
+<color r="0" g="0" b="0"/>
+<color r="1" g="0" b="0"/>
+<color r="1" g="1" b="0"/>
+<color r="0" g="1" b="0"/>
+<color r="0" g="1" b="1"/>
+<color r="0" g="0" b="1"/>
+<color r="1" g="0" b="1"/>
+</colortable><fonttable>
+<font id="3" charset="iso-8859-1" name="Arial"/>
+<font id="20" charset="iso-8859-1" name="Times New Roman"/>
+</fonttable><page
+ id="386"
+ BoundingBox="0 0 522.96 770.04"
+ HeaderPosition="36"
+ FooterPosition="36"
+ PrintTrimMarks="yes"
+ HeightPages="1"
+ WidthPages="1"
+><group
+ id="383"
+ BoundingBox="12.26 54.95 517.35 478.39"
+ Z="14"
+><fragment
+ id="384"
+ BoundingBox="12.26 54.95 517.35 478.39"
+ Z="15"
+><n
+ id="166"
+ p="82.60 268.05"
+ Z="16"
+ NodeType="Fragment"
+ NeedsClean="yes"
+ AS="N"
+><fragment
+ id="387"
+><n
+ id="388"
+ p="82.60 268.05"
+ NumHydrogens="0"
+/><n
+ id="389"
+ p="-102.65 268.05"
+ Element="8"
+ NumHydrogens="0"
+/><n
+ id="390"
+ p="267.85 268.05"
+ NodeType="ExternalConnectionPoint"
+/><b
+ id="391"
+ B="388"
+ E="389"
+ Order="2"
+/><b
+ id="392"
+ B="390"
+ E="388"
+ Order="dative"
+/></fragment><t
+ p="104.90 292.37"
+ BoundingBox="12.26 240.22 104.90 293.12"
+ LabelJustification="Right"
+ Justification="Right"
+ LabelAlignment="Right"
+><s font="3" size="61.75" color="0" face="96">CO</s></t></n><n
+ id="168"
+ p="267.87 268.05"
+ Z="17"
+ Element="26"
+ NumHydrogens="0"
+ NeedsClean="yes"
+ AS="N"
+><t
+ p="267.87 292.37"
+ BoundingBox="231.83 241.10 303.90 293.07"
+ LabelJustification="Center"
+ Justification="Center"
+ LabelAlignment="Center"
+><s font="3" size="61.75" color="0" face="96">Fe</s></t></n><n
+ id="170"
+ p="428.25 360.68"
+ Z="19"
+ NodeType="Fragment"
+ NeedsClean="yes"
+ AS="N"
+><fragment
+ id="394"
+><n
+ id="395"
+ p="428.25 360.68"
+ NumHydrogens="0"
+/><n
+ id="396"
+ p="588.66 453.34"
+ Element="8"
+ NumHydrogens="0"
+/><n
+ id="397"
+ p="267.83 268.03"
+ NodeType="ExternalConnectionPoint"
+/><b
+ id="398"
+ B="395"
+ E="396"
+ Order="2"
+/><b
+ id="399"
+ B="397"
+ E="395"
+ Order="dative"
+/></fragment><t
+ p="405.95 385.01"
+ BoundingBox="405.95 332.86 498.58 385.76"
+ LabelJustification="Left"
+ LabelAlignment="Left"
+><s font="3" size="61.75" color="0" face="96">CO</s></t></n><n
+ id="172"
+ p="447.02 219.90"
+ Z="21"
+ NodeType="Fragment"
+ NeedsClean="yes"
+ AS="N"
+><fragment
+ id="401"
+><n
+ id="402"
+ p="447.02 219.90"
+ NumHydrogens="0"
+/><n
+ id="403"
+ p="625.92 171.81"
+ Element="8"
+ NumHydrogens="0"
+/><n
+ id="404"
+ p="268.12 267.98"
+ NodeType="ExternalConnectionPoint"
+/><b
+ id="405"
+ B="402"
+ E="403"
+ Order="2"
+/><b
+ id="406"
+ B="404"
+ E="402"
+ Order="dative"
+/></fragment><t
+ p="424.72 244.22"
+ BoundingBox="424.72 192.07 517.35 244.97"
+ LabelJustification="Left"
+ LabelAlignment="Left"
+><s font="3" size="61.75" color="0" face="96">CO</s></t></n><n
+ id="174"
+ p="267.87 82.78"
+ Z="23"
+ NodeType="Fragment"
+ NeedsClean="yes"
+ AS="N"
+><fragment
+ id="408"
+><n
+ id="409"
+ p="267.87 82.78"
+ NumHydrogens="0"
+/><n
+ id="410"
+ p="267.87 -102.47"
+ Element="8"
+ NumHydrogens="0"
+/><n
+ id="411"
+ p="267.87 268.03"
+ NodeType="ExternalConnectionPoint"
+/><b
+ id="412"
+ B="409"
+ E="410"
+ Order="2"
+/><b
+ id="413"
+ B="411"
+ E="409"
+ Order="dative"
+/></fragment><t
+ p="245.57 107.10"
+ BoundingBox="245.57 54.95 338.20 107.85"
+ LabelJustification="Left"
+ LabelAlignment="Left"
+><s font="3" size="61.75" color="0" face="96">CO</s></t></n><n
+ id="176"
+ p="267.87 453.32"
+ Z="25"
+ NodeType="Fragment"
+ NeedsClean="yes"
+ AS="N"
+><fragment
+ id="415"
+><n
+ id="416"
+ p="267.87 453.32"
+ NumHydrogens="0"
+/><n
+ id="417"
+ p="267.87 638.57"
+ Element="8"
+ NumHydrogens="0"
+/><n
+ id="418"
+ p="267.87 268.07"
+ NodeType="ExternalConnectionPoint"
+/><b
+ id="419"
+ B="416"
+ E="417"
+ Order="2"
+/><b
+ id="420"
+ B="418"
+ E="416"
+ Order="dative"
+/></fragment><t
+ p="245.57 477.64"
+ BoundingBox="245.57 425.49 338.20 478.39"
+ LabelJustification="Left"
+ LabelAlignment="Left"
+><s font="3" size="61.75" color="0" face="96">CO</s></t></n><b
+ id="181"
+ Z="18"
+ B="166"
+ E="168"
+ BS="N"
+/><b
+ id="180"
+ Z="20"
+ B="168"
+ E="170"
+ Display="WedgeBegin"
+ BS="N"
+/><b
+ id="179"
+ Z="22"
+ B="168"
+ E="172"
+ Display="WedgedHashBegin"
+ BS="N"
+/><b
+ id="182"
+ Z="24"
+ B="168"
+ E="174"
+ BS="N"
+/><b
+ id="183"
+ Z="26"
+ B="168"
+ E="176"
+ BS="N"
+/></fragment></group></page></CDXML>

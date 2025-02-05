@@ -1,0 +1,1461 @@
+\documentclass[hyperref=unicode,presentation,10pt]{beamer}
+
+\usepackage[absolute,overlay]{textpos}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{adjustbox}
+\usepackage[version=4]{mhchem}
+\usepackage{chemfig}
+\usepackage{caption}
+
+%dělení slov
+\usepackage{ragged2e}
+\let\raggedright=\RaggedRight
+%konec dělení slov
+
+\addtobeamertemplate{frametitle}{
+	\let\insertframetitle\insertsectionhead}{}
+\addtobeamertemplate{frametitle}{
+	\let\insertframesubtitle\insertsubsectionhead}{}
+
+\makeatletter
+\CheckCommand*\beamer@checkframetitle{\@ifnextchar\bgroup\beamer@inlineframetitle{}}
+\renewcommand*\beamer@checkframetitle{\global\let\beamer@frametitle\relax\@ifnextchar\bgroup\beamer@inlineframetitle{}}
+\makeatother
+\setbeamercolor{section in toc}{fg=red}
+\setbeamertemplate{section in toc shaded}[default][100]
+
+\usepackage{fontspec}
+\usepackage{unicode-math}
+
+\usepackage{polyglossia}
+\setdefaultlanguage{czech}
+
+\def\uv#1{„#1“}
+
+\mode<presentation>{\usetheme{default}}
+\usecolortheme{crane}
+
+\setbeamertemplate{footline}[frame number]
+
+\title[Crisis]
+{C2062 -- Anorganická chemie II}
+
+\subtitle{(Kyslík, síra,) selen, tellur, polonium a livermorium}
+\author{Zdeněk Moravec, hugo@chemi.muni.cz \\ \adjincludegraphics[height=60mm]{img/IUPAC_PSP.jpg}}
+\date{}
+
+\begin{document}
+
+\begin{frame}
+	\titlepage
+\end{frame}
+
+\section{Kyslík}
+\frame{
+	\frametitle{}
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			\vfill
+			\begin{itemize}
+				\item Značka O, protonové číslo 8.
+				\item Plyn, nezbytný pro život na Zemi.
+				\item Vytváří dvouatomové, paramagnetické molekuly \ce{O2}.\footnote[frame]{\href{https://www.youtube.com/watch?v=2Q7Co5EvYBU}{Magnetism of liquid nitrogen vs. liquid oxygen}}
+				\item Paramagnetismus je u~kyslíku způsoben přítomností nepárových elektronů v MO.
+				\item Molekulární kyslík je poměrně reaktivní, silné oxidační činidlo.
+				\item Tvoří 21~\% objemových procent zemské atmosféry a 90~\% hmotnosti oceánů.
+			\end{itemize}
+			\vfill
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=.83\textwidth]{img/Liquid_oxygen.jpg}
+				\caption*{Kapalný kyslík.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Liquid_oxygen_in_a_beaker_(cropped_and_retouched).jpg}{Staff Sgt. Nika Glover, U.S. Air Force/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+}
+
+\frame{
+	\frametitle{}
+	\begin{figure}
+		\adjincludegraphics[width=.68\textwidth]{img/Diagramme_OM_O2.jpg}
+		\caption*{Diagram molekulových orbitalů v molekule \ce{O2}.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Diagramme_OM_O2.jpg}{jflm/Commons}}}
+	\end{figure}
+}
+
+\frame{
+	\frametitle{}
+	\begin{columns}
+		\begin{column}{0.6\textwidth}
+			\vfill
+			\begin{itemize}
+				\item Kapalný kyslík (Liquid OXygen -- LOX; $-$183~$^\circ$C) se společně s dusíkem vyrábí destilací zkapalněného vzduchu.
+				\item Vzduch se zkapalňuje stlačením a~následnou isentropickou expanzí.
+				\item Dříve se využívalo Joule-Thompsonova efektu (Carl von Linde), ale tento postup je málo účinný.
+				\item Kapalná fáze je bohatější na kyslík a~plynná fáze pak na dusík. Frakční destilací pak můžeme separovat kromě dusíku i argon.
+				\item Kapalný kyslík se využívá jako zdroj kyslíku pro nemocnice a další aplikace.
+				\item Je také součástí raketových paliv.
+			\end{itemize}
+			\vfill
+		\end{column}
+		\begin{column}{0.4\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=\textwidth]{img/Delta_IV_launch.jpg}
+				\caption*{Start rakety Delta IV.\footnote[frame]{Zdroj: \href{https://www.af.mil/News/Photos.aspx?igphoto=2000709622}{U.S. Air Force/Joe Davila}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+}
+
+\frame{
+	\frametitle{}
+	\begin{itemize}
+		\item \textit{Ozon} -- allotropní modifikace kyslíku, \ce{O3}.
+		\item Vysoce reaktivní, modrý plyn. Je tvořen lomenými molekulami (116,8$^\circ$).
+		\item Vyrábí se působením elektrického výboje nebo UV záření na kyslík.
+		\item V chemii se využívá k oxidaci, zejména k přípravě organických peroxidů.
+		\item Je to také velmi dobré desinfekční činidlo, má velmi silné baktericidní účinky.
+		\item Přízemní ozón je pro člověka nebezpečný.
+		\item Naopak ve stratosféře je ozón nezbytný pro existenci života na Zemi.
+	\end{itemize}
+	\begin{figure}
+		\adjincludegraphics[width=\textwidth]{img/Ozon_Grenzstruktur.png}
+	\end{figure}
+}
+
+\frame{
+	\frametitle{}
+	\begin{figure}
+		\adjincludegraphics[width=.8\textwidth]{img/Uars_ozone_waves.jpg}
+		\caption*{Ozonová vrstva v roce 1984 a 1997.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Uars_ozone_waves.jpg}{NASA/Commons}}}
+	\end{figure}
+}
+
+\frame{
+	\frametitle{}
+	\begin{itemize}
+		\item V chemických sloučeninách má kyslík zpravidla oxidační číslo $-$II.
+		\item Výjimkou jsou peroxidy, hyperoxidy (superoxidy) a ozonidy.
+	\end{itemize}
+	\begin{center}
+		\begin{tabular}{|l|l|l|}
+			\hline
+			Oxid & \ce{O^{2-}} & \ce{CO2}, \ce{K2O} \\\hline
+			Peroxid & \ce{O$_2^{2-}$} & \ce{H2O2}, \ce{BaO2} \\\hline
+			Hyperoxid & \ce{O$_2^{-}$} & \ce{NaO2}, \ce{KO2} \\\hline
+			Ozonid & \ce{O$_3^{-}$} & \ce{NaO3}, \ce{KO3} \\\hline
+		\end{tabular}
+		\begin{itemize}
+			\item Známe také sloučeniny, obsahující kyslík v oxidačním stavu +2:
+			\begin{itemize}
+				\item Difluorid kyslíku, \ce{OF2} -- připravuje se reakcí fluoru se zředěným hydroxidem sodným:
+				\item \ce{2 F2 + 2 NaOH -> OF2 + 2 NaF + H2O}
+				\item Difluorid dikyslíku, \ce{O2F2} -- vzniká přímou reakcí kyslíku s fluorem v přítomnosti elektrického výboje.
+			\end{itemize}
+			\item Koordinační číslo kyslíku je zpravidla 2, ale může dosáhnout až hodnoty 8 u oxidů alkalických kovů, např. \ce{Li2O} nebo \ce{Na2O}.
+		\end{itemize}
+	\end{center}
+}
+
+\frame{
+	\frametitle{}
+	\begin{figure}
+		\adjincludegraphics[width=.85\textwidth]{img/CaF2_polyhedra.png}
+		\caption*{Krystalová struktura \ce{Li2O}, šedé atomy jsou kyslíky.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:CaF2_polyhedra.png}{Solid State/Commons}}}
+	\end{figure}
+}
+
+%Koordinační číslo 8; Li2O, Na2O
+
+\section{Síra}
+\frame{
+	\frametitle{}
+	\begin{itemize}
+		\item Značka S, protonové číslo 16. Pevná, žlutá látka.
+		\item Vytváří cyklické osmiatomové molekuly, \ce{S8}. Známe několik dalších allotropických modifikací.\footnote[frame]{\href{https://chem.libretexts.org/Bookshelves/Inorganic_Chemistry/Map\%3A_Inorganic_Chemistry_(Housecroft)/16\%3A_The_Group_16_Elements/16.04\%3A_The_Elements/16.4C\%3A_Sulfur_-_Allotropes}{Sulfur - Allotropes}}
+		\begin{itemize}
+			\item Nejstabilnější je kosočtverečná modifikace $\alpha$.
+			\item Při teplotě 95,3~$^\circ$C přechází na jednoklonnou modifikaci $\beta$.
+			\item Jednoklonná modifikace $\gamma$ vzniká pomalým ochlazováním taveniny síry.
+		\end{itemize}
+		\item Síra se těží Fraschovým způsobem (dnes už jen minoritně) nebo povrchově.
+		\item Hlavními zdroji jsou ropa (Clausův proces) a zemní plyn, kde je síra ve formě sulfanu.\footnote[frame]{\href{https://www.usgs.gov/centers/nmic/sulfur-statistics-and-information}{Sulfur Statistics and Information}}
+		\item Jednou z průmyslově nejvýznamnějších sloučenin síry je kyselina sírová, \ce{H2SO4}. Mimo ní známe velké množství dalších kyselin obsahujících síru.
+		\item \ce{SO2} pro výrobu kyseliny sírové se získává při zpracování sulfidových rud.
+	\end{itemize}
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=\textwidth]{img/Sulfur-sample.jpg}
+				\caption*{Síra.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Sulfur-sample.jpg}{Ben Mills/Commons}}}
+			\end{figure}
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=.8\textwidth]{img/Cyclooctasulfur.png}
+				\caption*{Struktura cyklooktasíry, \ce{S8}.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Cyclooctasulfur-above-3D-balls.png}{Benjah-bmm27/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\begin{figure}
+		\adjincludegraphics[width=\textwidth]{img/Frasch_Process.png}
+		\caption*{Těžba síry Fraschovým procesem\footnote[frame]{\href{https://commons.wikimedia.org/wiki/File:Frasch_Process_used_on_a_salt_dome.png}{Zdroj: Joyce A. Ober/Commons}}}
+	\end{figure}
+}
+
+\frame{
+	\frametitle{}
+	\begin{figure}
+		\adjincludegraphics[height=.7\textheight]{img/Sulfur-Miner.jpg}
+		\caption*{Síra se těží i povrchově, těžař s 90 kg nákladem síry z vulkánu \href{https://commons.wikimedia.org/wiki/File:Kawah-Ijen_Indonesia_Ijen-Sulfur-Miner-04.jpg}{\textit{Ijen v Indonésii}}.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Kawah-Ijen_Indonesia_Ijen-Sulfur-Miner-04.jpg}{CEphoto, Uwe Aranas}}}
+	\end{figure}
+}
+
+\frame{
+	\frametitle{}
+	\begin{itemize}
+		\item Síra se využívá k \textit{vulkanizaci kaučuku}, tzn. k zesíťování řetězců přírodního kaučuku za vzniku \textit{pryže}.\footnote[frame]{\href{https://www.gumex.cz/blog/vznik-a-vyvoj-gumy-118}{Vznik a vývoj gumy}}
+		\item Mezi řetězci vznikají polysulfidové můstky, které se váží na nenasycené uhlíky řetězců.
+	\end{itemize}
+	\begin{figure}
+		\adjincludegraphics[width=.8\textwidth]{img/vulcanization.png}
+	\end{figure}
+}
+
+\subsection{Kyseliny síry}
+\frame{
+	\frametitle{}
+	\begin{figure}
+		\adjincludegraphics[height=.8\textheight]{img/S-acids.png}
+	\end{figure}
+}
+
+\frame{
+	\frametitle{}
+	\begin{itemize}
+		\item Kyselina sírová se vyrábí oxidací \ce{SO2} na \ce{SO3}.
+		\item \ce{SO2} lze získat spalováním elementární síry, dnes se ale často využívá oxid siřičitý z redukce sulfidických rud a jiných chemických procesů:
+		\item \ce{2 Cu2O + Cu2S -> 6 Cu + SO2}
+		\item Oxid siřičitý lze pak oxidovat buď katalyticky (kontaktní způsob):
+		\item \ce{2 SO2 + O2 ->[V2O5 + K2SO4] 2 SO3}
+		\item nebo komorovým (dnes už nepoužívaným) způsobem:
+		\item \ce{SO2 + NO2 -> SO3 + NO}
+		\item Získaný oxid sírový je jímán do kyseliny sírové, čímž vzniká kyselina disírová a posléze \textit{oleum}.
+		\item Oleum je následně ředěno vodou zpět na kyselinu sírovou.
+		\item Přímé pohlcování oxidu sírového do vody je nevýhodné, jelikož vzniká obtížně kondenzovatelný aerosol.
+	\end{itemize}
+}
+
+\subsection{Oxid sírový}
+\frame{
+	\frametitle{}
+	\begin{itemize}
+		\item Oxid sírový, \ce{SO3}, je bezbarvá olejovitá kapalina nebo bílá krystalická látka.
+		\item Teplota tání 17~$^\circ$C a varu 45~$^\circ$C.
+		\item V plynném stavu existuje jako monomer, v souladu s teorií VSEPR má trojúhelníkovou geometrii (D$_{3h}$).
+		\item V kapalném a pevném stavu existuje rovnováha mezi monomerní a trimerní formou.
+		\item Trimer, \ce{S3O9} má vaničkovou konformaci.
+		\begin{figure}
+			\adjincludegraphics[height=.3\textheight]{img/Sulfur-trioxide-trimer.png}
+			\caption*{Krystalová struktura trimeru oxidu sírového.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Sulfur-trioxide-trimer-from-xtal-1967-3D-balls-B.png}{Ben Mills/Commons}}}
+		\end{figure}
+	\end{itemize}
+}
+
+\frame{
+	\frametitle{}
+	\begin{figure}
+		\adjincludegraphics[height=.65\textheight]{img/Schefeltrioxid.jpg}
+		\caption*{Vzorek trimeru oxidu sírového.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Schefeltrioxid.jpg}{H. Hiller/Commons}}}
+	\end{figure}
+}
+
+\section{Úvod -- selen, tellur, polonium a livermorium}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{tabular}{|c|l|l|l|}
+	\hline
+	 & \textit{Selen} & \textit{Tellur} & \textit{Polonium} \\\hline
+	 El. konfigurace & 3d$^{10}$ 4s$^{2}$ 4p$^{4}$ & 4d$^{10}$ 5s$^{2}$ 5p$^{4}$ & 4f$^{14}$ 5d$^{10}$ 6s$^{2}$ 6p$^{4}$ \\\hline
+	 Teplota tání [$^\circ$C] & 221 & 449,51 & 254 \\\hline
+	 Teplota varu [$^\circ$C]  & 685 & 987,85 & 962 \\\hline
+	 Objeven & 1817 & 1782 & 1898 \\\hline
+	 Vzhled & šedý nebo červený\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:SeBlackRed.jpg}{W. Oelen/Commons}} & stříbrnošedý\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Tellurium2.jpg}{Materialscientist/Commons}} & stříbrný\footnote[frame]{Zdroj: \href{https://en.wikipedia.org/wiki/File:Polonium.jpg}{Ralph E. Lapp/Wikipedia}} \\
+	 &  \begin{minipage}{.2\textwidth}
+	 	\adjincludegraphics[width=\linewidth]{img/SeBlackRed.jpg}
+	 \end{minipage}
+	 	& \begin{minipage}{.2\textwidth}
+	 		\adjincludegraphics[width=\linewidth]{img/Tellurium2.jpg}
+	 	\end{minipage} & \begin{minipage}{.2\textwidth}
+	 	\adjincludegraphics[width=\linewidth]{img/Polonium.jpg}
+ 	\end{minipage} \\\hline
+	\end{tabular}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+		\textbf{Livermorium}
+		\begin{columns}
+			\begin{column}{.7\textwidth}
+				\begin{itemize}
+					\item Umělý prvek, protonové číslo 116, Lv.\footnote[frame]{\href{https://www.rsc.org/periodic-table/element/116/livermorium}{Livermorium -- rsc.org}}
+					\item Poprvé byl připraven v roce 2000 v Dubně.\footnote[frame]{\href{https://journals.aps.org/prc/abstract/10.1103/PhysRevC.69.021601}{Observation of the decay of \ce{^{292}116}}}
+					\item \ce{^{248}_{96}Cm + ^{48}_{20}Ca -> ^{296}_{116}Lv^* -> ^{293}_{116}Lv + 3 ^1_0n}
+					\item Nejstabilnějším izotopem je \ce{^{293}Lv} s poločasem rozpadu 70~ms.
+					\item \ce{^{293}Lv ->[$T_{\frac{1}{2}}$ = 70 ms] ^{289}Fl + $\alpha$}
+					\item Prvek byl v roce 2011 pojmenován \emph{Livermorium} na počest sídla Lawrence Livermore National Laboratory.\footnote[frame]{\href{https://old.iupac.org/publications/ci/2012/3404/iw1_periodic_table.html}{Flerovium and Livermorium Join the Periodic Table}}
+				\end{itemize}
+			\end{column}
+
+			\begin{column}{.3\textwidth}
+				\begin{tabular}{|l|l|}
+					\hline
+					Izotop & T$_{1/2}$ [ms] \\\hline
+					$^{290}$Lv & 9 \\\hline
+					$^{291}$Lv & 26 \\\hline
+					$^{292}$Lv & 16 \\\hline
+					$^{293}$Lv & 70 \\\hline
+					$^{293m}$Lv & 80 \\\hline
+				\end{tabular}
+			\end{column}
+		\end{columns}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{figure}
+		\adjincludegraphics[height=.75\textheight]{img/LLNL_Aerial_View.jpg}
+		\caption*{Areál Lawrence Livermore National Laboratory\footnote[frame]{\href{https://commons.wikimedia.org/wiki/File:LLNL_Aerial_View.jpg}{Zdroj: llnl.gov/Commons}}}
+	\end{figure}
+	\vfill
+}
+
+\section{Historie}
+\subsection{Selen, tellur}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Selen byl objeven roku 1817 chemiky Jönsem J. Berzeliem a Johanem Gottliebem Gahnem ve zbytcích po spalování síry.
+		\item Tellur byl objeven už roku 1782 v rudách z Transylvánie (Rumunska). Izoloval jej rakouský chemik J. F. Müller von Reichenstein.
+		\item Název tellur (z latinského \textit{tellus} -- země) mu dal rakouský chemik M. H. Klaproth.
+	\end{itemize}
+	\begin{columns}
+		\begin{column}{.3\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=.3\textheight]{img/Franz-Joseph_Müller_von_Reichenstein.jpg}
+				\caption*{J. F. Müller}
+			\end{figure}
+		\end{column}
+
+	\begin{column}{.3\textwidth}
+		\begin{figure}
+			\adjincludegraphics[height=.3\textheight]{img/Jöns_Jacob_Berzelius.jpg}
+			\caption*{Jöns Jacob Berzelius}
+		\end{figure}
+	\end{column}
+
+	\begin{column}{.3\textwidth}
+		\begin{figure}
+			\adjincludegraphics[height=.3\textheight]{img/Gahn_Johan_Gottlieb.jpg}
+			\caption*{Johan Gottlieb Gahn}
+		\end{figure}
+	\end{column}
+	\end{columns}
+	\vfill
+}
+
+\subsection{Objev polonia a radia}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Oba prvky, polonium i radium, byly objeveny v roce 1898 Marií a Pierem Curie izolací z \textit{uraninitu}.\footnote[frame]{\href{http://web.lemoyne.edu/~giunta/curiespo.html}{On a New Radioactive Substance Contained in Pitchblende}}
+		\item Zjistili, že po extrakci uranu a thoria byla radioaktivita zbylého materiálu vyšší než úhrnná radioaktivita těchto dvou prvků.
+		\item Polonium se přeměňuje mechanismem $\alpha$ na olovo, poločas rozpadu 138,4~dne.
+		\item \ce{^{210}_{ 84}Po -> ^{206}_{ 82}Pb + ^4_2He}
+		\item Radium se přeměňuje mechanismem $\alpha$ na radon, poločas rozpadu 1599~let.
+		\item \ce{^{226}_{ 88}Ra -> ^{222}_{ 86}Rn + ^4_2He}
+		\item Marie Curie Sklodowska získala dvě Nobelovy ceny. Roku 1903
+		za fyziku za zkoumání radiačních dějů a roku 1911 získala Nobelovu cenu za chemii za objev radia a polonia.
+		\item Jejich dcera Irène Joliot-Curie, společně se svým manželem, získala Nobelovu cenu za chemii v roce 1935 za objev umělé radioaktivity.\footnote[frame]{\href{https://www.nobelprize.org/prizes/chemistry/1935/summary/}{The Nobel Prize in Chemistry 1935}}
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{columns}
+		\begin{column}{.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=0.6\textheight]{img/Pierre_Curie_et_Marie_Sklodowska_Curie_1895.jpg}
+				\caption*{Marie a Piere Curie.}
+			\end{figure}
+		\end{column}
+		\begin{column}{.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=0.6\textheight]{img/Uraninite-usa32abg.jpg}
+				\caption*{Uraninit.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Uraninite-usa32abg.jpg}{Robert M. Lavinsky/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{columns}
+		\begin{column}{.75\textwidth}
+			\begin{itemize}
+				\item Marie Curie Sklodowská se narodila 7. listopadu 1867 ve Varšavě.\footnote[frame]{\href{http://www.converter.cz/fyzici/curie-sklodowska.htm}{Marie Curie-Sklodowská}}
+				\item Roku 1891 odešla do Paříže, studovat na Sorbonu.
+				\item 1895 se vdala za profesora fyziky Pierra Curie.
+				\item 1898 Objevila nové prvky polonium a radium.
+				\item 1900 Stala se první ženou na Ecole Normale Superieure.
+				\item 1903 získala Nobelovu cenu za fyziku za zkoumání radiačních dějů.
+				\item 1911 získala Nobelovu cenu za chemii za objev radia a polonia.
+				\item Zemřela 4. července 1934 ve Francii na chorobu vyvolanou účinky ionizujícího záření.
+			\end{itemize}
+		\end{column}
+		
+		\begin{column}{.3\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=\textwidth]{img/Marie_Curie_c._1920s.jpg}
+				\caption*{Marie Curie-Skłodowská.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Marie_Curie_c._1920s.jpg}{Henri Manuel/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\section{Chemické a fyzikální vlastnosti}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Selen má šest stabilních izotopů, tellur osm. Kvůli tomu není možné určit atomovou hmotnost prvků s vyšší přesností.
+		\item Kyslík a síra jsou izolanty, selen a tellur jsou polovodiče, polonium je vodič (kov).
+		\item S rostoucím kovovým charakterem prvku roste i bazicita. Selen s~kyselinou chlorovodíkovou reaguje velmi pomalu, naproti tomu tellur se v ní rozpouští a polonium vytváří růžové roztoky \ce{Po^{II}} solí.
+		\item S elektropozitivními prvky vytvářejí chalkogenidy -- selenidy, telluridy a polonidy.
+		\item Ve sloučeninách s elektronegativními prvky mohou dosahovat oxidačních čísel II, IV a VI.
+		\item Teplotní stabilita hydridů klesá v řadě: \item \ce{H2O} $>$ \ce{H2S} $>$ \ce{H2Se} $>$ \ce{H2Te} $>$ \ce{H2Po}
+		\item Sloučeniny selenu, telluru i polonia jsou toxické, těkavé sloučeniny, řadí se mezi velmi nebezpečné.
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Selen i tellur tvoří několik allotropních modifikacích.
+		\item \textit{Červený selen} krystaluje ve třech rozdílných polymorfních modifikacích, tvořených cyklickými molekulami \ce{Se8}, které jsou analogické cyklooktasíře.
+		\begin{itemize}
+			\item $\alpha$-\ce{Se8} vzniká pomalým odpařením roztoku černého selenu v \ce{CS2}.
+			\item $\beta$-\ce{Se8} vzniká rychlým odpařením roztoku černého selenu v \ce{CS2}.
+			\item $\gamma$-\ce{Se8} vzniká solovolýzou roztoku dipiperidinotetraselanu v sirouhlíku:\footnote[frame]{\href{https://doi.org/10.1039/C39770000834}{X-Ray crystal structure of a new red, monoclinic form of cyclo-octaselenium, \ce{Se8}}}
+			\item \ce{8 Se4(NC5H10)2 + 16 CS2 -> 3 Se8 + 8 Se(S2CNC5H10)2}
+		\end{itemize}
+		\item \textit{Červený amorfní selen} vzniká kondenzací par nebo redukcí kyseliny selenové.
+		\item \textit{Šedý selen} je termodynamicky nejstabilnější, má kovové vlastnosti a je fotovodivý. Vzniká zahřátím jiné modifikace selenu nebo pomalou krystalizací taveniny. Krystaluje v hexagonální soustavě, tvoří jej šroubovicovité řetězce.
+		\item \textit{Černý selen} se připravuje prudkým ochlazením taveniny, má sklovitý charakter. Nad teplotou 50~$^\circ$C měkne a při teplotě 180~$^\circ$C přechází na šedou, hexagonální formu.
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{figure}
+		\adjincludegraphics[height=0.5\textheight]{img/Selen_1.jpg}
+		\caption*{Černý, šedý a červený selen.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Selen_1.jpg}{Tomihahndorf/Commons}}}
+	\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{figure}
+		\adjincludegraphics[height=0.7\textheight]{img/Black_Selenium.jpg}
+		\caption*{Černý selen.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Black_Selenium.jpg}{Best Sci-Fatcs/Commons}}}
+	\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Tellur vytváří krystalickou a amorfní modifikaci.
+		\item Krystalický tellur je tvořen sítí spirálovitých řetězců, podobně jako šedý selen. Má stříbro-bílou barvu a je kovové lesklý.
+		\item Je polovodivý a vykazuje i fotovodivé vlastnosti.
+		\item Amorfní modifikace je hnědočerný prášek, připravuje se srážením roztoků kyseliny telluričité nebo hexahydrogentellurové.
+	\end{itemize}
+	\begin{figure}
+		\adjincludegraphics[height=0.4\textheight]{img/Tellurium-acrylic.jpg}
+		\caption*{Kovový tellur zalitý v akrylu.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:An_acrylic_cube_specially_prepared_for_element_collectors_containing_a_sample_of_pure_silicon_tellurium.JPG}{Rasiel Suarez on behalf of Luciteria LLC/Commons}}}
+	\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Polonium existuje také ve dvou modifikacích.\footnote[frame]{\href{https://doi.org/10.1016/0022-1902(66)80270-1}{The structures of polonium and its compounds—I $\alpha$ and $\beta$ polonium metal}}
+		\item $\alpha$-Po krystaluje v primitivní kubické mřížce. Polonium je jediný prvek, který tvoří tento typ mřížky.
+		\item $\beta$-Po krystaluje v kosočtverečné soustavě.
+		\item $\alpha$-Po přechází na $\beta$-Po při teplotě 36~$^\circ$C.
+		\item Přesnou teplotu přechodu je obtížné určit, polonium se vlivem\\ radioaktivního rozpadu samovolně zahřívá.
+	\end{itemize}
+	\begin{columns}
+		\begin{column}{.6\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=0.35\textheight]{img/Alpha_po_lattice.jpg}
+				\caption*{Krystalová mřížka polonia.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Alpha_po_lattice.jpg}{Cadmium/Commons}}}
+			\end{figure}
+		\end{column}
+		\begin{column}{.4\textwidth}
+			\textbf{Hlavní izotopy polonia}
+			\begin{tabular}{|l|r@{,}ll|}
+				\hline
+				\textbf{N} & \multicolumn{3}{c|}{\textbf{Poločas rozpadu}}
+				\\\hline
+				208 & 2 & 898 & let \\\hline
+				209 & 125 & 2 & let \\\hline
+				210 & 138 & 376 & dne \\\hline
+			\end{tabular}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\section{Výskyt a získávání prvků}
+\subsection{Selen}
+\frame{
+	\frametitle{}
+	\begin{columns}
+		\begin{column}{.65\textwidth}
+			\vfill
+			\begin{itemize}
+				\item Ryzí selen se vyskytuje jen velmi zřídka a často ve směsi se sírou nebo jinými prvky.\footnote[frame]{\href{https://www.mindat.org/element/Selenium}{The mineralogy of Selenium}}
+				\item V minerálech se vyskytuje častěji ve formě sloučenin -- selenidů, seleničitanů a selenanů.
+				\item Pozor na minerál \textit{selenit}, i přes matoucí název, jde o variantu sádrovce.\footnote[frame]{\href{https://www.mindat.org/min-5527.html}{Selenite}}
+				\item Známe více než 100 minerálů obsahujících selen, z velké části obsahují tyto minerály i síru (sulfidy a sírany).
+			\end{itemize}
+			\vfill
+		\end{column}
+
+		\begin{column}{.4\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=\textwidth]{img/Selenium_in_sandstone.jpg}
+				\caption*{Selen na pískovci.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Selenium_in_sandstone_Westwater_Canyon_Section_23_Mine_Grants,_New_Mexico.jpg}{James St. John/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+}
+
+\subsection{Selen}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Roční světová produkce selenu je odhadována na 3000 tun.\footnote[frame]{\href{https://doi.org/10.1007/s11015-010-9280-7}{Selenium and tellurium: state of the markets, the crisis, and its consequences}}
+		\item Celosvětové zásoby jsou 80--90 000 tun.
+		\item Mezi největší producenty patří Japonsko, USA a Čína.
+		\item Hlavní surovinou pro výrobu selenu jsou anodové kaly po rafinaci mědi a odpadní kaly z výroby kyseliny sírové.
+		\item Ty se praží na vzduchu s uhličitanem sodným a poté se louží vodou:
+		\item \ce{M2Se + Na2CO3 + O2 ->[650 $^\circ$C] 2 M + Na2SeO3 + CO2}
+		\item Výluh se neutralizuje kyselinou sírovou, vysráží se oxid telluričitý a ten se dále zpracovává na tellur.
+		\item V roztoku zůstává seleničitan, který je následně redukován oxidem siřičitým:
+		\item \ce{H2SeO3 + 2 SO2 + H2O -> Se + 2 H2SO4}
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Čištění selenu můžeme provést odpařením selenu v oxidační atmosféře a následným pohlcení oxidu seleničitého do vody:\footnote[frame]{\href{https://doi.org/10.1002/14356007.a23_525}{Selenium and Selenium Compounds}}
+		\item \ce{SeO2 + H2O -> H2SeO3}
+		\item Čistý selen je pak redukován vysoce čistým oxidem siřičitým:
+		\item \ce{H2SeO3 + 2 SO2 + H2O -> Se + 2 H2SO4}
+		\item Vysoce čistý selen se připravuje zahříváním surového materiálu v atmosféře vodíku na teplotu 650~$^\circ$C za vzniku selanu.
+		\item \ce{Se + H2 ->[650 $^\circ$C] H2Se}
+		\item Ten se následně rozkládá v křemenné trubici při teplotě 1000~$^\circ$C.
+		\item \ce{H2Se ->[1000 $^\circ$C] Se + H2}
+		\item Výhodou tohoto postupu je, že jiné prvky, které se mohou v surovinách nacházet, netvoří hydridy stabilní za tak vysokých teplot.
+	\end{itemize}
+	\vfill
+}
+
+\subsection{Tellur}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Tellur je poměrně vzácný, jeho koncentrace v zemské kůře je srovnatelná s platinou.
+		\item Podobně jako selen se vzácně vyskytuje v ryzí formě, ale častěji je ve vázané formě jako tellurid a doprovází sulfidické rudy.
+	\end{itemize}
+	\begin{figure}
+		\adjincludegraphics[height=0.5\textheight]{img/Tellurium-89043.jpg}
+		\caption*{Tellur na sylvanitu (\ce{(Au,Ag)2Te2}).\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Tellurium-89043.jpg}{Christian Rewitzer/Commons}}}
+	\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item \textbf{Sylvanit}
+		\item \ce{(Au,Ag)2Te4}, monoklinický minerál. Patří mezi nejběžnější telluridy.\footnote[frame]{\href{http://geologie.vsb.cz/loziska/loziska/rudy/sylvanit.html}{Sylvanit}}
+		\item Poměr Au:Ag je blízký 1:1.\footnote[frame]{\href{https://www.mindat.org/min-3849.html}{Sylvanite}}
+	\end{itemize}
+	\begin{columns}
+		\begin{column}{.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=0.35\textheight]{img/Sylvanite.jpg}
+				\caption*{Sylvanit, Rumunsko.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Sylvanite.jpg}{Didier Descouens/Commons}}}
+			\end{figure}
+		\end{column}
+
+		\begin{column}{.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=0.35\textheight]{img/Gold-Sylvanite-282521.jpg}
+				\caption*{Sylvanit se zlatem.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Gold-Sylvanite-282521.jpg}{Robert M. Lavinsky/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{columns}
+		\begin{column}{.65\textwidth}
+			\begin{itemize}
+				\item Výroba telluru je z velké části podobná výrobě selenu.
+				\item Vysrážený oxid se převede na telluričitan:
+				\item \ce{TeO2 + 2 NaOH -> Na2TeO3 + H2O}
+				\item Ten je následně elektrolyticky redukován na tellur:\footnote[frame]{\href{https://doi.org/10.3389/fchem.2020.00084}{Electrochemical Mechanism of Tellurium Reduction in Alkaline Medium}}
+				\item \ce{Na2TeO3 + H2O -> Te + 2 NaOH + O2}
+				\item Nebo se postupuje podobně jako u selenu:
+				\item \ce{TeO2 + 2 SO2 + 2 H2O -> Te + 2 H2SO4}
+				\item Roční produkce telluru se pohybuje v rozmezí 400--700 tun.\footnote[frame]{\href{https://doi.org/10.1007/s11015-010-9280-7}{Selenium and tellurium: state of the markets, the crisis, and its consequences}} Hlavními producenty jsou Kanada, USA a Čína.
+			\end{itemize}
+		\end{column}
+
+		\begin{column}{.4\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=0.33\textheight]{img/Tellurium_crystal.jpg}
+				\caption*{Ultračistý tellur.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Tellurium_crystal.jpg}{Dschwen/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\subsection{Polonium}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{columns}
+		\begin{column}{.65\textwidth}
+			\begin{itemize}
+				\item Polonium je možné izolovat ze smolince (uraninitu), ale postup je zdlouhavý a obtížný. Jeho koncentrace je přibližně 0,1 mg/tunu rudy.
+				\item \ce{^{210}Po} se připravuje v reaktoru bombardováním jádra \ce{^{209}Bi} neutrony.
+				\item \ce{^{209}Bi + n -> ^{210}Bi -> ^{210}Po + e^-}
+				\item Poločas rozpadu \ce{^{210}Po} je 138,38 dne.
+				\item Výroba \ce{^{210}Po} probíhá v Rusku. Měsíčně se vyrobí asi 8 g, ty jsou pak lodí transportovány do USA.\footnote[frame]{\href{https://hps.org/documents/polonium_210_story.pdf}{Why \ce{^{210}Po}?}}
+			\end{itemize}
+		\end{column}
+
+		\begin{column}{.4\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=\textwidth]{img/Pechblende_Pribram.jpg}
+				\caption*{Uraninit, Příbram.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Pechblende_Pribram.jpg}{Weirdmeister/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+
+
+	\vfill
+}
+
+\section{Využití prvků}
+\subsection{Selen}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{columns}
+		\begin{column}{.6\textwidth}
+			\textbf{Barvení skla}
+				\begin{itemize}
+					\item Majoritní využití selenu, spotřebuje až 50~\% produkce selenu.\footnote[frame]{\href{https://ceramics.onlinelibrary.wiley.com/doi/pdf/10.1111/j.1151-2916.1919.tb18751.x}{Production of selenium red glass}}
+					\item V malých koncentracích způsobuje odbarvení skla.
+					\item Ve vyšších koncentracích (1-2 kg na tunu skla) způsobuje zabarvení skla do růžové až červené barvy.\footnote[frame]{\href{https://www.diva-portal.org/smash/get/diva2:11081/FULLTEXT01.pdf}{Red Glass Coloration – A Colorimetric and Structural Study}}
+					\item Společně se sulfidem kademnatým vytváří velmi kvalitní rubínově červenou barvu.
+				\end{itemize}
+		\end{column}
+		\begin{column}{.4\textwidth}
+		\begin{figure}
+			\adjincludegraphics[width=\textwidth]{img/Vintage_cranberry_glass.jpg}
+			\caption*{Sklo barvené selenem.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Vintage_cranberry_glass.jpg}{PetitPoulailler/Commons}}}
+		\end{figure}
+	\end{column}
+	\end{columns}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{columns}
+		\begin{column}{.6\textwidth}
+			\textbf{Xerox}
+			\begin{itemize}
+				\item Suchý kopírovací proces.
+				\item Byl vynalezen v letech 1937--1942.
+				\item Využívá se polovodivá vrstva, na které se vytvoří latentní obraz a na něj se přichytí toner.
+				\item Využívá se v kopírkách a laserových tiskárnách.
+				\item Proces se skládá z několika kroků:
+			\end{itemize}
+			\begin{enumerate}
+				\item Fotocitlivá vrstva (tenká vrstva amorfního selenu) je nejprve nabita působením elektrického pole (15~kV).
+				\item Obraz předlohy se promítne na tuto vrstvu. Místa, na která světlo nedopadne zůstanou nabitá.
+			\end{enumerate}
+		\end{column}
+		\begin{column}{.4\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=.65\textheight]{img/Xerographic_photocopy_process_cs.png}
+				\caption*{Princip xeroxu.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Xerographic_photocopy_process_cs.svg}{Yzmo/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{columns}
+		\begin{column}{.65\textwidth}
+			\begin{enumerate}
+				\setcounter{enumi}{2}
+				\item Toner se elektrostaticky přichytí na nabitou vrstvu. Zrna toneru mají velikost zhruba 10~$\mu$m a jsou triboelektricky (třením) nabita.
+				\item Toner se na papír přenese nabitím papíru.
+				\item Obraz je zafixován působením vyšší teploty a tlaku.
+				\item Válec je mechanicky očištěn.
+				\item Latentní obraz se vymaže působením silného světelného zdroje. Napětí klesne na cca 100~V.
+			\end{enumerate}
+
+			\begin{itemize}
+				\item V posledních letech se amorfní selen používá i pro konstrukci plošných detektorů RTG záření pro biomedicínské aplikace.\footnote[frame]{\href{https://doi.org/10.1016/j.jnoncrysol.2004.08.070}{Amorphous selenium as an X-ray photoconductor}}
+			\end{itemize}
+		\end{column}
+		\begin{column}{.4\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=.65\textheight]{img/Xerographic_photocopy_process_cs.png}
+				\caption*{Princip xeroxu.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Xerographic_photocopy_process_cs.svg}{Yzmo/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\textbf{Selenové usměrňovače}
+	\begin{itemize}
+		\item Polovodičové usměrňovače používané v~napájecích zdrojích s větším odběrem.
+		\item Byly tvořeny soustavou hliníkových nebo ocelových destiček potažených tenkou vrstvou bismutu nebo niklu.
+		\item Na povrchu destiček byla tenká vrstva (50-60~$\mu$m) selenu dopovaného halogeny.
+		\item Každá destička zvládne asi 20 V závěrného napětí.
+		\item Tyto usměrňovače byly postupně nahrazeny křemíkovými diodami, které jsou levnější, mají větší životnost a~menší úbytek napětí.
+		\item Při přetížení se z nich uvolňuje silně zapáchající a toxický selan,\footnote[frame]{\href{https://pubchem.ncbi.nlm.nih.gov/compound/533}{Hydrogen selenide}} \ce{H2Se}.
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{columns}
+		\begin{column}{.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=\textwidth]{img/Structure_selenium_rectifier.png}
+				\caption*{Struktura selenového usměrňovače.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Structure_selenium_rectifier.svg}{Stündle/Commons}}}
+			\end{figure}
+		\end{column}
+		\begin{column}{.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=.7\textwidth]{img/Selenium_Rectifier.jpg}
+				\caption*{Osmideskový selenový usměrňovač, 160~V, 450~mA.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Selenium_Rectifier.jpg}{Binarysequence/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\subsection{Tellur}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Většina vyrobeného telluru se spotřebuje při výrobě ocelí a jiných slitin.
+		\item Ocel s přídavkem telluru je snáze obrobitelná.
+		\item Tellur v olovu zvyšuje jeho pevnost a zvyšuje odolnost vůči působení kyseliny sírové.\footnote[frame]{\href{https://doi.org/10.1016/j.jallcom.2008.08.011}{Study on the structure and property of lead tellurium alloy as the positive grid of lead-acid batteries}}
+	\end{itemize}
+	\begin{figure}
+		\adjincludegraphics[height=0.4\textheight]{img/Car_battery_cross-section.jpg}
+		\caption*{Řez olověným akumulátorem.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Car_battery_cross-section.jpeg}{Ben Cossalter/Commons}}}
+	\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Významnou sloučeninou je tellurid kademnatý (\ce{CdTe}), má strukturu sfaleritu (ZnS).
+		\item Využívá se při konstrukci solárních článků, výhodou jsou malé náklady. Tenkovrstvé CdTe články patří mezi levnější a jsou velmi rozšířené.
+		\item Slitina s rtutí se využívá pro konstrukci MCT (Mercury Cadmium Telluride) detektorů pro infračervenou spektroskopii.\footnote[frame]{\href{http://irassociates.com/index.php?page=ln2-cooled}{LN2 Cooled HgCdTe Detectors}}
+	\end{itemize}
+	\begin{figure}
+		\adjincludegraphics[height=0.35\textheight]{img/Photodetector.jpg}
+		\caption*{Fotodetektor z CD-ROM mechaniky.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:CD-ROM_Photodetector.jpg}{H0dges/Commons}}}
+	\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{columns}
+		\begin{column}{.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=\textwidth]{img/TGIR2.jpg}
+				\caption*{Otevřený TGIR modul s MCT detektorem.}
+			\end{figure}
+		\end{column}
+		\begin{column}{.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=\textwidth]{img/TGIR3.jpg}
+				\caption*{Detail MCT detektoru.}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{figure}
+		\adjincludegraphics[height=.68\textheight]{img/Sphalerite-unit-cell-depth-fade-3D-balls.png}
+		\caption*{Krystalová struktura CdTe.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Sphalerite-unit-cell-depth-fade-3D-balls.png}{Benjah-bmm27/Commons}}}
+	\end{figure}
+	\vfill
+}
+
+\subsection{Polonium}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Polonium slouží jako zdroj $\alpha$ částic, např. pro měření tloušťky pomocí absorpce částic.\footnote[frame]{HÁLA, Jiří. \textit{Radioaktivní izotopy}. Tišnov: Sursum, 2013. ISBN 978-80-7323-248-1.}
+		\item \ce{^{210}_{\ 84}Po -> ^4_2He + ^{206}_{\ 82}Pb}
+		\item T$_\frac{1}{2}$ = 138,376 dne
+		\item Izotop $^{210}Po$ je vysoce toxický, právě díky vyzařování $\alpha$ částic. Rozpustná sůl $^{210}Po$ byla použita k otravě ruského agenta Alexandra Litviněnka.\footnote[frame]{\href{https://www.mirror.co.uk/news/uk-news/we-know-kgb-spy-poisoner-445700}{We know KGB spy poisoner}}
+		\item Tento izotop bývá také označován za hlavní příčinu rakoviny plic u~kuřáků, protože se vyskytuje v tabákovém kouři.\footnote[frame]{\href{https://www.cdc.gov/nceh/radiation/polonium-210.htm}{Facts About Exposure to Polonium-210 from Naturally-Occurring Sources}}
+		\item Dříve se využívala slitina s beryliem jako zdroj neutronů.
+		\item V současnosti se využívá jako $\alpha$ zářič pro neutralizaci elektrostatického náboje.
+	\end{itemize}
+	\vfill
+}
+
+\section{Sloučeniny}
+\subsection{Selenidy, telluridy a polonidy}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Chakogenidy jsou sloučeniny chalkogenů s elektropozitivnějšími prvky.
+		\item Jedná se o velice běžné minerály.
+		\item Formálně se jsou to soli bezkyslíkatých kyselin: \ce{H2Se}, \ce{H2Te} a \ce{H2Po}.
+		\item Mohou být jak stechiometrické, tak nestechiometrické.
+		\item Selenidy a telluridy se připravují přímou reakcí prvků.
+		\item Polonidy patří mezi nejstabilnější sloučeniny polonia.
+		\item Polonidy lanthanoidů jsou stabilní až do teploty 1000~$^\circ$C.
+		\item Reakcí roztoků alkalických kovů v kapalném amoniaku se selenem vznikají selenidy \ce{M2Se2}, \ce{M2Se3} a \ce{M2Se4}.
+		\item Reakcí GaSe s kovovým cesiem vzniká lineární molekula \ce{Cs10Ga6Se14}.\footnote[frame]{\href{https://doi.org/10.1002/anie.198109621}{\ce{[Ga6Se14]$^{10-}$}: A 1900 pm Long, Hexameric Anion}}
+	\end{itemize}
+	\begin{figure}
+		\adjincludegraphics[width=0.8\textwidth]{img/Ga6Se14.png}
+	\end{figure}
+	\vfill
+}
+
+\subsection{Hydridy}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Selan, \ce{H2Se}, je bezbarvý, toxický, páchnoucí plyn.
+		\item Připravuje se hydrolýzou selenidu hlinitého nebo rozkladem selenidu železnatého kyselinou chlorovodíkovou.
+		\end{itemize}
+		\begin{align*}
+			\ce{Al2Se3 + 6 H2O &-> 3 H2Se + 2 Al(OH)3}\\
+			\ce{FeSe + 2 HCl &-> H2Se + FeCl2}\\
+			\ce{Se + H2 &<=>[520 $^\circ$C] H2Se}
+		\end{align*}
+		\begin{itemize}
+		\item Při syntéze z prvků závisí výtěžek na teplotě, při vysoké teplotě dochází k rozkladu selanu.
+		\item Optimální teplotou je 520~$^\circ$C.
+		\item Na vzduchu hoří za vzniku \ce{SeO2}.
+		\item \ce{2 H2Se + 3 O2 -> 2 SeO2 + 2 H2O}
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Má podobné vlastnosti jako sulfan (p$K_a$ = 6,89), ale je kyselejší (p$K_a$ = 3,89).\footnote[frame]{\href{https://doi.org/10.1021/j100383a020}{Spectroscopic determination of the second dissociation constant of hydrogen selenide and the activity coefficients and spectral shifts of its ions}}
+		\item Využívá se pro dopování polovodičů selenem.
+		\item V organické syntéze se používá pro přípravu sloučenin obsahujících selen.\footnote[frame]{\href{https://www.thieme-connect.de/products/ejournals/pdf/10.1055/s-1980-28927.pdf}{A Convenient Synthesis of substituted Selenoureas from Methyl Carbamimidothioates (S-Methylpseudothioureas)}}
+		\item \ce{R^{1}-N=C=N-R^2 + H2Se -> \chemfig{R^1-NH-C(=[6]Se)-NH-R^2}}
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Tellan, \ce{H2Te}, je bezbarvý, toxický, páchnoucí plyn.
+		\item Připravuje se elektrolýzou roztoku kyseliny sírové, katoda elektrolyzéru je z kovového telluru.
+		\item Můžeme jej připravit také hydrolýzou \ce{Al2Te3}.
+		\item \ce{Al2Te3 + 6 H2O -> 2 Al(OH)3 + 3 H2Te}
+		\item Za laboratorní teploty se rozkládá, proto není možná příprava z prvků.
+		\item \ce{H2Te ->[RT] Te + H2}
+		\item Rozkládá se také působením vlhkého vzduchu a světla:
+		\item \ce{2 H2Te + O2 ->[h$\nu$] 2 Te + 2 H2O}
+		\item Na vzduchu hoří (podobně jako \ce{H2Se}) za vzniku \ce{TeO2}.
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Polan, \ce{PoH2}, je těkavá, nestabilní kapalina.
+		\item Na rozdíl od vody není kapalné skupenství způsobeno vodíkovými vazbami, ale van der Waalsovými interakcemi.
+		\item Jeho příprava je komplikována možností radiolýzy.
+		\item Příprava reakcí z prvků není proveditelná.
+		\item Malá množství lze připravit rozpouštěním polonia na hořčíkové fólii ve zředěné HCl.
+		\item Za vysokých tlaků vodíku (50--300 GPa) lze očekávat tvorbu dalších hydridových fází.\footnote[frame]{\href{https://doi.org/10.1039/C5RA19223D}{Prediction of stoichiometric \ce{PoH_n} compounds: crystal structures and properties)}}
+	\end{itemize}
+	\vfill
+}
+
+\subsection{Oxidy, hydroxidy a oxokyseliny}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item \textit{Oxid selenatý}, SeO, existuje pouze krátkodobě v plameni a není možné jej izolovat v pevném stavu.
+		\item \textit{Oxid seleničitý}, \ce{SeO2}, je bílá pevná látka.
+		\item Pevný oxid seleničitý je 1D polymer, ve kterém se střídají atomy Se a O.
+	\end{itemize}
+		\begin{figure}
+		\adjincludegraphics[width=0.5\textwidth]{img/Selenium-dioxide-chain-3D-balls.png}
+		\caption*{Struktura \ce{SeO2}.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Selenium-dioxide-chain-3D-balls.png}{Ben Mills/Commons}}}
+	\end{figure}
+	\begin{itemize}
+		\item Lze jej připravit přímou reakcí z prvků nebo oxidací selenu pomocí peroxidu vodíku nebo kyseliny dusičné.
+		\item Další možností je dehydratace kyseliny seleničité.
+		\item Oxid seleničitý sublimuje, čehož lze využít k jeho čištění.
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Ve vodě se rozpouští za vzniku kyseliny seleničité, s alkalickými hydroxidy poskytuje seleničitany.
+		\item \ce{SeO2 + H2O -> H2SeO3}
+		\item \ce{SeO2 + 2 NaOH -> Na2SeO3 + H2O}
+		\item Oxid seleničitý se využívá jako oxidační činidlo v organické syntéze.\footnote[frame]{\href{http://www.adichemistry.com/organic/organicreagents/seo2/selenium-dioxide-seo2.html}{Selenium dioxide}}
+		\item Dalším způsobem využití je barvení skla do červena, nebo k potlačování barvy skla způsobené železitými nečistotami.
+	\end{itemize}
+	\begin{figure}
+		\adjincludegraphics[width=0.38\textwidth]{img/Seleniumdioxide_oxidation.png}
+		\caption*{Oxidace pomocí \ce{SeO2}.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Seleniumdioxide_oxidation.svg}{Calvero/Commons}}}
+	\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Kyselina seleničitá, \ce{H2SeO3}, je bílá pevná, hygroskopická látka.
+		\item Lze ji připravit krystalizací vodného roztoku \ce{SeO2} nebo oxidací kovového selenu:
+		\item \ce{3 Se + 4 HNO3 + H2O -> 3 H2SeO3 + 4 NO}
+		\item Je to dvojsytná kyselina:
+		\begin{itemize}
+			\item p$K_a1$ = 2,62
+			\item p$K_a2$ = 8,32
+		\end{itemize}
+	\item Využívá se k barvení (selenování) oceli na modrošedou až černou barvu.\footnote[frame]{\href{https://www.nrafamily.org/articles/2020/2/11/gun-manufacturing-browning-vs-bluing}{Gun Manufacturing: Browning vs. Bluing}}
+	\end{itemize}
+	\begin{figure}
+		\adjincludegraphics[width=0.22\textwidth]{img/Selenous-acid-from-xtal-1971-3D-balls.png}
+		\caption*{Kyselina seleničitá.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Selenous-acid-from-xtal-1971-3D-balls.png}{Ben Mills/Commons}}}
+	\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Oxid selenový, \ce{SeO3}, je bílá pevná, hygroskopická látka.
+		\item Není možné ho připravit přímou oxidací selenu. Nejčastěji se připravuje reakcí oxidu sírového se selenanem:
+		\item \ce{SO3 + K2SeO4 -> K2SO4 + SeO3}
+		\item V pevném stavu vytváří cyklické tetramerní molekuly (\ce{SO3} vytváří cyklické trimery).
+		\item Stejně jako \ce{SO3} vytváří adukty s Lewisovými bazemi, např. pyridinem.
+	\end{itemize}
+	\begin{figure}
+		\adjincludegraphics[width=0.7\textwidth]{img/SeO3-tetramer.png}
+	\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{columns}
+		\begin{column}{.6\textwidth}
+			\begin{itemize}
+				\item Kyselina selenová, \ce{H2SeO4}, je bezbarvá, pevná, hygroskopická látka.
+				\item Stejně jako kyselina sírová je velmi silnou kyselinou.
+				\item Připravuje se oxidací oxidu seleničitého:
+				\item \ce{SeO2 + H2O2 -> H2SeO4}
+			\end{itemize}
+		\end{column}
+		\begin{column}{.4\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=\textwidth]{img/H2SeO4.png}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\begin{itemize}
+	\setlength{\itemindent}{-1em}
+		\item Lze ji připravit i oxidací selenu:
+		\item \ce{Se + 3 Cl2 + 4 H2O -> H2SeO4 + 6 HCl}
+		\item Dokáže rozpustit kovové zlato:\footnote[frame]{\href{https://doi.org/10.1021/ja02018a005}{Action of selenic acid on gold}}
+		\item \ce{2 Au + 6 H2SeO4 ->[300 $^\circ$C] 3 SeO2 + Au2(SeO4)3 + 6 H2O}
+		\item Při teplotách nad 200 $^\circ$C uvolňuje kyslík:
+		\item \ce{2 H2SeO4 -> 2 H2SeO3 + O2}
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item \textit{Oxid tellurnatý}, \ce{TeO}, je nestabilní sloučenina, existující pouze krátký čas. Zatím se jej nepodařilo izolovat v čistém stavu.
+		\item \textit{Oxid telluričitý}, \ce{TeO2}, existuje ve dvou polymorfních modifikacích.
+		\item Syntetický $\alpha$-\ce{TeO2} tvoří tetragonální krystaly, složené z tetraedrů \ce{TeO4} propojených všemi vrcholy. Je bezbarvý.
+		\item Připravuje se přímým slučování telluru s kyslíkem nebo dehydratací kyseliny kyseliny telluričité:
+		\item \ce{H2TeO3 -> TeO2 + H2O}
+		\item Přírodní $\beta$-\ce{TeO2} je rombický a má vrstevnatou strukturu.
+		\item Oxid tellurový, \ce{TeO3}, je pevná látka.
+		\item Vyskytuje se ve dvou formách:
+		\begin{itemize}
+			\item $\alpha$-\ce{TeO3} -- oranžový, struktura se skládá z oktaedrů \ce{TeO6}, které jsou propojeny vrcholy. Za vyšší teploty má silné oxidační účinky.
+			\item $\beta$-\ce{TeO3} -- šedý, romboedrická struktura. Méně reaktivní než $\alpha$ modifikace.
+		\end{itemize}
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{figure}
+		\adjincludegraphics[height=0.65\textheight]{img/Cryst_struct_teo2.png}
+		\caption*{Krystalová struktura \ce{TeO2}.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Cryst_struct_teo2.png}{Solid State/Commons}}}
+	\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item \textit{Kyselina tellurová}, \ce{H6TeO6}, je bílá, pevná látka.
+		\item Má oktaedrickou geometrii, analog kyseliny sírové, \ce{H2TeO4}, nebyl dosud připraven.
+		\item Připravuje se oxidací oxidu telluričitého nebo kovového telluru:
+		\item \ce{TeO2 + H2O2 + 2 H2O -> H6TeO6}
+		\item \ce{5 Te + 6 HClO3 + 12 H2O -> 5 H6TeO6 + 3 Cl2}
+		\item Termickou dehydratací vzniká oxid tellurový.
+		\item Má silné oxidační účinky:
+		\item \ce{H6TeO6 + 3 SO2 -> Te + 3 H2SO4}
+		\item \textit{Kyselina polymetatellurová}, \ce{(H2TeO4)_n}, je bílý, amorfní prášek.
+		\item Vzniká částečnou dehydratací kyseliny tellurové a na vzduchu se zpět hydratuje.
+		\item Od selenu i telluru známe i peroxokyseliny, např. kyselinu peroxoseleničitou (\ce{HOSeO(OOH)}).
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item \textit{Oxid polonatý}, \ce{PoO}, je černá pevná látka.
+		\item Vzniká radiolýzou \ce{PoSO3}, při kontaktu s kyslíkem nebo vodou se snadno oxiduje na poloničité sloučeniny.
+		\item \textit{Oxid poloničitý}, \ce{PoO2}, je žlutá krystalická látka. Krystaluje v kubické, plošně centrované soustavě (fluorit).
+		\item Vzniká přímou oxidací polonia nebo termických rozkladem poloničitých solí.
+		\item \ce{Po + O2 ->[250 $^\circ$C] PoO2}
+		\item Reakcí s halogenovodíkem poskytuje odpovídající poloničité halogenidy.
+		\item \ce{PoO2 + 4 HX -> PoX4 + 2 H2O}
+		\item \textit{Oxid poloniový}, \ce{PoO3}, byl připraven pouze ve stopovém množství.
+	\end{itemize}
+	\vfill
+}
+
+\subsection{Sulfidy}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Sulfidy selenu je možné připravit zahříváním selenu se sírou. Složení produktu pak závisí na poměru obou prvků.\footnote[frame]{\href{https://doi.org/10.1007/3-540-11345-2_11}{Cyclic selenium sulfides}}
+		\item \ce{2 Se + 6 S -> Se2S6}
+		\item Struktura je odvozena ze struktury \textit{cyklo}-oktasíry, kde je část atomů síry nahrazena atomy selenu.
+		\item Jejich obecný vzorec je \ce{Se_nS_{8-n}}.
+		\item Disulfid selenu se používá k léčbě kožních onemocnění a lupů.
+	\end{itemize}
+
+	\begin{columns}
+		\begin{column}{.33\textwidth}
+		\begin{figure}
+			\adjincludegraphics[height=.3\textheight]{img/Se3S5.png}
+			\caption*{\ce{1,3,5-Se3S5}}
+		\end{figure}
+		\end{column}
+
+		\begin{column}{.33\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=.3\textheight]{img/Selenmonosulfide.png}
+				\caption*{\ce{1,3,5,7-Se4S4}}
+			\end{figure}
+		\end{column}
+
+		\begin{column}{.33\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=.3\textheight]{img/Selenhexasulfide.png}
+				\caption*{\ce{1,2-Se2S6}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Sulfid polonatý, PoS, je černá nerozpustná látka.
+		\item Součin rozpustnosti je 28,3.
+		\item Připravuje se reakcí chloridu se sulfanem nebo srážením hydroxidu sulfidem amonným:
+		\item \ce{PoCl2 + H2S -> PoS + 2 HCl}
+		\item \ce{(NH4)2S + Po(OH)2 -> PoS + 2 NH3 + 2 H2O}
+		\item Vysoký součin rozpustnosti lze využít k odstraňování radioaktivního polonia z vody:\footnote[frame]{\href{https://doi.org/10.1134/S1066362215050148}{Use of Iron Sulfide for Removing Polonium from Liquid Radioactive Waste}}
+		\item \ce{FeS + Po^{2+} -> PoS v + Fe^{2+}}
+		\item Zahříváním dochází k rozkladu:
+		\item \ce{PoS -> Po + S}
+		\item Koncentrované kyseliny z něj uvolňují sulfan:
+		\item \ce{PoS + 2 HCl -> PoCl2 + H2S ^}
+	\end{itemize}
+	\vfill
+}
+
+\subsection{Nitridy}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Tetranitrid tetraselenu, \ce{Se4N4}, je oranžová látka, která velmi snadno exploduje (zahříváním nebo úderem).
+		\item Lze jej připravit reakcí chloridu seleničitého s bis(trimethylsilyl)amidem lithným.\footnote[frame]{\href{https://doi.org/10.1021/ic00060a031}{A simple, efficient synthesis of tetraselenium tetranitride}}
+		\item \small\ce{12 (Me3Si)2NLi + 2 Se2Cl2 + 8 SeCl4 -> 3 Se4N4 + 24 Me3SiCl + 12 LiCl}
+		\item Je \textit{termochromní}:\footnote[frame]{Termochromní látky mění barvu s teplotou}
+		\begin{itemize}
+			\item Při teplotě $-$195 $^\circ$C je žlutooranžový.
+			\item Při teplotě 100 $^\circ$C je červený.
+		\end{itemize}
+	\end{itemize}
+
+	\begin{figure}
+		\adjincludegraphics[width=.45\textwidth]{img/Se4N4.png}
+	\end{figure}
+	\vfill
+}
+
+\subsection{Halogenidy}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item V oxidačním čísle VI známe pouze fluoridy.
+		\item V nižších oxidačních stavech je známo větší množství halogenidů.
+		\item \ce{Se2F2} existuje ve dvou formách: \ce{FSe-SeF} a \ce{Se=SeF2}. Druhá forma vzniká při kondenzaci par za nízkých teplot.
+		\item Jediným stabilním chloridem selenu je \ce{Se2Cl2}, ten obsahuje vazbu \ce{Se-Se}.
+		\item Sloučeninu \ce{Te4I4} lze připravit reakcí telluru s nadbytkem jodu v křemenné trubici za teploty 950~$^\circ$C.\footnote[frame]{\href{https://doi.org/10.1107/S0108270191005656}{High‐temperature synthesis and structure redetermination of \ce{Te4I4}}} Reakční doba je sedm dnů, jodid tvoří černé jehlice.
+		\item Monokrystalová XRD analýza prokázala, že v krystalu je každý atom telluru obklopen dalšími dvěma tellury a dvěma jodidy. Tellury mají čtvercově planární geometrii, nevazebné elektronové páry jsou v kolmé rovině.
+		\item Fluorid tellurnatý není dosud znám.
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{figure}
+		\adjincludegraphics[width=.8\textwidth]{img/Te4I4.png}
+		\caption*{Krystalová struktura \ce{Te4I4}}
+	\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item \textbf{Fluorid seleničitý}, \ce{SeF4}, je bezbarvá, reaktivní kapalina.
+		\item Krystaluje za vzniku bílé, hygroskopické pevné látky.
+		\item Připravuje se fluorací selenu:
+		\item \ce{Se + 2 F2 -> SeF4}
+		\item \ce{3 Se + 4 ClF3 -> 3 SeF4 + 2 Cl2}
+		\item Další možností je fluorace oxidu seleničitého pomocí \ce{SF4}:\footnote[frame]{\href{https://doi.org/10.1002/9780470132555.ch9}{Selenium Tetrafluoride, Selenium Difluoride Oxide (Seleninyl Fluoride), and Xenon Bis[Pentafluorooxoselenate(VI)]}}
+		\item \ce{SeO2 + SF4 -> SeF4 + SO2}
+		\item Využívá se jako fluorační činidlo.
+		\item V souladu s teorií VSEPR má molekula tvar houpačky.
+		\item Reakcí s CsF poskytuje pentafluoroseleničitany:\footnote[frame]{\href{https://doi.org/10.1021/ic50113a046}{Vibrational spectra nad force constants of the square-pyramidal anions SF$_5^-$, SeF$_5^-$, and TeF$_5^-$}}
+		\item \ce{SeF4 + CsF -> Cs[SeF5]}
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item \textbf{Chlorid seleničitý}, \ce{SeCl4}, je žlutá pevná látka. Sublimuje při teplotě 191~$^\circ$C.
+		\item Připravuje se přímou chlorací selenu, produkt lze izolovat sublimací. Těkavosti této sloučeniny lze využít k čištění selenu.
+		\item Na rozdíl od fluoridu neodpovídá tvar molekuly teorii VSEPR.
+		\item Chlorid seleničitý vytváří tetramerní, kubické molekuly. Ty jsou tvořeny oktaedry \ce{SeCl6}.\footnote[frame]{\href{https://dx.doi.org/10.1515/znb-1981-1231}{Crystal Structure of the Stable Modification of \ce{SeCl4}}}
+		\item Hydrolýzou vzniká kyselina seleničitá:\footnote[frame]{\href{https://www.chemicalpapers.com/?id=7&paper=7448}{Synthesis of pure selenium tetrachloride and its hydrolysis to selenium oxychloride}}
+		\item \ce{SeCl4 + 3 H2O -> H2SeO3 + 4 HCl}
+		\item V prostředí koncentrované HCl poskytuje s chloridy alkalických kovů komplexní ionty:
+		\item \ce{SeCl4 + 2 KCl -> K2[SeCl6]}
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{figure}
+		\adjincludegraphics[height=.7\textheight]{img/SeCl4-xtal.png}
+		\caption*{Kubická jednotka chloridu seleničitého.\footnote[frame]{\href{https://commons.wikimedia.org/wiki/File:SeCl4-from-alpha-xtal-1981-CM-3D-ellipsoids.png}{Zdroj: Ben Mills/Commons}}}
+	\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item \textbf{Fluorid telluričitý}, \ce{TeF4}, je bílá, hygroskopická látka (T$_t$ = 129~$^\circ$C).
+		\item Připravuje se fluorací \ce{TeO2}, příp. opatrnou fluorací telluru nebo tellurnatých sloučenin směsí fluoru a dusíku.
+		\item \ce{TeO2 + 2 SF4 -> TeF4 + 2 SOF2}
+		\item \ce{Te + 2 F2 ->[N2] TeF4}
+		\item Připravený fluorid lze vyčistit vakuovou sublimací při 100~$^\circ$C.
+		\item V plynné fázi je monomerní.
+		\item V krystalickém stavu vytváří řetězce tvořené tetragonálními pyramidami \ce{TeF5}, ty jsou propojeny můstkovými fluoridy v poloze \textit{cis}.\footnote[frame]{\href{https://doi.org/10.1039/J19680002977}{Fluoride crystal structures. Part IV. Tellurium tetrafluoride}}
+		\item Úhel \ce{Te-F-Te} je 159$^\circ$.
+		\item Volná pozice oktaedru je obsazena nevazebným elektronovým párem.
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{figure}
+		\adjincludegraphics[height=.7\textheight]{img/TeF4.png}
+		\caption*{Krystalová struktura \ce{TeF4}.\footnote[frame]{\href{https://en.wikipedia.org/wiki/File:Tellurium-tetrafluoride-xtal-1984-3D-balls.png}{Zdroj: Ben Mills/Commons}}}
+	\end{figure}
+	\vfill
+}
+
+\subsection{Organokovové sloučeniny selenu}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Oxidační číslo selenu je převážně II a selen nese dva nevazebné elektronové páry.
+		\item Sloučeniny jsou nukleofilnější a kyselejší než odpovídající sloučeniny síry.
+		\item První připravenou organokovovou sloučeninou selenu byl diethylselan (\ce{Et2Se}).\footnote[frame]{\href{https://doi.org/10.1021/cr900352j}{Organoselenium Chemistry: Role of Intramolecular Interactions}}
+	\end{itemize}
+	\begin{columns}
+	\begin{column}{.4\textwidth}
+		\begin{tabular}{|l|l|l|l|}
+		\hline
+		XH & \ce{H2O} & \ce{H2S} & \ce{H2Se} \\\hline
+		p$K_a$ & 14 & 7 & 3,8 \\\hline
+	\end{tabular}
+	\end{column}
+	\begin{column}{.6\textwidth}
+	\begin{figure}
+	\adjincludegraphics[width=\textwidth]{img/organoselenium.png}
+	\end{figure}
+	\end{column}
+	\end{columns}
+	\vfill
+}
+
+\subsection{Organokovové sloučeniny telluru}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Struktury organokovových sloučenin telluru jsou podobné jako v~případě selenu.
+		\item Běžnými reagenty jsou tellan, hydrogentellurid sodný a fenyltellurid lithný (\ce{PhTeLi}).
+		\item Kovový tellur je nerozpustný, proto není ideální výchozí látkou. Reaguje ale s komplexními hydridy:
+		\item \ce{Te + 2 LiBHEt3 -> Li2Te + H2 + 2 Et3B}
+		\item nebo s organolitnými sloučeninami:
+		\item \ce{Te + PhLi -> PhTeLi}
+		\item Dimethyltellurid se používá jako těkavý prekurzor Te.
+		\item \ce{Me2Te}, stejně jako \ce{Me2Se} tvoří ochotně adukty:\footnote[frame]{\href{https://doi.org/10.1016/j.jorganchem.2017.08.004}{Complexes of \ce{BX3} with \ce{EMe2}}}
+		\item \ce{Me2Te + BCl3 ->[hexan] Me2Te.BCl3}
+		\item \ce{Me2Te + BF3 ->[CH2Cl2] Me2Te.BF3}
+	\end{itemize}
+	\vfill
+}
+
+\subsection{Organokovové sloučeniny polonia}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item U polonia jsou znalosti o organokovových sloučeninách menší.\footnote[frame]{\href{https://doi.org/10.1002/9781119951438.eibc0182}{Polonium: Organometallic Chemistry}}
+		\item Problémem je nejen radiolýza organokovových sloučenin, ale i problémy se získáním dostatečného množství kovového polonia.
+		\item Známe následující typy sloučenin:
+		\begin{itemize}
+			\item Dialkyl a diarylpolonidy
+			\item Halogenidy triarylpolonia (\ce{Ar3PoCl})
+			\item Dihalogenidy diarylpolonia (\ce{Ar2PoCl2})
+			\item Diarylpoloniumoxidy (\ce{(C9H11)2Po=O})
+		\end{itemize}
+	\end{itemize}
+	\begin{figure}
+		\adjincludegraphics[height=.35\textheight]{img/Ar2PoO.png}
+	\end{figure}
+	\vfill
+}
+
+\section{Biologie}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{columns}
+		\begin{column}{.7\textwidth}
+			\begin{itemize}
+				\item Selen je větším množství toxický, ale ve stopovém množství je pro živočichy nezbytný.\footnote[frame]{\href{https://dx.doi.org/10.1001/archinternmed.2009.495}{Acute Selenium Toxicity Associated With a Dietary Supplement}}
+				\item Je součástí aminokyselin selenocysteinu a selenomethioninu.
+				\item Komerčně jsou dostupné doplňky stravy obsahující selen.\footnote[frame]{\href{https://www.bezpecnostpotravin.cz/selen-zdroje-ucinky-a-zasobovani.aspx}{Selen – zdroje, účinky a zásobování}}
+				\item Doporučená denní dávka selenu pro člověka je 1~mg.kg$^{-1}$.\footnote[frame]{\href{https://www.wikiskripta.eu/w/Selen}{Selen}}
+				\item Přirozeným zdrojem selenu jsou cereálie a~mořské produkty.
+				\item Otravy selenem jsou vzácné, akutní otrava se projevuje česnekovým zápachem potu a z úst. Chronická vypadáváním vlasů a nehtů.
+			\end{itemize}
+		\end{column}
+		\begin{column}{.35\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=.75\textheight]{img/Se-AminoAcids.png}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{figure}
+		\adjincludegraphics[height=0.2\textheight]{img/ebselen.png}
+	\end{figure}
+	\begin{itemize}
+		\item Syntetické léčivo \textit{ebselen} má anti-oxidační účinky a zdá se být slibným léčivem proti COVID-19.\footnote[frame]{\href{https://www.nature.com/articles/s41586-020-2223-y}{Structure of Mpro from SARS-CoV-2 and discovery of its inhibitors}}
+		\item Syntéza ebselenu a jeho derivátů probíhá podle schématu:\footnote[frame]{\href{https://doi.org/10.1002/hc.21164}{Synthesis and Antioxidant Activities of Novel Chiral Ebselen Analogues}}
+	\end{itemize}
+	\begin{figure}
+		\adjincludegraphics[width=\textwidth]{img/Ebselen_Routes.png}
+	\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{columns}
+	\begin{column}{.55\textwidth}
+		\begin{itemize}
+			\item Tellur není příliš rozšířený v biologických systémech a jeho toxikologie není dosud příliš prozkoumaná.\footnote[frame]{\href{https://doi.org/10.1007/978-1-4614-1533-6_504}{Tellurium in Nature}}
+			\item Lidem a zvířatům je po expozici, i velmi malým množstvím telluru, cítit dech po česneku. Tento efekt je způsoben vznikem těkavého \ce{Me2Te}.\footnote[frame]{\href{https://doi.org/10.1039/C0OB00086H}{Tellurium: an element with great biological potency and potential}}
+			\item Některé houby (např. \textit{Aspergillus fumigatus} a \textit{Aspergillus terreus}) dokáží místo síry využívat tellur.\footnote[frame]{\href{https://doi.org/10.1007/BF02917437}{Incorporation of tellurium into amino acids and proteins in a tellurium-tolerant fungi}}
+		\end{itemize}
+	\end{column}
+	\begin{column}{.5\textwidth}
+		\begin{figure}
+		\adjincludegraphics[width=\textwidth]{img/Aspergillus_on_tomato.jpg}
+		\caption{Plíseň Aspergillus na rajčeti.\footnote[frame]{\href{https://commons.wikimedia.org/wiki/File:Aspergillus_on_tomato.jpg}{Zdroj: Multimotyl/Commons}}}
+		\end{figure}
+	\end{column}
+	\end{columns}
+	\vfill
+}
+
+\input{../Last}
+
+\end{document}
