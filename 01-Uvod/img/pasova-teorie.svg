@@ -28,8 +28,8 @@
      inkscape:document-units="mm"
      showgrid="true"
      inkscape:zoom="1.5091049"
-     inkscape:cx="204.09449"
-     inkscape:cy="556.62133"
+     inkscape:cx="257.10605"
+     inkscape:cy="694.45139"
      inkscape:window-width="1602"
      inkscape:window-height="1027"
      inkscape:window-x="1272"
@@ -67,47 +67,135 @@
      inkscape:groupmode="layer"
      id="layer1">
     <path
-       style="fill:#000000;stroke:#000000;stroke-width:1.465;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;image-rendering:auto;marker-start:url(#Arrow2);stroke-miterlimit:15.8;stroke-dasharray:none"
-       d="M 26.298701,47.337662 26.139943,127.9867 25.948052,225.46753"
+       style="fill:#000000;stroke:#000000;stroke-width:1.48653;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:15.8;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow2);image-rendering:auto"
+       d="m 26.300467,107.358 -0.226123,58.29964 -0.273314,70.46703"
        id="path72"
        sodipodi:nodetypes="ccc" />
     <rect
-       style="display:inline;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-miterlimit:15.8;stroke-dasharray:none;stroke-opacity:1"
-       id="rect2150-2-7"
-       width="16.48052"
-       height="39.623375"
-       x="37.309032"
-       y="87.837662" />
-    <path
-       style="fill:#0000ff;fill-opacity:1;stroke:#000000;stroke-width:0.662644;stroke-miterlimit:15.8;stroke-dasharray:none;stroke-opacity:1"
-       d="m 37.507489,219.95106 c -0.09356,-0.24451 -0.129135,-9.35983 -0.07906,-20.25625 l 0.09105,-19.81169 h 8.59091 8.590906 v 20.16234 20.16233 l -8.511849,0.0939 c -6.61948,0.073 -8.549671,-0.005 -8.681958,-0.35065 z"
-       id="path2296" />
-    <rect
-       style="display:inline;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-miterlimit:15.8;stroke-dasharray:none;stroke-opacity:1"
+       style="display:inline;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.388871;stroke-miterlimit:15.8;stroke-dasharray:none;stroke-opacity:1"
        id="rect2150-2-7-1"
-       width="16.48052"
-       height="39.623375"
-       x="74.279442"
-       y="132.467" />
+       width="15.364377"
+       height="25.708529"
+       x="64.169701"
+       y="148.55403" />
+    <rect
+       style="display:inline;fill:#0000ff;fill-opacity:1;stroke:#000000;stroke-width:0.388871;stroke-miterlimit:15.8;stroke-dasharray:none;stroke-opacity:1"
+       id="rect2150-2-7-1-3"
+       width="15.364377"
+       height="25.708529"
+       x="37.025604"
+       y="171.5873" />
+    <rect
+       style="display:inline;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.388871;stroke-miterlimit:15.8;stroke-dasharray:none;stroke-opacity:1"
+       id="rect2150-2-7-1-28"
+       width="15.364377"
+       height="25.708529"
+       x="36.850281"
+       y="157.03535" />
     <path
-       style="fill:#0000ff;fill-opacity:1;stroke:#000000;stroke-width:0.662644;stroke-miterlimit:15.8;stroke-dasharray:none;stroke-opacity:1"
-       d="m 74.477898,220.4875 c -0.09356,-0.24451 -0.129135,-9.35983 -0.07906,-20.25625 l 0.09105,-19.81169 h 8.59091 8.590906 v 20.16234 20.16233 l -8.511849,0.0939 c -6.61948,0.073 -8.549671,-0.005 -8.681958,-0.35065 z"
+       id="rect2150-2-7-1-3-2"
+       style="display:inline;fill:#ff0000;fill-opacity:1;stroke:#000000;stroke-width:0.388871;stroke-miterlimit:15.8;stroke-dasharray:none;stroke-opacity:1"
+       d="m 37.113292,171.67478 v 11.15695 h 15.189254 v -11.15695 z" />
+    <rect
+       style="display:inline;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.388871;stroke-miterlimit:15.8;stroke-dasharray:none;stroke-opacity:1"
+       id="rect2150-2-7-1-2"
+       width="15.364377"
+       height="25.708529"
+       x="90.164948"
+       y="132.94579" />
+    <path
+       style="fill:#0000ff;fill-opacity:1;stroke:#000000;stroke-width:0.497564;stroke-miterlimit:15.8;stroke-dasharray:none;stroke-opacity:1"
+       d="m 63.927322,205.76676 c -0.08269,-0.15599 -0.114117,-5.97165 -0.06985,-12.92367 l 0.08046,-12.64006 h 7.591847 7.591843 v 12.86376 12.86378 l -7.52198,0.0599 c -5.849681,0.0466 -7.555404,-0.003 -7.672307,-0.22373 z"
        id="path2296-8" />
     <path
-       style="fill:#0000ff;fill-opacity:1;stroke:#000000;stroke-width:0.499999;stroke-miterlimit:15.8;stroke-dasharray:none;stroke-opacity:1"
-       d="m 127.28006,201.62338 v -19.63637 h 8.06498 8.06497 v 19.63637 19.63636 h -8.06497 -8.06498 z"
-       id="path2574-3" />
+       style="fill:#0000ff;fill-opacity:1;stroke:#000000;stroke-width:0.497564;stroke-miterlimit:15.8;stroke-dasharray:none;stroke-opacity:1"
+       d="m 90.231378,221.37111 c -0.08269,-0.15599 -0.114117,-5.97165 -0.06985,-12.92367 l 0.08046,-12.64006 h 7.591847 7.591875 v 12.86376 12.86378 l -7.522012,0.0599 c -5.849681,0.0466 -7.555404,-0.003 -7.672307,-0.22373 z"
+       id="path2296-8-1" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="38.762718"
+       y="205.65585"
+       id="text373"><tspan
+         sodipodi:role="line"
+         id="tspan371"
+         x="38.762718"
+         y="205.65585"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583">Kov</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="58.696827"
+       y="214.65567"
+       id="text373-6"><tspan
+         sodipodi:role="line"
+         id="tspan371-7"
+         x="58.696827"
+         y="214.65567"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583">Polovodič</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="89.043968"
+       y="229.0323"
+       id="text373-6-4"><tspan
+         sodipodi:role="line"
+         id="tspan371-7-7"
+         x="89.043968"
+         y="229.0323"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583">Izolant</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="83.732864"
+       y="176.03874"
+       id="text373-6-4-3"><tspan
+         sodipodi:role="line"
+         id="tspan371-7-7-2"
+         x="83.732864"
+         y="176.03874"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583">Fermiho energie</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="106.94917"
+       y="210.75304"
+       id="text373-6-4-9"><tspan
+         sodipodi:role="line"
+         id="tspan371-7-7-0"
+         x="106.94917"
+         y="210.75304"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583">Valenční pás</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="106.51716"
+       y="147.70526"
+       id="text373-6-4-9-7"><tspan
+         sodipodi:role="line"
+         x="106.51716"
+         y="147.70526"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"
+         id="tspan1736">Vodivostní pás</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="-131.78226"
+       y="23.540899"
+       id="text373-6-8"
+       transform="rotate(-90)"><tspan
+         sodipodi:role="line"
+         id="tspan371-7-5"
+         x="-131.78226"
+         y="23.540899"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583">Energie</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.579;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:4.632, 2.31599;stroke-dashoffset:0;stroke-opacity:1"
+       d="m 19.476731,177.44792 119.396719,0.35031"
+       id="path664" />
   </g>
   <g
      inkscape:groupmode="layer"
      id="layer2"
-     inkscape:label="Vrstva 2">
-    <rect
-       style="display:inline;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-miterlimit:15.8;stroke-dasharray:none;stroke-opacity:1"
-       id="rect2150-2"
-       width="16.48052"
-       height="39.623375"
-       x="127.10452"
-       y="151.65584" />
-  </g>
+     inkscape:label="Vrstva 2" />
 </svg>
