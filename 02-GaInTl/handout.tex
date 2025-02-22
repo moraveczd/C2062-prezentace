@@ -1,0 +1,78 @@
+\documentclass[17pt,a4paper,twoside]{extarticle}
+
+\usepackage{geometry}
+\usepackage[absolute,overlay]{textpos}
+\usepackage{graphicx}
+\usepackage{adjustbox}
+\usepackage{chemfig}
+\usepackage[version=4]{mhchem}
+\usepackage{wrapfig}
+\usepackage{multirow}
+\adjustboxset*{center}
+\usepackage{subcaption}
+\usepackage{chemformula}
+\usepackage{elements}
+\usepackage{hyperref}
+\usepackage{lastpage}
+
+\usepackage{parskip}
+\usepackage{multicol}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead{} % clear all header fields
+\fancyhead[LE]{\textbf{Poznámky k prezentaci GaInTl}}
+\fancyhead[RO]{\textbf{https://is.muni.cz/www/moravec/c2062_anorganicka_chemie_ii/index.html}}
+
+\fancyfoot{} % clear all footer fields
+\fancyfoot[LE,RO]{\thepage / \pageref{LastPage}}
+\lfoot{\leftmark}
+
+\makeatletter
+\renewcommand{\sectionmark}[1]{%
+	\markboth{\ifnum \c@secnumdepth>\z@
+		\thesection\hskip 1em\relax
+		\fi #1}{}}
+\makeatother
+
+%dělení slov
+\usepackage{ragged2e}
+\let\raggedright=\RaggedRight
+%konec dělení slov
+
+\usepackage{fontspec}
+\usepackage{unicode-math}
+
+\usepackage{titlesec}
+\titleformat{\chapter}[display]
+{\normalfont\bfseries}{}{0pt}{\Large}
+
+\usepackage{vcell}
+
+\usepackage{polyglossia}
+\setdefaultlanguage{czech}
+
+\def\uv#1{„#1“}
+
+\def\zadani#1{\emph{#1}}
+
+\def\odpoved#1{\textbf{#1}}
+
+\begin{document}
+	
+\title{Poznámky k prezentaci GaInTl}
+\author{Zdeněk Moravec, hugo@chemi.muni.cz \\
+	\href{https://is.muni.cz/www/moravec/c2062_anorganicka_chemie_ii/}{is.muni.cz/www/moravec/}}
+
+\maketitle
+
+\begin{itemize}
+	\item Nakreslit princip \textbf{Czochralskiho metody} přípravy monokrystalů
+	\item \textbf{KRS5} -- stručně princip IR
+	\item \textbf{Matricová izolace}
+	\item \ce{^{113m}In -> ^{113m}In + $\gamma$}
+	\item \textbf{Friedel-Crafts:} \ce{R-Cl + GaCl3 -> R+ + [GaCl4]-}
+\end{itemize}
+
+	
+\end{document}

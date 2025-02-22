@@ -1,0 +1,40 @@
+{
+    "InternalPDFViewer": {
+        "Embedded": true,
+        "File": ""
+    },
+    "Session": {
+        "Bookmarks": [
+        ],
+        "CurrentFile": "handout.tex",
+        "FileVersion": 1,
+        "Files": [
+            {
+                "Col": 72,
+                "EditorGroup": 0,
+                "FileName": "GaInTl.tex",
+                "FirstLine": 173,
+                "FoldedLines": "",
+                "Line": 173
+            },
+            {
+                "Col": 96,
+                "EditorGroup": 0,
+                "FileName": "GaInTl-handout.tex",
+                "FirstLine": 1531,
+                "FoldedLines": "",
+                "Line": 1551
+            },
+            {
+                "Col": 13,
+                "EditorGroup": 0,
+                "FileName": "handout.tex",
+                "FirstLine": 15,
+                "FoldedLines": "",
+                "Line": 62
+            }
+        ],
+        "MasterFile": "",
+        "VerticalSplit": false
+    }
+}
