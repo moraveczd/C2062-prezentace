@@ -1,0 +1,32 @@
+{
+    "InternalPDFViewer": {
+        "Embedded": true,
+        "File": "AsSbBi-handout.pdf"
+    },
+    "Session": {
+        "Bookmarks": [
+        ],
+        "CurrentFile": "AsSbBi-handout.tex",
+        "FileVersion": 1,
+        "Files": [
+            {
+                "Col": 95,
+                "EditorGroup": 0,
+                "FileName": "AsSbBi.tex",
+                "FirstLine": 0,
+                "FoldedLines": "",
+                "Line": 22
+            },
+            {
+                "Col": 0,
+                "EditorGroup": 0,
+                "FileName": "AsSbBi-handout.tex",
+                "FirstLine": 0,
+                "FoldedLines": "",
+                "Line": 0
+            }
+        ],
+        "MasterFile": "",
+        "VerticalSplit": false
+    }
+}
