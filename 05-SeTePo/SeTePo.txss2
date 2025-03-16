@@ -1,0 +1,32 @@
+{
+    "InternalPDFViewer": {
+        "Embedded": true,
+        "File": "SeTePo-handout.pdf"
+    },
+    "Session": {
+        "Bookmarks": [
+        ],
+        "CurrentFile": "SeTePo-handout.tex",
+        "FileVersion": 1,
+        "Files": [
+            {
+                "Col": 19,
+                "EditorGroup": 0,
+                "FileName": "SeTePo.tex",
+                "FirstLine": 0,
+                "FoldedLines": "",
+                "Line": 4
+            },
+            {
+                "Col": 21,
+                "EditorGroup": 0,
+                "FileName": "SeTePo-handout.tex",
+                "FirstLine": 0,
+                "FoldedLines": "",
+                "Line": 5
+            }
+        ],
+        "MasterFile": "",
+        "VerticalSplit": false
+    }
+}
