@@ -1,0 +1,32 @@
+{
+    "InternalPDFViewer": {
+        "Embedded": true,
+        "File": "TiZrHf-handout.pdf"
+    },
+    "Session": {
+        "Bookmarks": [
+        ],
+        "CurrentFile": "TiZrHf-handout.tex",
+        "FileVersion": 1,
+        "Files": [
+            {
+                "Col": 78,
+                "EditorGroup": 0,
+                "FileName": "TiZrHf.tex",
+                "FirstLine": 66,
+                "FoldedLines": "",
+                "Line": 89
+            },
+            {
+                "Col": 78,
+                "EditorGroup": 0,
+                "FileName": "TiZrHf-handout.tex",
+                "FirstLine": 67,
+                "FoldedLines": "",
+                "Line": 89
+            }
+        ],
+        "MasterFile": "",
+        "VerticalSplit": false
+    }
+}
