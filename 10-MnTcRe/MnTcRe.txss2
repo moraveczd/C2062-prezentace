@@ -1,0 +1,32 @@
+{
+    "InternalPDFViewer": {
+        "Embedded": true,
+        "File": "MnTcRe-handout.pdf"
+    },
+    "Session": {
+        "Bookmarks": [
+        ],
+        "CurrentFile": "MnTcRe-handout.tex",
+        "FileVersion": 1,
+        "Files": [
+            {
+                "Col": 0,
+                "EditorGroup": 0,
+                "FileName": "MnTcRe.tex",
+                "FirstLine": 0,
+                "FoldedLines": "",
+                "Line": 0
+            },
+            {
+                "Col": 17,
+                "EditorGroup": 0,
+                "FileName": "MnTcRe-handout.tex",
+                "FirstLine": 0,
+                "FoldedLines": "",
+                "Line": 5
+            }
+        ],
+        "MasterFile": "",
+        "VerticalSplit": false
+    }
+}
