@@ -1,0 +1,32 @@
+{
+    "InternalPDFViewer": {
+        "Embedded": true,
+        "File": "CuAgAu.pdf"
+    },
+    "Session": {
+        "Bookmarks": [
+        ],
+        "CurrentFile": "CuAgAu.tex",
+        "FileVersion": 1,
+        "Files": [
+            {
+                "Col": 9,
+                "EditorGroup": 0,
+                "FileName": "CuAgAu.tex",
+                "FirstLine": 1356,
+                "FoldedLines": "",
+                "Line": 1378
+            },
+            {
+                "Col": 1,
+                "EditorGroup": 0,
+                "FileName": "CuAgAu-handout.tex",
+                "FirstLine": 1405,
+                "FoldedLines": "",
+                "Line": 1412
+            }
+        ],
+        "MasterFile": "",
+        "VerticalSplit": false
+    }
+}
