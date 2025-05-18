@@ -1,0 +1,32 @@
+{
+    "InternalPDFViewer": {
+        "Embedded": true,
+        "File": "ModerniAnorg.pdf"
+    },
+    "Session": {
+        "Bookmarks": [
+        ],
+        "CurrentFile": "ModerniAnorg.tex",
+        "FileVersion": 1,
+        "Files": [
+            {
+                "Col": 0,
+                "EditorGroup": 0,
+                "FileName": "ModerniAnorg.tex",
+                "FirstLine": 286,
+                "FoldedLines": "",
+                "Line": 295
+            },
+            {
+                "Col": 0,
+                "EditorGroup": 0,
+                "FileName": "ModerniAnorg-handout.tex",
+                "FirstLine": 1746,
+                "FoldedLines": "",
+                "Line": 1775
+            }
+        ],
+        "MasterFile": "",
+        "VerticalSplit": false
+    }
+}
