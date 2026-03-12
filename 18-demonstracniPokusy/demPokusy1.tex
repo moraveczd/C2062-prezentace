@@ -1,0 +1,218 @@
+\documentclass[hyperref=unicode, presentation,10pt]{beamer}
+
+\usepackage[absolute,overlay]{textpos}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{adjustbox}
+\usepackage{mhchem}
+\usepackage{chemfig}
+\usepackage{caption}
+
+%dělení slov
+\usepackage{ragged2e}
+\let\raggedright=\RaggedRight
+%konec dělení slov
+
+\addtobeamertemplate{frametitle}{
+	\let\insertframetitle\insertsectionhead}{}
+\addtobeamertemplate{frametitle}{
+	\let\insertframesubtitle\insertsubsectionhead}{}
+
+\makeatletter
+\CheckCommand*\beamer@checkframetitle{\@ifnextchar\bgroup\beamer@inlineframetitle{}}
+\renewcommand*\beamer@checkframetitle{\global\let\beamer@frametitle\relax\@ifnextchar\bgroup\beamer@inlineframetitle{}}
+\makeatother
+\setbeamercolor{section in toc}{fg=red}
+\setbeamertemplate{section in toc shaded}[default][100]
+
+\usepackage{fontspec}
+\usepackage{unicode-math}
+
+\usepackage{polyglossia}
+\setdefaultlanguage{czech}
+
+\def\uv#1{„#1“}
+
+\mode<presentation>{\usetheme{default}}
+\usecolortheme{crane}
+
+\setbeamertemplate{footline}[frame number]
+
+\title[Crisis]
+{C2062 -- Anorganická chemie II}
+
+\subtitle{Demonstrační pokusy -- p-blok}
+\author{Zdeněk Moravec, hugo@chemi.muni.cz \\ \adjincludegraphics[height=60mm]{../IUPAC_PSP.jpg}}
+\date{}
+
+\begin{document}
+\begin{frame}
+	\titlepage
+\end{frame}
+
+\section{Demonstrační pokusy -- p-blok}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\textbf{Redukční účinky cínatých iontů}
+	\begin{itemize}
+		\item \ce{2 HgCl2 + Sn^{2+} -> Hg2Cl2 + Sn^{4+} + 2 Cl^-} (bílá)
+		\item \ce{Hg2Cl2 + Sn^{2+} -> Hg^0 + Sn^{4+} + 2 Cl^-} (šedá)
+	\end{itemize}
+	\vspace{5mm}
+	\hrule
+	\vspace{5mm}
+
+	\textbf{Analytické reakce olovnatých iontů}
+	\begin{itemize}
+		\item \ce{Pb^{2+} + 2 Cl^- -> PbCl2} (bílá)
+		\item \ce{PbCl2 + 2 Cl^- -> [PbCl4]^{2-}}
+		\item \ce{[PbCl4]^{2-} + 2 Cl^- -> [PbCl6]^{4-}}
+		\item \ce{Pb^{2+} + 2 SO$_4^{2-}$ -> PbSO4}
+		\item \ce{Pb^{2+} + H2SO4 -> Pb(HSO4)2}
+		\item \ce{Pb^{2+} + 2 OH^- -> Pb(OH)2}
+		\item \ce{Pb(OH)2 + 2 OH^- -> [Pb(OH)4]^{2-}}
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\textbf{Chromová žluť}
+	\begin{itemize}
+		\item Olovo je součástí několika pigmentů, vzhledem k toxicitě olova se ale už dnes nepoužívají.
+		\item Chromová žluť, \ce{PbCrO4}, v přírodě se nachází jako minerál \textit{krokoit}.\footnote[frame]{\href{https://mineraly.sci.muni.cz/sulfaty/krokoit.html}{Krokoit}} Má silné oxidační účinky.\footnote[frame]{\href{https://pubchem.ncbi.nlm.nih.gov/compound/24460}{Lead chromate -- PubChem}}
+		\item \ce{Pb^{2+} + CrO$_4^{2-}$ -> PbCrO4}
+	\end{itemize}
+
+	\begin{columns}
+		\begin{column}{.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=.7\textwidth]{img/Lead_chromate.jpg}
+				\caption*{Chromová žluť.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Lead_chromate.JPG}{FK1954/Commons}}}
+			\end{figure}
+		\end{column}
+		\begin{column}{.5\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=.85\textwidth]{img/HCS_bus49.jpg}
+				\caption*{Žlutý školní autobus.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:HCS_bus49.JPG}{William Grimes/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{columns}
+		\begin{column}{0.6\textwidth}
+			\begin{itemize}
+				\item \textbf{Jodid olovnatý}, \ce{PbI2}, je žlutá pevná látka.
+				\item Bromid i jodid můžeme připravit srážením olovnatých solí, u jodidu jde o oblíbený pokus - \textit{Zlatý déšť}.\footnote[frame]{\href{https://cs.wikibooks.org/wiki/Chemick\%C3\%A9_pokusy/Zlat\%C3\%BD\%20d\%C3\%A9\%C5\%A1\%C5\%A5}{Zlatý déšť}}
+				\item \ce{Pb(NO3)2 + 2 KI -> PbI2 + 2 KNO3}
+				\item \ce{PbI2} je prekurzorem pro výrobu solárních článků založených na perovskitu \ce{CH3NH3PbI3}, které mají vysokou účinnost.
+			\end{itemize}
+		\end{column}
+		\begin{column}{0.4\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=.8\textwidth]{img/Iodide_lead(II).jpg}
+				\caption*{Jodid olovnatý.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Iodide_lead(II).jpg}{Stefano sct/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\textbf{Pyroforické olovo}
+	\begin{itemize}
+		\item Olovo je v jemně práškovém stavu samozápalné.\footnote[frame]{\href{https://www.ped.muni.cz/wchem/sm/hc/anorglab/soubory/navody/32.htm}{Příprava pyroforického olova}}
+		\item Jemný prášek můžeme získat termickým rozkladem vinanu olovnatého:
+		\item \ce{Pb(C4H2O6) -> Pb + CO2 + 3 CO + H2O}
+		\item Práškové olovo pak prudce reaguje se vzdušným kyslíkem za vzniku oxidu olovnatého (příp. olovnato-olovičitého, \ce{Pb3O4})
+		\item \ce{2 Pb + O2 -> 2 PbO}
+	\end{itemize}
+
+	\begin{figure}
+		\adjincludegraphics[height=.35\textheight]{img/Lead_tartrate.png}
+		\caption*{Vinan olovnatý}
+	\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\textbf{Saturnův strom}
+	\begin{columns}
+		\begin{column}{.7\textwidth}
+			\begin{itemize}
+				\item Protože má zinek zápornější elektrodový potenciál než olovo, je schopen jej vytěsnit ze sloučenin.
+				\item \ce{Pb(NO3)2 + Zn -> Pb + Zn(NO3)2}
+			\end{itemize}
+		\end{column}
+		\begin{column}{.3\textwidth}
+			\begin{tabular}{|l|r@{,}l|}
+				\hline
+				\textbf{Elektroda} & \multicolumn{2}{c|}{\textbf{E$^0$ [V]}} \\\hline
+				Pb/Pb$^{2+}$ & -0 & 126 \\\hline
+				Zn/Zn$^{2+}$ & -0 & 763 \\\hline
+			\end{tabular}
+		\end{column}
+	\end{columns}
+
+	\vspace{5mm}
+	\hrule
+	\vspace{5mm}
+
+	\textbf{Oxidační účinky \ce{PbO2}}
+	\begin{itemize}
+		\item Oxid olovičitý, \ce{PbO2}, je velmi silné oxidační činidlo.
+		\item Dokáže oxidovat manganaté soli až na manganistan:
+		\item \ce{5 PbO2 + 2 Mn^{2+} + 4 H^+ -> 5 Pb^{2+} + 2 MnO$_4^-$ + 2 H2O}
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Arsen je možno dokázat i \textit{Gutzeitovým testem}.\footnote[frame]{\href{https://doi.org/10.1039/AN9012600181}{The Gutzeit test for arsenic}}
+		\item Jeho autorem je německý chemik Max Adolf Gutzeit (1847--1915).
+		\item Arsan připravíme podobně jako u Marshova testu:
+		\item \ce{6 Zn + 12 HCl + As2O3 -> 2 AsH3 + 6 ZnCl2 + 3 H2O}
+		\item Ten je veden na filtrační papír navlhčený koncentrovaným roztokem \ce{AgNO3}:
+		\item \ce{AsH3 + 6 AgNO3 -> Ag3As.3AgNO3 + 3 HNO3}
+		\item Vzniklý arsenid následně hydrolyzuje na kovové stříbro:
+		\item \ce{Ag3As.3AgNO3 + 3 H2O -> 6 Ag + H3AsO3 + 3 HNO3}
+	\end{itemize}
+	\vfill
+	}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\textbf{Woodův kov}
+	\begin{itemize}
+		\item Woodův kov je nízkotající slitina cínu, olova, bismutu a kadmia. Její teplota tání je v závislosti na složení 60 až 70 °C, proto ji můžeme roztavit s využitím vodní lázně.\footnote[frame]{\href{https://cs.wikibooks.org/wiki/Chemické_pokusy/Tání_Woodova_kovu}{Tání Woodova kovu}}
+	\end{itemize}
+
+	\vspace{5mm}
+	\hrule
+	\vspace{5mm}
+
+	\textbf{Příprava červeného selenu}
+	\begin{itemize}
+		\item Selen můžeme získat redukcí seleničitanu pomocí oxidu siřičitého:
+		\item \ce{8 SeO$_3^{2-}$ + 16 SO2 + 8 H2O -> Se8 + 16 SO$_4^{2-}$ + 16 H^+}
+	\end{itemize}
+	\vfill
+}
+
+\end{document}
