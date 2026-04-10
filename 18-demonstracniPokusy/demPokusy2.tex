@@ -1,0 +1,154 @@
+\documentclass[hyperref=unicode, presentation,10pt]{beamer}
+
+\usepackage[absolute,overlay]{textpos}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{adjustbox}
+\usepackage{mhchem}
+\usepackage{chemfig}
+\usepackage{caption}
+
+%dělení slov
+\usepackage{ragged2e}
+\let\raggedright=\RaggedRight
+%konec dělení slov
+
+\addtobeamertemplate{frametitle}{
+	\let\insertframetitle\insertsectionhead}{}
+\addtobeamertemplate{frametitle}{
+	\let\insertframesubtitle\insertsubsectionhead}{}
+
+\makeatletter
+\CheckCommand*\beamer@checkframetitle{\@ifnextchar\bgroup\beamer@inlineframetitle{}}
+\renewcommand*\beamer@checkframetitle{\global\let\beamer@frametitle\relax\@ifnextchar\bgroup\beamer@inlineframetitle{}}
+\makeatother
+\setbeamercolor{section in toc}{fg=red}
+\setbeamertemplate{section in toc shaded}[default][100]
+
+\usepackage{fontspec}
+\usepackage{unicode-math}
+
+\usepackage{polyglossia}
+\setdefaultlanguage{czech}
+
+\def\uv#1{„#1“}
+
+\mode<presentation>{\usetheme{default}}
+\usecolortheme{crane}
+
+\setbeamertemplate{footline}[frame number]
+
+\title[Crisis]
+{C2062 -- Anorganická chemie II}
+
+\subtitle{Demonstrační pokusy -- d-blok -- 3.--7. skupina}
+\author{Zdeněk Moravec, hugo@chemi.muni.cz \\ \adjincludegraphics[height=60mm]{../IUPAC_PSP.jpg}}
+\date{}
+
+\begin{document}
+\begin{frame}
+	\titlepage
+\end{frame}
+
+\section{Demonstrační pokusy -- d-blok -- 3.--7. skupina}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\textbf{Redukce chromanu vodíkem}
+	\begin{itemize}
+		\item \ce{2 CrO$_4^{2-}$ + 2 H^{+} -> Cr2O$_7^{2-}$ + H2O}
+		\item \ce{Cr2O$_7^{2-}$ + 3 H2 + 8 H+ -> 2 Cr^{3+} + 7 H2O}
+	\end{itemize}
+	\vspace{5mm}
+	\hrule
+	\vspace{5mm}
+
+	\textbf{Srážení chromanů}
+	\begin{itemize}
+		\item \ce{2 Ag+ + CrO$_4^{2-}$ -> Ag2CrO4}
+		\item \ce{Pb^{2+} + CrO$_4^{2-}$ -> PbCrO4} (chromová žluť)
+		\item \ce{2 Al^{3+} + 3 CrO$_4^{2-}$ -> Al2(CrO4)3}
+	\end{itemize}
+	\vspace{5mm}
+	\hrule
+	\vspace{5mm}
+	\textbf{Komplex oxido-diperoxidochromový}
+	\begin{itemize}
+		\item \ce{Cr2O$_7^{2-}$ + 4 H2O2 + 2 H^{+} -> 2 [Cr(O)(O2)2] + 5 H2O}\footnote[frame]{\href{https://cs.wikibooks.org/wiki/Chemick\%C3\%A9_pokusy/Peroxokomplex_chromu}{Peroxokomplex chromu}}
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\textbf{Reverzibilní přechod chroman--dichroman}
+	\begin{itemize}
+		\item \ce{2 CrO$_4^{2-}$ + 2 H^{+} -> Cr2O$_7^{2-}$ + H2O}
+		\item \ce{Cr2O$_7^{2-}$ + OH^{-} -> 2 CrO$_4^{2-}$ + H+}
+	\end{itemize}
+
+	\begin{columns}
+		\begin{column}{.6\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=\textwidth]{img/chroman-dichroman.png}
+				\caption*{Struktura dichromanu a chromanu}
+			\end{figure}
+		\end{column}
+
+		\begin{column}{.4\textwidth}
+			\begin{figure}
+				\adjincludegraphics[height=.35\textheight]{img/Chromate_dichromate_equilibrium.png}
+				\caption*{Roztoky dichromanu a chromanu.\footnote[frame]{\href{https://commons.wikimedia.org/wiki/File:Chromate_dichromate_equilibrium.png}{Zdroj: Capaccio/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Dichroman amonný podléhá samovolnému rozkladu za uvolnění plynného dusíku a vzniku oxidu chromitého:\footnote[frame]{\href{https://commons.wikimedia.org/wiki/File:Thermal_decomposition_of_ammonium_dichromate_(1).jpg}{Zdroj: Rando Tuvikene/Commons}}$^,$\footnote[frame]{\href{https://commons.wikimedia.org/wiki/File:Thermal_decomposition_of_ammonium_dichromate_(2).jpg}{Zdroj: Rando Tuvikene/Commons}}$^,$\footnote[frame]{\href{https://commons.wikimedia.org/wiki/File:Thermal_decomposition_of_ammonium_dichromate_(3).jpg}{Zdroj: Rando Tuvikene/Commons}}
+		\item \ce{(NH4)2Cr2O7 ->[200 $^\circ$C] Cr2O3 + N2 ^ + 4 H2O ^}
+	\end{itemize}
+	\begin{columns}
+		\begin{column}{.33\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=.9\textwidth]{img/Sopka1.jpg}
+			\end{figure}
+		\end{column}
+
+		\begin{column}{.33\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=.9\textwidth]{img/Sopka2.jpg}
+			\end{figure}
+		\end{column}
+
+		\begin{column}{.33\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=.9\textwidth]{img/Sopka3.jpg}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\textbf{Alkalické tavení \ce{MnO2}}
+
+	\begin{itemize}
+		\item Oxid manganičitý (\ce{MnO2}) je možné oxidovat kyslíkem v bazickém prostředí na manganan.
+		\item \ce{2 KNO3 -> 2 KNO2 + O2}
+		\item \ce{2 MnO2 + 4 KOH + O2 -> 2 K2MnO4 + 2 H2O}
+		\item Ten následně disproporcionuje za vzniku manganistanu a oxidu manganičitého.
+		\item \ce{3 K2MnO4 + 4 HCl -> 2 KMnO4 + MnO2 + 4 KCl + 2 H2O}
+	\end{itemize}
+	\vfill
+}
+
+\end{document}
