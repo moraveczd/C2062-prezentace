@@ -1,0 +1,199 @@
+\documentclass[hyperref=unicode, presentation,10pt]{beamer}
+
+\usepackage[absolute,overlay]{textpos}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{adjustbox}
+\usepackage{mhchem}
+\usepackage{chemfig}
+\usepackage{caption}
+
+%dělení slov
+\usepackage{ragged2e}
+\let\raggedright=\RaggedRight
+%konec dělení slov
+
+\addtobeamertemplate{frametitle}{
+	\let\insertframetitle\insertsectionhead}{}
+\addtobeamertemplate{frametitle}{
+	\let\insertframesubtitle\insertsubsectionhead}{}
+
+\makeatletter
+\CheckCommand*\beamer@checkframetitle{\@ifnextchar\bgroup\beamer@inlineframetitle{}}
+\renewcommand*\beamer@checkframetitle{\global\let\beamer@frametitle\relax\@ifnextchar\bgroup\beamer@inlineframetitle{}}
+\makeatother
+\setbeamercolor{section in toc}{fg=red}
+\setbeamertemplate{section in toc shaded}[default][100]
+
+\usepackage{fontspec}
+\usepackage{unicode-math}
+
+\usepackage{polyglossia}
+\setdefaultlanguage{czech}
+
+\def\uv#1{„#1“}
+
+\mode<presentation>{\usetheme{default}}
+\usecolortheme{crane}
+
+\setbeamertemplate{footline}[frame number]
+\setbeamercolor{block title}{bg=white,fg=blue}
+
+\title[Crisis]
+{C2062 -- Anorganická chemie II}
+
+\subtitle{Demonstrační pokusy -- d-blok -- 8.--12. skupina}
+\author{Zdeněk Moravec, hugo@chemi.muni.cz \\ \adjincludegraphics[height=60mm]{../IUPAC_PSP.jpg}}
+\date{}
+
+\begin{document}
+\begin{frame}
+	\titlepage
+\end{frame}
+
+\section{Demonstrační pokusy -- d-blok -- 8.--12. skupina}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{block}{Komplexní sloučeniny železa}
+	\begin{itemize}
+		\item \ce{Fe^{3+} + SCN^- + 5 H2O -> [Fe(SCN)(H2O)5]^{2+}} (umělá krev)
+		\item \ce{4 Fe^{3+} + 3 [Fe(CN)6]^{4-} -> Fe4[Fe(CN)6]3} (Berlínská modř)
+		\item \ce{3 Fe^{2+} + 2 [Fe(CN)6]^{3-} -> Fe3[Fe(CN)6]2} (Turnbullova modř)
+	\end{itemize}
+	\end{block}
+
+	\begin{block}{Analytické reakce iontů triády železa}
+		\begin{itemize}
+			\item \ce{Fe^{3+} + 3 OH^- -> Fe(OH)3} resp. \ce{Fe2O3.xH2O}
+			\item \ce{Fe^{2+} + 2 OH^- -> Fe(OH)2} resp. \ce{Fe3(OH)8} apod
+			\item \ce{Co^{2+} + 2 OH^- -> Co(OH)2}
+			\item \ce{Co^{2+} + 6 NH3 -> [Co(NH3)6]^{2+}}
+			\item \ce{Ni^{2+} + 2 OH^- -> Ni(OH)2}
+			\item \ce{Ni^{2+} + 4 NH3 -> [Ni(NH3)4]^{2+}}
+		\end{itemize}
+	\end{block}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{block}{Pyroforické železo}
+	\begin{itemize}
+		\item Železo je v jemně práškovém stavu samozápalné.\footnote[frame]{\href{https://doi.org/10.1021/ja01364a022}{PYROPHORIC IRON. I. PREPARATION AND PROPERTIES}}
+		\item Jemný prášek můžeme získat termickým rozkladem šťavelanu železnatého:
+		\item \ce{Fe(C2O4) -> Fe + 2 CO2}
+		\item Práškové železo pak prudce reaguje se vzdušným kyslíkem za vzniku oxidu železitého
+		\item \ce{4 Fe + 3 O2 -> 2 Fe2O3}
+	\end{itemize}
+
+	\begin{figure}
+		\adjincludegraphics[height=.3\textheight]{img/Fe-C2O4.png}
+		\caption*{Šťavelan železnatý}
+	\end{figure}
+	\end{block}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{block}{Čištění měděných pájecích hrotů salmiakem}
+	\begin{columns}
+		\begin{column}{.7\textwidth}
+			\begin{itemize}
+				\item Salmiak, \ce{NH4Cl}, se využívá na čištění oxidovaných pájecích hrotů, reakcí s amoniakem dochází k redukci oxidu měďnatého:
+				\item \ce{NH4Cl -> NH3 + HCl}
+				\item \ce{CuO + 2 HCl -> CuCl2 + H2O}
+				\item \ce{3 CuO + 2 NH3 -> 3 Cu + N2 + 3 H2O}
+				\item Celkově lze tady reakci zapsat:
+				\item \ce{2 NH4Cl + 4 CuO -> CuCl2 + 3 Cu + N2 + 4 H2O}
+			\end{itemize}
+		\end{column}
+
+		\begin{column}{.3\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=\textwidth]{img/Hakko_907.jpg}
+				\caption*{Elektrická páječka.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Hakko_907_ESD_medium_soldering_iron_without_logo.jpeg}{Zuzu/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\end{block}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{block}{Redukce CuO parami ethanolu}
+		\begin{itemize}
+			\item Oxid měďnatý je možné redukovat např. reakcí s ethanolem za vyšší teploty.\footnote[frame]{Zdroj: \href{https://cs.wikibooks.org/wiki/Chemick\%C3\%A9_pokusy/Vznik_acetaldehydu_z_ethanolu}{Vznik acetaldehydu z ethanolu}}
+			\item \ce{CuO + CH3CH2OH -> Cu + CH3CHO + H2O}
+		\end{itemize}
+	\end{block}
+
+	\begin{block}{Analytické reakce měďnatých iontů}
+		\begin{itemize}
+			\item \ce{Cu(OH)2 + 2 H^+ -> Cu^{2+} + 2 H2O}
+			\item \ce{Cu(OH)2 + 2 OH^- -> [Cu(OH)4]^{2-} + 2 H2O}
+			\item \ce{Cu^{2+} + 4 NH3 -> [Cu(NH3)4]^{2+}}
+			\item \ce{Cu^{2+} + 5 I^- -> 2 CuI + I$_3^-$}
+			\item \ce{2 Cu^{2+} + [Fe(CN)6]^{4-} -> Cu2[Fe(CN)6]} (Hattchetova hněď)
+		\end{itemize}
+	\end{block}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{block}{Fehlingův test}
+		\begin{itemize}
+			\item \ce{C6H12O6 + 2 Cu^{2+} + 5 OH^- -> C6H12O$_7^-$ + Cu2O + 3 H2O}
+		\end{itemize}
+	\end{block}
+
+	\begin{block}{Srážecí reakce stříbrných iontů}
+		\begin{itemize}
+			\item Fluorid stříbrný, AgF, je jediný rozpustný stříbrný halogenid.\footnote[frame]{\href{https://cs.wikibooks.org/wiki/Chemick\%C3\%A9_pokusy/Reakce_st\%C5\%99\%C3\%ADbrn\%C3\%A9ho_kationtu_s_halogenidy}{Reakce stříbrného kationtu s halogenidy}}
+			\item \ce{Ag^+ + F^- -> AgF}
+			\item \ce{Ag^+ + Cl^- -> AgCl v}
+			\item \ce{Ag^+ + Br^- -> AgBr v}
+			\item \ce{Ag^+ + I^- -> AgI v}
+			\item \ce{Ag^+ + SCN^- -> AgSCN v}
+		\end{itemize}
+	\end{block}
+
+	\begin{block}{Amfoterita hydroxidu zinečnatého}
+		\begin{itemize}
+			\item \ce{Zn(OH)2 + 2 HCl -> ZnCl2 + 2 H2O}
+			\item \ce{Zn(OH)2 + 2 NaOH -> Na2[Zn(OH)4]}
+		\end{itemize}
+	\end{block}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{block}{Přeměna mědi ve stříbro a zlato}
+		\begin{itemize}
+			\item Demonstrace vlastností ušlechtilých a neušlechtilých kovů.\footnote[frame]{Zdroj: \href{https://cs.wikibooks.org/wiki/Chemick\%C3\%A9_pokusy/P\%C5\%99em\%C4\%9Bna_m\%C4\%9Bdi_ve_st\%C5\%99\%C3\%ADbro_a_zlato}{Přeměna mědi ve stříbro a zlato}}
+			\item \ce{Zn + 2 NaOH + 2 H2O -> Na2[Zn(OH)4] + H2}
+			\item \ce{Na2[Zn(OH)4] + H2 + 2 OH- -> Zn + 2 H2}
+			\item \ce{Cu + Zn -> Cu/Zn} (mosaz)
+		\end{itemize}
+	\end{block}
+
+	\begin{block}{Faraonovi hadi}
+		\begin{itemize}
+			\item Thiokynytan rtuťnatý hoří za vzniku velmi jemného popela s velkým objemem.\footnote[frame]{\href{https://doi.org/10.1021/ed017p268}{Pyrotechnic snakes}}
+			\item \ce{2 Hg(SCN)2 + 9 O2 -> 2 HgO + 4 SO2 + 4 CO2 + 2 N2}
+		\end{itemize}
+	\end{block}
+	\vfill
+}
+
+\end{document}
