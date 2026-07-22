@@ -38,6 +38,8 @@
 
 \setbeamertemplate{footline}[frame number]
 
+\setbeamercolor{block title}{bg=blue!70,fg=white}
+
 \title[Crisis]
 {C2062 -- Anorganická chemie II}
 
@@ -314,9 +316,11 @@
 \frame{
 	\frametitle{}
 	\vfill
-	\textbf{Eutektika}
+	\begin{alertblock}{Eutektikum}
+		Tuhá směs dvou látek s minimem teploty tání.
+	\end{alertblock}
+
 	\begin{itemize}
-		\item Tuhá směs dvou látek s nejnižší teplotou tání.
 		\item Aby mohly dva kovy vytvořit eutektikum musí být splněny tyto podmínky:
 		\begin{enumerate}
 			\item V pevném skupenství jsou kovy vzájemně nerozpustné, nebo částečně rozpustné.
@@ -346,9 +350,11 @@
 	\begin{columns}
 		\begin{column}{0.6\textwidth}
 			\vfill
-			\textbf{Intermetalika}
+			\begin{alertblock}{Intermetalikum}
+				Pevné fáze obsahující dva nebo více kovových prvků a volitelně jeden nebo více nekovových prvků. Její krystalová struktura je odlišná od struktury jednotlivých složek.
+			\end{alertblock}
+
 			\begin{itemize}
-				\item \textit{Pevné fáze obsahující dva nebo více kovových prvků a volitelně jeden nebo více nekovových prvků. Její krystalová struktura je odlišná od struktury jednotlivých složek.}
 				\item Mezi jednotlivými prvky jsou chemické vazby.
 				\item Vyrábí se tavbou prvků nebo práškovou metalurgií.
 				\item Jsou zpravidla křehké a těžko opracovatelné, ale mají vysokou teplotní stabilitu, zajímavé magnetické vlastnosti a vysokou pevnost.
@@ -379,8 +385,11 @@
 \frame{
 	\frametitle{}
 	\vfill
+	\begin{alertblock}{Ocel}
+		Slitina železa s uhlíkem a dalšími prvky, která obsahuje \textit{méně než 2,14~\% uhlíku}.
+	\end{alertblock}
+
 	\begin{itemize}
-		\item \textbf{Oceli} jsou slitiny železa s uhlíkem a dalšími prvky, které obsahují \textit{méně než 2,14~\% uhlíku}.
 		\item Při vyšším obsahu uhlíku se slitiny označují jako \textbf{litiny}.
 		\item Vyrábí se v ocelárnách ze surového železa nebo železného šrotu snižováním obsahu uhlíku a dalších prvků (S, P, N) a přidáváním vhodných legujících prvků.
 		\item Surové železo se získává ve vysokých pecích redukcí železné rudy (\ce{Fe2O3.FeO}) koksem v přítomnosti struskotvorné přísady.
@@ -588,7 +597,13 @@
 	\begin{itemize}
 		\item Popisuje zaplnění atomových orbitalů elektrony
 		\item Orbitaly jsou zaplňovány v pořadí: 1s, 2s, 2p, 3s, 3p, 4s, 3d, 4p, 5s, 4d, 5p, 6s, 4f, 5d, 6p, 7s, 5f, 6d, 7p
-		\item d-orbitaly se zaplňují až po zaplnění s-orbitalu s hlavním kvantovým číslem (n+1), např. 3d orbital se začne plnit až po 4s
+	\end{itemize}
+
+	\begin{alertblock}{d-orbitaly}
+	zaplňují se až po zaplnění s-orbitalu s hlavním kvantovým číslem (n+1), např. 3d orbital se začne plnit až po 4s
+	\end{alertblock}
+
+	\begin{itemize}
 		\item Zápis elektronové konfigurace: C: 1s$^2$ 2s$^2$ 2p$^2$; P: 1s$^2$ 2s$^2$ 2p$^6$ 3s$^2$ 3p$^3$
 		\item Zkrácený zápis elektronové konfigurace: C: [He] 2s$^2$ 2p$^2$; P: [Ne] 3s$^2$ 3p$^3$
 		\item U nepřechodných prvků (s a p blok PSP) je zaplňování orbitalů dáno jejich energetickým pořadím. Sb: [Kr] 4d$^{10}$ 5s$^2$ 5p$^3$
@@ -1006,25 +1021,6 @@
 	\end{center}
 }
 
-\subsection{Konstanta stability}
-\frame{
-	\frametitle{}
-	\vfill
-	\begin{align*}
-		\ce{Cu^{2+} + 4 NH3 &<=> [Cu(NH3)4]^{2+}} \\
-		\ce{M + 4 L &<=> ML_4}\\
-	\end{align*}
-	\begin{flalign*}
-		K_1 &= \frac{[ML_4]}{[ML_3] [L]} &K_2 &= \frac{[ML_3]}{[ML_2] [L]} &\\
-		K_3 &= \frac{[ML_2]}{[ML] [L]} &K_4 &= \frac{[ML]}{[M] [L]} &\\
-	\end{flalign*}
-	\begin{flalign*}
-		K &= K_1 . K_2 . K_3 . K_4 = \displaystyle\prod_{i=1}^{n} K_i = \frac{[ML_4]}{[M] [L]^4} &\\
-		\Delta G^0 &= \Delta H - T\Delta S = -RT \ln K\\
-	\end{flalign*}
-	\vfill
-}
-
 \subsection{Chelátový efekt}
 \frame{
 	\frametitle{}
@@ -1129,11 +1125,9 @@
 \subsection{Jahnův-Tellerův efekt}
 \frame{
 	\frametitle{}
-	\begin{exampleblock}{}
-		{\large ``Každá nelineární molekula, která má elektrony v degenerovaném stavu, bude nestálá a bude se deformovat tak, aby vznikl systém o nižší energii, v němž bude degenerace odstraněna.''}
-		\vskip5mm
-		\hspace*\fill{\small--- Jahnův-Tellerův teorém}
-	\end{exampleblock}
+	\begin{alertblock}{Jahnův-Tellerův teorém}
+		{\large \uv{Každá nelineární molekula, která má elektrony v degenerovaném stavu, bude nestálá a bude se deformovat tak, aby vznikl systém o nižší energii, v němž bude degenerace odstraněna.}}
+	\end{alertblock}
 	\begin{itemize}
 		\item S tímto jevem se můžeme setkat např. u oktaedrických komplexů iontů d$^4$ a d$^9$, např. u \ce{CuF2}, který je tvořen oktaedrickými jednotkami \ce{CuF6}.\footnote[frame]{\href{https://doi.org/10.1021/ja01562a011}{The Crystal Structure of Copper(II) Fluoride}}
 		\item V tomto oktaedrickém komplexu jsou d-orbitaly rozštěpeny na dvě sady, t$_{2g}$ a e$_g$, vlivem tohoto efektu dojde k dalšímu štěpení d-orbitalů a tím, k jejich energetické stabilizaci.
@@ -1304,6 +1298,50 @@
 		\item Cesta k těžším prvkům zatím není zcela zřejmá.
 		\item Jednou z exotičtějších možností je studium prvků vyvržených během exploze supernovy.\footnote[frame]{\href{https://www.scientificamerican.com/article/superheavy-elements-are-breaking-the-periodic-table/}{Superheavy Elements Are Breaking the Periodic Table}}
 	\end{itemize}
+	\vfill
+}
+
+\section{Otázky k procvičení}
+\frame{
+	\frametitle{}
+	\vfill
+	\large Vyberte paramagnetické částice:
+	\begin{itemize}
+		\item Al
+		\item Al$^{3+}$
+		\item Fe
+		\item Ni
+		\item Zn
+		\item Zn$^{2+}$
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\large Vyberte planární molekuly a ionty:
+	\begin{itemize}
+		\item \ce{NH3}
+		\item \ce{SO3}
+		\item \ce{BF3}
+		\item \ce{[PtCl4]^{2-}}
+		\item \ce{SbF5}
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\large Co je to eutektikum, intermetalikum a ocel?
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\large Proč je sodík výrazně měkčí než železo?
 	\vfill
 }
 
